@@ -1,3 +1,16 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-image",
+      "description": "Abstract AI network background",
+      "imageUrl": "https://picsum.photos/seed/vantia-hero/1200/800",
+      "imageHint": "abstract network"
+    },
+    {
+      "id": "case-study-clinic",
+      "description": "A modern and clean clinic reception area",
+      "imageUrl": "https://picsum.photos/seed/vantia-clinic/800/600",
+      "imageHint": "clinic reception"
+    }
+  ]
 }
