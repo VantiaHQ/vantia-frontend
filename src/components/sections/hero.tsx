@@ -1,13 +1,48 @@
+
+'use client';
+
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ArrowRight, Rocket } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-image');
 
 export default function Hero() {
   if (!heroImage) return null;
+
+  const [starStyle, setStarStyle] = useState({
+    transform: 'translateY(0) scale(1)',
+    opacity: 1,
+    transition: 'transform 0.5s ease-out, opacity 0.5s ease-out',
+  });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const triggerPoint = window.innerHeight / 3;
+
+      if (scrollY > triggerPoint) {
+        const progress = Math.min((scrollY - triggerPoint) / (window.innerHeight / 2), 1);
+        setStarStyle({
+          transform: `translateY(-${progress * 500}px) scale(${1 - progress * 0.5})`,
+          opacity: 1 - progress,
+          transition: 'transform 0.5s ease-out, opacity 0.5s ease-out',
+        });
+      } else {
+        setStarStyle({
+          transform: 'translateY(0) scale(1)',
+          opacity: 1,
+          transition: 'transform 0.5s ease-out, opacity 0.5s ease-out',
+        });
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <section className="relative w-full overflow-hidden">
@@ -45,7 +80,7 @@ export default function Hero() {
                     </div>
                 </div>
 
-                <div className="relative h-96 w-full mt-12 lg:mt-0 lg:h-full flex items-center justify-center">
+                <div className="relative h-96 w-full mt-12 lg:mt-6 lg:h-full flex items-center justify-center">
                     <Image
                         src="/images/star-3d.png"
                         alt="Estrella tridimensional flotante"
@@ -53,6 +88,7 @@ export default function Hero() {
                         height={500}
                         className="object-contain animate-float"
                         data-ai-hint="3d star"
+                        style={starStyle}
                     />
                 </div>
             </div>
