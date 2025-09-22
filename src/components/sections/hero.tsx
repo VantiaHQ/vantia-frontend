@@ -58,7 +58,7 @@ export default function Hero() {
                     </div>
                 </div>
 
-                <div className="absolute inset-0 flex items-center justify-center z-0 lg:relative lg:h-full mt-12 lg:mt-24 h-96 w-full">
+                <div className="absolute inset-0 flex items-center justify-center z-0 lg:relative lg:h-full mt-24 lg:mt-24 h-96 w-full">
                     <Image
                         src="/images/star-3d.png"
                         alt="Estrella tridimensional flotante"
