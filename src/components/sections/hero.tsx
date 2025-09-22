@@ -47,12 +47,12 @@ export default function Hero() {
 
                 <div className="relative h-96 w-full mt-12 lg:mt-0 lg:h-full flex items-center justify-center">
                     <Image
-                        src="/images/star-glass.png"
-                        alt="Esfera de cristal con una galaxia dentro"
+                        src="/images/star-3d.png"
+                        alt="Estrella tridimensional flotante"
                         width={500}
                         height={500}
-                        className="object-contain animate-pulse"
-                        data-ai-hint="galaxy crystal ball"
+                        className="object-contain animate-float"
+                        data-ai-hint="3d star"
                     />
                 </div>
             </div>
