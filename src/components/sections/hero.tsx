@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { ArrowRight, Rocket } from 'lucide-react';
+import { Rocket } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-image');
@@ -35,23 +35,11 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full overflow-hidden">
-        <div className="absolute inset-0 z-0">
-            <Image
-            src={heroImage.imageUrl}
-            alt={heroImage.description}
-            data-ai-hint={heroImage.imageHint}
-            fill
-            className="object-cover"
-            priority
-            />
-            <div className="absolute inset-0 bg-background/60 backdrop-blur-sm"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
-        </div>
-
-        <div className="container mx-auto px-6 relative z-10">
+    <section className="relative w-full overflow-hidden dotted-bg">
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10"></div>
+        <div className="container mx-auto px-6 relative">
             <div className="grid lg:grid-cols-2 items-center min-h-[80vh] py-20">
-                <div className="text-center lg:text-left">
+                <div className="text-center lg:text-left z-20">
                     <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
                         <span className="text-primary">Avanza seguro</span> y descubre nuevos horizontes
                     </h1>
@@ -70,7 +58,7 @@ export default function Hero() {
                     </div>
                 </div>
 
-                <div className="relative h-96 w-full mt-12 lg:mt-6 lg:h-full flex items-center justify-center">
+                <div className="absolute inset-0 flex items-center justify-center z-0 lg:relative lg:h-full lg:mt-6 mt-12 h-96 w-full">
                     <Image
                         src="/images/star-3d.png"
                         alt="Estrella tridimensional flotante"
