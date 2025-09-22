@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function VantiaLogo() {
   return (
     <Image
-      src="/vantia-logo.png"
+      src="/images/vantia-logo.png"
       alt="Vantia Logo"
       width={130}
       height={32}

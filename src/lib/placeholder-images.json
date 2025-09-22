@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "hero-image",
-      "description": "Abstract AI network background",
-      "imageUrl": "https://picsum.photos/seed/vantia-hero/1200/800",
-      "imageHint": "abstract network"
+      "description": "A dark cosmic scene with nebulae and stars, in shades of blue and violet.",
+      "imageUrl": "https://picsum.photos/seed/cosmic-hero/1200/800",
+      "imageHint": "cosmic nebula"
     },
     {
       "id": "case-study-clinic",
