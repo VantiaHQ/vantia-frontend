@@ -6,7 +6,7 @@ import { Toaster } from '@/components/ui/toaster';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
-  title: 'Vantia AI Solutions',
+  title: 'Vantia Soluciones IA',
   description: 'Optimizando el tiempo y potenciando el crecimiento con Inteligencia Artificial.',
 };
 

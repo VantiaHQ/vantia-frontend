@@ -1,4 +1,4 @@
-# **App Name**: Vantia AI Solutions
+# **App Name**: Vantia
 
 ## Core Features:
 

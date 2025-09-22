@@ -33,7 +33,8 @@ export default function Header() {
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-6">
         <Link href="/" className="flex items-center gap-2">
-          <VantiaLogo className="h-8 w-auto text-primary" />
+          <VantiaLogo />
+           <span className="text-xl font-bold text-primary">VANTIA</span>
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
           {navLinks.map((link) => (
@@ -62,7 +63,8 @@ export default function Header() {
             <SheetContent side="right">
               <div className="flex h-full flex-col p-6">
                  <Link href="/" className="mb-8 flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
-                    <VantiaLogo className="h-8 w-auto text-primary" />
+                    <VantiaLogo />
+                    <span className="text-xl font-bold text-primary">VANTIA</span>
                 </Link>
                 <nav className="flex flex-col gap-6">
                   {navLinks.map((link) => (
