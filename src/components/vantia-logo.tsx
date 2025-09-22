@@ -14,12 +14,12 @@ export default function VantiaLogo() {
 
   const effectiveTheme = theme === 'system' ? resolvedTheme : theme;
   
-  const logoSrc = effectiveTheme === 'dark' ? '/vantia-logo-negativo.png' : '/vantia-logo-plano.png';
+  const logoSrc = effectiveTheme === 'dark' ? '/images/logo-negativo.png' : '/images/logo-positivo.png';
 
   if (!mounted) {
     return (
         <Image
-            src="/vantia-logo-negativo.png"
+            src="/images/logo-negativo.png"
             alt="Vantia Logo"
             width={130}
             height={32}
