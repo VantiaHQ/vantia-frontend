@@ -38,7 +38,7 @@ export default function Hero() {
     <section className="relative w-full overflow-hidden dotted-bg">
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10"></div>
         <div className="container mx-auto px-6 relative">
-            <div className="grid lg:grid-cols-2 items-center min-h-[80vh] py-20">
+            <div className="grid lg:grid-cols-2 items-center min-h-[80vh] py-28">
                 <div className="text-center lg:text-left z-20">
                     <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
                         <span className="text-primary">Avanza seguro</span> y descubre nuevos horizontes
@@ -58,7 +58,7 @@ export default function Hero() {
                     </div>
                 </div>
 
-                <div className="absolute inset-0 flex items-center justify-center z-0 lg:relative lg:h-full lg:mt-6 mt-12 h-96 w-full">
+                <div className="absolute inset-0 flex items-center justify-center z-0 lg:relative lg:h-full mt-12 lg:mt-24 h-96 w-full">
                     <Image
                         src="/images/star-3d.png"
                         alt="Estrella tridimensional flotante"
