@@ -14,30 +14,20 @@ export default function Hero() {
   if (!heroImage) return null;
 
   const [starStyle, setStarStyle] = useState({
-    transform: 'translateY(0) scale(1)',
-    opacity: 1,
-    transition: 'transform 0.5s ease-out, opacity 0.5s ease-out',
+    transform: 'translateY(0px) scale(1)',
+    transition: 'transform 0.2s ease-out',
   });
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const triggerPoint = window.innerHeight / 3;
+      const yOffset = Math.max(0, scrollY * 1.5);
+      const scale = Math.max(0, 1 - scrollY / window.innerHeight);
 
-      if (scrollY > triggerPoint) {
-        const progress = Math.min((scrollY - triggerPoint) / (window.innerHeight / 2), 1);
-        setStarStyle({
-          transform: `translateY(-${progress * 500}px) scale(${1 - progress * 0.5})`,
-          opacity: 1 - progress,
-          transition: 'transform 0.5s ease-out, opacity 0.5s ease-out',
-        });
-      } else {
-        setStarStyle({
-          transform: 'translateY(0) scale(1)',
-          opacity: 1,
-          transition: 'transform 0.5s ease-out, opacity 0.5s ease-out',
-        });
-      }
+      setStarStyle({
+        transform: `translateY(-${yOffset}px) scale(${scale})`,
+        transition: 'transform 0.2s ease-out',
+      });
     };
 
     window.addEventListener('scroll', handleScroll);
