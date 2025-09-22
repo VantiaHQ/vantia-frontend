@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useState, useEffect } from 'react';
 import VantiaLogo from '@/components/vantia-logo';
-import { ThemeToggle } from '@/components/theme-toggle';
 
 const navLinks = [
   { name: 'Servicios', href: '#services' },
@@ -48,7 +47,6 @@ export default function Header() {
           ))}
         </nav>
         <div className="hidden items-center gap-4 md:flex">
-          <ThemeToggle />
           <Button asChild>
             <Link href="#contact">Contáctanos</Link>
           </Button>
@@ -65,7 +63,6 @@ export default function Header() {
               <div className="flex h-full flex-col p-6">
                  <Link href="/" className="mb-8 flex items-center justify-between" onClick={() => setIsMobileMenuOpen(false)}>
                     <VantiaLogo />
-                    <ThemeToggle />
                 </Link>
                 <nav className="flex flex-col gap-6">
                   {navLinks.map((link) => (
