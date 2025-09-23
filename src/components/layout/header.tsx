@@ -9,8 +9,8 @@ import VantiaLogo from '@/components/vantia-logo';
 
 const navLinks = [
 	{ name: 'Agente Modular', href: '#agente-modular' },
-	{ name: 'Consultoría IA', href: '#consultoria-ia' },
 	{ name: 'Caso de Estudio', href: '#case-study' },
+	{ name: 'Consultoría IA', href: '#consultoria-ia' },
 	{ name: 'Filosofía', href: '#philosophy' },
 ];
 
