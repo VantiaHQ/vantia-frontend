@@ -23,7 +23,8 @@ export default function CaseStudy() {
     <section id="case-study" className="py-20 sm:py-28">
       <div className="container mx-auto px-6">
         <div className="mx-auto max-w-4xl text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">Estudio de Caso: Mejora de la Experiencia del Paciente</h2>
+            <span className="block text-base font-semibold text-white tracking-wide mb-2">Caso de Estudio</span>
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Mejora de la Experiencia del Paciente</h2>
             <p className="mt-4 text-lg text-foreground/80">
                 Cliente: Clínica Sanitaria
             </p>
@@ -41,13 +42,13 @@ export default function CaseStudy() {
             </div>
             <div className="space-y-8">
                 <div>
-                    <h3 className="text-xl font-semibold text-primary">Desafío</h3>
+                    <h3 className="text-xl font-semibold text-white">Desafío</h3>
                     <p className="mt-2 text-foreground/90">
                     La clínica experimentaba un alto volumen de llamadas y mensajes de whatsapp para agendar citas, lo que saturaba a su personal de recepción y generaba largos tiempos de espera.
                     </p>
                 </div>
                 <div>
-                    <h3 className="text-xl font-semibold text-primary">Solución</h3>
+                    <h3 className="text-xl font-semibold text-white">Solución</h3>
                     <p className="mt-2 text-foreground/90">
                     Creamos un asistente virtual impulsado por IA conversacional que se integró en sus canales: sitio web y whatsapp. El chatbot gestiona la programación de citas, responde a preguntas frecuentes y proporciona información sobre los servicios 24/7.
                     </p>
@@ -55,22 +56,22 @@ export default function CaseStudy() {
                 
                 <Card>
                     <CardHeader>
-                        <CardTitle>Resultados y Módulos</CardTitle>
+                        <CardTitle className="text-white">Resultados y Módulos</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-6">
                         <div>
-                             <h4 className="font-semibold mb-3">Resultados Clave</h4>
+                             <h4 className="font-semibold mb-3 text-white">Resultados Clave</h4>
                              <ul className="space-y-2">
                                 {results.map((result, index) => (
                                 <li key={index} className="flex items-start">
-                                    <CheckCircle className="mr-3 mt-1 h-5 w-5 flex-shrink-0 text-primary" />
+                                    <CheckCircle className="mr-3 mt-1 h-5 w-5 flex-shrink-0 text-white" />
                                     <span>{result}</span>
                                 </li>
                                 ))}
                             </ul>
                         </div>
                         <div>
-                            <h4 className="font-semibold mb-3">Módulos Contratados</h4>
+                            <h4 className="font-semibold mb-3 text-white">Módulos Contratados</h4>
                             <div className="flex flex-wrap gap-2">
                                 {modules.map((module) => (
                                     <Badge key={module} variant="secondary">{module}</Badge>

@@ -16,7 +16,7 @@ export default function Contact() {
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
-              <Link href="mailto:contacto@vantia.com">
+              <Link href="https://wa.me/34622590122">
                 Solicita una consulta gratuita
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>

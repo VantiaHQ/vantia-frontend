@@ -8,7 +8,8 @@ import { useState, useEffect } from 'react';
 import VantiaLogo from '@/components/vantia-logo';
 
 const navLinks = [
-  { name: 'Servicios', href: '#services' },
+  { name: 'Agente Modular', href: '#agente-modular' },
+  { name: 'Consultoría IA', href: '#consultoria-ia' },
   { name: 'Caso de Estudio', href: '#case-study' },
   { name: 'Filosofía', href: '#philosophy' },
 ];
