@@ -86,18 +86,34 @@ export default function AgenteModular() {
 						información interna de tu organización.
 					</p>
 				</div>
-				<div className="mx-auto max-w-2xl mt-14 mb-12 bg-background/80 rounded-xl shadow-lg p-8 border border-blue-400/20">
-					<h3 className="text-lg font-semibold text-white mb-2">
-						Ejemplo: Agente de Recepción
-					</h3>
-					<p className="text-foreground/80">
-						Imagina un asistente virtual que, conectado a la base de datos
-						documental de tu empresa, resuelve las dudas de los empleados sobre
-						recursos humanos, políticas internas o procesos administrativos. Este
-						Agente de Recepción no solo responde preguntas básicas, sino que
-						también es capaz de entregar información contextualizada, reducir
-						tiempos de búsqueda y mejorar la eficiencia en la atención interna.
-					</p>
+				<div className="mx-auto w-full mt-14 mb-12 bg-background/80 rounded-xl shadow-lg p-0 border border-blue-400/20 overflow-hidden">
+					<div className="flex flex-col">
+						<div className="w-full">
+							<img
+								src="/images/agent.png"
+								alt="Agente n8n"
+								className="w-full h-auto object-cover p-8"
+							/>
+						</div>
+						<div className="flex flex-col md:flex-row items-center p-8">
+							<div className="flex-1 md:pr-8">
+								<span className="block text-base font-semibold text-blue-200 tracking-wide mb-1">
+									Ejemplo
+								</span>
+								<h3 className="text-2xl font-bold text-white mb-2">
+									Agente de Recepción
+								</h3>
+								<p className="text-foreground/80">
+									Imagina un asistente virtual que, conectado a la base de datos
+									documental de tu empresa, resuelve las dudas de los empleados sobre
+									recursos humanos, políticas internas o procesos administrativos. Este
+									Agente de Recepción no solo responde preguntas básicas, sino que
+									también es capaz de entregar información contextualizada, reducir
+									tiempos de búsqueda y mejorar la eficiencia en la atención interna.
+								</p>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div className="grid gap-8">
 					<div>
