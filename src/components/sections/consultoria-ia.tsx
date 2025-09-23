@@ -24,12 +24,12 @@ export default function ConsultoriaIA() {
           <div className="flex flex-col items-center text-center">
             <LineChart className="h-10 w-10 text-blue-200 mb-2 drop-shadow-[0_0_16px_rgba(80,200,255,0.18)]" />
             <h3 className="font-semibold text-lg text-white">Análisis Predictivo y Big Data</h3>
-            <p className="text-foreground/80">Modelos avanzados que permiten anticipar tendencias y facilitar decisiones empresariales basadas en datos.</p>
+            <p className="text-foreground/80">Utilizamos modelos avanzados que permiten anticipar tendencias y facilitar decisiones empresariales basadas en datos.</p>
           </div>
           <div className="flex flex-col items-center text-center">
             <Eye className="h-10 w-10 text-blue-200 mb-2 drop-shadow-[0_0_16px_rgba(80,200,255,0.18)]" />
             <h3 className="font-semibold text-lg text-white">Visión por Computadora</h3>
-            <p className="text-foreground/80">Sistemas que analizan imágenes y videos para optimizar procesos de calidad, seguridad o experiencia del cliente.</p>
+            <p className="text-foreground/80">Implantamos sistemas que analizan imágenes y videos para optimizar procesos de calidad, seguridad o experiencia del cliente.</p>
           </div>
         </div>
       </div>

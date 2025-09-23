@@ -35,7 +35,7 @@ export default function Hero() {
 
   return (
     <section className="relative w-full overflow-hidden dotted-bg">
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10 lg:via-background/50"></div>
         <div className="container mx-auto px-6 relative">
             <div className="grid lg:grid-cols-2 items-center min-h-[80vh] py-28">
                 <div className="text-center lg:text-left z-20">
