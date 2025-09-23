@@ -1,4 +1,3 @@
-
 'use client';
 
 import { Button } from '@/components/ui/button';
@@ -47,12 +46,12 @@ export default function Hero() {
                         En un entorno en el que el tiempo se ha consolidado como el recurso más limitado y valioso, Vantia nace con el propósito de aportar soluciones que optimicen su uso en personas y organizaciones.
                     </p>
                     <div className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                        <Button asChild size="lg">
+                        <Button asChild size="lg" className="bg-accent text-neutral-900 hover:text-white hover:shadow-[0_0_16px_3px_rgba(255,255,255,0.18)] transition-colors">
                             <Link href="#services">
                                 Nuestros Servicios <Rocket className="ml-2 h-5 w-5 animate-pulse" />
                             </Link>
                         </Button>
-                        <Button asChild variant="outline" size="lg">
+                        <Button asChild variant="outline" size="lg" className="text-primary border-primary hover:text-white hover:shadow-[0_0_16px_3px_rgba(255,255,255,0.18)] transition-colors">
                             <Link href="#contact">Habla con un experto</Link>
                         </Button>
                     </div>
