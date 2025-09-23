@@ -50,7 +50,7 @@ export default function CaseStudy() {
                 <div>
                     <h3 className="text-xl font-semibold text-white">Solución</h3>
                     <p className="mt-2 text-foreground/90">
-                    Creamos un asistente virtual impulsado por IA conversacional que se integró en sus canales: sitio web y whatsapp. El chatbot gestiona la programación de citas, responde a preguntas frecuentes y proporciona información sobre los servicios 24/7.
+                    Implantamos un Agente Modular impulsado por IA conversacional que se integró en sus canales: sitio web y whatsapp. El Agente Modular gestiona la programación de citas, responde a preguntas frecuentes y proporciona información sobre los servicios 24/7.
                     </p>
                 </div>
                 
