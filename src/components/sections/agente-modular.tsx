@@ -69,55 +69,100 @@ const extraModules = [
 const allModules = [...coreModules, ...extraModules];
 
 export default function AgenteModular() {
-	return (
-		<section id="agente-modular" className="bg-secondary py-20 sm:py-28">
+ return (
+ <section id="agente-modular" className="bg-[#070916] py-20 sm:py-28">
 			<div className="container mx-auto px-6">
-				<div className="mx-auto max-w-3xl text-center">
-					<h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl mb-4 drop-shadow-[0_0_16px_rgba(80,200,255,0.7)]">
+				<div className="mx-auto max-w-3xl text-left">
+					<h2 className="sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-8 drop-shadow-[0_0_16px_rgba(80,200,255,0.3)]">
 						Agente Modular
 					</h2>
-					<p className="mt-4 text-xl leading-9 text-foreground/80">
+					<p className="mt-4 text-lg sm:text-xl md:text-2xl leading-9 text-foreground/80">
 						Nuestro Agente Modular es una solución conversacional adaptable a
-						las necesidades de cada empresa. Desde chatbots básicos que atienden
+						las necesidades de cada empresa. Desde chatbots que atienden
 						preguntas frecuentes hasta agentes inteligentes capaces de ejecutar
-						tareas complejas de forma autónoma, el agente integra tecnologías
+						tareas complejas de forma autónoma.
+						El agente integra tecnologías
 						avanzadas como la Generación Aumentada por Recuperación (RAG) para
 						proporcionar respuestas precisas, contextuales y alineadas con la
 						información interna de tu organización.
 					</p>
+					<div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+						<div className="bg-blue-950/70 rounded-xl border border-blue-400/30 p-6 shadow-lg flex flex-col items-center justify-center text-center">
+							<span className="text-3xl font-extrabold text-blue-200 mb-2">+120h</span>
+							<span className="text-blue-100/90 text-base">Tiempo recuperado al mes</span>
+						</div>
+						<div className="bg-blue-950/70 rounded-xl border border-blue-400/30 p-6 shadow-lg flex flex-col items-center justify-center text-center">
+							<span className="text-3xl font-extrabold text-blue-200 mb-2">24/7</span>
+							<span className="text-blue-100/90 text-base">Atención en paralelo y sin pausas</span>
+						</div>
+						<div className="bg-blue-950/70 rounded-xl border border-blue-400/30 p-6 shadow-lg flex flex-col items-center justify-center text-center">
+							<span className="text-3xl font-extrabold text-blue-200 mb-2">99.9%</span>
+							<span className="text-blue-100/90 text-base">Disponibilidad y fiabilidad</span>
+						</div>
+						<div className="bg-blue-950/70 rounded-xl border border-blue-400/30 p-6 shadow-lg flex flex-col items-center justify-center text-center">
+							<span className="text-3xl font-extrabold text-blue-200 mb-2">+500</span>
+							<span className="text-blue-100/90 text-base">Consultas resueltas mensualmente</span>
+						</div>
+					</div>
 				</div>
-				<div className="mx-auto w-full mt-14 mb-12 bg-background/80 rounded-xl shadow-lg p-0 border border-blue-400/20 overflow-hidden">
+				<div className="mx-auto w-full mt-14 mb-24 bg-background/80 rounded-xl shadow-lg p-0 border border-blue-400/20 overflow-hidden">
 					<div className="flex flex-col">
 						<div className="w-full">
 							<img
-								src="/images/agent.png"
+								src="/images/workflow.png"
 								alt="Agente n8n"
 								className="w-full h-auto object-cover p-8"
 							/>
 						</div>
 						<div className="flex flex-col md:flex-row items-center p-8">
 							<div className="flex-1 md:pr-8">
-								<span className="block text-base font-semibold text-blue-200 tracking-wide mb-1">
-									Ejemplo
-								</span>
-								<h3 className="text-2xl font-bold text-white mb-2">
-									Agente de Recepción
-								</h3>
-								<p className="text-foreground/80">
-									Imagina un asistente virtual que, conectado a la base de datos
-									documental de tu empresa, resuelve las dudas de los empleados sobre
-									recursos humanos, políticas internas o procesos administrativos. Este
-									Agente de Recepción no solo responde preguntas básicas, sino que
-									también es capaz de entregar información contextualizada, reducir
-									tiempos de búsqueda y mejorar la eficiencia en la atención interna.
-								</p>
+								<div className="flex flex-col md:flex-row gap-8">
+									<div className="flex-1">
+										<span className="block text-base font-semibold text-blue-200 tracking-wide mb-1">
+											Ejemplo
+										</span>
+										<h3 className="text-2xl font-bold text-white mb-2">
+											Agente de Recepción de Incidencias
+										</h3>
+										<p className="text-foreground/80">
+											Imagina un agente virtual especializado para una Gestoría de Fincas, capaz de recibir y gestionar incidencias de vecinos y propietarios de manera automatizada. El agente registra cada incidencia, notifica a los responsables y reduce tiempos de espera. El resultado: una atención más rápida, trazable y profesional, con ahorro significativo de tiempo humano y mejora en la satisfacción de los usuarios.
+										</p>
+									</div>
+									<div className="flex-1 md:border-l md:border-blue-400/20 md:pl-8">
+										<span className="block text-base font-semibold text-blue-200 tracking-wide mb-2">
+											Funcionalidades
+										</span>
+										<ul className="space-y-3">
+											<li className="grid grid-cols-[auto,1fr] items-start gap-3">
+												<CheckCircle className="mt-2 h-5 w-5 text-blue-300 drop-shadow-[0_0_8px_rgba(80,200,255,0.7)]" />
+												<span className="text-blue-100/90">Registro automatizado de incidencias con todos los detalles relevantes</span>
+											</li>
+											<li className="grid grid-cols-[auto,1fr] items-start gap-3">
+												<CheckCircle className="mt-2 h-5 w-5 text-blue-300 drop-shadow-[0_0_8px_rgba(80,200,255,0.7)]" />
+												<span className="text-blue-100/90">Notificación inmediata a responsables y seguimiento del estado</span>
+											</li>
+											<li className="grid grid-cols-[auto,1fr] items-start gap-3">
+												<CheckCircle className="mt-2 h-5 w-5 text-blue-300 drop-shadow-[0_0_8px_rgba(80,200,255,0.7)]" />
+												<span className="text-blue-100/90">Derivación inteligente a gestores humanos para casos complejos (human-in-the-loop)</span>
+											</li>
+											<li className="grid grid-cols-[auto,1fr] items-start gap-3">
+												<CheckCircle className="mt-2 h-5 w-5 text-blue-300 drop-shadow-[0_0_8px_rgba(80,200,255,0.7)]" />
+												<span className="text-blue-100/90">Integración con sistemas internos y base documental</span>
+											</li>
+											<li className="grid grid-cols-[auto,1fr] items-start gap-3">
+												<CheckCircle className="mt-2 h-5 w-5 text-blue-300 drop-shadow-[0_0_8px_rgba(80,200,255,0.7)]" />
+												<span className="text-blue-100/90">Ahorro de tiempo humano y mejora en la trazabilidad y satisfacción</span>
+											</li>
+										</ul>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div className="grid gap-8">
+				<div className="grid gap-8 py-20 sm:py-28">
 					<div>
-						<span className="block text-base font-semibold text-blue-200 tracking-wide mb-2">
+						<span className="block text-base font-semibold text-blue-200 tracking-wide mb-4">
 							Módulos Core
 						</span>
 						<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -140,7 +185,7 @@ export default function AgenteModular() {
 						</div>
 					</div>
 					<div>
-						<span className="block text-base font-semibold text-blue-200 tracking-wide mb-2">
+						<span className="block text-base font-semibold text-blue-200 tracking-wide mt-8 mb-4">
 							Módulos Extra
 						</span>
 						<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
