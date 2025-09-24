@@ -80,53 +80,61 @@ function ModuleCard({
 }) {
 	const [expanded, setExpanded] = useState(false);
 	return (
-		<button
-			type="button"
-			onClick={() => !disabled && onClick()}
-			className={`group w-full text-left rounded-xl border-2 border-blue-200 p-0 shadow-none transition-all focus:outline-none focus:ring-2 focus:ring-blue-400 ${
-				checked
-					? "bg-blue-50 border-blue-500"
-					: "hover:border-blue-400 bg-white"
-			} ${disabled ? "cursor-not-allowed opacity-70" : "cursor-pointer"}`}
-			tabIndex={0}
-		>
-			<div className="flex gap-1 items-start py-4 px-6">
-				<input
-					type="checkbox"
-					checked={checked}
-					disabled={disabled}
-					readOnly
-					className={`accent-blue-500 scale-110 mr-2 mt-2 ${
-						disabled ? "opacity-60" : ""
-					}`}
-				/>
-				<div className="flex-1">
-					<div className="font-bold text-lg text-gray-900">{mod.name}</div>
-					<span
-						role="button"
-						tabIndex={0}
-						className="text-xs text-gray-600 underline mt-1 focus:outline-none cursor-pointer inline-block"
-						onClick={(e) => {
-							e.stopPropagation();
-							setExpanded((v) => !v);
-						}}
-						onKeyPress={(e) => {
-							if (e.key === 'Enter' || e.key === ' ') {
+		<div className="relative group w-full">
+			<button
+				type="button"
+				onClick={() => !disabled && onClick()}
+				className={`w-full text-left rounded-xl border-2 border-blue-200 p-0 shadow-none transition-all focus:outline-none focus:ring-2 focus:ring-blue-400 ${
+					checked
+						? "bg-blue-50 border-blue-500"
+						: "hover:border-blue-400 bg-white"
+				} ${disabled ? "cursor-not-allowed opacity-70" : "cursor-pointer"}`}
+				tabIndex={0}
+				aria-disabled={disabled}
+			>
+				<div className="flex gap-1 items-start py-4 px-6">
+					<input
+						type="checkbox"
+						checked={checked}
+						disabled={disabled}
+						readOnly
+						className={`accent-blue-500 scale-110 mr-2 mt-2 ${
+							disabled ? "opacity-60" : ""
+						}`}
+					/>
+					<div className="flex-1">
+						<div className="font-bold text-lg text-gray-900">{mod.name}</div>
+						<span
+							role="button"
+							tabIndex={0}
+							className="text-xs text-gray-600 underline mt-1 focus:outline-none cursor-pointer inline-block"
+							onClick={(e) => {
 								e.stopPropagation();
 								setExpanded((v) => !v);
-							}
-						}}
-					>
-						{expanded ? "Ocultar descripción" : "Ver descripción"}
-					</span>
-					{expanded && (
-						<div className="text-gray-700 text-sm mt-2">
-							{mod.description}
-						</div>
-					)}
+							}}
+							onKeyPress={(e) => {
+								if (e.key === 'Enter' || e.key === ' ') {
+									e.stopPropagation();
+									setExpanded((v) => !v);
+								}
+							}}
+						>
+							{expanded ? "Ocultar descripción" : "Ver descripción"}
+						</span>
+						{expanded && (
+							<div className="text-gray-700 text-sm mt-2">
+								{mod.description}
+							</div>
+						)}
+					</div>
 				</div>
-			</div>
-		</button>
+			</button>
+			{disabled && (
+				<div className="absolute left-1/2 -translate-x-1/2 top-2 z-20 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition pointer-events-none select-none bg-gray-900 text-white text-xs rounded px-3 py-1 shadow-lg border border-blue-400 whitespace-nowrap">
+					Este módulo es esencial y no puede desactivarse
+				</div>
+			)}
+		</div>
 	);
 }
 
