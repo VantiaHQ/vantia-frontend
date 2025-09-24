@@ -1,3 +1,30 @@
+@layer utilities {
+  .animate-icon-pulse {
+    animation: icon-pulse 0.7s cubic-bezier(0.4,0,0.6,1) infinite;
+  }
+  @keyframes icon-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+  }
+}
+@layer utilities {
+  .animate-shadow-glow {
+    animation: shadow-glow 1.2s cubic-bezier(0.4,0,0.6,1) infinite;
+  }
+  @keyframes shadow-glow {
+    0%, 100% { box-shadow: 0 0 8px #a78bfa66, 0 0 16px #f472b666; }
+    50% { box-shadow: 0 0 16px #a78bfa44, 0 0 32px #f472b644; }
+  }
+}
+@layer utilities {
+  .animate-float-slow {
+    animation: float-slow 4.5s ease-in-out infinite;
+  }
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(-32px); opacity: 0.96; }
+  }
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
