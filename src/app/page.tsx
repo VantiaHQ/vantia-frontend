@@ -15,12 +15,12 @@ export default function Home() {
       <Header />
       <main className="flex-1 mt-[-80px] pt-8">
         <FadeInSection direction="up"><Hero /></FadeInSection>
-        <FadeInSection direction="up"><Philosophy /></FadeInSection>
         <FadeInSection direction="up"><AgenteModular /></FadeInSection>
-        <FadeInSection direction="left"><Channels /></FadeInSection>
-        <FadeInSection direction="right"><CaseStudy /></FadeInSection>
-        <FadeInSection direction="up"><ConsultoriaIA /></FadeInSection>
-        <FadeInSection direction="up"><Contact /></FadeInSection>
+        <ConsultoriaIA />
+        <CaseStudy />
+        <Channels />
+        <FadeInSection direction="up"><Philosophy /></FadeInSection>
+        <Contact />
       </main>
       <Footer />
     </div>
