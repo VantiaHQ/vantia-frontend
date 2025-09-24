@@ -27,14 +27,15 @@ export default function Header() {
 	}, []);
 
 	return (
-		<header
-			className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-				isScrolled
-					? 'bg-background/80 shadow-md backdrop-blur-md'
-					: 'bg-transparent'
-			}`}
-		>
-			<div className="container mx-auto flex h-20 items-center justify-between px-6">
+		   <header
+			   className={`sticky top-0 z-50 w-screen left-0 transition-all duration-300 ${
+				   isScrolled
+					   ? 'bg-background/80 shadow-md backdrop-blur-md'
+					   : 'bg-transparent'
+			   }`}
+			   style={{ left: 0, right: 0 }}
+		   >
+			   <div className="flex h-24 items-center justify-between px-6 max-w-none w-full mx-0">
 				<Link href="/" className="flex items-center gap-2">
 					<VantiaLogo />
 				</Link>
@@ -43,14 +44,14 @@ export default function Header() {
 						<Link
 							key={link.name}
 							href={link.href}
-							className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
+							className="text-md font-medium text-foreground/80 transition-colors hover:text-primary"
 						>
 							{link.name}
 						</Link>
 					))}
 				</nav>
 				<div className="hidden items-center gap-4 md:flex">
-					<Button asChild className="bg-accent text-neutral-900 hover:text-white hover:shadow-[0_0_16px_3px_rgba(255,255,255,0.18)] transition-colors">
+					<Button asChild className="bg-accent text-white text-md font-bold py-3 px-8 rounded-full shadow-lg border-2 border-transparent transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow hover:border-primary">
 						<Link href="#contact">Contáctanos</Link>
 					</Button>
 				</div>
