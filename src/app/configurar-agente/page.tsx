@@ -102,17 +102,23 @@ function ModuleCard({
 				/>
 				<div className="flex-1">
 					<div className="font-bold text-lg text-gray-900">{mod.name}</div>
-					<button
-						type="button"
-						className="text-xs text-gray-600 underline mt-1 focus:outline-none"
+					<span
+						role="button"
+						tabIndex={0}
+						className="text-xs text-gray-600 underline mt-1 focus:outline-none cursor-pointer inline-block"
 						onClick={(e) => {
 							e.stopPropagation();
 							setExpanded((v) => !v);
 						}}
-						tabIndex={-1}
+						onKeyPress={(e) => {
+							if (e.key === 'Enter' || e.key === ' ') {
+								e.stopPropagation();
+								setExpanded((v) => !v);
+							}
+						}}
 					>
 						{expanded ? "Ocultar descripción" : "Ver descripción"}
-					</button>
+					</span>
 					{expanded && (
 						<div className="text-gray-700 text-sm mt-2">
 							{mod.description}
@@ -149,10 +155,10 @@ export default function ConfigurarAgente() {
 		const [showPresupuestoMobile, setShowPresupuestoMobile] = useState(false);
 
 		return (
-			<div className="min-h-screen bg-gray-50 flex flex-col items-center py-12 px-4">
-				<div className="max-w-4xl w-full bg-white rounded-xl shadow-lg p-8 flex flex-row gap-8 md:flex-row flex-col">
-					{/* Main section: full width on mobile */}
-					<div className="flex-1 w-full md:w-auto">
+				<div className="min-h-screen bg-gray-50 flex flex-col items-center py-12 px-4">
+					<div className="max-w-4xl w-full bg-white rounded-xl shadow-lg p-8 flex flex-row gap-8 md:flex-row flex-col">
+						{/* Main section: full width on mobile */}
+						<div className="flex-1 w-full md:w-auto">
 						<p className="text-sm text-gray-700 uppercase">
 							Agente modular
 						</p>
