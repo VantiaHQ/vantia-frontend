@@ -13,7 +13,7 @@ const results = [
 ];
 
 const modules = [
-    "ChatBot", "RAG", "Captación de leads", "Gestión de Citas", "Notificaciones", "Pagos", "Análisis de Sentimiento", "Análisis Histórico"
+    "ChatBot", "RAG", "Captación de leads", "Gestión de Citas", "Notificaciones", "Análisis Histórico"
 ]
 
 export default function CaseStudy() {
