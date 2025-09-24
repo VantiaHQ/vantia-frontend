@@ -32,7 +32,7 @@ export default function Channels() {
 										key={channel.name}
 										className="flex flex-col items-center gap-2 text-center"
 									>
-										<channel.icon className="h-10 w-10 text-blue-200 transition-transform group-hover:scale-110" />
+										<channel.icon className="h-10 w-10 text-blue-200" />
 										<span className="text-sm font-medium text-foreground/90">
 											{channel.name}
 										</span>

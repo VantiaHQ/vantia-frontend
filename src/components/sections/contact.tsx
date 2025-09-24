@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 sm:py-28 bg-secondary">
+  <section id="contact" className="bg-secondary min-h-[80vh] flex items-center">
       <div className="container mx-auto px-6">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
@@ -15,7 +15,7 @@ export default function Contact() {
             Ponte en contacto con nosotros para una consulta gratuita y descubre cómo podemos ayudarte.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
-            <Button size="lg" className="bg-accent text-neutral-900 hover:text-white hover:shadow-[0_0_16px_3px_rgba(255,255,255,0.18)] transition-colors animate-pulse-slow" asChild>
+            <Button size="lg" className="bg-accent text-neutral-900 hover:text-white hover:shadow-[0_0_16px_3px_rgba(255,255,255,0.18)]" asChild>
               <Link href="https://wa.me/34622590122">
                 Solicita una consulta gratuita
                 <ArrowRight className="ml-2 h-5 w-5" />
