@@ -34,39 +34,48 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full overflow-hidden dotted-bg">
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10 lg:via-background/50"></div>
-        <div className="container mx-auto px-6 relative">
-            <div className="grid lg:grid-cols-2 items-center min-h-[80vh] py-28">
+  <section className="relative mt-[-8px] w-full min-h-screen overflow-hidden bg-gradient-to-br from-blue-900 via-purple-900 to-pink-900 dotted-bg">
+  <div className="absolute inset-0 bg-gradient-to-t from-transparent via-black/40 to-transparent z-10"></div>
+  <div className="container mx-auto px-6 relative h-full flex items-center max-w-[1200px]">
+            <div className="grid lg:grid-cols-2 items-center w-full min-h-[100vh]">
                 <div className="text-center lg:text-left z-20">
-                    <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-                        <span className="text-primary">Avanza seguro</span> y descubre nuevos horizontes
-                    </h1>
-                    <p className="mt-6 text-lg text-foreground/80 sm:text-xl md:text-2xl">
+          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-8xl font-extrabold tracking-tight text-white drop-shadow-[0_0_24px_rgba(139,92,246,0.3)] transition duration-300 ease-in-out">
+            <span className="text-primary drop-shadow-[0_0_32px_rgba(139,92,246,0.2)]">Recupera tu tiempo</span> con IA.
+          </h1>
+                    <p className="mt-6 text-lg sm:text-xl md:text-2xl text-foreground/80">
                         En un entorno en el que el tiempo se ha consolidado como el recurso más limitado y valioso, Vantia nace con el propósito de aportar soluciones que optimicen su uso en personas y organizaciones.
                     </p>
                     <div className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                        <Button asChild size="lg" className="bg-accent text-neutral-900 hover:text-white hover:shadow-[0_0_16px_3px_rgba(255,255,255,0.18)] transition-colors">
-                            <Link href="#services">
-                                Nuestros Servicios <Rocket className="ml-2 h-5 w-5 animate-pulse" />
-                            </Link>
+                        <Button
+                          asChild
+                          size="lg"
+                          className="group bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-pink-500/40 transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow"
+                        >
+                          <Link href="#agente-modular" className="transition duration-300 ease-in-out">
+                            Nuestros Servicios <Rocket className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:animate-icon-pulse" />
+                          </Link>
                         </Button>
-                        <Button asChild variant="outline" size="lg" className="text-primary border-primary hover:text-white hover:shadow-[0_0_16px_3px_rgba(255,255,255,0.18)] transition-colors">
-                            <Link href="#contact">Habla con un experto</Link>
+                        <Button
+                          asChild
+                          variant="secondary"
+                          size="lg"
+                          className="bg-secondary text-white font-bold py-3 px-8 rounded-full shadow-lg border-2 border-transparent transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow hover:border-primary"
+                        >
+                          <Link href="#contact" className="transition duration-300 ease-in-out">Habla con un experto</Link>
                         </Button>
                     </div>
                 </div>
 
-                <div className="absolute inset-0 flex items-center justify-center z-0 lg:relative lg:h-full mt-24 lg:mt-24 h-96 w-full">
-                    <Image
-                        src="/images/star-3d.png"
-                        alt="Estrella tridimensional flotante"
-                        width={500}
-                        height={500}
-                        className="object-contain animate-float"
-                        data-ai-hint="3d star"
-                        style={starStyle}
-                    />
+                <div className="absolute inset-0 flex items-start justify-center z-0 pt-24 sm:pt-32 md:pt-40 lg:relative lg:h-full lg:pt-24 h-96 w-full">
+          <Image
+            src="/images/star-3d.png"
+            alt="Estrella tridimensional flotante"
+            width={600}
+            height={600}
+            className="object-contain animate-float-slow transition-transform duration-500 hover:scale-110 drop-shadow-[0_32px_128px_rgba(139,92,246,0.4)]"
+            data-ai-hint="3d star"
+            style={starStyle}
+          />
                 </div>
             </div>
         </div>
