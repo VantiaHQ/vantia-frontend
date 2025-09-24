@@ -288,7 +288,25 @@ export default function ConfigurarAgente() {
 							<div className="w-full max-w-md bg-gray-100 rounded-t-2xl p-6 text-gray-900 shadow-lg animate-fadeInUp relative z-50">
 								<div className="flex justify-between items-center mb-4">
 									<h3 className="text-lg font-semibold text-gray-800">Presupuesto</h3>
-									<button className="text-blue-700 text-sm font-semibold" onClick={() => setShowPresupuestoMobile(false)}>Ocultar</button>
+									<button className="text-blue-700 text-sm font-semibold" onClick={() => setShowPresupuestoMobile(false)}>Ocultar presupuesto</button>
+								</div>
+								{/* Mensual/Anual selector for mobile modal */}
+								<div className="flex gap-2 mb-4">
+									<button
+										type="button"
+										className={`w-1/2 px-3 py-1 rounded-full border text-sm font-semibold transition-colors ${!showAnnual ? 'bg-blue-100 border-blue-400 text-blue-700' : 'bg-white border-gray-300 text-gray-700'}`}
+										onClick={() => setShowAnnual(false)}
+									>
+										Mensual
+									</button>
+									<button
+										type="button"
+										className={`w-1/2 px-3 py-1 rounded-full border text-sm font-semibold transition-colors flex items-center justify-center ${showAnnual ? 'bg-blue-100 border-blue-400 text-blue-700' : 'bg-white border-gray-300 text-gray-700'}`}
+										onClick={() => setShowAnnual(true)}
+									>
+										<span>Anual</span>
+										<span className="ml-2 text-xs text-gray-700 font-bold">(-20%)</span>
+									</button>
 								</div>
 								<ul className="text-gray-700 text-sm w-full mb-4">
 									{coreModules.map((mod) => (
@@ -310,21 +328,38 @@ export default function ConfigurarAgente() {
 								<div className="flex flex-col gap-2 text-sm mb-4">
 									<div className="flex justify-between items-center">
 										<span>Básico (Core)</span>
-										<span className="font-semibold">{showAnnual ? '4.000€/año' : '400€/mes'}</span>
+										{showAnnual ? (
+											<span className="flex items-center gap-2 font-bold">
+												4.000€/año
+												<span className="text-gray-600 line-through decoration-red-700 text-xs font-medium">{400 * 12}€/año</span>
+											</span>
+										) : (
+											<span className="font-semibold">400€/mes</span>
+										)}
 									</div>
 									{selectedExtras.length > 0 && (
 										<div className="flex justify-between items-center">
 											<span>Extra ({selectedExtras.length} módulo{selectedExtras.length > 1 ? 's' : ''})</span>
-											<span className="font-semibold">{showAnnual ? `${600 * selectedExtras.length}€/año` : `${60 * selectedExtras.length}€/mes`}</span>
+											{showAnnual ? (
+												<span className="flex items-center gap-2 font-semibold">
+													{600 * selectedExtras.length}€/año
+													<span className="text-gray-600 line-through decoration-red-700 text-xs">{60 * selectedExtras.length * 12}€/año</span>
+												</span>
+											) : (
+												<span className="font-semibold">{60 * selectedExtras.length}€/mes</span>
+											)}
 										</div>
 									)}
 									<div className="flex justify-between items-center font-bold mt-2">
 										<span>Total mantenimiento</span>
-										<span>
-											{showAnnual
-												? `${totalMantenimiento}€/año`
-												: `${totalMantenimiento}€/mes`}
-										</span>
+										{showAnnual ? (
+											<span className="flex items-center gap-2">
+												{totalMantenimiento}€/año
+												<span className="text-gray-600 line-through decoration-red-700 text-xs">{(400 + 60 * selectedExtras.length) * 12}€/año</span>
+											</span>
+										) : (
+											<span>{totalMantenimiento}€/mes</span>
+										)}
 									</div>
 								</div>
 								<div className="w-full flex flex-col items-end">
