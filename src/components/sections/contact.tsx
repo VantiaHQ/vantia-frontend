@@ -4,21 +4,26 @@ import Link from 'next/link';
 
 export default function Contact() {
   return (
-  <section id="contact" className="bg-secondary min-h-[80vh] flex items-center">
-      <div className="container mx-auto px-6">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-            Lleva tu negocio al siguiente nivel
+  <section id="contact" className="relative w-full overflow-hidden dotted-bg bg-black/95">
+    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10 lg:via-background/50"></div>
+      <div className="container mx-auto px-6 relative min-h-[80vh] flex items-center">
+        <div className="mx-auto max-w-3xl text-center z-20 w-full">
+          <h2 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+            <span className="text-primary drop-shadow-[0_0_32px_rgba(139,92,246,0.2)]">Lleva tu negocio al siguiente nivel</span>
           </h2>
           <p className="mt-6 text-lg leading-8 text-foreground/80">
             Estamos listos para transformar tus desafíos en oportunidades con el poder de la Inteligencia Artificial.
             Ponte en contacto con nosotros para una consulta gratuita y descubre cómo podemos ayudarte.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
-            <Button size="lg" className="bg-accent text-neutral-900 hover:text-white hover:shadow-[0_0_16px_3px_rgba(255,255,255,0.18)]" asChild>
-              <Link href="https://wa.me/34622590122">
+            <Button
+              asChild
+              size="lg"
+              className="group bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-pink-500/40 transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow"
+            >
+              <Link href="https://wa.me/34622590122" className="transition duration-300 ease-in-out">
                 Solicita una consulta gratuita
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:animate-icon-pulse" />
               </Link>
             </Button>
           </div>
