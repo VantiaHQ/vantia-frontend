@@ -34,7 +34,7 @@ export default function Hero() {
   <section className="relative mt-[-16px] w-full px-8 min-h-screen overflow-hidden bg-gradient-to-br from-blue-900 via-purple-900 to-pink-900 dotted-bg">
   <div className="absolute inset-0 bg-gradient-to-t from-transparent via-black/40 to-transparent z-10"></div>
   <div className="container mx-auto px-6 relative h-full flex items-center max-w-[1200px]">
-            <div className="grid lg:grid-cols-2 items-start w-full min-h-[100vh] mt-[15vh] md:mt-[20vh]">
+            <div className="grid lg:grid-cols-2 items-start w-full min-h-[100vh] mt-[13vh] md:mt-[20vh]">
                 <div className="text-center lg:text-left z-20">
           <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-8xl font-extrabold tracking-tight text-white drop-shadow-[0_0_24px_rgba(139,92,246,0.3)] transition duration-300 ease-in-out">
             <span className="text-primary drop-shadow-[0_0_32px_rgba(139,92,246,0.2)]">Recupera tu tiempo</span> con IA.
