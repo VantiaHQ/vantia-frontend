@@ -3,8 +3,8 @@
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useState, useEffect, useRef } from 'react';
-import VantiaLogo from '@/components/vantia-logo';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import Image from 'next/image';
 
 const navLinks = [
 	{ name: 'Agente Modular', href: '#agente-modular' },
@@ -16,6 +16,7 @@ const navLinks = [
 export default function Header() {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+	const [isFooterReached, setIsFooterReached] = useState(false);
 	const headerRef = useRef<HTMLDivElement>(null);
 	const [dropdownTop, setDropdownTop] = useState(0);
 
@@ -33,19 +34,40 @@ export default function Header() {
 		}
 	}, [isMobileMenuOpen]);
 
+	useEffect(() => {
+		const footerSection = document.getElementById('footer');
+		if (!footerSection) return;
+
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				setIsFooterReached(entry.isIntersecting);
+			},
+			{ threshold: 0.1 } // Trigger when 10% of the section is visible
+		);
+
+		observer.observe(footerSection);
+
+		return () => {
+			observer.unobserve(footerSection);
+		};
+	}, []);
+
 	return (
 		<header
-			className={`sticky top-0 z-50 w-full px-2 md:px-8 left-0 transition-all duration-300 ${
-				isScrolled
-					? 'bg-background/80 shadow-md backdrop-blur-md'
-					: 'bg-transparent'
-			}`}
+			className={`sticky top-0 z-50 w-full px-2 md:px-8 left-0 transition-all duration-300 ${isScrolled ? 'bg-background/80 shadow-md backdrop-blur-md' : 'bg-transparent'} ${isFooterReached ? '-translate-y-full' : 'translate-y-0'}`}
 			style={{ left: 0, right: 0 }}
 		>
 			<div ref={headerRef} className="flex h-24 items-center justify-between px-6 max-w-none w-full mx-0">
-				<Link href="/" className="flex items-center gap-2">
-					<VantiaLogo />
+				<Link href="/">
+					<Image
+						src={isScrolled ? '/images/logo-negativo.png' : '/images/logo-negativo-color.png'}
+						alt="Vantia Logo"
+						width={120}
+						height={40}
+						className="transition-all duration-300"
+					/>
 				</Link>
+
 				<div className="hidden items-center gap-6 lg:flex">
 					{navLinks.map((link) => (
 						<Link
@@ -72,7 +94,16 @@ export default function Header() {
 					</Link>
 				))}
 			</div>
-			<div className="flex md:hidden w-full items-center justify-center px-4 bg-background/80 border-t border-border py-2 lg:hidden relative z-30">
+			<div className="flex md:hidden w-full items-center justify-between px-4 bg-background/80 border-t border-border py-2 lg:hidden relative z-30">
+				<Link href="/">
+					<Image
+						src={isScrolled ? '/images/logo-negativo.png' : '/images/logo-negativo-color.png'}
+						alt="Vantia Logo"
+						width={120}
+						height={40}
+						className="transition-all duration-300"
+					/>
+				</Link>
 				{!isMobileMenuOpen && (
                     <button
                         className="rounded-full bg-background border border-border p-2 shadow hover:bg-accent/20 transition z-50 flex items-center justify-center"
