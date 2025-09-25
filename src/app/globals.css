@@ -29,6 +29,28 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  /* Custom Scrollbar for Webkit browsers */
+  ::-webkit-scrollbar {
+    width: 8px; /* Thinner scrollbar */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background)); /* Dark background for the track */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary)); /* Lighter thumb, using primary color */
+    border-radius: 10px; /* Rounded thumb */
+  }
+
+  /* Custom Scrollbar for Firefox */
+  html {
+    scrollbar-width: thin; /* Thinner scrollbar */
+    scrollbar-color: grey hsl(var(--background)); /* Thumb and track colors */
+  }
+}
+
 @layer base {
   :root {
     --background: 224 71% 4%;
@@ -87,6 +109,12 @@
   }
   html {
     @apply scroll-smooth;
+  }
+
+  .no-scroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
   }
 }
 
