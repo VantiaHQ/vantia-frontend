@@ -12,8 +12,7 @@ export default function Contact() {
             <span className="text-primary drop-shadow-[0_0_32px_rgba(139,92,246,0.2)]">Lleva tu negocio al siguiente nivel</span>
           </h2>
           <p className="mt-6 text-lg sm:text-xl md:text-2xl leading-8 text-foreground/80">
-            Estamos listos para transformar tus desafíos en oportunidades con el poder de la Inteligencia Artificial.
-            Contacta con nosotros para una consulta gratuita y descubre cómo podemos ayudarte.
+            Descubre cómo podemos ayudarte.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Button
