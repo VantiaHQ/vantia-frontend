@@ -1,39 +1,53 @@
-import { Bot, Zap } from 'lucide-react';
+import { Users, TrendingUp, Zap } from 'lucide-react';
+
+const values = [
+  {
+    icon: Users,
+    title: 'Nos integramos en tu equipo',
+    description:
+      'No somos un simple proveedor; nos convertimos en tu socio estratégico. Trabajamos codo a codo contigo para entender tus desafíos y asegurar que cada solución se alinee con tus objetivos.',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Soluciones con impacto real',
+    description:
+      'La tecnología es solo el medio. Nuestro foco está en entregar resultados que puedas ver y medir, optimizando tus procesos, reduciendo costes y abriendo nuevas oportunidades de crecimiento.',
+  },
+  {
+    icon: Zap,
+    title: 'Tecnología de vanguardia, siempre',
+    description:
+      'El mundo de la IA evoluciona a una velocidad vertiginosa. Nos mantenemos a la vanguardia para que tu inversión de hoy sea sólida, escalable y relevante en el futuro.',
+  },
+];
 
 export default function Philosophy() {
   return (
-    <section id="philosophy" className="relative py-20 sm:py-28 overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none z-0 bg-gradient-to-b from-transparent via-[#0a0a1a]/80 to-black" />
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
-          <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                <Bot className="h-6 w-6" />
+    <section id="philosophy" className="py-20 sm:py-28">
+      <div className="container mx-auto px-6">
+        <div className="mx-auto max-w-4xl text-center mb-16">
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Tu socio en la era de la IA
+          </h2>
+          <p className="mt-4 text-lg text-foreground/80">
+            Más que un proveedor, somos el copiloto que tu empresa necesita para navegar la transformación digital.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          {values.map((value) => (
+            <div key={value.title} className="flex flex-col items-center text-center p-6 rounded-lg transition-all duration-300 hover:bg-primary/5">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary mb-5">
+                <value.icon className="h-7 w-7" />
               </div>
-              <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Nuestra Filosofía</h2>
+              <h3 className="text-xl font-semibold text-white mb-3">{value.title}</h3>
+              <p className="text-foreground/80">{value.description}</p>
             </div>
-            <p className="text-lg text-foreground/80">
-              Creemos que la verdadera innovación surge de una profunda colaboración. No solo implementamos tecnología, nos asociamos contigo para entender tus desafíos, diseñar soluciones a medida y asegurar que la IA se integre de manera fluida en tu estrategia de negocio. Nuestro objetivo es ser tu socio de confianza en la era de la transformación digital.
+          ))}
+        </div>
+        <div className="mt-16 text-center">
+            <p className="text-md text-foreground/70">
+                Nuestro nombre, Vantia, combina la palabra <span className="italic font-semibold text-primary">avant</span> (adelante, en valenciano) e <span className="font-semibold text-primary">IA</span>, como símbolo de nuestro compromiso: <br/>llevar tu negocio siempre un paso adelante.
             </p>
-            <p className="text-lg text-foreground/80">
-              Nuestra misión es clara: facilitar la adaptación y el crecimiento en el marco del mayor cambio transformacional que ha experimentado la humanidad.
-            </p>
-          </div>
-          <div className="space-y-6">
-            <div className="flex items-center gap-3">
-               <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                <Zap className="h-6 w-6" />
-              </div>
-              <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Nuestra Esencia</h2>
-            </div>
-            <p className="text-lg text-foreground/80">
-              El auge de la inteligencia artificial no representa únicamente un avance tecnológico, sino un nuevo paradigma productivo y social. Desde Vantia articulamos proyectos y servicios que permiten a las empresas responder con agilidad y aprovechar las oportunidades que genera este cambio histórico.
-            </p>
-            <p className="text-lg text-foreground/80">
-              Vantia combina la palabra <span className="italic font-semibold text-primary">avant</span> (adelante, en valenciano) e <span className="font-semibold text-primary">IA</span> (inteligencia artificial), como un símbolo de innovación con raíces sólidas y visión de futuro.
-            </p>
-          </div>
         </div>
       </div>
     </section>
