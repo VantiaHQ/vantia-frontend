@@ -4,22 +4,22 @@ import { WhatsappIcon, TelegramIcon, SlackIcon } from '@/components/icons';
 const channels = [
 	{ name: 'Web', icon: Globe },
 	{ name: 'Whatsapp', icon: WhatsappIcon },
+	{ name: 'Slack', icon: SlackIcon },
 	{ name: 'Telegram', icon: TelegramIcon },
 	{ name: 'Email', icon: Mail },
-	{ name: 'Slack', icon: SlackIcon },
 ];
 
 export default function Channels() {
 	return (
-		<section id="channels" className="bg-[#070916] py-20 sm:py-28">
-			<div className="container mx-auto px-6">
+		<section id="channels" className="relative py-20 sm:py-28 bg-cover bg-center" style={{ backgroundImage: "url('/images/canales.webp')" }}>
+			<div className="absolute inset-0 bg-black/70"></div>
+			<div className="container mx-auto px-6 relative z-10">
 				<div className="mx-auto max-w-2xl text-center">
-					<h2 className="text-3xl font-bold tracking-tight text-blue-200 sm:text-4xl">
+					<h2 className="text-3xl font-bold tracking-tight text-white/90 sm:text-4xl">
 						Canales de Integración
 					</h2>
 					<p className="mt-4 text-lg leading-8 text-foreground/80">
-						Conecta con tus clientes dondequiera que estén. Integramos nuestras
-						 soluciones de IA en las plataformas que ya utilizas.
+						Conecta con tus clientes estén donde estén.
 					</p>
 				</div>
                 {/* --- NEW RESPONSIVE LAYOUT --- */}
