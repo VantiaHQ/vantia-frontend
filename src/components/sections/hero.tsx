@@ -7,10 +7,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Rocket } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
-const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-image');
-
 export default function Hero() {
-  if (!heroImage) return null;
 
   const [starStyle, setStarStyle] = useState({
     transform: 'translateY(0px) scale(1)',
