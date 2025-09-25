@@ -24,7 +24,7 @@ export default function Philosophy() {
     <section id="philosophy" className="py-20 sm:py-28">
       <div className="container mx-auto px-6">
         <div className="mx-auto text-left lg:text-center px-0 lg:px-24">
-          <h2 className="text-7xl font-extralight tracking-tight text-primary uppercase">
+          <h2 className="text-5xl sm:text-7xl font-extralight tracking-tight text-primary uppercase">
             Tu socio en la era de la IA
           </h2>    
         </div>
