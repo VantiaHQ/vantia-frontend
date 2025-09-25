@@ -33,9 +33,11 @@ export default function Security() {
             Tu tranquilidad es nuestra prioridad. Por eso, integramos las mejores prácticas de seguridad en cada capa de nuestras soluciones.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        {/* --- MODIFIED GRID BEHAVIOR --- */}
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
           {securityFeatures.map((feature) => (
-            <div key={feature.title} className="flex flex-col items-center text-center p-6 rounded-lg transition-all duration-300 hover:bg-primary/5">
+            // --- MODIFIED CARD STYLING ---
+            <div key={feature.title} className="flex flex-col items-center text-center p-6 rounded-lg bg-primary/5 border border-primary/20 shadow-lg">
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary mb-5">
                 <feature.icon className="h-7 w-7" />
               </div>
