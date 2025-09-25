@@ -1,6 +1,5 @@
 import { Globe, Mail } from 'lucide-react';
 import { WhatsappIcon, TelegramIcon, SlackIcon } from '@/components/icons';
-import { Card, CardContent } from '@/components/ui/card';
 
 const channels = [
 	{ name: 'Web', icon: Globe },
@@ -23,24 +22,21 @@ export default function Channels() {
 						 soluciones de IA en las plataformas que ya utilizas.
 					</p>
 				</div>
-				<div className="mt-16">
-					<Card className="bg-card/80 backdrop-blur-sm">
-						<CardContent className="p-8">
-							<div className="grid grid-cols-2 place-items-center gap-8 md:grid-cols-5">
-								{channels.map((channel) => (
-									<div
-										key={channel.name}
-										className="flex flex-col items-center gap-2 text-center"
-									>
-										<channel.icon className="h-10 w-10 text-blue-200" />
-										<span className="text-sm font-medium text-foreground/90">
-											{channel.name}
-										</span>
-									</div>
-								))}
+                {/* --- NEW RESPONSIVE LAYOUT --- */}
+				<div className="mx-auto mt-16">
+                    <div className="grid grid-cols-1 gap-8 max-w-[220px] mx-auto md:max-w-none md:grid-cols-5">
+						{channels.map((channel) => (
+							<div
+								key={channel.name}
+								className="flex flex-row items-center gap-4 md:flex-col md:gap-2"
+							>
+								<channel.icon className="h-10 w-10 text-blue-200" />
+								<span className="font-medium text-foreground/90 text-lg md:text-sm">
+									{channel.name}
+								</span>
 							</div>
-						</CardContent>
-					</Card>
+						))}
+					</div>
 				</div>
 			</div>
 		</section>
