@@ -8,6 +8,7 @@ import CaseStudy from '@/components/sections/case-study';
 import ConsultoriaIA from '@/components/sections/consultoria-ia';
 import Contact from '@/components/sections/contact';
 import FadeInSection from '@/components/ui/fade-in-section';
+import Security from '@/components/sections/security';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <FadeInSection direction="up"><Hero /></FadeInSection>
         <FadeInSection direction="up"><AgenteModular /></FadeInSection>
         <ConsultoriaIA />
+        <Security />
         <CaseStudy />
         <Channels />
         <FadeInSection direction="up"><Philosophy /></FadeInSection>
