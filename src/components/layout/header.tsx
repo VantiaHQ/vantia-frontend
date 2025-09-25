@@ -57,12 +57,12 @@ export default function Header() {
 			className={`sticky top-0 z-50 w-full px-2 md:px-8 left-0 transition-all duration-300 ${isScrolled ? 'bg-background/80 shadow-md backdrop-blur-md' : 'bg-transparent'} ${isFooterReached ? '-translate-y-full' : 'translate-y-0'}`}
 			style={{ left: 0, right: 0 }}
 		>
-			<div ref={headerRef} className="flex h-24 items-center justify-between px-6 max-w-none w-full mx-0">
+			<div ref={headerRef} className="flex h-[64px] lg:pt-4 py-1 items-center justify-between px-2 lg:px-6 max-w-none w-full mx-0">
 				<Link href="/">
 					<Image
 						src={isScrolled ? '/images/logo-negativo.png' : '/images/logo-negativo-color.png'}
 						alt="Vantia Logo"
-						width={120}
+						width={isScrolled ? 132 : 152}
 						height={40}
 						className="transition-all duration-300"
 					/>
@@ -80,24 +80,24 @@ export default function Header() {
 					))}
 				</div>
 				<Button asChild className="bg-accent text-white text-sm font-bold py-3 px-8 rounded-full shadow-lg border-2 border-transparent transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow hover:border-primary">
-					<Link href="#contact">Contáctanos</Link>
+					<Link href="#contact">Contacto</Link>
 				</Button>
 			</div>
-			<div className="hidden md:flex w-full items-center justify-center gap-4 bg-background/80 border-t border-border py-2 px-4 lg:hidden">
+			<div className="hidden md:flex w-full items-center justify-center gap-4 bg-transparent  py-2 px-4 lg:hidden">
 				{navLinks.map((link) => (
 					<Link
 						key={link.name}
 						href={link.href}
-						className="text-md font-medium text-foreground/80 transition-colors hover:text-primary"
+						className="text-md font-light text-foreground/80 transition-colors hover:text-primary tracking-widest"
 					>
 						{link.name}
 					</Link>
 				))}
 			</div>
-			<div className="flex md:hidden w-full items-center justify-center px-4 bg-background/80 border-t border-border py-2 lg:hidden relative z-30">
+			<div className="flex md:hidden w-full items-center justify-center px-4 bg-transparent py-2 lg:hidden absolute left-0 z-30">
 				{!isMobileMenuOpen && (
                     <button
-                        className="rounded-full bg-background border border-border p-2 shadow hover:bg-accent/20 transition z-50 flex items-center justify-center"
+                        className="rounded-full bg-background/80 backdrop-blur-md border border-border p-2 shadow hover:bg-accent/20 transition z-50 flex items-center justify-center"
                         onClick={() => setIsMobileMenuOpen((v) => !v)}
                         aria-label="Abrir menú"
                         type="button"
