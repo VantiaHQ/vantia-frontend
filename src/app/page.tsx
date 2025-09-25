@@ -16,12 +16,12 @@ export default function Home() {
       <Header />
       <main className="flex-1 mt-[-80px] pt-8">
         <FadeInSection direction="up"><Hero /></FadeInSection>
-        <FadeInSection direction="up"><AgenteModular /></FadeInSection>
+        <AgenteModular />
         <ConsultoriaIA />
         <Security />
         <CaseStudy />
         <Channels />
-        <FadeInSection direction="up"><Philosophy /></FadeInSection>
+        <Philosophy />
         <Contact />
       </main>
       <Footer />
