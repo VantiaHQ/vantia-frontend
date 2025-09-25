@@ -72,7 +72,7 @@ export default function Hero() {
             alt="Estrella tridimensional flotante"
             width={600}
             height={600}
-            className="object-contain animate-float-slow transition-transform duration-500 hover:scale-110 drop-shadow-[0_32px_128px_rgba(139,92,246,0.4)]"
+            className="object-contain animate-float-slow transition-transform duration-500 hover:scale-110 drop-shadow-[0_32px_128px_rgba(139,92,246,0.4)] brightness-[70%] lg:brightness-110 lg:saturate-125 lg:opacity-100"
             data-ai-hint="3d star"
             style={starStyle}
           />
