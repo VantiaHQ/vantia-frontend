@@ -34,7 +34,7 @@ export default function Hero() {
   }, []);
 
   return (
-  <section className="relative mt-[-16px] w-full min-h-screen overflow-hidden bg-gradient-to-br from-blue-900 via-purple-900 to-pink-900 dotted-bg">
+  <section className="relative mt-[-16px] w-full px-8 min-h-screen overflow-hidden bg-gradient-to-br from-blue-900 via-purple-900 to-pink-900 dotted-bg">
   <div className="absolute inset-0 bg-gradient-to-t from-transparent via-black/40 to-transparent z-10"></div>
   <div className="container mx-auto px-6 relative h-full flex items-center max-w-[1200px]">
             <div className="grid lg:grid-cols-2 items-center w-full min-h-[100vh]">
@@ -66,7 +66,7 @@ export default function Hero() {
                     </div>
                 </div>
 
-                <div className="absolute inset-0 flex items-start justify-center z-0 pt-24 sm:pt-32 md:pt-40 lg:relative lg:h-full lg:pt-24 h-96 w-full">
+                <div className="absolute inset-0 flex items-start justify-center z-0 pt-24 sm:pt-32 md:pt-40 lg:pt-40 lg:relative lg:h-full h-96 w-full">
           <Image
             src="/images/star-3d.png"
             alt="Estrella tridimensional flotante"
