@@ -1,16 +1,24 @@
 {
   "placeholderImages": [
     {
-      "id": "hero-image",
-      "description": "A dark cosmic scene with nebulae and stars, in shades of blue and violet.",
-      "imageUrl": "https://picsum.photos/seed/cosmic-hero/1200/800",
-      "imageHint": "cosmic nebula"
+      "id": "consulting-strategy",
+      "description": "A blueprint or strategic plan on a desk.",
+      "imageUrl": "/images/consultoria-estrategia.webp"
     },
     {
-      "id": "case-study-clinic",
-      "description": "A modern and clean clinic reception area",
-      "imageUrl": "https://picsum.photos/seed/vantia-clinic/800/600",
-      "imageHint": "clinic reception"
+      "id": "consulting-automation",
+      "description": "Interlocking gears representing automation.",
+      "imageUrl": "/images/consultoria-automatizacion.webp"
+    },
+    {
+      "id": "consulting-predictive",
+      "description": "A glowing chart showing an upward trend.",
+      "imageUrl": "/images/consultoria-analisis.webp"
+    },
+    {
+      "id": "consulting-vision",
+      "description": "A close-up of a camera lens or a digital eye.",
+      "imageUrl": "/images/consultoria-vision.webp"
     }
   ]
 }
