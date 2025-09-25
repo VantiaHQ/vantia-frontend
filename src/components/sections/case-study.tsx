@@ -53,6 +53,13 @@ export default function CaseStudy() {
                     Implantamos un Agente Modular impulsado por IA conversacional que se integró en sus canales: sitio web y whatsapp. El Agente Modular gestiona la programación de citas, responde a preguntas frecuentes y proporciona información sobre los servicios 24/7.
                     </p>
                 </div>
+
+                <blockquote className="relative border-l-4 border-primary pl-6 italic text-white">
+                    <p className="text-lg">
+                        "Vantia transformó nuestra recepción. El agente inteligente gestiona la mayoría de las citas por sí solo, 24/7. Nuestro personal por fin puede dedicarse a la atención personalizada en la clínica y los pacientes ya no tienen que esperar al teléfono. Ha sido un cambio radical."
+                    </p>
+                    <footer className="mt-4 text-base font-semibold text-foreground/80">- Ana García, Directora de Operaciones, Clínica Sanitaria</footer>
+                </blockquote>
                 
                 <Card>
                     <CardHeader>
