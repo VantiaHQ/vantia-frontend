@@ -40,7 +40,7 @@ export default function Hero() {
             <span className="text-primary drop-shadow-[0_0_32px_rgba(139,92,246,0.2)]">Recupera tu tiempo</span> con IA.
           </h1>
                     <p className="mt-6 text-lg sm:text-xl md:text-2xl text-foreground/80">
-                        En un entorno en el que el tiempo se ha consolidado como el recurso más limitado y valioso, Vantia nace con el propósito de aportar soluciones que optimicen su uso en personas y organizaciones.
+                        Vantia optimiza tu tiempo y el de tu organización con soluciones de IA innovadoras, transformando la gestión de recursos en una ventaja competitiva.
                     </p>
                     <div className="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                         <Button
