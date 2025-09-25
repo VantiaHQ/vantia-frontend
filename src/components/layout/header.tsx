@@ -94,16 +94,7 @@ export default function Header() {
 					</Link>
 				))}
 			</div>
-			<div className="flex md:hidden w-full items-center justify-between px-4 bg-background/80 border-t border-border py-2 lg:hidden relative z-30">
-				<Link href="/">
-					<Image
-						src={isScrolled ? '/images/logo-negativo.png' : '/images/logo-negativo-color.png'}
-						alt="Vantia Logo"
-						width={120}
-						height={40}
-						className="transition-all duration-300"
-					/>
-				</Link>
+			<div className="flex md:hidden w-full items-center justify-center px-4 bg-background/80 border-t border-border py-2 lg:hidden relative z-30">
 				{!isMobileMenuOpen && (
                     <button
                         className="rounded-full bg-background border border-border p-2 shadow hover:bg-accent/20 transition z-50 flex items-center justify-center"
