@@ -7,7 +7,7 @@ export default function VantiaLogo() {
       alt="Vantia Logo"
       width={130}
       height={32}
-      className="h-8 w-auto"
+      className="h-10 w-auto"
       priority
     />
   );
