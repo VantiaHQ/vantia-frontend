@@ -6,14 +6,14 @@ export default function Contact() {
   return (
   <section id="contact" className="relative w-full overflow-hidden dotted-bg bg-black/95">
     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10 lg:via-background/50"></div>
-      <div className="container mx-auto px-6 relative min-h-[95vh] flex items-center">
+      <div className="container mx-auto px-6 relative h-[60vh] flex items-center">
         <div className="mx-auto max-w-3xl text-center z-20 w-full">
           <h2 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
             <span className="text-primary drop-shadow-[0_0_32px_rgba(139,92,246,0.2)]">Lleva tu negocio al siguiente nivel</span>
           </h2>
-          <p className="mt-6 text-lg leading-8 text-foreground/80">
+          <p className="mt-6 text-lg sm:text-xl md:text-2xl leading-8 text-foreground/80">
             Estamos listos para transformar tus desafíos en oportunidades con el poder de la Inteligencia Artificial.
-            Ponte en contacto con nosotros para una consulta gratuita y descubre cómo podemos ayudarte.
+            Contacta con nosotros para una consulta gratuita y descubre cómo podemos ayudarte.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Button
