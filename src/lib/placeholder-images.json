@@ -19,6 +19,11 @@
       "id": "consulting-vision",
       "description": "A close-up of a camera lens or a digital eye.",
       "imageUrl": "/images/consultoria-vision.webp"
+    },
+    {
+      "id": "case-study-clinic",
+      "description": "A case study image for a clinic.",
+      "imageUrl": "/images/modular-agent.webp"
     }
   ]
 }
