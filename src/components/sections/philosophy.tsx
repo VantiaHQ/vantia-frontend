@@ -28,9 +28,9 @@ export default function Philosophy() {
             Tu socio en la era de la IA
           </h2>    
         </div>
-        <div className="mx-auto text-left lg:text-center mb-16 pr-0 md:pr-24">
+        <div className="mx-auto text-left lg:text-center mb-16">
           <p className="mt-4 text-lg text-foreground/80">
-            Más que un proveedor, somos el copiloto que tu empresa necesita para navegar la transformación digital.
+            Un copiloto para navegar la transformación digital.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
