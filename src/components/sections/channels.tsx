@@ -24,7 +24,7 @@ export default function Channels() {
 				</div>
                 {/* --- NEW RESPONSIVE LAYOUT --- */}
 				<div className="mx-auto mt-16">
-                    <div className="grid grid-cols-1 gap-8 max-w-[220px] mx-auto md:max-w-none md:grid-cols-5">
+                    <div className="grid grid-cols-1 gap-8 max-w-[160px] mx-auto md:max-w-none md:grid-cols-5">
 						{channels.map((channel) => (
 							<div
 								key={channel.name}
