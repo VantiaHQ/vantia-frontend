@@ -6,7 +6,7 @@ export default function Contact() {
   return (
   <section id="contact" className="relative w-full overflow-hidden dotted-bg bg-black/95">
     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10 lg:via-background/50"></div>
-      <div className="container mx-auto px-6 relative h-[66vh] flex items-center">
+      <div className="container mx-auto px-6 relative h-[55vh] flex items-center">
         <div className="mx-auto max-w-3xl text-center z-20 w-full">
           <h2 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
             <span className="text-primary drop-shadow-[0_0_32px_rgba(139,92,246,0.2)]">Lleva tu negocio al siguiente nivel</span>
