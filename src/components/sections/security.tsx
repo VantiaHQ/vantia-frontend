@@ -5,7 +5,7 @@ const securityFeatures = [
     icon: ShieldCheck,
     title: 'Privacidad desde el Diseño',
     description:
-      'Construimos cada solución con la privacidad como pilar fundamental, asegurando que los datos de tus clientes se manejen siempre con la máxima confidencialidad y respeto.',
+      'Construimos cada solución con la privacidad como pilar fundamental, asegurando que los datos de tus clientes se manejen siempre con la máxima confidencialidad.',
   },
   {
     icon: Lock,
@@ -17,7 +17,7 @@ const securityFeatures = [
     icon: ScrollText,
     title: 'Cumplimiento Normativo',
     description:
-      'Operamos en estricto cumplimiento de las regulaciones como el RGPD y la LSSI, garantizando que la implementación de IA en tu negocio sea tan legal y ética como innovadora.',
+      'Operamos en estricto cumplimiento de las regulaciones como el RGPD y la LSSI, garantizando la legalidad en la implementación de IA en tu empresa.',
   },
 ];
 
