@@ -3,13 +3,16 @@ import { CheckCircle } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Instrument_Serif } from 'next/font/google';
+
+const instrumentSerif = Instrument_Serif({ subsets: ['latin'], weight: '400' });
 
 const caseStudyImage = PlaceHolderImages.find((img) => img.id === 'case-study-clinic');
 
 const results = [
   "Manejo de más del 70% de las consultas de programación.",
   "Reducción de los tiempos de espera telefónica en un 50%.",
-  "El personal se centró en la atención presencial.",
+  "Personal disponible para la atención presencial.",
 ];
 
 const modules = [
@@ -23,10 +26,10 @@ export default function CaseStudy() {
     <section id="case-study" className="py-20 sm:py-28">
       <div className="container mx-auto px-6">
         <div className="mx-auto max-w-4xl text-center mb-12">
-            <span className="block text-base font-semibold text-white tracking-wide mb-2">Caso de Estudio</span>
+            <span className="block text-base font-light uppercase tracking-widest text-white/40 mb-2">Caso de Estudio</span>
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Mejora de la Experiencia del Paciente</h2>
-            <p className="mt-4 text-lg text-foreground/80">
-                Cliente: Clínica Sanitaria
+            <p className="mt-4 text-lg font-light text-white/60">
+                Clínica Sanitaria
             </p>
         </div>
 
@@ -42,23 +45,23 @@ export default function CaseStudy() {
             </div>
             <div className="space-y-8">
                 <div>
-                    <h3 className="text-xl font-semibold text-white">Desafío</h3>
+                    <h3 className="text-2xl font-semibold text-white/80">Desafío</h3>
                     <p className="mt-2 text-foreground/90">
                     La clínica experimentaba un alto volumen de llamadas y mensajes de whatsapp para agendar citas, lo que saturaba a su personal de recepción y generaba largos tiempos de espera.
                     </p>
                 </div>
                 <div>
-                    <h3 className="text-xl font-semibold text-white">Solución</h3>
+                    <h3 className="text-2xl font-semibold text-white/80">Solución</h3>
                     <p className="mt-2 text-foreground/90">
                     Implantamos un Agente Modular impulsado por IA conversacional que se integró en sus canales: sitio web y whatsapp. El Agente Modular gestiona la programación de citas, responde a preguntas frecuentes y proporciona información sobre los servicios 24/7.
                     </p>
                 </div>
 
-                <blockquote className="relative border-l-4 border-primary pl-6 italic text-white">
-                    <p className="text-lg">
-                        "Vantia transformó nuestra recepción. El agente inteligente gestiona la mayoría de las citas por sí solo, 24/7. Nuestro personal por fin puede dedicarse a la atención personalizada en la clínica y los pacientes ya no tienen que esperar al teléfono. Ha sido un cambio radical."
+                <blockquote className="relative border-l-4 border-primary pl-6 py-6 text-white/80">
+                    <p className={`text-3xl ${instrumentSerif.className}`}>
+                        "Vantia transformó nuestra recepción. El agente inteligente gestiona la mayoría de las citas por sí solo, 24/7. Ahora el personal dedica más tiempo a la atención personalizada en la clínica y los pacientes ya no tienen que esperar al teléfono. Ha sido un cambio radical."
                     </p>
-                    <footer className="mt-4 text-base font-semibold text-foreground/80">- Ana García, Directora de Operaciones, Clínica Sanitaria</footer>
+                    <footer className="mt-4 text-base font-light text-foreground/80">- Ana García de la Torre, COO</footer>
                 </blockquote>
                 
                 <Card>
