@@ -18,9 +18,9 @@ const coreModules = [
 const extraModules = [
   {
     icon: CheckCircle,
-    title: 'Captación de Clientes',
+    title: 'Captación de Información',
     description:
-      'Identifica y cualifica clientes potenciales automáticamente, nutriendo tus ventas incluso fuera del horario laboral.',
+      'Obtiene información, identifica y cualifica clientes potenciales automáticamente, nutriendo tus ventas incluso fuera del horario laboral.',
   },
   {
     icon: Calendar,
@@ -75,12 +75,12 @@ export default function AgenteModular() {
 						El agente que trabaja por ti
 					</h2>
 					<p className="mt-4 text-lg sm:text-xl md:text-2xl leading-9 text-foreground/80">
-                        Imagina un miembro de tu equipo que nunca duerme, responde al instante y se encarga de las tareas repetitivas para que tu personal pueda centrarse en lo que de verdad importa. Nuestro Agente Modular hace exactamente eso. Lo diseñamos a medida para que se integre en tus procesos, automatice tareas complejas y se comunique con tus clientes de forma natural y eficiente.
+                        Imagina un miembro de tu equipo que nunca duerme, responde al instante y se encarga de las tareas repetitivas para que los trabajadores pueda centrarse en lo que de verdad importa. Nuestro Agente Modular hace exactamente eso. Lo diseñamos a medida para que se integre en los procesos de tu empresa, automatice tareas complejas y se comunique con tus clientes de forma natural y eficiente.
 					</p>
 					<div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
 						<div className="bg-blue-950/70 rounded-xl border border-blue-400/30 p-6 shadow-lg flex flex-col justify-center">
 							<span className="text-4xl font-extrabold text-blue-200 mb-2">+120h</span>
-							<span className="text-blue-100/90 text-base">Tiempo recuperado</span>
+							<span className="text-blue-100/90 text-base">Tiempo recuperado /mes</span>
 						</div>
 						<div className="bg-blue-950/70 rounded-xl border border-blue-400/30 p-6 shadow-lg flex flex-col justify-center">
 							<span className="text-4xl font-extrabold text-blue-200 mb-2">24/7</span>
@@ -92,7 +92,7 @@ export default function AgenteModular() {
 						</div>
 						<div className="bg-blue-950/70 rounded-xl border border-blue-400/30 p-6 shadow-lg flex flex-col justify-center">
 							<span className="text-4xl font-extrabold text-blue-200 mb-2">+500</span>
-							<span className="text-blue-100/90 text-base">Consultas resueltas</span>
+							<span className="text-blue-100/90 text-base">Consultas resueltas /mes</span>
 						</div>
 					</div>
 				</div>
@@ -130,11 +130,11 @@ export default function AgenteModular() {
 											</li>
 											<li className="grid grid-cols-[auto,1fr] items-start gap-3">
 												<CheckCircle className="mt-2 h-5 w-5 text-blue-300 drop-shadow-[0_0_8px_rgba(80,200,255,0.7)]" />
-												<span className="text-blue-100/90">Notificación inmediata a responsables y seguimiento del estado</span>
+												<span className="text-blue-100/90">Notificación inmediata a responsables a través de canales seleccionados</span>
 											</li>
 											<li className="grid grid-cols-[auto,1fr] items-start gap-3">
 												<CheckCircle className="mt-2 h-5 w-5 text-blue-300 drop-shadow-[0_0_8px_rgba(80,200,255,0.7)]" />
-												<span className="text-blue-100/90">Derivación inteligente a gestores humanos para casos complejos (human-in-the-loop)</span>
+												<span className="text-blue-100/90">Derivación inteligente a gestores humanos para confirmaciones y casos complejos</span>
 											</li>
 											<li className="grid grid-cols-[auto,1fr] items-start gap-3">
 												<CheckCircle className="mt-2 h-5 w-5 text-blue-300 drop-shadow-[0_0_8px_rgba(80,200,255,0.7)]" />
