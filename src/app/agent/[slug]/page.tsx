@@ -27,7 +27,7 @@ export default async function AgentPage({ params }: AgentPageProps) {
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <Header />
-      <main className="flex-1 mt-[-80px] pt-8">
+      <main className="flex-1 pt-8">
         <section className="py-20 sm:py-28">
           <div className="container mx-auto px-6">
             <div className="mx-auto max-w-3xl text-left">
