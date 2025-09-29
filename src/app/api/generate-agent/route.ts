@@ -7,7 +7,7 @@ import { AGENT_GENERATION_PROMPT } from '@/lib/prompts';
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY as string);
 
 async function callGemini(companyDescription: string): Promise<any> {
-  const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
   const fullPrompt = `${AGENT_GENERATION_PROMPT}
 
