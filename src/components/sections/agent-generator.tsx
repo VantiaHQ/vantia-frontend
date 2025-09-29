@@ -1,5 +1,4 @@
-"use client";
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -19,8 +18,21 @@ export default function AgentGenerator() {
   const [companyDescription, setCompanyDescription] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [currentLoadingMessage, setCurrentLoadingMessage] = useState("");
+  const [isMobile, setIsMobile] = useState(false);
   const router = useRouter();
   const { toast } = useToast();
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // Assuming 768px as mobile breakpoint
+    };
+
+    // Set initial value
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -72,6 +84,10 @@ export default function AgentGenerator() {
     }
   };
 
+  const placeholderText = isMobile
+    ? "¿A qué se dedica tu empresa?"
+    : "¿A qué se dedica tu empresa? ¿Qué tareas repetitivas te gustaría automatizar?";
+
   return (
     <section id="agent-generator" className="bg-[#070916] py-20 sm:py-28 min-h-[calc(100vh-160px)] flex items-center justify-center">
       <div className="container mx-auto px-6">
@@ -87,7 +103,7 @@ export default function AgentGenerator() {
               <div className="relative">
                 <Input
                   type="text"
-                  placeholder="¿A qué se dedica tu empresa? ¿Qué tareas repetitivas te gustaría automatizar?"
+                  placeholder={placeholderText}
                   className="pl-4 pr-4 py-6 bg-blue-950/60 border-blue-400/30 focus:border-blue-400 text-white text-lg"
                   value={companyDescription}
                   onChange={(e) => setCompanyDescription(e.target.value)}
