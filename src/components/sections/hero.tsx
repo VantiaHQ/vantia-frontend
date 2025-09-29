@@ -5,30 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Rocket } from 'lucide-react';
-import { useState, useEffect } from 'react';
 
 export default function Hero() {
-
-  const [starStyle, setStarStyle] = useState({
-    transform: 'translateY(0px) scale(1)',
-    transition: 'transform 0.2s ease-out',
-  });
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const yOffset = Math.max(0, scrollY * 1.5);
-      const scale = Math.max(0, 1 - scrollY / window.innerHeight);
-
-      setStarStyle({
-        transform: `translateY(-${yOffset}px) scale(${scale})`,
-        transition: 'transform 0.2s ease-out',
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
   <section className="relative mt-[-16px] w-full px-8 min-h-screen overflow-hidden bg-gradient-to-br from-blue-900 via-purple-900 to-pink-900 dotted-bg">
@@ -71,7 +49,6 @@ export default function Hero() {
             height={600}
             className="object-contain animate-float-slow transition-transform duration-500 hover:scale-110 drop-shadow-[0_32px_128px_rgba(139,92,246,0.4)] brightness-[70%] lg:brightness-110 lg:saturate-125 lg:opacity-100"
             data-ai-hint="3d star"
-            style={starStyle}
           />
                 </div>
             </div>
@@ -79,3 +56,4 @@ export default function Hero() {
     </section>
   );
 }
+
