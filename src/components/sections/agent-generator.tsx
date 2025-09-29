@@ -97,7 +97,7 @@ export default function AgentGenerator() {
             Genera tu Agente IA
           </h2>
           <p className="mt-4 text-lg sm:text-xl md:text-2xl leading-9 text-foreground/80">
-            Describe tu empresa y tus necesidades de automatización para que nuestra IA diseñe un agente a medida.
+            Describe tu empresa y tus necesidades de automatización para diseñar un agente a medida.
           </p>
           <div className="mt-12">
             <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6">
