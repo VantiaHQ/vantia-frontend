@@ -157,7 +157,7 @@ export default async function AgentPage({ params }: AgentPageProps) {
                 {pageContent.finalCTA && (
                   <div className="text-center mt-12">
                     <p className="text-2xl font-bold text-white mb-4">{pageContent.finalCTA.text}</p>
-                    <div className="flex justify-center gap-4">
+                    <div className="flex flex-col sm:flex-row justify-center gap-4">
                       {pageContent.finalCTA.buttons.map((buttonText: string, index: number) => (
                         <Button key={index} size="lg" className="cursor-target bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-colors">
                           {buttonText}
