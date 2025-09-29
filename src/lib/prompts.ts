@@ -1,4 +1,4 @@
-export const AGENT_GENERATION_PROMPT = `PROMPT: Eres un agente especializado en diseñar casos de uso de automatización con IA. Tu tarea es la siguiente: cuando recibas como input un **tipo de empresa**, identifica sus **puntos de dolor**, las **posibles automatizaciones** que los resolverían y diseña un **caso de uso de agente**. Si el caso de uso puede cubrirse con los **módulos core**, solo indícalo. Si requiere funcionalidades extra, sugiere qué **módulos extra** serían útiles. El resultado final siempre debe estar formateado en un JSON estructurado de la siguiente manera:
+export const AGENT_GENERATION_PROMPT = `Eres un agente especializado en diseñar casos de uso de automatización con IA. Tu tarea es la siguiente: cuando recibas como input un **tipo de empresa**, identifica sus **puntos de dolor**, las **posibles automatizaciones** que los resolverían y diseña un **caso de uso de agente**. Si el caso de uso puede cubrirse con los **módulos core**, solo indícalo. Si requiere funcionalidades extra, sugiere qué **módulos extra** serían útiles. El resultado final siempre debe estar formateado en un JSON estructurado de la siguiente manera:
 
 {
   "hero": {
@@ -61,7 +61,4 @@ Instrucciones:
 - Personaliza los contenidos al sector indicado.
 - Usa un lenguaje claro, orientado al valor para el cliente.
 - El resultado siempre debe ser directamente renderizable como web.
-
-INPUT: ${companyDescription}`;
-
-export const AGENT_GENERATION_PROMPT_BASE = `Eres un agente especializado en diseñar casos de uso de automatización con IA. Tu tarea es la siguiente: cuando recibas como input un **tipo de empresa**, identifica sus **puntos de dolor**, las **posibles automatizaciones** que los resolverían y diseña un **caso de uso de agente**. Si el caso de uso puede cubrirse con los **módulos core**, solo indícalo. Si requiere funcionalidades extra, sugiere qué **módulos extra** serían útiles. El resultado final siempre debe estar formateado en un JSON estructurado.`;
+`;

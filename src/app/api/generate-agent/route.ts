@@ -2,16 +2,19 @@ import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 import slugify from 'slugify';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { AGENT_GENERATION_PROMPT, AGENT_GENERATION_PROMPT_BASE } from '@/lib/prompts';
+import { AGENT_GENERATION_PROMPT } from '@/lib/prompts';
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY as string);
 
 async function callGemini(companyDescription: string): Promise<any> {
   const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
-  const fullPrompt = AGENT_GENERATION_PROMPT.replace('${companyDescription}', companyDescription);
+  const fullPrompt = `${AGENT_GENERATION_PROMPT}
+
+INPUT: ${companyDescription}`;
 
   const result = await model.generateContent(fullPrompt);
+
   const response = await result.response;
   const text = response.text();
 
