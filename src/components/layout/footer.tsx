@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import VantiaLogo from '@/components/vantia-logo';
-import { Linkedin, Twitter } from 'lucide-react';
 import Image from 'next/image';
 
 const columnOneLinks = [
@@ -44,13 +43,13 @@ export default function Footer() {
           </div>
 
           {/* Links */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 gap-8 lg:col-span-2">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 lg:col-span-2">
             <div className="space-y-4">
               <h3 className="text-md font-semibold text-white tracking-wider">Soluciones</h3>
               <ul className="space-y-3">
                 {columnOneLinks.map((link) => (
                   <li key={link.name}>
-                    <Link href={link.href} className="text-foreground/70 hover:text-primary transition-colors">
+                    <Link href={link.href} className="cursor-target text-foreground/70 hover:text-primary transition-colors">
                       {link.name}
                     </Link>
                   </li>
@@ -62,11 +61,21 @@ export default function Footer() {
               <ul className="space-y-3">
                 {columnTwoLinks.map((link) => (
                   <li key={link.name}>
-                    <Link href={link.href} className="text-foreground/70 hover:text-primary transition-colors">
+                    <Link href={link.href} className="cursor-target text-foreground/70 hover:text-primary transition-colors">
                       {link.name}
                     </Link>
                   </li>
                 ))}
+              </ul>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-md font-semibold text-white tracking-wider">Contacto</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/contact" className="cursor-target text-foreground/70 hover:text-primary transition-colors">
+                    Hablemos
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

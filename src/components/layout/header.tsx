@@ -7,10 +7,10 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 
 const navLinks = [
-	{ name: 'Agente Modular', href: '#agente-modular' },
-	{ name: 'Caso de Estudio', href: '#case-study' },
-	{ name: 'Consultoría IA', href: '#consultoria-ia' },
-	{ name: 'Filosofía', href: '#philosophy' },
+	{ name: 'Agente Modular', href: '/#agente-modular' },
+	{ name: 'Caso de Estudio', href: '/#case-study' },
+	{ name: 'Consultoría IA', href: '/#consultoria-ia' },
+	{ name: 'Filosofía', href: '/#philosophy' },
 ];
 
 export default function Header() {
@@ -57,7 +57,7 @@ export default function Header() {
 			className={`sticky top-0 z-50 w-full px-2 md:px-8 left-0 transition-all duration-300 ${isScrolled ? 'bg-background/80 shadow-md backdrop-blur-md' : 'bg-transparent'} ${isFooterReached ? '-translate-y-full' : 'translate-y-0'}`}
 			style={{ left: 0, right: 0 }}
 		>
-			<div ref={headerRef} className="flex h-[64px] lg:pt-4 py-1 items-center justify-between px-2 lg:px-6 max-w-none w-full mx-0">
+			<div ref={headerRef} className="flex h-[64px] lg:py-4 py-1 items-center justify-between px-2 lg:px-6 max-w-none w-full mx-0">
 				<Link href="/">
 					<Image
 						src={isScrolled ? '/images/logo-negativo.png' : '/images/logo-negativo-color.png'}
@@ -73,14 +73,14 @@ export default function Header() {
 						<Link
 							key={link.name}
 							href={link.href}
-							className="text-md font-medium text-foreground/80 transition-colors hover:text-primary"
+							className="cursor-target text-md font-medium text-foreground/80 transition-colors hover:text-primary"
 						>
 							{link.name}
 						</Link>
 					))}
 				</div>
-				<Button asChild className="bg-accent text-white text-sm font-bold py-3 px-8 rounded-full shadow-lg border-2 border-transparent transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow hover:border-primary">
-					<Link href="#contact">Contacto</Link>
+				<Button asChild className="cursor-target bg-accent text-white text-sm font-bold py-3 px-8 rounded-full shadow-lg border-2 border-transparent transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow hover:border-primary">
+					<Link href="/contact">Contacto</Link>
 				</Button>
 			</div>
 			<div className="hidden md:flex w-full items-center justify-center gap-4 bg-transparent  py-2 px-4 lg:hidden">
@@ -88,7 +88,7 @@ export default function Header() {
 					<Link
 						key={link.name}
 						href={link.href}
-						className="text-md font-light text-foreground/80 transition-colors hover:text-primary tracking-widest"
+						className="cursor-target text-md font-light text-foreground/80 transition-colors hover:text-primary tracking-widest"
 					>
 						{link.name}
 					</Link>
@@ -97,7 +97,7 @@ export default function Header() {
 			<div className="flex md:hidden w-full items-center justify-center px-4 bg-transparent py-2 lg:hidden absolute left-0 z-30">
 				{!isMobileMenuOpen && (
                     <button
-                        className="rounded-full bg-background/80 backdrop-blur-md border border-border p-2 shadow hover:bg-accent/20 transition z-50 flex items-center justify-center"
+                        className="cursor-target rounded-full bg-background/80 backdrop-blur-md border border-border p-2 shadow hover:bg-accent/20 transition z-50 flex items-center justify-center"
                         onClick={() => setIsMobileMenuOpen((v) => !v)}
                         aria-label="Abrir menú"
                         type="button"
@@ -112,7 +112,7 @@ export default function Header() {
 						{/* --- CORRECTED BACKGROUND --- */}
                         <div className="w-full flex flex-col items-center bg-background/95">
 							<button
-								className="mt-2 mb-2 rounded-full bg-background border border-border p-2 shadow hover:bg-accent/20 transition z-50 mx-auto block"
+								className="cursor-target mt-2 mb-2 rounded-full bg-background border border-border p-2 shadow hover:bg-accent/20 transition z-50 mx-auto block"
 								onClick={() => setIsMobileMenuOpen(false)}
 								aria-label="Cerrar menú"
 								type="button"
@@ -124,7 +124,7 @@ export default function Header() {
 									<Link
 										key={link.name}
 										href={link.href}
-										className="text-base font-medium text-foreground/90 transition-colors hover:text-primary py-2 w-full text-center"
+										className="cursor-target text-base font-medium text-foreground/90 transition-colors hover:text-primary py-2 w-full text-center"
 										onClick={() => setIsMobileMenuOpen(false)}
 									>
 										{link.name}

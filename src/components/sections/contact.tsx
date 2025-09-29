@@ -18,9 +18,9 @@ export default function Contact() {
             <Button
               asChild
               size="lg"
-              className="group bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-pink-500/40 transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow"
+              className="cursor-target group bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-pink-500/40 transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow"
             >
-              <Link href="https://wa.me/34622590122" className="transition duration-300 ease-in-out">
+              <Link href="/contact" className="transition duration-300 ease-in-out">
                 Solicita una consulta gratuita
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:animate-icon-pulse" />
               </Link>
