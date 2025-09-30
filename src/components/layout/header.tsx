@@ -7,10 +7,9 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 
 const navLinks = [
-	{ name: 'Agente Modular', href: '/#agente-modular' },
-	{ name: 'Generar Agente', href: '/generate-agent' },
-	{ name: 'Consultoría IA', href: '/#consultoria-ia' },
-	{ name: 'Filosofía', href: '/#philosophy' },
+	{ name: 'Agente Modular', href: '/' },
+	{ name: 'Generar Agente', href: '/generar-agente' },
+	{ name: 'Calcular Ahorro', href: '/calculadora-ahorro' },
 ];
 
 export default function Header() {
@@ -54,7 +53,7 @@ export default function Header() {
 
 	return (
 		<header
-			className={`sticky top-0 z-50 w-full px-2 md:px-8 left-0 transition-all duration-300 ${isScrolled ? 'bg-background/80 shadow-md backdrop-blur-md' : 'bg-transparent'} ${isFooterReached ? '-translate-y-full' : 'translate-y-0'}`}
+			className={`sticky top-0 z-50 w-full px-2 md:px-8 left-0 transition-all duration-300 ${isScrolled ? 'bg-background/80 shadow-md backdrop-blur-md' : 'bg-transparent'} ${isFooterReached ? '-translate-y-full opacity-0' : 'translate-y-0'}`}
 			style={{ left: 0, right: 0 }}
 		>
 			<div ref={headerRef} className="flex h-[64px] lg:py-4 py-1 items-center justify-between px-2 lg:px-6 max-w-none w-full mx-0">
@@ -81,7 +80,7 @@ export default function Header() {
 					))}
 				</div>
 				<Button asChild className="cursor-target bg-accent text-white text-sm font-bold py-3 px-8 rounded-full shadow-lg border-2 border-transparent transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow hover:border-primary">
-					<Link href="/contact">Contacto</Link>
+					<Link href="/contacto">Contacto</Link>
 				</Button>
 			</div>
 			<div className="hidden md:flex w-full items-center justify-center gap-4 bg-transparent mt-[-2px] pb-2 px-4 lg:hidden">
@@ -111,7 +110,7 @@ export default function Header() {
 						{/* --- CORRECTED BLUR --- */}
                         <div className="absolute inset-0 bg-black/40 backdrop-blur-md z-[-1] pointer-events-auto" style={{top:0}} onClick={()=>setIsMobileMenuOpen(false)} />
 						{/* --- CORRECTED BACKGROUND --- */}
-                        <div className="w-full flex flex-col items-center bg-background/95">
+                        <div className="w-full h-full flex flex-col items-center bg-background/95">
 							<button
 								className="cursor-target mt-2 mb-2 rounded-full bg-background border border-border p-2 shadow hover:bg-accent/20 transition z-50 mx-auto block"
 								onClick={() => setIsMobileMenuOpen(false)}
@@ -120,7 +119,7 @@ export default function Header() {
 							>
 								<X className="h-7 w-7" />
 							</button>
-							<nav className="flex flex-col gap-4 items-center w-full bg-transparent border-b border-border shadow-xl py-4 transition-all duration-300 ease-out translate-y-[-16px] opacity-0 animate-[fadeInDown_0.25s_ease-out_forwards]">
+							<nav className="flex flex-col gap-4 items-center w-full h-full bg-transparent border-b border-border shadow-xl py-4 transition-all duration-300 ease-out  opacity-0 animate-[fadeInDown_0.25s_ease-out_forwards]">
 								{navLinks.map((link) => (
 									<Link
 										key={link.name}
