@@ -8,6 +8,7 @@ import FadeInSection from '@/components/ui/fade-in-section';
 import { CheckCircle, Rocket } from 'lucide-react';
 import { Instrument_Serif } from 'next/font/google';
 import { agentContentStrings } from './content';
+import ConfigureAgentModalButton from '@/components/sections/ConfigureAgentModalButton';
 
 const instrumentSerif = Instrument_Serif({ subsets: ['latin'], weight: ['400'] });
 
@@ -91,7 +92,7 @@ export default function AgentContent({ content }: AgentContentProps) {
 
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-96 bg-gradient-to-t from-transparent to-[hsl(var(--background))] z-[5]" />
               
-              <div className={`container mx-auto px-6 py-24 max-w-3xl ${hasSquaresBackground ? 'relative z-10' : ''}`}>
+              <div className={`container mx-auto px-6 py-24 max-w-3xl relative z-10`}>
                 <h2 className={`text-4xl max-w-xl font-bold text-white mb-8`}>
                   {section.title}
                 </h2>
@@ -171,8 +172,15 @@ export default function AgentContent({ content }: AgentContentProps) {
                             </div>
                           ))}
                         </div>
+                        <div className="flex justify-end"></div>
                       </div>
                     )}
+                    <ConfigureAgentModalButton
+                      preSelectedModules={[
+                        ...(section.content.core?.map((mod: any) => mod) || []),
+                        ...(section.content.extra?.map((mod: any) => mod) || []),
+                      ]}
+                    />
                   </>
                 )}
                 {section.id === 'testimonials' && (
