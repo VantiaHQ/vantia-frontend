@@ -40,7 +40,7 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
     cornersRef.current = cursor.querySelectorAll('.target-cursor-corner');
 
     let activeTarget: Element | null = null;
-    let currentTargetMove = null;
+    let currentTargetMove: ((ev: MouseEvent) => void) | null = null;
     let currentLeaveHandler = null;
     let isAnimatingToTarget = false;
     let resumeTimeout = null;
