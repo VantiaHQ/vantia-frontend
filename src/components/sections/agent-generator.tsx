@@ -47,7 +47,7 @@ export default function AgentGenerator() {
     }, 3000); // Change message every 3 seconds
 
     try {
-      const response = await fetch("/api/generate-agent", {
+      const response = await fetch("/api/generar-agente", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -90,7 +90,7 @@ export default function AgentGenerator() {
     : "¿A qué se dedica tu empresa? ¿Qué tareas repetitivas te gustaría automatizar?";
 
   return (
-    <section id="agent-generator" className="bg-[#070916] py-20 sm:py-28 min-h-[calc(100vh-160px)] flex items-center justify-center">
+    <section id="agent-generator" className="bg-[#070916] min-h-[calc(100vh-160px)] flex items-center justify-center mt-[-64px]">
       <div className="container mx-auto px-6">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl max-w-full font-extrabold tracking-tight text-white/90 mb-8 drop-shadow-[0_0_16px_rgba(80,200,255,0.3)]">
