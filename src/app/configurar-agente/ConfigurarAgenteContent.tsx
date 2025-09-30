@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { configuratorContent } from './content';
 import { coreModules, extraModules } from './modules';
 
@@ -17,40 +17,11 @@ function ModuleCard({
 	disabled?: boolean;
 }) {
 	const [expanded, setExpanded] = useState(false);
-	const [showTooltip, setShowTooltip] = useState(false);
-	const tooltipTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-	const handleMouseEnter = () => {
-		if (disabled) {
-			setShowTooltip(true);
-			tooltipTimeoutRef.current = setTimeout(() => {
-				setShowTooltip(false);
-			}, 3000);
-		}
-	};
-
-	const handleMouseLeave = () => {
-		if (tooltipTimeoutRef.current) {
-			clearTimeout(tooltipTimeoutRef.current);
-		}
-		setShowTooltip(false);
-	};
-
-	useEffect(() => {
-		return () => {
-			if (tooltipTimeoutRef.current) {
-				clearTimeout(tooltipTimeoutRef.current);
-			}
-		};
-	}, []);
-
 	return (
 		<div className="relative group w-full">
 			<button
 				type="button"
 				onClick={() => !disabled && onClick()}
-				onMouseEnter={handleMouseEnter}
-				onMouseLeave={handleMouseLeave}
 				className={`w-full text-left rounded-xl border-2 border-blue-200 p-0 shadow-none transition-all focus:outline-none focus:ring-2 focus:ring-blue-400 ${
 					checked
 						? "bg-blue-50 border-blue-500"
@@ -96,8 +67,8 @@ function ModuleCard({
 					</div>
 				</div>
 			</button>
-			{disabled && showTooltip && (
-				<div className="absolute left-1/2 -translate-x-1/2 top-2 z-5 opacity-100 transition pointer-events-none select-none bg-gray-900 text-white text-xs rounded px-3 py-1 shadow-lg border border-blue-400 whitespace-nowrap">
+			{disabled && (
+				<div className="absolute left-1/2 -translate-x-1/2 top-2 z-20 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition pointer-events-none select-none bg-gray-900 text-white text-xs rounded px-3 py-1 shadow-lg border border-blue-400 whitespace-nowrap">
 					{configuratorContent.essentialModuleTooltip}
 				</div>
 			)}
@@ -108,6 +79,11 @@ function ModuleCard({
 export default function ConfigurarAgenteContent({ initialSelectedModules = [] }: { initialSelectedModules?: string[] }) {
 	const [selectedExtras, setSelectedExtras] = useState<string[]>(initialSelectedModules);
 	const [showAnnual, setShowAnnual] = useState(true);
+
+	const numberFormatter = new Intl.NumberFormat("es-ES", {
+		minimumFractionDigits: 0,
+		maximumFractionDigits: 0,
+	});
 
 	const handleToggle = (name: string) => {
 		setSelectedExtras((prev) =>
@@ -191,7 +167,7 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 								{coreModules.map((mod) => (
 									<li key={mod.name} className="flex justify-between items-center mb-1">
 										<span>{mod.name}</span>
-										<span className="font-semibold">{mod.price}€</span>
+										<span className="font-semibold">{numberFormatter.format(mod.price)}€</span>
 									</li>
 								))}
 								{selectedExtras.map((name) => {
@@ -199,7 +175,7 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 									return mod ? (
 										<li key={mod.name} className="flex justify-between items-center mb-1">
 											<span>{mod.name}</span>
-											<span className="font-semibold">{mod.price}€</span>
+											<span className="font-semibold">{numberFormatter.format(mod.price)}€</span>
 										</li>
 									) : null;
 								})}
@@ -249,15 +225,15 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 						<div className="mt-8 w-full flex flex-col items-end">
 							<div className="text-gray-600 text-sm mb-1">{configuratorContent.initialPayment}</div>
 							<div className="text-2xl font-bold text-blue-600 mb-2">
-								{totalSinIVA}€
+								{numberFormatter.format(totalSinIVA)}€
 							</div>
 							<div className="text-gray-600 text-sm mb-1">
-								{configuratorContent.initialPayment} {showAnnual ? configuratorContent.paymentTypeAnnual : configuratorContent.paymentTypeMonthly} {configuratorContent.paymentSupport}
+								Pago {showAnnual ? configuratorContent.paymentTypeAnnual : configuratorContent.paymentTypeMonthly} (soporte)
 							</div>
 							<div className="text-2xl font-bold text-blue-700">
 								{showAnnual
-									? `${totalMantenimiento}€/año`
-									: `${totalMantenimiento}€/mes`}
+									? `${numberFormatter.format(totalMantenimiento)}€/año`
+									: `${numberFormatter.format(totalMantenimiento)}€/mes`}
 							</div>
 						</div>
 					</div>
@@ -268,7 +244,7 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 							<div className="w-full max-w-md bg-gray-100 rounded-t-2xl p-6 text-gray-900 shadow-lg animate-fadeInUp relative z-50">
 								<div className="flex justify-between items-center mb-4">
 									<h3 className="text-lg font-semibold text-gray-900">{configuratorContent.budgetTitle}</h3>
-									<button className="text-blue-700 text-sm font-semibold" onClick={() => setShowPresupuestoMobile(false)}>{configuratorContent.hideBudgetButton}</button>
+									<button className="text-gray-600 text-sm font-semibold" onClick={() => setShowPresupuestoMobile(false)}>{configuratorContent.hideBudgetButton}</button>
 								</div>
 								{/* Mensual/Anual selector for mobile modal */}
 								<div className="flex gap-2 mb-4">
@@ -281,18 +257,18 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 									</button>
 									<button
 										type="button"
-										className={`w-1/2 px-3 py-1 rounded-full border text-sm font-semibold transition-colors flex items-center justify-center ${showAnnual ? 'bg-blue-100 border-blue-400 text-blue-700' : 'bg-white border-gray-300 text-gray-700'}`}
+										className={`w-1/2 px-3 py-1 rounded-full border text-sm font-semibold transition-colors flex items-center justify-center ${showAnnual ? 'bg-blue-100 border-blue-400 text-blue-700' : 'bg-white border-gray-300 text-blue-700'}`}
 										onClick={() => setShowAnnual(true)}
 									>
 										<span>{configuratorContent.annualButton}</span>
-										<span className="ml-2 text-xs text-gray-700 font-bold">(-20%)</span>
+										<span className="ml-2 text-xs text-blue-700 font-bold">(-20%)</span>
 									</button>
 								</div>
 								<ul className="text-gray-700 text-sm w-full mb-4">
 									{coreModules.map((mod) => (
 										<li key={mod.name} className="flex justify-between items-center mb-1">
-											<span>{mod.name}</span>
-											<span className="font-semibold">{mod.price}€</span>
+											<span>{mod.name} (Core)</span>
+											<span className="font-semibold">{numberFormatter.format(mod.price)}€</span>
 										</li>
 									))}
 									{selectedExtras.map((name) => {
@@ -300,7 +276,7 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 										return mod ? (
 											<li key={mod.name} className="flex justify-between items-center mb-1">
 												<span>{mod.name}</span>
-												<span className="font-semibold">{mod.price}€</span>
+												<span className="font-semibold">{numberFormatter.format(mod.price)}€</span>
 											</li>
 										) : null;
 									})}
@@ -310,23 +286,23 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 										<span>{configuratorContent.basicCoreMaintenance}</span>
 										{showAnnual ? (
 											<span className="flex items-center gap-2 font-bold">
-												4.000€/año
-												<span className="text-gray-600 line-through decoration-red-700 text-xs font-medium">{400 * 12}€/año</span>
+												<span className="text-gray-600 line-through decoration-red-700 text-xs font-medium">{numberFormatter.format(400 * 12)}€</span>
+												{numberFormatter.format(4000)}€/año
 											</span>
 										) : (
-											<span className="font-semibold">400€/mes</span>
+											<span className="font-semibold">{numberFormatter.format(400)}€/mes</span>
 										)}
 									</div>
 									{selectedExtras.length > 0 && (
 										<div className="flex justify-between items-center">
-											<span>{configuratorContent.extraMaintenancePrefix}{selectedExtras.length} módulo{selectedExtras.length > 1 ? configuratorContent.extraMaintenanceSuffixPlural : configuratorContent.extraMaintenanceSuffixSingular}</span>
+											<span>{configuratorContent.extraMaintenancePrefix}{selectedExtras.length} {selectedExtras.length > 1 ? configuratorContent.extraMaintenanceSuffixPlural : configuratorContent.extraMaintenanceSuffixSingular}</span>
 											{showAnnual ? (
 												<span className="flex items-center gap-2 font-semibold">
-													{600 * selectedExtras.length}€/año
-													<span className="text-gray-600 line-through decoration-red-700 text-xs">{60 * selectedExtras.length * 12}€/año</span>
+													<span className="text-gray-600 line-through decoration-red-700 text-xs">{numberFormatter.format(60 * selectedExtras.length * 12)}€</span>
+													{numberFormatter.format(600 * selectedExtras.length)}€/año
 												</span>
 											) : (
-												<span className="font-semibold">{60 * selectedExtras.length}€/mes</span>
+												<span className="font-semibold">{numberFormatter.format(60 * selectedExtras.length)}€/mes</span>
 											)}
 										</div>
 									)}
@@ -334,26 +310,26 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 										<span>{configuratorContent.totalMaintenance}</span>
 										{showAnnual ? (
 											<span className="flex items-center gap-2">
-												{totalMantenimiento}€/año
-												<span className="text-gray-600 line-through decoration-red-700 text-xs">{(400 + 60 * selectedExtras.length) * 12}€/año</span>
+												<span className="text-gray-600 line-through decoration-red-700 text-xs">{numberFormatter.format((400 + 60 * selectedExtras.length) * 12)}€</span>
+												{numberFormatter.format(totalMantenimiento)}€/año
 											</span>
 										) : (
-											<span>{totalMantenimiento}€/mes</span>
+											<span>{numberFormatter.format(totalMantenimiento)}€/mes</span>
 										)}
 									</div>
 								</div>
 								<div className="w-full flex flex-col items-end">
 									<div className="text-gray-600 text-sm mb-1">Pago inicial</div>
-									<div className="text-2xl font-bold text-blue-600 mb-2">
-										{totalSinIVA}€
+									<div className="text-2xl font-bold text-black mb-2">
+										{numberFormatter.format(totalSinIVA)}€
 									</div>
 									<div className="text-gray-600 text-sm mb-1">
-										Pago {showAnnual ? "anual" : "mensual"} (soporte)
+										Suscripción {showAnnual ? "anual" : "mensual"}
 									</div>
-									<div className="text-2xl font-bold text-blue-700">
+									<div className="text-2xl font-bold text-black">
 										{showAnnual
-											? `${totalMantenimiento}€/año`
-											: `${totalMantenimiento}€/mes`}
+											? `${numberFormatter.format(totalMantenimiento)}€/año`
+											: `${numberFormatter.format(totalMantenimiento)}€/mes`}
 									</div>
 								</div>
 							</div>
@@ -364,11 +340,11 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 				<div className="fixed bottom-0 left-0 right-0 z-30 bg-white border-t border-gray-200 px-4 py-3 flex md:hidden items-center justify-between shadow-lg">
 					<div className="flex flex-col">
 						<span className="text-xs text-gray-600">{configuratorContent.initialPayment}</span>
-						<span className="text-lg font-bold text-blue-600">{totalSinIVA}€</span>
+						<span className="text-lg font-bold text-blue-600">{numberFormatter.format(totalSinIVA)}€</span>
 					</div>
 					<div className="flex flex-col mx-4">
 						<span className="text-xs text-gray-600">{configuratorContent.initialPayment} {showAnnual ? configuratorContent.paymentTypeAnnual : configuratorContent.paymentTypeMonthly}</span>
-						<span className="text-lg font-bold text-blue-700">{showAnnual ? `${totalMantenimiento}€/año` : `${totalMantenimiento}€/mes`}</span>
+						<span className="text-lg font-bold text-blue-700">{showAnnual ? `${numberFormatter.format(totalMantenimiento)}€/año` : `${numberFormatter.format(totalMantenimiento)}€/mes`}</span>
 					</div>
 					<button
 						type="button"
