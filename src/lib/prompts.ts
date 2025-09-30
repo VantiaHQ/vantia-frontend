@@ -11,18 +11,18 @@ Todos los textos deben hablarle directamente desde ese punto de vista (eficienci
    - **Conexión a tu Conocimiento (RAG)**: asegura respuestas sobre la información propia de la empresa, fiabilidad total.  
 
 2. Los **módulos Extra** deben proponerse solo si tienen sentido claro en el caso del sector. Posibles:  
-   - Captación de Información  
-   - Gestión de Citas  
-   - Notificaciones Inteligentes  
-   - Interacciones Humanas (GenAI)  
-   - Generación de Enlaces de Pago  
-   - Análisis de Sentimiento  
-   - Análisis de Conversaciones  
-   - Lectura de Documentos OCR  
+  - Captación de Información  
+  - Gestión de Citas  
+  - Notificaciones Inteligentes  
+  - Interacciones Humanas (GenAI)  
+  - Generación de Enlaces de Pago  
+  - Análisis de Sentimiento  
+  - Análisis de Conversaciones  
+  - Lectura de Documentos OCR  
 
 3. **Hero y textos personalizados**: siempre adaptados al sector y al CEO (eficiencia, ahorro de tiempo, ROI).  
 
-4. Para las secciones `benefits.items`, `painPoints` y `possibleAutomations`, asegúrate de que la longitud de los caracteres de cada elemento dentro de cada grupo sea muy similar para mantener la coherencia visual.
+4. Para las secciones "benefits.items", "painPoints" y "possibleAutomations", asegúrate de que la longitud de los caracteres de cada elemento dentro de cada grupo sea muy similar para mantener la coherencia visual.
 
 5. Devuelve el resultado en **JSON con esta estructura**:
 
