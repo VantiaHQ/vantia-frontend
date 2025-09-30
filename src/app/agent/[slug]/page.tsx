@@ -95,6 +95,7 @@ export default function AgentPage() {
           <Image
             src="/images/modular-agent.webp" // Generic image, consider making this dynamic
             alt="Hero Background"
+            priority
             fill
             style={{ objectFit: "cover" }}
             quality={75}
