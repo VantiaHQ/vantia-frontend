@@ -11,7 +11,8 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
     () => ({
       borderWidth: 3,
       cornerSize: 12,
-      parallaxStrength: 0.00005
+      parallaxStrength: 0.00005,
+      padding: 2
     }),
     []
   );
@@ -143,6 +144,7 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
       }
 
       activeTarget = target;
+      gsap.to(dotRef.current, { opacity: 0, duration: 0.2, ease: 'power2.out' });
       const corners = Array.from(cornersRef.current);
       corners.forEach(corner => {
         gsap.killTweensOf(corner);
@@ -162,23 +164,23 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
 
         const [tlc, trc, brc, blc] = Array.from(cornersRef.current);
 
-        const { borderWidth, cornerSize, parallaxStrength } = constants;
+        const { borderWidth, cornerSize, parallaxStrength, padding } = constants;
 
         let tlOffset = {
-          x: rect.left - cursorCenterX - borderWidth,
-          y: rect.top - cursorCenterY - borderWidth
+          x: rect.left - cursorCenterX - borderWidth - padding - 2,
+          y: rect.top - cursorCenterY - borderWidth - padding
         };
         let trOffset = {
-          x: rect.right - cursorCenterX + borderWidth - cornerSize,
-          y: rect.top - cursorCenterY - borderWidth
+          x: rect.right - cursorCenterX + borderWidth - cornerSize + padding + 2,
+          y: rect.top - cursorCenterY - borderWidth - padding
         };
         let brOffset = {
-          x: rect.right - cursorCenterX + borderWidth - cornerSize,
-          y: rect.bottom - cursorCenterY + borderWidth - cornerSize
+          x: rect.right - cursorCenterX + borderWidth - cornerSize + padding + 2,
+          y: rect.bottom - cursorCenterY + borderWidth - cornerSize + padding
         };
         let blOffset = {
-          x: rect.left - cursorCenterX - borderWidth,
-          y: rect.bottom - cursorCenterY + borderWidth - cornerSize
+          x: rect.left - cursorCenterX - borderWidth - padding - 2,
+          y: rect.bottom - cursorCenterY + borderWidth - cornerSize + padding
         };
 
         if (mouseX !== undefined && mouseY !== undefined) {
@@ -235,6 +237,7 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
       const leaveHandler = () => {
         activeTarget = null;
         isAnimatingToTarget = false;
+        gsap.to(dotRef.current, { opacity: 1, duration: 0.3, ease: 'power3.out' });
 
         if (cornersRef.current) {
           const corners = Array.from(cornersRef.current);
