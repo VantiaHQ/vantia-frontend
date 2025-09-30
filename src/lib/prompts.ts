@@ -22,7 +22,7 @@ Todos los textos deben hablarle directamente desde ese punto de vista (eficienci
 
 3. **Hero y textos personalizados**: siempre adaptados al sector y al CEO (eficiencia, ahorro de tiempo, ROI).  
 
-4. Para las secciones "benefits.items", "painPoints" y "possibleAutomations", asegúrate de que la longitud de los caracteres de cada elemento dentro de cada grupo sea muy similar para mantener la coherencia visual.
+4. Para las secciones "benefits.items", "painPoints" y "possibleAutomations", asegúrate de que la longitud de los caracteres de cada elemento dentro de cada grupo sea muy similar para mantener la coherencia visual y devuelve estrictamente el número de elementos indicados: 
 
 5. Devuelve el resultado en **JSON con esta estructura**:
 
@@ -38,11 +38,11 @@ Todos los textos deben hablarle directamente desde ese punto de vista (eficienci
   },
   "benefits": {
     "title": "...",
-    "items": ["...", "..."]
+    "items": ["...", "...", "...", "..."]
   },
   "howItWorks": {
     "title": "...",
-    "steps": ["...", "..."]
+    "steps": ["...", "...", "..."]
   },
   "faq": {
     "title": "...",
@@ -60,10 +60,10 @@ Todos los textos deben hablarle directamente desde ese punto de vista (eficienci
   },
   "finalCTA": {
     "text": "...",
-    "buttons": ["...", "..."]
+    "buttons": ["...", "...", "...", "...", "..."]
   },
-  "painPoints": ["...", "..."],
-  "possibleAutomations": ["...", "..."],
+  "painPoints": ["...", "...", "...", "..."],
+  "possibleAutomations": ["...", "...", "...", "..."],
   "modulesUsed": {
     "core": ["ChatBot 24/7", "Conexión a tu Conocimiento"],
     "extra": ["...", "..."]
@@ -108,7 +108,10 @@ Output:
     "title": "Preguntas Frecuentes",
     "items": [
       {"q": "¿Mi personal necesita conocimientos técnicos?", "a": "No, el sistema es intuitivo y fácil de usar."},
-      {"q": "¿Se puede integrar con WhatsApp y el calendario de la clínica?", "a": "Sí, el agente se conecta a WhatsApp para atender a los pacientes en su canal favorito y gestiona automáticamente las citas en tu calendario."}
+      {"q": "¿Se puede integrar con WhatsApp y el calendario de la clínica?", "a": "Sí, el agente se conecta a WhatsApp para atender a los pacientes en su canal favorito y gestiona automáticamente las citas en tu calendario."},
+      {"q": "¿Cuánto tiempo puede ahorrarme el agente automáticamente?", "a": "Puede ahorrar hasta el 80% del tiempo dedicado a la gestión de citas y consultas frecuentes, permitiendo que tu equipo se centre en tareas de mayor valor."},
+      {"q": "¿El agente funciona las 24 horas del día?", "a": "Sí, está disponible para interactuar con los pacientes y gestionar solicitudes en cualquier momento, incluso fuera del horario de la clínica."},
+      {"q": "¿Cómo se personaliza el agente para mi clínica?", "a": "Se configura con la información específica de tus servicios, horarios y políticas para ofrecer respuestas precisas y personalizadas a cada paciente."}
     ]
   },
   "testimonials": {
@@ -124,12 +127,15 @@ Output:
   },
   "painPoints": [
     "Personal saturado de llamadas y gestión manual de citas",
-    "Pacientes que esperan demasiado tiempo para respuestas básicas"
+    "Pacientes que esperan demasiado tiempo para respuestas básicas",
+    "Pacientes que quieren hacer gestiones fuera del horario de la clínica",
+    "Pacientes que no reciben atención personalizada"
   ],
   "possibleAutomations": [
     "ChatBot 24/7 que responde dudas médicas frecuentes",
     "Gestión automática de citas",
-    "Envío de recordatorios y notificaciones inteligentes"
+    "Integración con WhatsApp para atender a los pacientes en su canal favorito",
+    "RAG para respuestas precisas y actualizadas"
   ],
   "modulesUsed": {
     "core": ["ChatBot 24/7", "Conexión a tu Conocimiento"],
