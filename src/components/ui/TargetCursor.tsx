@@ -4,7 +4,7 @@ import { gsap } from 'gsap';
 import './TargetCursor.css';
 
 const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hideDefaultCursor = true }) => {
-  const cursorRef = useRef(null);
+  const cursorRef = useRef<HTMLDivElement>(null);
   const cornersRef = useRef(null);
   const spinTl = useRef(null);
   const dotRef = useRef(null);
