@@ -85,9 +85,11 @@ export default function AgentContent({ content }: AgentContentProps) {
               {hasSquaresBackground && (
                 <Squares speed={0.5} squareSize={20} direction='up' borderColor='rgba(96, 165, 250, 0.05)' hoverFillColor='rgba(0, 0, 0, 0)' />
               )}
-              {section.id === 'possibleAutomations' && (
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-[hsl(var(--background))] z-[5]" />
-              )}
+
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-96 bg-gradient-to-b from-transparent to-[hsl(var(--background))] z-[5]" />
+
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-96 bg-gradient-to-t from-transparent to-[hsl(var(--background))] z-[5]" />
+              
               <div className={`container mx-auto px-6 py-24 max-w-3xl ${hasSquaresBackground ? 'relative z-10' : ''}`}>
                 <h2 className={`text-4xl max-w-xl font-bold text-white mb-8`}>
                   {section.title}
