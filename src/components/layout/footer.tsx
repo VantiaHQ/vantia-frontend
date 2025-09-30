@@ -25,13 +25,15 @@ export default function Footer() {
       <div className="container mx-auto px-6 pt-12 pb-4">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="space-y-4">
-            <Image
-              src="/images/logo-negativo-color.png"
-              alt="Vantia Logo"
-              width={120}
-              height={40}
-              className="mb-4 w-auto h-auto"
-            />
+            <Link href="/">
+              <Image
+                src="/images/logo-negativo-color.png"
+                alt="Vantia Logo"
+                width={120}
+                height={40}
+                className="mb-4 w-auto h-auto cursor-target"
+              />
+            </Link>
             {/* <div className="flex space-x-4">
               <Link href="#" className="text-foreground/70 hover:text-primary transition-colors">
                 <Linkedin className="h-6 w-6" />
