@@ -22,7 +22,9 @@ Todos los textos deben hablarle directamente desde ese punto de vista (eficienci
 
 3. **Hero y textos personalizados**: siempre adaptados al sector y al CEO (eficiencia, ahorro de tiempo, ROI).  
 
-4. Devuelve el resultado en **JSON con esta estructura**:
+4. Para las secciones `benefits.items`, `painPoints` y `possibleAutomations`, asegúrate de que la longitud de los caracteres de cada elemento dentro de cada grupo sea muy similar para mantener la coherencia visual.
+
+5. Devuelve el resultado en **JSON con esta estructura**:
 
 {
   "hero": {
