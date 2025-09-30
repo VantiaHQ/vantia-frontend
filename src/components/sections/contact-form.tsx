@@ -76,7 +76,7 @@ export default function ContactForm() {
                 <Input
                   type="text"
                   placeholder="Nombre"
-                  className="pl-12 bg-blue-950/60 border-blue-400/30 focus:border-blue-400"
+                  className="cursor-target pl-12 bg-blue-950/60 border-blue-400/30 focus:border-blue-400"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
@@ -87,7 +87,7 @@ export default function ContactForm() {
                 <Input
                   type="text"
                   placeholder="Tu Empresa"
-                  className="pl-12 bg-blue-950/60 border-blue-400/30 focus:border-blue-400"
+                  className="cursor-target pl-12 bg-blue-950/60 border-blue-400/30 focus:border-blue-400"
                   value={company}
                   onChange={(e) => setCompany(e.target.value)}
                   required
@@ -98,7 +98,7 @@ export default function ContactForm() {
                 <Input
                   type="email"
                   placeholder="Email"
-                  className="pl-12 bg-blue-950/60 border-blue-400/30 focus:border-blue-400"
+                  className="cursor-target pl-12 bg-blue-950/60 border-blue-400/30 focus:border-blue-400"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -107,7 +107,7 @@ export default function ContactForm() {
               <div className="relative">
                 <Briefcase className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
                 <Select value={budget} onValueChange={setBudget} required>
-                  <SelectTrigger className="w-full pl-12 bg-blue-950/60 border-blue-400/30 focus:border-blue-400">
+                  <SelectTrigger className="cursor-target w-full pl-12 bg-blue-950/60 border-blue-400/30 focus:border-blue-400">
                     <SelectValue placeholder="Presupuesto" />
                   </SelectTrigger>
                   <SelectContent className="bg-blue-950/90 text-white border-blue-400/30">
@@ -121,7 +121,7 @@ export default function ContactForm() {
                 <MessageSquare className="absolute left-4 top-6 -translate-y-1/2 h-5 w-5 text-gray-400" />
                 <Textarea
                   placeholder="Cuéntame más sobre tu idea"
-                  className="pl-12 pt-4 bg-blue-950/60 border-blue-400/30 focus:border-blue-400"
+                  className="cursor-target pl-12 pt-4 bg-blue-950/60 border-blue-400/30 focus:border-blue-400"
                   rows={6}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
@@ -130,7 +130,7 @@ export default function ContactForm() {
               </div>
               <Button
                 type="submit"
-                className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg transition-colors"
+                className="cursor-target w-full bg-accent text-white text-sm font-bold py-3 px-8 rounded-full shadow-lg border-2 border-transparent transition duration-300 ease-in-out hover:animate-shadow-glow hover:border-primary"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
