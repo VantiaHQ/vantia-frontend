@@ -8,7 +8,7 @@ import Image from 'next/image';
 
 const navLinks = [
 	{ name: 'Agente Modular', href: '/#agente-modular' },
-	{ name: 'Caso de Estudio', href: '/#case-study' },
+	{ name: 'Generar Agente', href: '/generate-agent' },
 	{ name: 'Consultoría IA', href: '/#consultoria-ia' },
 	{ name: 'Filosofía', href: '/#philosophy' },
 ];
