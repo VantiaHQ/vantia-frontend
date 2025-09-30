@@ -40,7 +40,10 @@ export default function AgentPage() {
         notFound();
       }
       setPageContent(data.content);
-      setLoading(false);
+      // Introduce a 2-second delay before setting loading to false
+      setTimeout(() => {
+        setLoading(false);
+      }, 2200);
     };
 
     fetchPageContent();
@@ -68,8 +71,22 @@ export default function AgentPage() {
     };
   }, [pageContent]); // Recalculate when pageContent changes
 
+  
+
   if (loading) {
-    return <div>Loading...</div>; // Or a more sophisticated loading spinner
+    return (
+      <div className="fixed inset-0 flex items-center justify-center bg-background z-[9999]">
+        <div className="relative flex items-center justify-center">
+          {/* Pulsing Circle */}
+          <div className="absolute w-24 h-24 rounded-full bg-primary opacity-20 animate-pulse" />
+          <div className="absolute w-16 h-16 rounded-full bg-primary opacity-40 animate-pulse animation-delay-200" />
+          <div className="absolute w-8 h-8 rounded-full bg-primary opacity-60 animate-pulse animation-delay-400" />
+
+          {/* Loading Message */}
+          <p className="text-white text-xl font-semibold z-10">Cargando...</p>
+        </div>
+      </div>
+    );
   }
 
   if (!pageContent) {
@@ -206,7 +223,11 @@ export default function AgentPage() {
                           <h3 className="text-2xl font-semibold text-white mb-4">Core:</h3>
                           <div className="flex flex-wrap gap-3">
                             {section.content.core.map((module: string, itemIndex: number) => (
-                              <Badge key={itemIndex} variant="secondary" className="text-lg px-4 py-2">{module}</Badge>
+                              <div key={itemIndex} className="bg-blue-950/60 backdrop-blur rounded-xl border border-blue-400/30 p-6 flex items-center gap-6 shadow-lg">
+                                <div className="font-bold text-lg text-white mb-1 text-left">
+                                  {module}
+                                </div>
+                              </div>
                             ))}
                           </div>
                         </div>
@@ -216,7 +237,11 @@ export default function AgentPage() {
                           <h3 className="text-2xl font-semibold text-white mb-4">Extra:</h3>
                           <div className="flex flex-wrap gap-3">
                             {section.content.extra.map((module: string, itemIndex: number) => (
-                              <Badge key={itemIndex} variant="outline" className="text-lg px-4 py-2">{module}</Badge>
+                              <div key={itemIndex} className="bg-blue-950/60 backdrop-blur rounded-xl border border-blue-400 p-6 flex items-center gap-6 shadow-lg shadow-blue-400/20">
+                                <div className="font-bold text-lg text-white mb-1 text-left">
+                                  {module}
+                                </div>
+                              </div>
                             ))}
                           </div>
                         </div>
