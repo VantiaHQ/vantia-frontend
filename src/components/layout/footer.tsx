@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import VantiaLogo from '@/components/vantia-logo';
 import Image from 'next/image';
 
 const columnOneLinks = [
