@@ -8,7 +8,7 @@ export default function GenerateAgentPage() {
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <TargetCursor />
       <Header />
-      <main className="flex-1 mt-[-80px] pt-8">
+      <main className="flex-1">
         <AgentGenerator />
       </main>
       <Footer />
