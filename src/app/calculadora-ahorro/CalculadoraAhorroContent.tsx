@@ -26,6 +26,7 @@ export default function CalculadoraAhorroContent() {
   const interaccionesMes = interaccionesDia * diasLaboralesMes;
   const horasInvertidasMes = (interaccionesMes * duracionMedia) / 60;
   const costeMensualActual = horasInvertidasMes * precioHora;
+  const ahorroAnualEstimado = costeMensualActual * 12;
 
   // Formateadores para una bonita visualización
   const formatoMoneda = new Intl.NumberFormat("es-ES", {
@@ -38,7 +39,7 @@ export default function CalculadoraAhorroContent() {
 
   return (
     <>
-      <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 md:p-12 pt-8">
+      <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 md:p-12 pt-12">
         <div className="text-center mb-10">
           <h1 className="text-4xl md:text-5xl font-bold text-white/90/90">
             {savingsCalculatorContent.title}
@@ -74,6 +75,7 @@ export default function CalculadoraAhorroContent() {
                 costeMensualActual={costeMensualActual}
                 horasInvertidasMes={horasInvertidasMes}
                 interaccionesMes={interaccionesMes}
+                ahorroAnualEstimado={ahorroAnualEstimado}
                 savingsCalculatorContent={savingsCalculatorContent}
               />
           </CardContent>
@@ -99,6 +101,7 @@ export default function CalculadoraAhorroContent() {
         costeMensualActual={costeMensualActual}
         horasInvertidasMes={horasInvertidasMes}
         interaccionesMes={interaccionesMes}
+        ahorroAnualEstimado={ahorroAnualEstimado}
       />
     </>
   );
