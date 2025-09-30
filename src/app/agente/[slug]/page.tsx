@@ -125,8 +125,8 @@ export default function AgentPage() {
             quality={75}
             className="absolute inset-0 z-0 opacity-20"
           />
-          <div className="container min-h-[60vh] mx-auto flex flex-col justify-center relative z-10 text-center max-w-4xl">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl max-w-3xl mx-auto font-extrabold tracking-tight text-white mb-8 drop-shadow-[0_0_16px_rgba(80,200,255,0.3)]">
+          <div className="container min-h-[60vh] mx-auto flex flex-col justify-center relative z-10 text-center max-w-xl lg:max-w-4xl px-8">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl max-w-3xl mx-auto font-extrabold tracking-tight text-white mb-8 drop-shadow-[0_0_16px_rgba(80,200,255,0.3)]">
               {pageContent.hero.title}
             </h1>
             <p className="mt-4 text-lg sm:text-xl md:text-2xl leading-9 text-foreground/80 max-w-2xl mx-auto">
@@ -189,7 +189,7 @@ export default function AgentPage() {
                     {section.title}
                   </h2>
                   {section.id === "whatIsIt" && (
-                    <p className="text-6xl font-extralight leading-16 text-blue-300/80 text-left mb-12 min-h-[50vh]">{section.content.text}</p>
+                    <p className="text-4xl lg:text-6xl font-extralight leading-16 text-blue-300/80 text-left mb-12 min-h-full">{section.content.text}</p>
                   )}
                   {section.id === "benefits" && (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
