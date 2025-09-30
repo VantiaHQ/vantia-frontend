@@ -6,8 +6,8 @@ import './TargetCursor.css';
 const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hideDefaultCursor = true }) => {
   const cursorRef = useRef<HTMLDivElement>(null);
   const cornersRef: MutableRefObject<NodeListOf<Element> | null> = useRef(null);
-  const spinTl = useRef(null);
-  const dotRef = useRef(null);
+  const spinTl = useRef<gsap.core.Timeline | null>(null);
+  const dotRef = useRef<HTMLDivElement>(null);
   const constants = useMemo(
     () => ({
       borderWidth: 3,
@@ -41,11 +41,11 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
 
     let activeTarget: Element | null = null;
     let currentTargetMove: ((ev: MouseEvent) => void) | null = null;
-    let currentLeaveHandler = null;
+    let currentLeaveHandler: (() => void) | null = null;
     let isAnimatingToTarget = false;
-    let resumeTimeout = null;
+    let resumeTimeout: number | null = null;
 
-    const cleanupTarget = target => {
+    const cleanupTarget = (target: Element | null) => {
       if (currentTargetMove) {
         target.removeEventListener('mousemove', currentTargetMove);
       }
@@ -74,7 +74,7 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
 
     createSpinTimeline();
 
-    const moveHandler = e => moveCursor(e.clientX, e.clientY);
+    const moveHandler = (e: MouseEvent) => moveCursor(e.clientX, e.clientY);
     window.addEventListener('mousemove', moveHandler);
 
     const scrollHandler = () => {
@@ -118,7 +118,7 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
     window.addEventListener('mouseup', mouseUpHandler);
 
     //----------------------------------------------------------------
-    const enterHandler = e => {
+    const enterHandler = (e: MouseEvent) => {
       const directTarget = e.target;
 
       const allTargets = [];
@@ -156,7 +156,7 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
 
       gsap.set(cursorRef.current, { rotation: 0 });
 
-      const updateCorners = (mouseX, mouseY) => {
+      const updateCorners = (mouseX: number, mouseY: number) => {
         const rect = target.getBoundingClientRect();
         const cursorRect = cursorRef.current.getBoundingClientRect();
 
@@ -225,8 +225,8 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
         isAnimatingToTarget = false;
       }, 1);
 
-      let moveThrottle = null;
-      const targetMove = ev => {
+      let moveThrottle: number | null = null;
+      const targetMove = (ev: MouseEvent) => {
         if (moveThrottle || isAnimatingToTarget) return;
         moveThrottle = requestAnimationFrame(() => {
           const mouseEvent = ev;
