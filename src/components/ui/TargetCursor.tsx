@@ -47,10 +47,10 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
 
     const cleanupTarget = (target: Element | null) => {
       if (currentTargetMove) {
-        target.removeEventListener('mousemove', currentTargetMove);
+        target?.removeEventListener('mousemove', currentTargetMove as EventListener);
       }
       if (currentLeaveHandler) {
-        target.removeEventListener('mouseleave', currentLeaveHandler);
+        target?.removeEventListener('mouseleave', currentLeaveHandler as EventListener);
       }
       currentTargetMove = null;
       currentLeaveHandler = null;
@@ -83,7 +83,7 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
       const mouseX = gsap.getProperty(cursorRef.current, 'x');
       const mouseY = gsap.getProperty(cursorRef.current, 'y');
 
-      const elementUnderMouse = document.elementFromPoint(mouseX, mouseY);
+      const elementUnderMouse = document.elementFromPoint(mouseX as number, mouseY as number);
       const isStillOverTarget =
         elementUnderMouse &&
         (elementUnderMouse === activeTarget || elementUnderMouse.closest(targetSelector) === activeTarget);
@@ -119,7 +119,7 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
 
     //----------------------------------------------------------------
     const enterHandler = (e: MouseEvent) => {
-      const directTarget = e.target;
+      const directTarget = e.target as Element;
 
       const allTargets = [];
       let current = directTarget;
@@ -156,14 +156,14 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
 
       gsap.set(cursorRef.current, { rotation: 0 });
 
-      const updateCorners = (mouseX: number, mouseY: number) => {
+      const updateCorners = (mouseX?: number, mouseY?: number) => {
         const rect = target.getBoundingClientRect();
-        const cursorRect = cursorRef.current.getBoundingClientRect();
+        const cursorRect = cursorRef.current!.getBoundingClientRect();
 
         const cursorCenterX = cursorRect.left + cursorRect.width / 2;
         const cursorCenterY = cursorRect.top + cursorRect.height / 2;
 
-        const [tlc, trc, brc, blc] = Array.from(cornersRef.current);
+        const [tlc, trc, brc, blc] = Array.from(cornersRef.current!);
 
         const { borderWidth, cornerSize, parallaxStrength, padding } = constants;
 
@@ -270,7 +270,7 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
         resumeTimeout = setTimeout(() => {
           if (!activeTarget && cursorRef.current && spinTl.current) {
             const currentRotation = gsap.getProperty(cursorRef.current, 'rotation');
-            const normalizedRotation = currentRotation % 360;
+            const normalizedRotation = (currentRotation as number) % 360;
 
             spinTl.current.kill();
             spinTl.current = gsap
@@ -287,7 +287,7 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
             });
           }
           resumeTimeout = null;
-        }, 50);
+        }, 50) as number;
 
         cleanupTarget(target);
       };
@@ -295,7 +295,7 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
       currentTargetMove = targetMove;
       currentLeaveHandler = leaveHandler;
 
-      target.addEventListener('mousemove', targetMove);
+      target.addEventListener('mousemove', targetMove as EventListener);
       target.addEventListener('mouseleave', leaveHandler);
     };
 
