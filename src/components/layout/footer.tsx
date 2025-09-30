@@ -30,7 +30,7 @@ export default function Footer() {
               alt="Vantia Logo"
               width={120}
               height={40}
-              className="mb-4"
+              className="mb-4 w-auto h-auto"
             />
             {/* <div className="flex space-x-4">
               <Link href="#" className="text-foreground/70 hover:text-primary transition-colors">
