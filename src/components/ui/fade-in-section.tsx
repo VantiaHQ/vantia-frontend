@@ -5,9 +5,10 @@ interface FadeInSectionProps {
   children: ReactNode;
   direction?: 'up' | 'down' | 'left' | 'right';
   className?: string;
+  delay?: number; // New prop for delay in milliseconds
 }
 
-export default function FadeInSection({ children, direction = 'up', className = '' }: FadeInSectionProps) {
+export default function FadeInSection({ children, direction = 'up', className = '', delay = 0 }: FadeInSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -33,6 +34,7 @@ export default function FadeInSection({ children, direction = 'up', className = 
       className={`transition-all duration-1000 ease-out will-change-transform will-change-opacity ${className} ${
         isVisible ? 'opacity-100 translate-y-0 translate-x-0' : fadeClass
       }`}
+      style={{ transitionDelay: `${delay || 0}ms` }} // Apply delay here
     >
       {children}
     </div>
