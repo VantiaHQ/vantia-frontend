@@ -19,9 +19,9 @@ export default function AgentContent({ content }: AgentContentProps) {
 
   const sections = [
     { id: 'whatIsIt', title: content.whatIsIt?.title, content: content.whatIsIt, bg: 'bg-background' },
-    { id: 'benefits', title: content.benefits?.title, content: content.benefits, bg: 'bg-[#070916]' },
+    { id: 'benefits', title: content.benefits?.title, content: content.benefits, bg: 'bg-background' },
     { id: 'howItWorks', title: content.howItWorks?.title, content: content.howItWorks, bg: 'bg-background' },
-    { id: 'painPoints', title: 'Puntos de Dolor Identificados', content: content.painPoints, bg: 'bg-[#070916]' },
+    { id: 'painPoints', title: 'Puntos de Dolor Identificados', content: content.painPoints, bg: 'bg-background' },
     { id: 'possibleAutomations', title: 'Posibles Automatizaciones', content: content.possibleAutomations, bg: 'bg-background' },
     { id: 'modulesUsed', title: 'Módulos de IA Utilizados', content: content.modulesUsed, bg: 'bg-[#070916]' },
     { id: 'testimonials', title: content.testimonials?.title, content: content.testimonials, bg: 'bg-background' },
@@ -45,7 +45,7 @@ export default function AgentContent({ content }: AgentContentProps) {
           <h1 className="text-4xl md:text-5xl lg:text-7xl max-w-3xl mx-auto font-extrabold tracking-tight text-white mb-8 drop-shadow-[0_0_16px_rgba(80,200,255,0.3)]">
             {content.hero?.title}
           </h1>
-          <p className="mt-4 text-lg sm:text-xl md:text-2xl leading-9 text-foreground/80 max-w-2xl mx-auto">
+          <p className="mt-4 text-lg lg:text-2xl leading-9 text-foreground/80 max-w-2xl mx-auto">
             {content.hero?.subtitle}
           </p>
           <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
@@ -84,6 +84,9 @@ export default function AgentContent({ content }: AgentContentProps) {
             <section id={section.id} className={`py-20 sm:py-28 ${section.bg} ${section.id === 'finalCTA' ? 'dotted-bg' : ''} ${hasSquaresBackground ? 'relative' : ''}`}>
               {hasSquaresBackground && (
                 <Squares speed={0.5} squareSize={20} direction='up' borderColor='rgba(96, 165, 250, 0.05)' hoverFillColor='rgba(0, 0, 0, 0)' />
+              )}
+              {section.id === 'possibleAutomations' && (
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-[hsl(var(--background))] z-[5]" />
               )}
               <div className={`container mx-auto px-6 py-24 max-w-3xl ${hasSquaresBackground ? 'relative z-10' : ''}`}>
                 <h2 className={`text-4xl max-w-xl font-bold text-white mb-8`}>
