@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <Header />
-      <main className="flex-1 mt-[-80px] pt-8">
+      <main className="flex-1 mt-[-80px]">
         <FadeInSection direction="up"><Hero /></FadeInSection>
         <AgenteModular />
         <ConsultoriaIA />
