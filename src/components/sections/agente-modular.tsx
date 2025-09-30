@@ -121,7 +121,7 @@ export default function AgenteModular() {
 											Imagina un agente virtual especializado para una Gestoría de Fincas, capaz de recibir y gestionar incidencias de vecinos y propietarios de manera automatizada. El agente registra cada incidencia, notifica a los responsables y reduce tiempos de espera. El resultado: una atención más rápida, trazable y profesional, con ahorro significativo de tiempo humano y mejora en la satisfacción de los usuarios.
 										</p>
 										<div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
-											<Link href="/generate-agent" passHref>
+											<Link href="/generar-agente" passHref>
 												<Button asChild className="cursor-target bg-pink-500 hover:bg-pink-500 text-white/90 font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-pink-500/40 transition duration-300 ease-in-out hover:animate-shadow-glow">
 													<span>Crea tu Agente IA</span>
 												</Button>
@@ -147,7 +147,7 @@ export default function AgenteModular() {
 											</li>
 											<li className="grid grid-cols-[auto,1fr] items-start gap-3">
 												<CheckCircle className="mt-2 h-5 w-5 text-blue-300 drop-shadow-[0_0_8px_rgba(80,200,255,0.7)]" />
-												<span className="text-blue-100/90">Integración con sistemas internos y base documental</span>
+												<span className="text-blue-100/90">Integración con canales de comunicación y base documental</span>
 											</li>
 											<li className="grid grid-cols-[auto,1fr] items-start gap-3">
 												<CheckCircle className="mt-2 h-5 w-5 text-blue-300 drop-shadow-[0_0_8px_rgba(80,200,255,0.7)]" />
