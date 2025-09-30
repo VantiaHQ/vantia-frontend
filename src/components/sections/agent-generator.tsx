@@ -105,7 +105,7 @@ export default function AgentGenerator() {
                 <Input
                   type="text"
                   placeholder={placeholderText}
-                  className="pl-4 pr-4 py-6 bg-blue-950/60 border-blue-400/30 focus:border-blue-400 text-white text-lg"
+                  className="cursor-target pl-4 pr-4 py-6 bg-blue-950/60 border-blue-400/30 focus:border-blue-400 text-white text-lg"
                   value={companyDescription}
                   onChange={(e) => setCompanyDescription(e.target.value)}
                   required
@@ -114,7 +114,7 @@ export default function AgentGenerator() {
               </div>
               <Button
                 type="submit"
-                className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg transition-colors"
+                className="cursor-target w-full bg-pink-500 hover:bg-pink-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-pink-500/40 transition duration-300 ease-in-out hover:animate-shadow-glow"
                 disabled={isLoading}
               >
                 {isLoading ? (
