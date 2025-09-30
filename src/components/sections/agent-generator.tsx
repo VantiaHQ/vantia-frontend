@@ -63,7 +63,7 @@ export default function AgentGenerator() {
           title: "Página generada",
           description: "Redirigiendo a tu página de producto personalizada.",
         });
-        router.push(`/agent/${slug}`);
+        router.push(`/agente/${slug}`);
       } else {
         const errorData = await response.json();
         toast({
