@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { configuratorContent } from './content';
 import { coreModules, extraModules } from './modules';
 
@@ -17,11 +17,40 @@ function ModuleCard({
 	disabled?: boolean;
 }) {
 	const [expanded, setExpanded] = useState(false);
+	const [showTooltip, setShowTooltip] = useState(false);
+	const tooltipTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+	const handleMouseEnter = () => {
+		if (disabled) {
+			setShowTooltip(true);
+			tooltipTimeoutRef.current = setTimeout(() => {
+				setShowTooltip(false);
+			}, 3000);
+		}
+	};
+
+	const handleMouseLeave = () => {
+		if (tooltipTimeoutRef.current) {
+			clearTimeout(tooltipTimeoutRef.current);
+		}
+		setShowTooltip(false);
+	};
+
+	useEffect(() => {
+		return () => {
+			if (tooltipTimeoutRef.current) {
+				clearTimeout(tooltipTimeoutRef.current);
+			}
+		};
+	}, []);
+
 	return (
 		<div className="relative group w-full">
 			<button
 				type="button"
 				onClick={() => !disabled && onClick()}
+				onMouseEnter={handleMouseEnter}
+				onMouseLeave={handleMouseLeave}
 				className={`w-full text-left rounded-xl border-2 border-blue-200 p-0 shadow-none transition-all focus:outline-none focus:ring-2 focus:ring-blue-400 ${
 					checked
 						? "bg-blue-50 border-blue-500"
@@ -67,8 +96,8 @@ function ModuleCard({
 					</div>
 				</div>
 			</button>
-			{disabled && (
-				<div className="absolute left-1/2 -translate-x-1/2 top-2 z-20 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition pointer-events-none select-none bg-gray-900 text-white text-xs rounded px-3 py-1 shadow-lg border border-blue-400 whitespace-nowrap">
+			{disabled && showTooltip && (
+				<div className="absolute left-1/2 -translate-x-1/2 top-2 z-5 opacity-100 transition pointer-events-none select-none bg-gray-900 text-white text-xs rounded px-3 py-1 shadow-lg border border-blue-400 whitespace-nowrap">
 					{configuratorContent.essentialModuleTooltip}
 				</div>
 			)}
@@ -76,8 +105,8 @@ function ModuleCard({
 	);
 }
 
-export default function ConfigurarAgente() {
-	const [selectedExtras, setSelectedExtras] = useState<string[]>([]);
+export default function ConfigurarAgenteContent({ initialSelectedModules = [] }: { initialSelectedModules?: string[] }) {
+	const [selectedExtras, setSelectedExtras] = useState<string[]>(initialSelectedModules);
 	const [showAnnual, setShowAnnual] = useState(true);
 
 	const handleToggle = (name: string) => {
@@ -101,7 +130,7 @@ export default function ConfigurarAgente() {
 		const [showPresupuestoMobile, setShowPresupuestoMobile] = useState(false);
 
 		return (
-				<div className="min-h-screen bg-gray-50 flex flex-col items-center py-12 px-4">
+				<div className="min-h-screen bg-[#070916] flex flex-col items-center py-12 px-4">
 					<div className="max-w-4xl w-full bg-white rounded-xl shadow-lg p-8 flex flex-row gap-8 md:flex-row flex-col">
 						{/* Main section: full width on mobile */}
 						<div className="flex-1 w-full md:w-auto">
@@ -115,7 +144,7 @@ export default function ConfigurarAgente() {
 							{configuratorContent.pageDescription}
 						</p>
 						<div className="mb-6">
-							<h2 className="text-xl font-semibold text-gray-800 mb-2">
+							<h2 className="text-xl font-semibold text-gray-900 mb-2">
 								{configuratorContent.coreModulesTitle}
 							</h2>
 							<p className="text-sm mb-6 text-gray-700">
@@ -133,7 +162,7 @@ export default function ConfigurarAgente() {
 								))}
 							</div>
 							<div className="flex items-center justify-between mb-2">
-								<h2 className="text-xl font-semibold text-gray-800">
+								<h2 className="text-xl font-semibold text-gray-900">
 									{configuratorContent.extraModulesTitle}
 								</h2>
 								<span className="text-sm text-blue-700 font-semibold">
@@ -155,7 +184,7 @@ export default function ConfigurarAgente() {
 					{/* Presupuesto column: hidden on mobile, sticky on desktop */}
 					<div className="w-80 bg-gray-100 rounded-lg p-6 flex flex-col justify-between h-full text-gray-900 sticky top-8 hidden md:flex">
 						<div>
-							<h3 className="text-lg font-semibold text-gray-800 mb-4">
+							<h3 className="text-lg font-semibold text-gray-900 mb-4">
 								{configuratorContent.budgetTitle}
 							</h3>
 							<ul className="text-gray-700 text-sm w-full">
@@ -176,7 +205,7 @@ export default function ConfigurarAgente() {
 								})}
 							</ul>
 							<div className="mt-6">
-								<h4 className="text-base font-semibold text-gray-800 mb-2">
+								<h4 className="text-base font-semibold text-gray-900 mb-2">
 									{configuratorContent.supportMaintenanceTitle}
 								</h4>
 								<div className="flex gap-2 mb-2">
@@ -238,7 +267,7 @@ export default function ConfigurarAgente() {
 							<div className="absolute inset-0 bg-black bg-opacity-30 transition-opacity" onClick={() => setShowPresupuestoMobile(false)} />
 							<div className="w-full max-w-md bg-gray-100 rounded-t-2xl p-6 text-gray-900 shadow-lg animate-fadeInUp relative z-50">
 								<div className="flex justify-between items-center mb-4">
-									<h3 className="text-lg font-semibold text-gray-800">{configuratorContent.budgetTitle}</h3>
+									<h3 className="text-lg font-semibold text-gray-900">{configuratorContent.budgetTitle}</h3>
 									<button className="text-blue-700 text-sm font-semibold" onClick={() => setShowPresupuestoMobile(false)}>{configuratorContent.hideBudgetButton}</button>
 								</div>
 								{/* Mensual/Anual selector for mobile modal */}
