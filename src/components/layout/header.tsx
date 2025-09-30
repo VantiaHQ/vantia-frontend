@@ -66,7 +66,8 @@ export default function Header() {
 						height={40}
 						className="transition-all duration-300"
 						priority
-						style={{ height: 'auto' }}
+						style={{ width: 'auto' }}
+						
 					/>
 				</Link>
 
