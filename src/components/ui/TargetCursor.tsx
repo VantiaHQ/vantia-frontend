@@ -18,7 +18,7 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
     []
   );
 
-  const moveCursor = useCallback((x, y) => {
+  const moveCursor = useCallback((x: number, y: number) => {
     if (!cursorRef.current) return;
     gsap.to(cursorRef.current, {
       x,
