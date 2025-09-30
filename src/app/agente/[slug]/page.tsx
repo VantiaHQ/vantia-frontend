@@ -3,6 +3,7 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { supabase } from '@/lib/supabase';
 import AgentContent from './AgentContent';
+import TargetCursor from '@/components/ui/TargetCursor';
 
 type PageParams = {
   params: { slug: string };
@@ -25,6 +26,7 @@ export default async function AgentPage({ params }: PageParams) {
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <Header />
       <main className="flex-1">
+        <TargetCursor />
         <AgentContent content={data.content} />
       </main>
       <Footer />
