@@ -3,9 +3,9 @@ import VantiaLogo from '@/components/vantia-logo';
 import Image from 'next/image';
 
 const columnOneLinks = [
-  { name: 'Agente Modular', href: '#agente-modular' },
-  { name: 'Generar Agente', href: '/generate-agent' },
-  { name: 'Calcular Ahorro', href: '/savings-calculator' },
+	{ name: 'Agente Modular', href: '/' },
+	{ name: 'Generar Agente', href: '/generar-agente' },
+	{ name: 'Calcular Ahorro', href: '/calculadora-ahorro' },
 ];
 
 const columnTwoLinks = [
@@ -60,7 +60,7 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
-            <div className="space-y-4">
+            {/* <div className="space-y-4">
               <h3 className="text-md font-semibold text-white tracking-wider">Acerca de</h3>
               <ul className="space-y-3">
                 {columnTwoLinks.map((link) => (
@@ -71,12 +71,12 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </div> */}
             <div className="space-y-4">
               <h3 className="text-md font-semibold text-white tracking-wider">Contacto</h3>
               <ul className="space-y-3">
                 <li>
-                  <Link href="/contact" className="cursor-target text-foreground/70 hover:text-primary transition-colors">
+                  <Link href="/contacto" className="cursor-target text-foreground/70 hover:text-primary transition-colors">
                     Hablemos
                   </Link>
                 </li>
