@@ -4,12 +4,14 @@ import Image from 'next/image';
 
 const columnOneLinks = [
   { name: 'Agente Modular', href: '#agente-modular' },
-  { name: 'Caso de Estudio', href: '#case-study' },
+  { name: 'Generar Agente', href: '/generate-agent' },
+  { name: 'Calcular Ahorro', href: '/savings-calculator' },
 ];
 
 const columnTwoLinks = [
   { name: 'Consultoría IA', href: '#consultoria-ia' },
   { name: 'Filosofía', href: '#philosophy' },
+  { name: 'Seguridad', href: '#security' },
 ];
 
 const legalLinks = [
