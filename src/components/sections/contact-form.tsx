@@ -12,7 +12,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { User, Mail, MessageSquare, Building, Briefcase } from "lucide-react";
 import { useState, FormEvent } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/lib/supabase";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -29,12 +28,15 @@ export default function ContactForm() {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase
-        .from("contact_submissions") // Replace with your table name
-        .insert([{ name, company, email, budget, message }]);
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, company, email, budget, message }),
+      });
 
-      if (error) {
-        throw error;
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || 'Error al enviar');
       }
 
       toast({
