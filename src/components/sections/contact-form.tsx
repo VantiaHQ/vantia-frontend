@@ -61,16 +61,16 @@ export default function ContactForm() {
     <section id="contact-form" className="bg-[#070916] py-20 sm:py-28">
       <div className="container mx-auto px-6">
         <div className="mx-auto max-w-3xl text-left">
-          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl max-w-full sm:max-w-xl font-extrabold tracking-tight text-white/90 mb-8 drop-shadow-[0_0_16px_rgba(80,200,255,0.3)]">
+          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl max-w-full sm:max-w-xl font-extrabold tracking-tight text-white/90 mb-0 md:mb-8 drop-shadow-[0_0_16px_rgba(80,200,255,0.3)]">
             Hablemos
           </h2>
-          <p className="mt-4 text-lg sm:text-xl md:text-2xl leading-9 text-foreground/80">
+          <p className="mt-4 text-lg sm:text-xl md:text-2xl leading-tight md:leading-9 text-foreground/80">
             ¿Listo para potenciar tu negocio con IA? Completa el formulario y
             nos pondremos en contacto contigo para explorar cómo podemos
             ayudarte a alcanzar tus objetivos.
           </p>
-          <div className="mt-12">
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6">
+          <div className="mt-4 md:mt-12">
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-2">
               <div className="relative">
                 <User className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
                 <Input
@@ -130,7 +130,7 @@ export default function ContactForm() {
               </div>
               <Button
                 type="submit"
-                className="cursor-target w-full bg-accent text-white/90 text-sm font-bold py-3 px-8 rounded-full shadow-lg border-2 border-transparent transition duration-300 ease-in-out hover:animate-shadow-glow hover:border-primary"
+                className="mt-2 cursor-target w-full bg-accent text-white/90 text-sm font-bold py-3 px-8 rounded-full shadow-lg border-2 border-transparent transition duration-300 ease-in-out hover:animate-shadow-glow hover:border-primary"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
