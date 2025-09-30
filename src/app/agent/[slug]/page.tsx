@@ -5,10 +5,12 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Instrument_Serif } from 'next/font/google';
 import { Badge } from '@/components/ui/badge';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, Rocket } from 'lucide-react';
 import { useRef, useEffect, useState } from 'react';
+import TargetCursor from '@/components/ui/TargetCursor';
 
 
 const instrumentSerif = Instrument_Serif({ subsets: ['latin'], weight: ['400'] });
@@ -83,11 +85,12 @@ export default function AgentPage() {
     { id: "modulesUsed", title: "Módulos de IA Utilizados", content: pageContent.modulesUsed, bg: "bg-[#070916]" },
     { id: "testimonials", title: pageContent.testimonials?.title, content: pageContent.testimonials, bg: "bg-background" },
     { id: "faq", title: pageContent.faq?.title, content: pageContent.faq, bg: "bg-[#070916]" },
-    { id: "finalCTA", title: pageContent.finalCTA?.text, content: pageContent.finalCTA, bg: "bg-background" },
+    { id: "finalCTA", title: pageContent.finalCTA?.text, content: pageContent.finalCTA, bg: "bg-[#070916]" },
   ].filter(section => section.content);
 
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
+      <TargetCursor />
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
@@ -101,7 +104,7 @@ export default function AgentPage() {
             quality={75}
             className="absolute inset-0 z-0 opacity-20"
           />
-          <div className="container mx-auto px-6 relative z-10 text-center">
+          <div className="container min-h-[60vh] mx-auto flex flex-col justify-center relative z-10 text-center">
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl max-w-full font-extrabold tracking-tight text-white mb-8 drop-shadow-[0_0_16px_rgba(80,200,255,0.3)]">
               {pageContent.hero.title}
             </h1>
@@ -109,11 +112,23 @@ export default function AgentPage() {
               {pageContent.hero.subtitle}
             </p>
             <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-              {pageContent.hero.cta.map((ctaText: string, index: number) => (
-                <Button key={index} size="lg" className="cursor-target bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-colors">
-                  {ctaText}
-                </Button>
-              ))}
+              <Button
+                asChild
+                size="lg"
+                className="cursor-target group bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-pink-500/40 transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow"
+              >
+                <Link href="/contact" className="transition duration-300 ease-in-out">
+                  {pageContent.hero.cta[1]} <Rocket className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:animate-icon-pulse" />
+                </Link>
+              </Button>
+              <Button
+                asChild
+                variant="secondary"
+                size="lg"
+                className="cursor-target bg-secondary text-white font-bold py-3 px-8 rounded-full shadow-lg border-2 border-transparent transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow hover:border-primary"
+              >
+                <Link href="#whatIsIt" className="transition duration-300 ease-in-out">Consulta las Funcionalidades</Link>
+              </Button>
             </div>
           </div>
         </section>
@@ -130,7 +145,7 @@ export default function AgentPage() {
 
           return (
             <div key={section.id} className="relative">
-              <section className={`py-20 sm:py-28 ${isStickySection ? stickyBgClass : section.bg} ${isStickySection ? 'min-h-[150vh]' : ''}`}>
+              <section id={section.id} className={`py-20 sm:py-28 ${isStickySection ? stickyBgClass : section.bg} ${section.id === "finalCTA" ? "dotted-bg" : ""} ${isStickySection ? 'min-h-[200vh]' : ''}`}>
                 <div
                   className={`container mx-auto px-6 py-24 max-w-3xl ${isStickySection ? 'sticky top-1/2 -translate-y-1/2' : ''}`}
                   style={isStickySection ? { zIndex: 50 - index } : {}}
@@ -142,7 +157,7 @@ export default function AgentPage() {
                     {section.title}
                   </h2>
                   {section.id === "whatIsIt" && (
-                    <p className="text-lg leading-8 text-foreground/80 text-left mb-12">{section.content.text}</p>
+                    <p className="text-lg leading-8 text-foreground/80 text-left mb-12 min-h-[50vh]">{section.content.text}</p>
                   )}
                   {section.id === "benefits" && (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -231,12 +246,24 @@ export default function AgentPage() {
                     </div>
                   )}
                   {section.id === "finalCTA" && (
-                    <div className="flex flex-col sm:flex-row justify-center gap-4">
-                      {section.content.buttons.map((buttonText: string, itemIndex: number) => (
-                        <Button key={itemIndex} size="lg" className="cursor-target bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-colors">
-                          {buttonText}
+                    <div className="mx-auto max-w-3xl">
+                      <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-8xl max-w-full sm:max-w-xl font-extrabold tracking-tight text-primary mb-8 drop-shadow-[0_0_32px_rgba(139,92,246,0.2)]">
+                        {section.content.title}
+                      </h2>
+                      <p className="mt-4 text-lg sm:text-xl md:text-2xl leading-9 text-foreground/80">
+                        {section.content.text}
+                      </p>
+                      <div className="mt-10 flex justify-start">
+                        <Button
+                          asChild
+                          size="lg"
+                          className="cursor-target group bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-pink-500/40 transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow"
+                        >
+                          <Link href="/contact" className="transition duration-300 ease-in-out">
+                            Contactar <Rocket className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:animate-icon-pulse" />
+                          </Link>
                         </Button>
-                      ))}
+                      </div>
                     </div>
                   )}
                 </div>
