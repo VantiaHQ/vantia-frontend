@@ -122,7 +122,7 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
       const directTarget = e.target as Element;
 
       const allTargets = [];
-      let current = directTarget;
+      let current: Element | null = directTarget;
       while (current && current !== document.body) {
         if (current.matches(targetSelector)) {
           allTargets.push(current);
@@ -287,7 +287,7 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
             });
           }
           resumeTimeout = null;
-        }, 50) as number;
+        }, 50) as unknown as number;
 
         cleanupTarget(target);
       };
