@@ -39,7 +39,7 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
     const cursor = cursorRef.current;
     cornersRef.current = cursor.querySelectorAll('.target-cursor-corner');
 
-    let activeTarget = null;
+    let activeTarget: Element | null = null;
     let currentTargetMove = null;
     let currentLeaveHandler = null;
     let isAnimatingToTarget = false;
