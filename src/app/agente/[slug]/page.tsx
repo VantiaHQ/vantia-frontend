@@ -5,8 +5,8 @@ import { supabase } from '@/lib/supabase';
 import AgentContent from './AgentContent';
 import TargetCursor from '@/components/ui/TargetCursor';
 
-export default async function AgentPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export default async function AgentPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
 
   const { data, error } = await supabase
     .from('ai_generated_pages')
