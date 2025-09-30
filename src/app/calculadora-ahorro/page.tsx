@@ -7,6 +7,7 @@ import { Slider } from "@/components/ui/slider";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { X } from 'lucide-react';
 import SpotlightCard from '@/components/SpotlightCard';
 
 export default function SavingsCalculatorPage() {
@@ -68,8 +69,8 @@ export default function SavingsCalculatorPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       
-      <main className="flex-1 pt-8">
-        <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 md:p-12">
+      <main className="flex-1">
+        <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 md:p-12 pt-8">
           <div className="text-center mb-10">
             <h1 className="text-4xl md:text-5xl font-bold text-white/90/90">
               Calculadora de Ahorro y Tiempo
@@ -85,7 +86,7 @@ export default function SavingsCalculatorPage() {
             <Card className="bg-gradient-to-br from-blue-950/60 to-blue-900/60 backdrop-blur rounded-3xl border border-blue-400/30 shadow-lg">
               <CardHeader>
                 <CardTitle className="text-2xl font-semibold text-white/90">
-                  Ajusta tus métricas actuales
+                  Echa cuentas...
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-8 pt-4">
@@ -172,17 +173,17 @@ export default function SavingsCalculatorPage() {
             <span className="text-xs text-blue-100/90">Horas / mes</span>
             <span className="text-lg font-bold text-blue-200">{Math.round(horasInvertidasMes)}h</span>
           </div>
-          <Button onClick={() => setShowResultsMobile(true)} className="rounded-full bg-pink-500 text-white/90 hover:bg-pink-500">Mostrar desglose</Button>
+          <Button onClick={() => setShowResultsMobile(true)} className="rounded-full border-blue-400 border-[1px] border-b-[0.5px] text-white/90 bg-transparent hover:bg-blue-400">Mostrar desglose</Button>
         </div>
 
         {/* Modal de Resultados (Mobile) */}
         {showResultsMobile && (
           <div className="fixed inset-0 z-40 flex items-end justify-center lg:hidden">
             <div className="absolute inset-0 bg-black bg-opacity-30 transition-opacity" onClick={() => setShowResultsMobile(false)} />
-            <div className="w-full max-w-md bg-blue-950/80 backdrop-blur rounded-t-2xl border border-blue-400/30 p-6 shadow-lg animate-fadeInUp relative z-50">
+            <div className="w-full max-w-md bg-blue-950/80 backdrop-blur rounded-t-2xl border border-blue-400/30 border-b-0 p-6 shadow-lg animate-fadeInUp relative z-50">
               <div className="flex justify-between items-center mb-4">
-                <h3 className="text-lg font-semibold text-white/90">Tu ahorro mensual estimado</h3>
-                <Button variant="ghost" size="sm" onClick={() => setShowResultsMobile(false)}>Cerrar</Button>
+                <h3 className="text-sm font-light text-white/70">Tu ahorro mensual estimado</h3>
+                <Button variant="ghost" size="sm" onClick={() => setShowResultsMobile(false)}><X className="h-6 w-6" /></Button>
               </div>
               <div className="flex flex-col items-center justify-center space-y-6 text-center">
                 <ResultsCardContent />
