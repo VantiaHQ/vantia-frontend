@@ -127,7 +127,7 @@ const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hid
         if (current.matches(targetSelector)) {
           allTargets.push(current);
         }
-        current = current.parentElement;
+        current = current.parentElement as Element | null;
       }
 
       const target = allTargets[0] || null;
