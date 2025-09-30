@@ -58,16 +58,14 @@ export default function Header() {
 			style={{ left: 0, right: 0 }}
 		>
 			<div ref={headerRef} className="flex h-[64px] lg:py-4 py-1 items-center justify-between px-2 lg:px-6 max-w-none w-full mx-0">
-				<Link href="/">
+				<Link href="/" className="cursor-target">
 					<Image
 						src={isScrolled ? '/images/logo-negativo.png' : '/images/logo-negativo-color.png'}
 						alt="Vantia Logo"
-						width={isScrolled ? 132 : 152}
-						height={40}
-						className="transition-all duration-300"
-						priority
-						style={{ width: 'auto' }}
-						
+						width={156}
+						height={48}
+						className="transition-all duration-300 w-[156px] h-[48px]"
+						priority						
 					/>
 				</Link>
 
