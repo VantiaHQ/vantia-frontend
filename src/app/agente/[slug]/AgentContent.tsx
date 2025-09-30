@@ -7,6 +7,7 @@ import Squares from '@/components/Squares';
 import FadeInSection from '@/components/ui/fade-in-section';
 import { CheckCircle, Rocket } from 'lucide-react';
 import { Instrument_Serif } from 'next/font/google';
+import { agentContentStrings } from './content';
 
 const instrumentSerif = Instrument_Serif({ subsets: ['latin'], weight: ['400'] });
 
@@ -21,8 +22,8 @@ export default function AgentContent({ content }: AgentContentProps) {
     { id: 'whatIsIt', title: content.whatIsIt?.title, content: content.whatIsIt, bg: 'bg-background' },
     { id: 'benefits', title: content.benefits?.title, content: content.benefits, bg: 'bg-background' },
     { id: 'howItWorks', title: content.howItWorks?.title, content: content.howItWorks, bg: 'bg-background' },
-    { id: 'painPoints', title: 'Puntos de Dolor Identificados', content: content.painPoints, bg: 'bg-background' },
-    { id: 'possibleAutomations', title: 'Posibles Automatizaciones', content: content.possibleAutomations, bg: 'bg-background' },
+    { id: 'painPoints', title: agentContentStrings.painPointsTitle, content: content.painPoints, bg: 'bg-background' },
+    { id: 'possibleAutomations', title: agentContentStrings.possibleAutomationsTitle, content: content.possibleAutomations, bg: 'bg-background' },
     { id: 'modulesUsed', title: 'Módulos de IA Utilizados', content: content.modulesUsed, bg: 'bg-[#070916]' },
     { id: 'testimonials', title: content.testimonials?.title, content: content.testimonials, bg: 'bg-background' },
     { id: 'faq', title: content.faq?.title, content: content.faq, bg: 'bg-[#070916]' },
@@ -55,7 +56,7 @@ export default function AgentContent({ content }: AgentContentProps) {
               className="cursor-target group bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-pink-500/40 transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow"
             >
               <Link href="/contacto" className="transition duration-300 ease-in-out">
-                {content.hero?.cta?.[1] ?? 'Contactar'} <Rocket className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:animate-icon-pulse" />
+                {content.hero?.cta?.[1] ?? agentContentStrings.contactButton} <Rocket className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:animate-icon-pulse" />
               </Link>
             </Button>
             <Button
@@ -64,7 +65,7 @@ export default function AgentContent({ content }: AgentContentProps) {
               size="lg"
               className="cursor-target bg-secondary text-white font-bold py-3 px-8 rounded-full shadow-lg border-2 border-transparent transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow hover:border-primary"
             >
-              <Link href="#whatIsIt" className="transition duration-300 ease-in-out">Consulta las Funcionalidades</Link>
+              <Link href="#whatIsIt" className="transition duration-300 ease-in-out">{agentContentStrings.functionalitiesButton}</Link>
             </Button>
           </div>
         </div>
@@ -146,7 +147,7 @@ export default function AgentContent({ content }: AgentContentProps) {
                   <>
                     {section.content.core && section.content.core.length > 0 && (
                       <div className="mb-6 text-left">
-                        <h3 className="text-2xl font-semibold text-white mb-4">Core:</h3>
+                        <h3 className="text-2xl font-semibold text-white mb-4">{agentContentStrings.coreModulesTitle}</h3>
                         <div className="flex flex-wrap gap-3">
                           {section.content.core.map((module: string, itemIndex: number) => (
                             <div key={itemIndex} className="bg-blue-950/60 backdrop-blur rounded-xl border border-blue-400/30 p-6 flex items-center gap-6 shadow-lg">
@@ -160,7 +161,7 @@ export default function AgentContent({ content }: AgentContentProps) {
                     )}
                     {section.content.extra && section.content.extra.length > 0 && (
                       <div className="text-left">
-                        <h3 className="text-2xl font-semibold text-white mb-4">Extra:</h3>
+                        <h3 className="text-2xl font-semibold text-white mb-4">{agentContentStrings.extraModulesTitle}</h3>
                         <div className="flex flex-wrap gap-3">
                           {section.content.extra.map((module: string, itemIndex: number) => (
                             <div key={itemIndex} className="bg-blue-950/60 backdrop-blur rounded-xl border border-blue-400 p-6 flex items-center gap-6 shadow-lg shadow-blue-400/20">
