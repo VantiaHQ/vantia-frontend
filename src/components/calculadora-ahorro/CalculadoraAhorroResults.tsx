@@ -5,6 +5,7 @@ interface CalculadoraAhorroResultsProps {
   costeMensualActual: number;
   horasInvertidasMes: number;
   interaccionesMes: number;
+  ahorroAnualEstimado: number;
   savingsCalculatorContent: any; // Define a more specific type if available
 }
 
@@ -13,13 +14,14 @@ export const CalculadoraAhorroResults: React.FC<CalculadoraAhorroResultsProps> =
   costeMensualActual,
   horasInvertidasMes,
   interaccionesMes,
+  ahorroAnualEstimado,
   savingsCalculatorContent,
 }) => (
   <>
     <div className="w-full">
-      <p className="text-lg text-blue-100/90">{savingsCalculatorContent.moneySavedLabel}</p>
+      <p className="text-lg text-blue-100/90">{savingsCalculatorContent.resultsCardTitle}</p>
       <p className="text-5xl md:text-6xl font-extrabold tracking-tight">
-        {formatoMoneda.format(costeMensualActual)}
+        {formatoMoneda.format(ahorroAnualEstimado)}
       </p>
     </div>
     <div className="w-full">
@@ -40,10 +42,10 @@ export const CalculadoraAhorroResults: React.FC<CalculadoraAhorroResultsProps> =
         </div>
         <div className="flex justify-between">
           <span>{savingsCalculatorContent.hoursInvestedPerMonthLabel}</span>
-          <span className="font-semibold">{Math.round(horasInvertidasMes)}h</span>
+          <span className="font-semibold">{horasInvertidasMes}</span>
         </div>
         <div className="flex justify-between">
-          <span>{savingsCalculatorContent.currentMonthlyCostLabel}</span>
+          <span>{savingsCalculatorContent.monthlySavingsLabel}</span>
           <span className="font-semibold">{formatoMoneda.format(costeMensualActual)}</span>
         </div>
       </div>
