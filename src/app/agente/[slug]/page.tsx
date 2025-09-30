@@ -5,12 +5,7 @@ import { supabase } from '@/lib/supabase';
 import AgentContent from './AgentContent';
 import TargetCursor from '@/components/ui/TargetCursor';
 
-type PageProps = {
-  params: { slug: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
-};
-
-export default async function AgentPage({ params }: PageProps) {
+export default async function AgentPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
 
   const { data, error } = await supabase
