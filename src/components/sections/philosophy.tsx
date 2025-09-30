@@ -37,7 +37,7 @@ export default function Philosophy() {
           {values.map((value) => (
             // --- NEW TYPOGRAPHIC CARD DESIGN ---
             <div key={value.title} className="flex flex-col items-start text-left">
-              <h3 className="text-4xl font-extrabold text-white mb-4">{value.title}</h3>
+              <h3 className="text-4xl font-extrabold text-white/90 mb-4">{value.title}</h3>
               <p className="text-lg text-foreground/80">{value.description}</p>
             </div>
           ))}

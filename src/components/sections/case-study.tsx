@@ -67,22 +67,22 @@ export default function CaseStudy() {
                 
                 <Card>
                     <CardHeader>
-                        <CardTitle className="text-white">Resultados y Módulos</CardTitle>
+                        <CardTitle className="text-white/90">Resultados y Módulos</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-6">
                         <div>
-                             <h4 className="font-semibold mb-3 text-white">Resultados Clave</h4>
+                             <h4 className="font-semibold mb-3 text-white/90">Resultados Clave</h4>
                              <ul className="space-y-2">
                                 {results.map((result, index) => (
                                 <li key={index} className="flex items-start">
-                                    <CheckCircle className="mr-3 mt-1 h-5 w-5 flex-shrink-0 text-white" />
+                                    <CheckCircle className="mr-3 mt-1 h-5 w-5 flex-shrink-0 text-white/90" />
                                     <span>{result}</span>
                                 </li>
                                 ))}
                             </ul>
                         </div>
                         <div>
-                            <h4 className="font-semibold mb-3 text-white">Módulos Contratados</h4>
+                            <h4 className="font-semibold mb-3 text-white/90">Módulos Contratados</h4>
                             <div className="flex flex-wrap gap-2">
                                 {modules.map((module) => (
                                     <Badge key={module} variant="secondary">{module}</Badge>

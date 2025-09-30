@@ -30,7 +30,7 @@ export default function ConsultoriaIA() {
       <div className="absolute inset-0 pointer-events-none z-0 bg-gradient-to-b from-[#0a0a1a] via-[#0a0a1a]/90 to-black/95" />
       <div className="container mx-auto px-6 relative z-10">
         <div className="mx-auto max-w-3xl text-left sm:text-center">
-          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-bold tracking-tight text-white mb-4 drop-shadow-[0_0_32px_rgba(139,92,246,0.6)]">Más allá del Agente: <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">Soluciones de IA a medida</span></h2>
+          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-bold tracking-tight text-white/90 mb-4 drop-shadow-[0_0_32px_rgba(139,92,246,0.6)]">Más allá del Agente: <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">Soluciones de IA a medida</span></h2>
           <p className="mt-4 text-lg sm:text-xl md:text-2xl leading-8 text-foreground/80">
             Nuestra experiencia no termina en la automatización conversacional. Te ayudamos a integrar la IA en el núcleo de tu negocio para desbloquear nuevas oportunidades.
           </p>
@@ -52,7 +52,7 @@ export default function ConsultoriaIA() {
                   />
                 </div>
                 <div className="flex flex-col flex-grow p-6">
-                  <h3 className="font-semibold text-lg text-white mb-2">{service.title}</h3>
+                  <h3 className="font-semibold text-lg text-white/90 mb-2">{service.title}</h3>
                   <p className="text-foreground/80 flex-grow">{service.description}</p>
                 </div>
               </div>

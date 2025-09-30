@@ -93,7 +93,7 @@ export default function AgentGenerator() {
     <section id="agent-generator" className="bg-[#070916] py-20 sm:py-28 min-h-[calc(100vh-160px)] flex items-center justify-center">
       <div className="container mx-auto px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl max-w-full font-extrabold tracking-tight text-white mb-8 drop-shadow-[0_0_16px_rgba(80,200,255,0.3)]">
+          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl max-w-full font-extrabold tracking-tight text-white/90 mb-8 drop-shadow-[0_0_16px_rgba(80,200,255,0.3)]">
             Genera tu Agente IA
           </h2>
           <p className="mt-4 text-lg sm:text-xl md:text-2xl leading-9 text-foreground/80">
@@ -105,7 +105,7 @@ export default function AgentGenerator() {
                 <Input
                   type="text"
                   placeholder={placeholderText}
-                  className="cursor-target pl-4 pr-4 py-6 bg-blue-950/60 border-blue-400/30 focus:border-blue-400 text-white text-lg"
+                  className="cursor-target pl-4 pr-4 py-6 bg-blue-950/60 border-blue-400/30 focus:border-blue-400 text-white/90 text-lg"
                   value={companyDescription}
                   onChange={(e) => setCompanyDescription(e.target.value)}
                   required
@@ -114,7 +114,7 @@ export default function AgentGenerator() {
               </div>
               <Button
                 type="submit"
-                className="cursor-target w-full bg-pink-500 hover:bg-pink-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-pink-500/40 transition duration-300 ease-in-out hover:animate-shadow-glow"
+                className="cursor-target w-full bg-pink-500 hover:bg-pink-500 text-white/90 font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-pink-500/40 transition duration-300 ease-in-out hover:animate-shadow-glow"
                 disabled={isLoading}
               >
                 {isLoading ? (

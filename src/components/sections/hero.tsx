@@ -14,7 +14,7 @@ export default function Hero() {
   <div className="container mx-auto px-6 relative h-full flex items-center max-w-[1200px]">
             <div className="grid lg:grid-cols-2 items-start w-full min-h-[100vh] mt-[15vh] md:mt-[20vh]">
                 <div className="text-center lg:text-left z-20">
-          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-8xl font-extrabold tracking-tight text-white drop-shadow-[0_0_24px_rgba(139,92,246,0.3)] transition duration-300 ease-in-out">
+          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-8xl font-extrabold tracking-tight text-white/90 drop-shadow-[0_0_24px_rgba(139,92,246,0.3)] transition duration-300 ease-in-out">
             <span className="text-primary drop-shadow-[0_0_32px_rgba(139,92,246,0.2)]">Recupera tu tiempo</span> con IA.
           </h1>
                     <p className="mt-6 text-lg sm:text-xl md:text-2xl text-foreground/80">
@@ -24,7 +24,7 @@ export default function Hero() {
                         <Button
                           asChild
                           size="lg"
-                          className="cursor-target group bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-pink-500/40 transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow"
+                          className="cursor-target group bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white/90 font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-pink-500/40 transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow"
                         >
                           <Link href="/contact" className="transition duration-300 ease-in-out">
                             Habla con un experto <Rocket className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:animate-icon-pulse" />
@@ -34,7 +34,7 @@ export default function Hero() {
                           asChild
                           variant="secondary"
                           size="lg"
-                          className="cursor-target bg-secondary text-white font-bold py-3 px-8 rounded-full shadow-lg border-2 border-transparent transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow hover:border-primary"
+                          className="cursor-target bg-secondary text-white/90 font-bold py-3 px-8 rounded-full shadow-lg border-2 border-transparent transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow hover:border-primary"
                         >
                           <Link href="#case-study" className="transition duration-300 ease-in-out">Ver caso de éxito</Link>
                         </Button>

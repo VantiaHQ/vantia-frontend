@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ArrowRight, CheckCircle, Database, MessageSquare, Calendar, Bell, Sparkles, Link2, Smile, BarChart2, ScanText } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const coreModules = [
   {
@@ -72,7 +73,7 @@ export default function AgenteModular() {
  <section id="agente-modular" className="bg-[#070916] py-20 sm:py-28">
 			<div className="container mx-auto px-6">
 				<div className="mx-auto max-w-3xl text-left">
-					<h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl max-w-full sm:max-w-xl font-extrabold tracking-tight text-white mb-8 drop-shadow-[0_0_16px_rgba(80,200,255,0.3)]">
+					<h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl max-w-full sm:max-w-xl font-extrabold tracking-tight text-white/90 mb-8 drop-shadow-[0_0_16px_rgba(80,200,255,0.3)]">
 						El agente que trabaja por ti
 					</h2>
 					<p className="mt-4 text-lg sm:text-xl md:text-2xl leading-9 text-foreground/80">
@@ -96,7 +97,6 @@ export default function AgenteModular() {
 							<span className="text-blue-100/90 text-base">Consultas resueltas /mes</span>
 						</div>
 					</div>
-
 				</div>
 				<div className="mx-auto w-full mt-14 mb-24 bg-background/80 rounded-xl shadow-lg p-0 border border-blue-400/20 overflow-hidden">
 					<div className="flex flex-col">
@@ -114,12 +114,19 @@ export default function AgenteModular() {
 										<span className="block text-base font-semibold text-blue-200 tracking-wide mb-1">
 											Ejemplo
 										</span>
-										<h3 className="text-2xl font-bold text-white mb-2">
+										<h3 className="text-2xl font-bold text-white/90 mb-2">
 											Agente de Recepción de Incidencias
 										</h3>
 										<p className="text-foreground/80">
 											Imagina un agente virtual especializado para una Gestoría de Fincas, capaz de recibir y gestionar incidencias de vecinos y propietarios de manera automatizada. El agente registra cada incidencia, notifica a los responsables y reduce tiempos de espera. El resultado: una atención más rápida, trazable y profesional, con ahorro significativo de tiempo humano y mejora en la satisfacción de los usuarios.
 										</p>
+										<div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
+											<Link href="/generate-agent" passHref>
+												<Button asChild className="cursor-target bg-pink-500 hover:bg-pink-500 text-white/90 font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-pink-500/40 transition duration-300 ease-in-out hover:animate-shadow-glow">
+													<span>Crea tu Agente IA</span>
+												</Button>
+											</Link>
+										</div>
 									</div>
 									<div className="flex-1 md:border-l md:border-blue-400/20 md:pl-8">
 										<span className="block text-base font-semibold text-blue-200 tracking-wide mb-2">
@@ -167,7 +174,7 @@ export default function AgenteModular() {
 								>
 									<mod.icon className="h-20 w-20 text-blue-200 drop-shadow-[0_0_18px_rgba(80,200,255,0.8)]" />
 									<div>
-										<div className="font-bold text-lg text-white mb-1 text-left">
+										<div className="font-bold text-lg text-white/90 mb-1 text-left">
 											{mod.title}
 										</div>
 										<div className="text-blue-100/90 text-left">
@@ -191,7 +198,7 @@ export default function AgenteModular() {
 								>
 									<mod.icon className="h-20 w-20 text-blue-200 drop-shadow-[0_0_32px_rgba(80,200,255,1)]" />
 									<div>
-										<div className="font-bold text-lg text-white mb-1 text-left">
+										<div className="font-bold text-lg text-white/90 mb-1 text-left">
 											{mod.title}
 										</div>
 										<div className="text-blue-100/90 text-left">

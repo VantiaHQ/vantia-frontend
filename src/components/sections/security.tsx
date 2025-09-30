@@ -26,7 +26,7 @@ export default function Security() {
     <section id="security" className="py-20 sm:py-28 bg-background">
       <div className="container mx-auto px-6">
         <div className="mx-auto max-w-4xl text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-white/90 sm:text-4xl">
             Seguridad y Confianza
           </h2>
           <p className="mt-4 text-lg text-foreground/80">
@@ -41,7 +41,7 @@ export default function Security() {
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary mb-5">
                 <feature.icon className="h-7 w-7" />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">{feature.title}</h3>
+              <h3 className="text-xl font-semibold text-white/90 mb-3">{feature.title}</h3>
               <p className="text-foreground/80">{feature.description}</p>
             </div>
           ))}

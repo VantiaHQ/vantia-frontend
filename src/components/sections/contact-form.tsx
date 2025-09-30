@@ -61,7 +61,7 @@ export default function ContactForm() {
     <section id="contact-form" className="bg-[#070916] py-20 sm:py-28">
       <div className="container mx-auto px-6">
         <div className="mx-auto max-w-3xl text-left">
-          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl max-w-full sm:max-w-xl font-extrabold tracking-tight text-white mb-8 drop-shadow-[0_0_16px_rgba(80,200,255,0.3)]">
+          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl max-w-full sm:max-w-xl font-extrabold tracking-tight text-white/90 mb-8 drop-shadow-[0_0_16px_rgba(80,200,255,0.3)]">
             Hablemos
           </h2>
           <p className="mt-4 text-lg sm:text-xl md:text-2xl leading-9 text-foreground/80">
@@ -110,7 +110,7 @@ export default function ContactForm() {
                   <SelectTrigger className="cursor-target w-full pl-12 bg-blue-950/60 border-blue-400/30 focus:border-blue-400">
                     <SelectValue placeholder="Presupuesto" />
                   </SelectTrigger>
-                  <SelectContent className="bg-blue-950/90 text-white border-blue-400/30">
+                  <SelectContent className="bg-blue-950/90 text-white/90 border-blue-400/30">
                     <SelectItem value="1000-3000">1000-3000 €</SelectItem>
                     <SelectItem value="3000-5000">3000-5000 €</SelectItem>
                     <SelectItem value="5000-10000">5000-10000 €</SelectItem>
@@ -130,7 +130,7 @@ export default function ContactForm() {
               </div>
               <Button
                 type="submit"
-                className="cursor-target w-full bg-accent text-white text-sm font-bold py-3 px-8 rounded-full shadow-lg border-2 border-transparent transition duration-300 ease-in-out hover:animate-shadow-glow hover:border-primary"
+                className="cursor-target w-full bg-accent text-white/90 text-sm font-bold py-3 px-8 rounded-full shadow-lg border-2 border-transparent transition duration-300 ease-in-out hover:animate-shadow-glow hover:border-primary"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
