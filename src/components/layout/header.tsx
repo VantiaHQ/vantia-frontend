@@ -84,7 +84,7 @@ export default function Header() {
 					<Link href="/contact">Contacto</Link>
 				</Button>
 			</div>
-			<div className="hidden md:flex w-full items-center justify-center gap-4 bg-transparent  py-2 px-4 lg:hidden">
+			<div className="hidden md:flex w-full items-center justify-center gap-4 bg-transparent mt-[-2px] pb-2 px-4 lg:hidden">
 				{navLinks.map((link) => (
 					<Link
 						key={link.name}
