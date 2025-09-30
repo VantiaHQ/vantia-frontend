@@ -1,4 +1,5 @@
-import { CheckCircle, Database, MessageSquare, Calendar, Bell, Sparkles, Link2, Smile, BarChart2, ScanText } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight, CheckCircle, Database, MessageSquare, Calendar, Bell, Sparkles, Link2, Smile, BarChart2, ScanText } from 'lucide-react';
 
 const coreModules = [
   {
@@ -95,6 +96,7 @@ export default function AgenteModular() {
 							<span className="text-blue-100/90 text-base">Consultas resueltas /mes</span>
 						</div>
 					</div>
+
 				</div>
 				<div className="mx-auto w-full mt-14 mb-24 bg-background/80 rounded-xl shadow-lg p-0 border border-blue-400/20 overflow-hidden">
 					<div className="flex flex-col">
@@ -163,12 +165,12 @@ export default function AgenteModular() {
                                     // --- HOVER EFFECT REMOVED ---
 									className="group bg-blue-950/60 backdrop-blur rounded-xl border border-blue-400/30 p-6 flex items-center gap-6 shadow-lg"
 								>
-									<mod.icon className="h-16 w-16 text-blue-200 drop-shadow-[0_0_18px_rgba(80,200,255,0.8)]" />
+									<mod.icon className="h-20 w-20 text-blue-200 drop-shadow-[0_0_18px_rgba(80,200,255,0.8)]" />
 									<div>
-										<div className="font-bold text-lg text-white mb-1">
+										<div className="font-bold text-lg text-white mb-1 text-left">
 											{mod.title}
 										</div>
-										<div className="text-blue-100/90">
+										<div className="text-blue-100/90 text-left">
 											{mod.description}
 										</div>
 									</div>
@@ -187,12 +189,12 @@ export default function AgenteModular() {
                                     // --- HOVER STYLE APPLIED AS DEFAULT ---
 									className="group bg-blue-950/60 backdrop-blur rounded-xl border border-blue-400 p-6 flex items-center gap-6 shadow-lg shadow-blue-400/20"
 								>
-									<mod.icon className="h-16 w-16 text-blue-200 drop-shadow-[0_0_32px_rgba(80,200,255,1)]" />
+									<mod.icon className="h-20 w-20 text-blue-200 drop-shadow-[0_0_32px_rgba(80,200,255,1)]" />
 									<div>
-										<div className="font-bold text-lg text-white mb-1">
+										<div className="font-bold text-lg text-white mb-1 text-left">
 											{mod.title}
 										</div>
-										<div className="text-blue-100/90">
+										<div className="text-blue-100/90 text-left">
 											{mod.description}
 										</div>
 									</div>
