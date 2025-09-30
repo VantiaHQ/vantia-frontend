@@ -1,11 +1,11 @@
 "use client";
-import { useEffect, useRef, useCallback, useMemo } from 'react';
+import { useEffect, useRef, useCallback, useMemo, MutableRefObject } from 'react';
 import { gsap } from 'gsap';
 import './TargetCursor.css';
 
 const TargetCursor = ({ targetSelector = '.cursor-target', spinDuration = 2, hideDefaultCursor = true }) => {
   const cursorRef = useRef<HTMLDivElement>(null);
-  const cornersRef = useRef<NodeListOf<Element>>(null);
+  const cornersRef: MutableRefObject<NodeListOf<Element> | null> = useRef(null);
   const spinTl = useRef(null);
   const dotRef = useRef(null);
   const constants = useMemo(
