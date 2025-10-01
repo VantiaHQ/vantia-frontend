@@ -87,6 +87,7 @@ export default function CalculadoraAhorroContent() {
       <CalculadoraAhorroMobileBar
         costeMensualActual={costeMensualActual}
         horasInvertidasMes={horasInvertidasMes}
+        ahorroAnualEstimado={ahorroAnualEstimado}
         formatoMoneda={formatoMoneda}
         setShowResultsMobile={setShowResultsMobile}
         savingsCalculatorContent={savingsCalculatorContent}
