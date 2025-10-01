@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface CalculadoraAhorroResultsProps {
-  formatoMoneda: number;
+  formatoMoneda: Intl.NumberFormat;
   costeMensualActual: number;
   horasInvertidasMes: number;
   horasInvertidasAnual: number;
