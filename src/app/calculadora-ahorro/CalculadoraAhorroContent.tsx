@@ -14,6 +14,8 @@ import { CalculadoraAhorroResults } from '@/components/calculadora-ahorro/Calcul
 import { CalculadoraAhorroParameters } from '@/components/calculadora-ahorro/CalculadoraAhorroParameters';
 import { CalculadoraAhorroMobileBar } from '@/components/calculadora-ahorro/CalculadoraAhorroMobileBar';
 import { CalculadoraAhorroMobileResultsModal } from '@/components/calculadora-ahorro/CalculadoraAhorroMobileResultsModal';
+import { ROISummaryCard } from '@/components/calculadora-ahorro/ROISummaryCard';
+import { useAgentConfig } from '@/context/AgentConfigContext';
 
 export default function CalculadoraAhorroContent() {
   const [interaccionesDia, setInteraccionesDia] = useState(15);
@@ -21,13 +23,17 @@ export default function CalculadoraAhorroContent() {
   const [duracionMedia, setDuracionMedia] = useState(10);
   const [showResultsMobile, setShowResultsMobile] = useState(false);
 
+  const { agentConfig } = useAgentConfig();
+
   // Cálculos
   const diasLaboralesMes = 22;
   const interaccionesMes = interaccionesDia * diasLaboralesMes;
   const horasInvertidasMes = (interaccionesMes * duracionMedia) / 60;
-  const costeMensualActual = horasInvertidasMes * precioHora;
+  const agentCost = agentConfig.isAgentGenerated ? agentConfig.agentCost : (5200 / 12); // Use context's default if not generated
+  const costeMensualActual = (horasInvertidasMes * precioHora) + agentCost;
   const ahorroAnualEstimado = costeMensualActual * 12;
   const horasInvertidasAnual = horasInvertidasMes * 12;
+  const initialAgentPayment = 2500; // Defined initial agent payment
 
   // Formateadores para una bonita visualización
   const formatoMoneda = new Intl.NumberFormat("es-ES", {
@@ -83,6 +89,17 @@ export default function CalculadoraAhorroContent() {
               />
           </CardContent>
         </SpotlightCard>
+        </div>
+
+        {/* ROI Summary Card (Desktop) */}
+        <div className="mt-8 hidden lg:flex">
+          <ROISummaryCard
+            ahorroAnualEstimado={ahorroAnualEstimado}
+            horasInvertidasAnual={horasInvertidasAnual}
+            formatoMoneda={formatoMoneda}
+            initialAgentPayment={initialAgentPayment}
+            annualAgentPayment={5200}
+          />
         </div>
       </div>
 
