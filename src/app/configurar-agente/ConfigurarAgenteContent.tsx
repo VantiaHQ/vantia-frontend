@@ -115,9 +115,15 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 		? 4000 + 600 * selectedExtras.length
 		: 400 + 60 * selectedExtras.length;
 
-  
+    // Placeholder for savings estimation inputs (these would typically come from user input)
+    const costeMensualActual = 1000; // Example value, needs to be dynamic if there's an input
+    const horasInvertidasMes = 100; // Example value, needs to be dynamic if there's an input
 
-  
+    // Calculations for savings estimation
+    const ahorroAnualEstimado = costeMensualActual * 12; // Assuming monthly cost savings
+    const totalCosteAnualAgente = totalSinIVA + (showAnnual ? totalMantenimiento : totalMantenimiento * 12);
+    const netSavingsAnual = ahorroAnualEstimado - totalCosteAnualAgente;
+    const paybackPeriodMonths = totalSinIVA > 0 && ahorroAnualEstimado > 0 ? totalSinIVA / (ahorroAnualEstimado / 12) : Infinity;
 
 		// Mobile state for presupuesto modal
 		const [showPresupuestoMobile, setShowPresupuestoMobile] = useState(false);
