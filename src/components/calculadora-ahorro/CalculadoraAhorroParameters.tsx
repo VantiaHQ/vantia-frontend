@@ -112,4 +112,5 @@ export const CalculadoraAhorroParameters: React.FC<CalculadoraAhorroParametersPr
       </div>
     </CardContent>
   </Card>
-);
+  );
+};
