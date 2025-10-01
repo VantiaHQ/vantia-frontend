@@ -1,5 +1,11 @@
 import React from 'react';
+import { Instrument_Serif } from 'next/font/google';
 import { Slider } from "@/components/ui/slider";
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: '400',
+});
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 
@@ -26,7 +32,7 @@ export const CalculadoraAhorroParameters: React.FC<CalculadoraAhorroParametersPr
 }) => (
   <Card className="bg-gradient-to-br from-blue-950/60 to-blue-900/60 backdrop-blur rounded-3xl border border-blue-400/30 shadow-lg">
     <CardHeader>
-      <CardTitle className="text-2xl font-semibold text-white/90">
+      <CardTitle className={`text-5xl md:text-7xl font-thin text-blue-400/90 ${instrumentSerif.className}`}>
         {savingsCalculatorContent.cardTitle}
       </CardTitle>
     </CardHeader>
