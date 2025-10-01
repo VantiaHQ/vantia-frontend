@@ -14,6 +14,7 @@ export const savingsCalculatorContent = {
   hoursInvestedPerMonthLabel: "Horas invertidas al mes:",
   monthlySavingsLabel: "Ahorro mensual:",
   currentMonthlyCostLabel: "Coste mensual actual:",
+  estimatedAnnualCostLabel: "Coste estimado del agente (anual):",
   hoursUnit: "horas",
   daysUnit: "días",
   minutesUnit: "min",
