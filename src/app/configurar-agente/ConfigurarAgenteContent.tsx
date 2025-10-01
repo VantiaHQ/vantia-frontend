@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { configuratorContent } from './content';
 import { coreModules, extraModules } from './modules';
+import Link from 'next/link'; // Import Link for the CTA
+
 
 
 
@@ -80,10 +82,21 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 	const [selectedExtras, setSelectedExtras] = useState<string[]>(initialSelectedModules);
 	const [showAnnual, setShowAnnual] = useState(true);
 
+  
+
 	const numberFormatter = new Intl.NumberFormat("es-ES", {
 		minimumFractionDigits: 0,
 		maximumFractionDigits: 0,
 	});
+
+	const currencyFormatter = new Intl.NumberFormat("es-ES", {
+		style: "currency",
+		currency: "EUR",
+		minimumFractionDigits: 0,
+		maximumFractionDigits: 0,
+	});
+
+  
 
 	const handleToggle = (name: string) => {
 		setSelectedExtras((prev) =>
@@ -101,6 +114,10 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 	const totalMantenimiento = showAnnual
 		? 4000 + 600 * selectedExtras.length
 		: 400 + 60 * selectedExtras.length;
+
+  
+
+  
 
 		// Mobile state for presupuesto modal
 		const [showPresupuestoMobile, setShowPresupuestoMobile] = useState(false);
@@ -156,6 +173,8 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 								))}
 							</div>
 						</div>
+
+            
 					</div>
 					{/* Presupuesto column: hidden on mobile, sticky on desktop */}
 					<div className="w-80 bg-gray-100 rounded-lg p-6 flex flex-col justify-between h-full text-gray-900 sticky top-8 hidden md:flex">
@@ -197,6 +216,7 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 										className={`w-1/2 px-3 py-1 rounded-full border text-sm font-semibold transition-colors ${!showAnnual ? 'bg-blue-100 border-blue-400 text-blue-700' : 'bg-white border-gray-300 text-gray-700'}`}
 										onClick={() => setShowAnnual(false)}
 									>
+
 										{configuratorContent.monthlyButton}
 									</button>
 								</div>
@@ -215,8 +235,8 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 										<span>{configuratorContent.totalMaintenance}</span>
 										<span>
 											{showAnnual
-												? `${totalMantenimiento}€/año`
-												: `${totalMantenimiento}€/mes`}
+												? `${currencyFormatter.format(totalMantenimiento)}/año`
+												: `${currencyFormatter.format(totalMantenimiento)}/mes`}
 										</span>
 									</div>
 								</div>
@@ -225,7 +245,7 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 						<div className="mt-8 w-full flex flex-col items-end">
 							<div className="text-gray-600 text-sm mb-1">{configuratorContent.initialPayment}</div>
 							<div className="text-2xl font-bold text-blue-600 mb-2">
-								{numberFormatter.format(totalSinIVA)}€
+								{currencyFormatter.format(totalSinIVA)}
 							</div>
 							<div className="text-gray-600 text-sm mb-1">
 								Pago {showAnnual ? configuratorContent.paymentTypeAnnual : configuratorContent.paymentTypeMonthly} (soporte)
@@ -236,6 +256,14 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 									: `${numberFormatter.format(totalMantenimiento)}€/mes`}
 							</div>
 						</div>
+                        {/* New CTA Card */}
+                        <div className="mt-8 w-full">
+                            <Link href="/calculadora-ahorro" className="block">
+                                <div className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg text-center transition-colors duration-200">
+                                    Calcula tu Ahorro
+                                </div>
+                            </Link>
+                        </div>
 					</div>
 					{/* Mobile presupuesto modal */}
 					{showPresupuestoMobile && (
@@ -311,27 +339,49 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 										{showAnnual ? (
 											<span className="flex items-center gap-2">
 												<span className="text-gray-600 line-through decoration-red-700 text-xs">{numberFormatter.format((400 + 60 * selectedExtras.length) * 12)}€</span>
-												{numberFormatter.format(totalMantenimiento)}€/año
+												{currencyFormatter.format(totalMantenimiento)}/año
 											</span>
 										) : (
-											<span>{numberFormatter.format(totalMantenimiento)}€/mes</span>
+											<span>{currencyFormatter.format(totalMantenimiento)}/mes</span>
 										)}
 									</div>
 								</div>
 								<div className="w-full flex flex-col items-end">
 									<div className="text-gray-600 text-sm mb-1">Pago inicial</div>
 									<div className="text-2xl font-bold text-black mb-2">
-										{numberFormatter.format(totalSinIVA)}€
+										{currencyFormatter.format(totalSinIVA)}
 									</div>
 									<div className="text-gray-600 text-sm mb-1">
 										Suscripción {showAnnual ? "anual" : "mensual"}
 									</div>
 									<div className="text-2xl font-bold text-black">
 										{showAnnual
-											? `${numberFormatter.format(totalMantenimiento)}€/año`
-											: `${numberFormatter.format(totalMantenimiento)}€/mes`}
+											? `${currencyFormatter.format(totalMantenimiento)}/año`
+											: `${currencyFormatter.format(totalMantenimiento)}/mes`}
 									</div>
 								</div>
+                {/* Mobile Savings Results Display */}
+                <div className="mt-8 w-full flex flex-col items-end text-right">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                    {configuratorContent.savingsEstimationTitle}
+                  </h3>
+                  <div className="text-gray-600 text-sm mb-1">{configuratorContent.estimatedAnnualSavings}</div>
+                  <div className="text-2xl font-bold text-green-600 mb-2">
+                    {currencyFormatter.format(ahorroAnualEstimado)}
+                  </div>
+                  <div className="text-gray-600 text-sm mb-1">{configuratorContent.agentAnnualCost}</div>
+                  <div className="text-2xl font-bold text-red-600 mb-2">
+                    {currencyFormatter.format(totalCosteAnualAgente)}
+                  </div>
+                  <div className="text-gray-600 text-sm mb-1">{configuratorContent.netAnnualSavings}</div>
+                  <div className="text-2xl font-bold text-blue-800 mb-2">
+                    {currencyFormatter.format(netSavingsAnual)}
+                  </div>
+                  <div className="text-gray-600 text-sm mb-1">{configuratorContent.paybackPeriod}</div>
+                  <div className="text-2xl font-bold text-purple-600">
+                    {paybackPeriodMonths > 0 && paybackPeriodMonths !== Infinity ? `${numberFormatter.format(paybackPeriodMonths)}` : 'N/A'}
+                  </div>
+                </div>
 							</div>
 						</div>
 					)}
@@ -340,11 +390,11 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 				<div className="fixed bottom-0 left-0 right-0 z-30 bg-white border-t border-gray-200 px-4 py-3 flex md:hidden items-center justify-between shadow-lg">
 					<div className="flex flex-col">
 						<span className="text-xs text-gray-600">{configuratorContent.initialPayment}</span>
-						<span className="text-lg font-bold text-blue-600">{numberFormatter.format(totalSinIVA)}€</span>
+						<span className="text-lg font-bold text-blue-600">{currencyFormatter.format(totalSinIVA)}</span>
 					</div>
 					<div className="flex flex-col mx-4">
 						<span className="text-xs text-gray-600">{configuratorContent.initialPayment} {showAnnual ? configuratorContent.paymentTypeAnnual : configuratorContent.paymentTypeMonthly}</span>
-						<span className="text-lg font-bold text-blue-700">{showAnnual ? `${numberFormatter.format(totalMantenimiento)}€/año` : `${numberFormatter.format(totalMantenimiento)}€/mes`}</span>
+						<span className="text-lg font-bold text-blue-700">{showAnnual ? `${currencyFormatter.format(totalMantenimiento)}/año` : `${currencyFormatter.format(totalMantenimiento)}/mes`}</span>
 					</div>
 					<button
 						type="button"
