@@ -8,6 +8,11 @@ interface CalculadoraAhorroMobileResultsModalProps {
   setShowResultsMobile: (show: boolean) => void;
   savingsCalculatorContent: any; // Define a more specific type if available
   formatoMoneda: Intl.NumberFormat;
+  costeMensualActual: number;
+  horasInvertidasMes: number;
+  interaccionesMes: number;
+  ahorroAnualEstimado: number;
+  horasInvertidasAnual: number;
 }
 
 export const CalculadoraAhorroMobileResultsModal: React.FC<CalculadoraAhorroMobileResultsModalProps> = ({
