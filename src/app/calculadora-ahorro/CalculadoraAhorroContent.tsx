@@ -27,11 +27,17 @@ export default function CalculadoraAhorroContent() {
   const horasInvertidasMes = (interaccionesMes * duracionMedia) / 60;
   const costeMensualActual = horasInvertidasMes * precioHora;
   const ahorroAnualEstimado = costeMensualActual * 12;
+  const horasInvertidasAnual = horasInvertidasMes * 12;
 
   // Formateadores para una bonita visualización
   const formatoMoneda = new Intl.NumberFormat("es-ES", {
     style: "currency",
     currency: "EUR",
+    maximumFractionDigits: 0,
+  });
+
+  const numberFormatter = new Intl.NumberFormat("es-ES", {
+    minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   });
 
@@ -41,10 +47,10 @@ export default function CalculadoraAhorroContent() {
     <>
       <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 md:p-12 pt-12">
         <div className="text-center mb-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-white/90/90">
+          <h1 className="text-md uppercase tracking-widest font-light text-blue-300/60">
             {savingsCalculatorContent.title}
           </h1>
-          <p className="mt-3 text-lg text-foreground/80 max-w-2xl mx-auto">
+          <p className="mt-3 text-md text-foreground/80 max-w-2xl mx-auto">
             {savingsCalculatorContent.description}
           </p>
         </div>
@@ -63,17 +69,14 @@ export default function CalculadoraAhorroContent() {
           />
 
           {/* Columna de Resultados (Desktop) */}
-                    <SpotlightCard className="custom-spotlight-card bg-blue-950/60 backdrop-blur rounded-xl border border-blue-400/30 shadow-lg text-white/90 hidden lg:flex flex-col" spotlightColor="rgba(96, 165, 250, 0.2)">
-          <CardHeader>
-            <CardTitle className="text-2xl font-semibold text-center">
-              {savingsCalculatorContent.resultsCardTitle}
-            </CardTitle>
-          </CardHeader>
+          <SpotlightCard className="custom-spotlight-card bg-blue-950/60 backdrop-blur rounded-xl border border-blue-400/30 shadow-lg text-white/90 hidden lg:flex flex-col" spotlightColor="rgba(96, 165, 250, 0.2)">
+
           <CardContent className="flex flex-col items-center justify-center space-y-6 text-center flex-1">
             <CalculadoraAhorroResults
                 formatoMoneda={formatoMoneda}
                 costeMensualActual={costeMensualActual}
                 horasInvertidasMes={horasInvertidasMes}
+                horasInvertidasAnual={horasInvertidasAnual}
                 interaccionesMes={interaccionesMes}
                 ahorroAnualEstimado={ahorroAnualEstimado}
                 savingsCalculatorContent={savingsCalculatorContent}
@@ -87,6 +90,7 @@ export default function CalculadoraAhorroContent() {
       <CalculadoraAhorroMobileBar
         costeMensualActual={costeMensualActual}
         horasInvertidasMes={horasInvertidasMes}
+        horasInvertidasAnual={horasInvertidasAnual}
         ahorroAnualEstimado={ahorroAnualEstimado}
         formatoMoneda={formatoMoneda}
         setShowResultsMobile={setShowResultsMobile}
@@ -103,6 +107,7 @@ export default function CalculadoraAhorroContent() {
         horasInvertidasMes={horasInvertidasMes}
         interaccionesMes={interaccionesMes}
         ahorroAnualEstimado={ahorroAnualEstimado}
+        horasInvertidasAnual={horasInvertidasAnual}
       />
     </>
   );
