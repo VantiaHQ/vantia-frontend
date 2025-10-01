@@ -66,7 +66,7 @@ export const ROISummaryCard: React.FC<ROISummaryCardProps> = ({
   ];
 
   return (
-    <Card className="bg-gradient-to-br from-blue-950/60 to-blue-900/60 backdrop-blur rounded-3xl border border-blue-400/30 shadow-lg text-white/90">
+    <Card className="bg-gradient-to-br from-blue-950/60 to-navy-700/90 backdrop-blur rounded-3xl border border-blue-400/30 shadow-lg text-white/90">
       <CardHeader>
         <CardTitle className="text-2xl font-semibold text-center">
           Retorno de Inversión a 5 años
@@ -98,7 +98,7 @@ export const ROISummaryCard: React.FC<ROISummaryCardProps> = ({
           </div>
         </div>
 
-        <div className="w-full h-72 lg:w-1/2 bg-blue-900 rounded-lg p-4">
+        <div className="w-full h-64 lg:w-1/2">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={roiData} margin={{ top: 24, right: 32, left: 32, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#3B82F6" />
@@ -106,7 +106,7 @@ export const ROISummaryCard: React.FC<ROISummaryCardProps> = ({
               <YAxis stroke="#BFDBFE" tickFormatter={(value) => formatoMoneda.format(value)} />
               <Tooltip content={<CustomTooltip formatoMoneda={formatoMoneda} />} cursor={false} />
               <Bar dataKey="ahorroAcumulado" fill="#60A5FA" name="Ahorro Acumulado" />
-              <Bar dataKey="costeAcumulado" fill="#EF4444" name="Coste Acumulado" />
+              <Bar dataKey="costeAcumulado" fill="#80859A" name="Coste Acumulado" />
             </BarChart>
           </ResponsiveContainer>
         </div>
