@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 interface CalculadoraAhorroMobileBarProps {
   costeMensualActual: number;
   horasInvertidasMes: number;
+  horasInvertidasAnual: number;
   formatoMoneda: Intl.NumberFormat;
   setShowResultsMobile: (show: boolean) => void;
   savingsCalculatorContent: any; // Define a more specific type if available
@@ -13,6 +14,7 @@ interface CalculadoraAhorroMobileBarProps {
 export const CalculadoraAhorroMobileBar: React.FC<CalculadoraAhorroMobileBarProps> = ({
   costeMensualActual,
   horasInvertidasMes,
+  horasInvertidasAnual,
   formatoMoneda,
   setShowResultsMobile,
   savingsCalculatorContent,
@@ -24,8 +26,8 @@ export const CalculadoraAhorroMobileBar: React.FC<CalculadoraAhorroMobileBarProp
       <span className="text-lg font-bold text-blue-200">{formatoMoneda.format(ahorroAnualEstimado)}</span>
     </div>
     <div className="flex flex-col">
-      <span className="text-xs text-blue-100/90">{savingsCalculatorContent.hoursSavedLabel}</span>
-      <span className="text-lg font-bold text-blue-200">{horasInvertidasMes}</span>
+      <span className="text-xs text-blue-100/90">{savingsCalculatorContent.daysSavedLabel}</span>
+      <span className="text-lg font-bold text-blue-200">{Math.round(horasInvertidasAnual / 8)}{" "}{savingsCalculatorContent.daysUnit}</span>
     </div>
     <Button onClick={() => setShowResultsMobile(true)} className="rounded-full border-blue-400 border-[1px] border-b-[0.5px] text-white/90 bg-transparent hover:bg-blue-400">{savingsCalculatorContent.showBreakdownButton}</Button>
   </div>
