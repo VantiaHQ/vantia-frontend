@@ -1,4 +1,4 @@
-export const configuratorContent = {
+export const configuratorContent = { // Updated to include savings estimation fields
   pageTitle: "Configurador",
   pageSubtitle: "Agente modular",
   pageDescription: "Personaliza tu agente seleccionando los módulos que mejor se adapten a las necesidades de tu empresa.",
@@ -26,4 +26,13 @@ export const configuratorContent = {
   showBudgetButton: "Mostrar presupuesto",
   mobileShow: "Mostrar",
   mobileHide: "Ocultar",
+  savingsEstimationTitle: "Estimación de Ahorro",
+  savingsEstimationDescription: "Ajusta los parámetros para estimar el ahorro que tu agente puede generar.",
+  interactionsPerDay: "Interacciones al día",
+  hourlyCost: "Coste por hora de trabajo",
+  averageDuration: "Duración media de interacción (minutos)",
+  estimatedAnnualSavings: "Ahorro Anual Estimado",
+  agentAnnualCost: "Coste Anual del Agente",
+  paybackPeriod: "Periodo de Retorno (meses)",
+  netAnnualSavings: "Ahorro Neto Anual",
 };
