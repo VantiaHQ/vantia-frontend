@@ -43,7 +43,6 @@ export const CalculadoraAhorroMobileResultsModal: React.FC<CalculadoraAhorroMobi
             horasInvertidasAnual={horasInvertidasAnual}
             interaccionesMes={interaccionesMes}
             ahorroAnualEstimado={ahorroAnualEstimado}
-            horasInvertidasAnual={horasInvertidasAnual}
             savingsCalculatorContent={savingsCalculatorContent}
           />
         </div>
