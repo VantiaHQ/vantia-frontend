@@ -3,8 +3,6 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { supabase } from '@/lib/supabase';
 import AgentContent from './AgentContent';
-import TargetCursor from '@/components/ui/TargetCursor';
-
 export default async function AgentPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
 
@@ -22,7 +20,6 @@ export default async function AgentPage({ params }: { params: Promise<{ slug: st
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <Header />
       <main className="flex-1">
-        <TargetCursor />
         <AgentContent content={data.content} />
       </main>
       <Footer />
