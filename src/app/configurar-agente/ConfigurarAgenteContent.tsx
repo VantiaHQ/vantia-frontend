@@ -229,12 +229,12 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 								<div className="flex flex-col gap-2 text-sm">
 									<div className="flex justify-between items-center">
 										<span>{configuratorContent.basicCoreMaintenance}</span>
-										<span className="font-semibold">{showAnnual ? '4.000€/año' : '400€/mes'}</span>
+										<span className="font-semibold">{showAnnual ? configuratorContent.basicMaintenanceAnnual : configuratorContent.basicMaintenanceMonthly}</span>
 									</div>
 									{selectedExtras.length > 0 && (
 										<div className="flex justify-between items-center">
 											<span>{configuratorContent.extraMaintenancePrefix}{selectedExtras.length} módulo{selectedExtras.length > 1 ? configuratorContent.extraMaintenanceSuffixPlural : configuratorContent.extraMaintenanceSuffixSingular}</span>
-											<span className="font-semibold">{showAnnual ? `${600 * selectedExtras.length}€/año` : `${60 * selectedExtras.length}€/mes`}</span>
+											<span className="font-semibold">{showAnnual ? `${600 * selectedExtras.length}${configuratorContent.extraMaintenanceAnnualSuffix}` : `${60 * selectedExtras.length}${configuratorContent.extraMaintenanceMonthlySuffix}`}</span>
 										</div>
 									)}
 									<div className="flex justify-between items-center font-bold mt-2">
@@ -333,10 +333,10 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 											{showAnnual ? (
 												<span className="flex items-center gap-2 font-semibold">
 													<span className="text-gray-600 line-through decoration-red-700 text-xs">{numberFormatter.format(60 * selectedExtras.length * 12)}€</span>
-													{numberFormatter.format(600 * selectedExtras.length)}€/año
+													{`${numberFormatter.format(600 * selectedExtras.length)}${configuratorContent.extraMaintenanceAnnualSuffix}`}
 												</span>
 											) : (
-												<span className="font-semibold">{numberFormatter.format(60 * selectedExtras.length)}€/mes</span>
+												<span className="font-semibold">{`${numberFormatter.format(60 * selectedExtras.length)}${configuratorContent.extraMaintenanceMonthlySuffix}`}</span>
 											)}
 										</div>
 									)}
