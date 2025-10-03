@@ -8,16 +8,16 @@ Todos los textos deben hablarle directamente desde ese punto de vista (eficienci
 ### Reglas:
 1. Los módulos **Core** siempre deben estar incluidos:  
    - **ChatBot 24/7**: responde FAQs automatizadas y mejora experiencia del cliente, liberando tiempo del equipo humano.  
-   - **Conexión a tu Conocimiento (RAG)**: asegura respuestas sobre la información propia de la empresa, fiabilidad total.  
+   - **RAG (Conexión a tu Conocimiento)**: asegura respuestas sobre la información propia de la empresa, fiabilidad total.  
 
-2. Los **módulos Extra** deben proponerse solo si tienen sentido claro en el caso del sector. Posibles:  
+2. Los **módulos Extra** deben proponerse solo si tienen sentido claro en el caso del sector. Modulos extra disponibles (el nombre tiene que coincidir exactamente):  
   - Captación de Información  
   - Gestión de Citas  
-  - Notificaciones Inteligentes  
-  - Interacciones Humanas (GenAI)  
+  - Notificaciones
+  - GenAI
   - Generación de Enlaces de Pago  
   - Análisis de Sentimiento  
-  - Análisis de Conversaciones  
+  - Análisis Histórico  
   - Lectura de Documentos OCR  
 
 3. **Hero y textos personalizados**: siempre adaptados al sector y al CEO (eficiencia, ahorro de tiempo, ROI).  
