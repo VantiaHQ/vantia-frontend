@@ -2,6 +2,10 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { X } from 'lucide-react';
 import { CalculadoraAhorroResults } from './CalculadoraAhorroResults'; // Import the new component
+/*CalculadoraAhorroContent is in app/calculadora/ahorro*/
+import CalculadoraAhorroContent from '@/app/calculadora-ahorro/CalculadoraAhorroContent';
+import { ROISummaryCard } from '@/components/sections/calculadora-ahorro/ROISummaryCard';
+import Link from 'next/link'; // Import Link for the CTA
 
 interface CalculadoraAhorroMobileResultsModalProps {
   showResultsMobile: boolean;
@@ -46,6 +50,7 @@ export const CalculadoraAhorroMobileResultsModal: React.FC<CalculadoraAhorroMobi
             savingsCalculatorContent={savingsCalculatorContent}
           />
         </div>
+
       </div>
     </div>
   );

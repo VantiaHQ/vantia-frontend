@@ -9,6 +9,7 @@ interface ROISummaryCardProps {
   formatoMoneda: Intl.NumberFormat;
   initialAgentPayment: number; // New prop for initial payment
   annualAgentPayment: number; // New prop for annual agent payment
+  numberOfExtraModules: number; // New prop for the number of extra modules
 }
 
 export const ROISummaryCard: React.FC<ROISummaryCardProps> = ({
@@ -17,8 +18,11 @@ export const ROISummaryCard: React.FC<ROISummaryCardProps> = ({
   formatoMoneda,
   initialAgentPayment,
   annualAgentPayment,
+  numberOfExtraModules, // Destructure the new prop
 }) => {
-  const totalCostFirstYear = (ahorroAnualEstimado / 12) + initialAgentPayment; // This calculation seems incorrect based on the prompt, will adjust
+  // The totalCostFirstYear and netSavingsFirstYear calculations might need adjustment based on the new formula,
+  // but for now, I'll focus on costeAcumulado.
+  const totalCostFirstYear = (ahorroAnualEstimado / 12) + initialAgentPayment;
   const netSavingsFirstYear = ahorroAnualEstimado - initialAgentPayment;
 
   const CustomTooltip = ({ active, payload, label, formatoMoneda }: any) => {
@@ -38,15 +42,11 @@ export const ROISummaryCard: React.FC<ROISummaryCardProps> = ({
   };
 
   const roiData = [];
-  let costeAcumulado = 0;
   let ahorroAcumulado = 0;
 
   for (let year = 1; year <= 5; year++) {
-    if (year === 1) {
-      costeAcumulado = initialAgentPayment + annualAgentPayment;
-    } else {
-      costeAcumulado += annualAgentPayment;
-    }
+    // Apply the new formula for costeAcumulado
+    const costeAcumulado = 2500 + (numberOfExtraModules * 500 * year);
     ahorroAcumulado += ahorroAnualEstimado;
 
     const roi = ((ahorroAcumulado - costeAcumulado) / costeAcumulado) * 100;

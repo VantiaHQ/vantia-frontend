@@ -10,11 +10,12 @@ import SpotlightCard from '@/components/SpotlightCard';
 import { savingsCalculatorContent } from './content';
 
 // Import new components
-import { CalculadoraAhorroResults } from '@/components/calculadora-ahorro/CalculadoraAhorroResults';
-import { CalculadoraAhorroParameters } from '@/components/calculadora-ahorro/CalculadoraAhorroParameters';
-import { CalculadoraAhorroMobileBar } from '@/components/calculadora-ahorro/CalculadoraAhorroMobileBar';
-import { CalculadoraAhorroMobileResultsModal } from '@/components/calculadora-ahorro/CalculadoraAhorroMobileResultsModal';
-import { ROISummaryCard } from '@/components/calculadora-ahorro/ROISummaryCard';
+import { CalculadoraAhorroResults } from '@/components/sections/calculadora-ahorro/CalculadoraAhorroResults';
+import { CalculadoraAhorroParameters } from '@/components/sections/calculadora-ahorro/CalculadoraAhorroParameters';
+import { CalculadoraAhorroMobileBar } from '@/components/sections/calculadora-ahorro/CalculadoraAhorroMobileBar';
+import { CalculadoraAhorroMobileResultsModal } from '@/components/sections/calculadora-ahorro/CalculadoraAhorroMobileResultsModal';
+import { ROISummaryCard } from '@/components/sections/calculadora-ahorro/ROISummaryCard';
+import { AgentInfoCard } from '@/components/sections/AgentInfoCard';
 import { useAgentConfig } from '@/context/AgentConfigContext';
 
 export default function CalculadoraAhorroContent() {
@@ -34,6 +35,7 @@ export default function CalculadoraAhorroContent() {
   const ahorroAnualEstimado = costeMensualActual * 12;
   const horasInvertidasAnual = horasInvertidasMes * 12;
   const initialAgentPayment = 2500; // Defined initial agent payment
+  const numberOfExtraModules = agentConfig.selectedModules.length; // Calculate number of extra modules
 
   // Formateadores para una bonita visualización
   const formatoMoneda = new Intl.NumberFormat("es-ES", {
@@ -51,6 +53,7 @@ export default function CalculadoraAhorroContent() {
 
   return (
     <>
+      {agentConfig.isAgentGenerated && <AgentInfoCard />}
       <div className="w-full max-w-6xl mx-auto p-4 sm:p-6 md:p-12 pt-12">
         <div className="text-center mb-10">
           <h1 className="text-md uppercase tracking-widest font-light text-blue-300/60">
@@ -61,7 +64,7 @@ export default function CalculadoraAhorroContent() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 pb-28 lg:pb-0">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pb-28 lg:pb-0">
           {/* Columna de Parámetros */}
           <CalculadoraAhorroParameters
             interaccionesDia={interaccionesDia}
@@ -99,6 +102,7 @@ export default function CalculadoraAhorroContent() {
             formatoMoneda={formatoMoneda}
             initialAgentPayment={initialAgentPayment}
             annualAgentPayment={5200}
+            numberOfExtraModules={numberOfExtraModules}
           />
         </div>
       </div>

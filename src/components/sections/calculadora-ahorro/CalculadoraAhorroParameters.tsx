@@ -98,18 +98,6 @@ export const CalculadoraAhorroParameters: React.FC<CalculadoraAhorroParametersPr
           step={1}
         />
       </div>
-
-      {/* Agent Cost Display */}
-      <div className="space-y-3 pt-4 border-t border-blue-500/50">
-        <div className="flex justify-between items-center">
-          <Label className="text-base font-medium text-blue-100/90">
-            {savingsCalculatorContent.estimatedAnnualCostLabel}
-          </Label>
-          <span className="text-lg font-bold text-blue-200">
-            {formatoMoneda.format(displayAgentCost)}
-          </span>
-        </div>
-      </div>
     </CardContent>
   </Card>
   );
