@@ -32,7 +32,7 @@ export default function Footer() {
                 alt="Vantia Logo"
                 width={200}
                 height={33}
-                className="mb-4 w-auto h-auto cursor-target"
+                className="mb-4 cursor-target"
               />
             </Link>
             {/* <div className="flex space-x-4">
