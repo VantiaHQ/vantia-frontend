@@ -31,7 +31,8 @@ export const CalculadoraAhorroParameters: React.FC<CalculadoraAhorroParametersPr
   formatoMoneda,
   savingsCalculatorContent,
 }) => {
-  const displayAgentCost = 3600; // Assuming 0 as base cost
+  const { agentConfig } = useAgentConfig();
+  const displayAgentCost = agentConfig.isAgentGenerated ? agentConfig.agentCost : 3600; // Assuming 0 as base cost
   const initialAgentPayment = 2500; // Defined initial agent payment
 
   return (
