@@ -5,11 +5,16 @@ import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useAgentConfig } from '@/context/AgentConfigContext';
-import { savingsCalculatorContent } from '@/app/calculadora-ahorro/content';
 
 export const AgentInfoCard: React.FC = () => {
   const { agentConfig, setAgentCost, setIsAgentGenerated, setAgentConfiguration } = useAgentConfig();
   const { agentCost, isAgentGenerated, agentConfiguration } = agentConfig;
+
+  const formatoMoneda = new Intl.NumberFormat("es-ES", {
+    style: "currency",
+    currency: "EUR",
+    maximumFractionDigits: 0,
+  });
 
   if (!isAgentGenerated) {
     return null; // Don't render if no agent is generated
@@ -40,7 +45,7 @@ export const AgentInfoCard: React.FC = () => {
             </div>
             <div className="flex justify-between items-center">
               <span className="text-lg font-medium">Costo Mensual Asociado:</span>
-              <span className="text-lg font-bold">{savingsCalculatorContent.formatoMoneda.format(agentCost)}</span>
+              <span className="text-lg font-bold">{formatoMoneda.format(agentCost)}</span>
             </div>
             {/* Add more details from agentConfiguration as needed */}
           </CardContent>
