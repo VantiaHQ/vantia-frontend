@@ -12,31 +12,34 @@ function useLocalStorage<T>(key: string, initialValue: T): [T, (value: T | ((val
     try {
       const item = window.localStorage.getItem(key); // Re-introduced
       const stored = item ? JSON.parse(item) : initialValue;
-      // Sanitize numeric properties to ensure they are numbers and not NaN
-      const sanitizedStored = { ...stored };
-      if (typeof sanitizedStored.agentCost === 'number' && isNaN(sanitizedStored.agentCost)) {
-        sanitizedStored.agentCost = 0;
+      if (stored && typeof stored === 'object' && !Array.isArray(stored)) {
+        // Sanitize numeric properties to ensure they are numbers and not NaN
+        const sanitizedStored = { ...stored };
+        if (typeof sanitizedStored.agentCost === 'number' && isNaN(sanitizedStored.agentCost)) {
+          sanitizedStored.agentCost = 0;
+        }
+        if (typeof sanitizedStored.initialAgentPayment === 'number' && isNaN(sanitizedStored.initialAgentPayment)) {
+          sanitizedStored.initialAgentPayment = 0;
+        }
+        if (typeof sanitizedStored.annualAgentPayment === 'number' && isNaN(sanitizedStored.annualAgentPayment)) {
+          sanitizedStored.annualAgentPayment = 0;
+        }
+        // Also sanitize monthlyPrice and initialCost within selectedModules if they exist
+        if (Array.isArray(sanitizedStored.selectedModules)) {
+          sanitizedStored.selectedModules = sanitizedStored.selectedModules.map((module: any) => {
+            const sanitizedModule = { ...module };
+            if (typeof sanitizedModule.monthlyPrice === 'number' && isNaN(sanitizedModule.monthlyPrice)) {
+              sanitizedModule.monthlyPrice = 0;
+            }
+            if (typeof sanitizedModule.initialCost === 'number' && isNaN(sanitizedModule.initialCost)) {
+              sanitizedModule.initialCost = 0;
+            }
+            return sanitizedModule;
+          });
+        }
+        return sanitizedStored;
       }
-      if (typeof sanitizedStored.initialAgentPayment === 'number' && isNaN(sanitizedStored.initialAgentPayment)) {
-        sanitizedStored.initialAgentPayment = 0;
-      }
-      if (typeof sanitizedStored.annualAgentPayment === 'number' && isNaN(sanitizedStored.annualAgentPayment)) {
-        sanitizedStored.annualAgentPayment = 0;
-      }
-      // Also sanitize monthlyPrice and initialCost within selectedModules if they exist
-      if (Array.isArray(sanitizedStored.selectedModules)) {
-        sanitizedStored.selectedModules = sanitizedStored.selectedModules.map((module: any) => {
-          const sanitizedModule = { ...module };
-          if (typeof sanitizedModule.monthlyPrice === 'number' && isNaN(sanitizedModule.monthlyPrice)) {
-            sanitizedModule.monthlyPrice = 0;
-          }
-          if (typeof sanitizedModule.initialCost === 'number' && isNaN(sanitizedModule.initialCost)) {
-            sanitizedModule.initialCost = 0;
-          }
-          return sanitizedModule;
-        });
-      }
-      return sanitizedStored;
+      return stored;
     } catch (error) {
       console.error(`useLocalStorage: Error parsing item for key "${key}":`, error);
       return initialValue;

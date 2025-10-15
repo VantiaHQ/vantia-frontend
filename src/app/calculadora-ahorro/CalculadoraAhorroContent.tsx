@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import useLocalStorage from "@/hooks/use-local-storage";
 import { Slider } from "@/components/ui/slider";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
@@ -18,9 +19,9 @@ import { ROISummaryCard } from '@/components/calculadora-ahorro/ROISummaryCard';
 import { useAgentConfig } from '@/context/AgentConfigContext';
 
 export default function CalculadoraAhorroContent() {
-  const [interaccionesDia, setInteraccionesDia] = useState(15);
-  const [precioHora, setPrecioHora] = useState(15);
-  const [duracionMedia, setDuracionMedia] = useState(10);
+  const [interaccionesDia, setInteraccionesDia] = useLocalStorage("interaccionesDia", 15);
+  const [precioHora, setPrecioHora] = useLocalStorage("precioHora", 15);
+  const [duracionMedia, setDuracionMedia] = useLocalStorage("duracionMedia", 10);
   const [showResultsMobile, setShowResultsMobile] = useState(false);
 
   const { agentConfig } = useAgentConfig();
