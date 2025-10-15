@@ -17,7 +17,7 @@ export default function Home() {
       <Header />
       <main className="flex-1 mt-[-80px]">
         <TargetCursor />
-        <FadeInSection direction="up"><Hero /></FadeInSection>
+        <Hero />
         <AgenteModular />
         <ConsultoriaIA />
         <Security />
