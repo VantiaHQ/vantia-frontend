@@ -30,8 +30,8 @@ export default function Footer() {
               <Image
                 src="/images/logo-negativo-color.png"
                 alt="Vantia Logo"
-                width={120}
-                height={40}
+                width={200}
+                height={33}
                 className="mb-4 w-auto h-auto cursor-target"
               />
             </Link>

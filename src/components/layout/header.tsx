@@ -61,9 +61,9 @@ export default function Header() {
 					<Image
 						src={isScrolled ? '/images/logo-negativo.png' : '/images/logo-negativo-color.png'}
 						alt="Vantia Logo"
-						width={156}
+						width={275}
 						height={48}
-						className="transition-all duration-300 w-[156px] h-[48px]"
+						className="transition-all duration-300 w-[275px] h-[48px]"
 						priority						
 					/>
 				</Link>
