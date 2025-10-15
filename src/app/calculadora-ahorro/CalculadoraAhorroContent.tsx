@@ -19,7 +19,7 @@ import { useAgentConfig } from '@/context/AgentConfigContext';
 
 export default function CalculadoraAhorroContent() {
   const [interaccionesDia, setInteraccionesDia] = useState(15);
-  const [precioHora, setPrecioHora] = useState(25);
+  const [precioHora, setPrecioHora] = useState(15);
   const [duracionMedia, setDuracionMedia] = useState(10);
   const [showResultsMobile, setShowResultsMobile] = useState(false);
 
@@ -30,7 +30,7 @@ export default function CalculadoraAhorroContent() {
   const interaccionesMes = interaccionesDia * diasLaboralesMes;
   const horasInvertidasMes = (interaccionesMes * duracionMedia) / 60;
   const agentCost = agentConfig.isAgentGenerated ? agentConfig.agentCost : (5200 / 12); // Use context's default if not generated
-  const costeMensualActual = (horasInvertidasMes * precioHora) + agentCost;
+  const costeMensualActual = horasInvertidasMes * precioHora;
   const ahorroAnualEstimado = costeMensualActual * 12;
   const horasInvertidasAnual = horasInvertidasMes * 12;
   const initialAgentPayment = 2500; // Defined initial agent payment
@@ -98,7 +98,7 @@ export default function CalculadoraAhorroContent() {
             horasInvertidasAnual={horasInvertidasAnual}
             formatoMoneda={formatoMoneda}
             initialAgentPayment={initialAgentPayment}
-            annualAgentPayment={5200}
+            annualAgentPayment={3600}
           />
         </div>
       </div>

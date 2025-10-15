@@ -32,7 +32,8 @@ export const CalculadoraAhorroParameters: React.FC<CalculadoraAhorroParametersPr
   savingsCalculatorContent,
 }) => {
   const { agentConfig } = useAgentConfig();
-  const displayAgentCost = agentConfig.isAgentGenerated ? agentConfig.agentCost : 0; // Assuming 0 as base cost
+  const displayAgentCost = agentConfig.isAgentGenerated ? agentConfig.agentCost : 3600; // Assuming 0 as base cost
+  const initialAgentPayment = 2500; // Defined initial agent payment
 
   return (
   <Card className="bg-gradient-to-br from-blue-950/60 to-blue-900/60 backdrop-blur rounded-3xl border border-blue-400/30 shadow-lg">
@@ -100,7 +101,15 @@ export const CalculadoraAhorroParameters: React.FC<CalculadoraAhorroParametersPr
       </div>
 
       {/* Agent Cost Display */}
-      <div className="space-y-3 pt-4 border-t border-blue-500/50">
+      <div className="flex flex-col pt-4 border-t border-blue-500/50">
+        <div className="flex justify-between items-center">
+          <Label className="text-base font-medium text-blue-100/90">
+            {savingsCalculatorContent.estimatedInitialCostLabel}
+          </Label>
+          <span className="text-lg font-bold text-blue-200">
+            {formatoMoneda.format(initialAgentPayment)}
+          </span>
+        </div>
         <div className="flex justify-between items-center">
           <Label className="text-base font-medium text-blue-100/90">
             {savingsCalculatorContent.estimatedAnnualCostLabel}
