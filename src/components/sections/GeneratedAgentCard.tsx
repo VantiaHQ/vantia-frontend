@@ -67,7 +67,14 @@ export default function GeneratedAgentCard({ slug, name, onClear }: GeneratedAge
                             </TooltipTrigger>
                             <TooltipContent><p>Ver Página</p></TooltipContent>
                         </Tooltip>
-                        
+                        <Tooltip>
+                            <TooltipTrigger asChild>
+                                <Button variant="outline" size="icon" className="cursor-target hover:bg-white/10 border-white/80 hover:border-blue-300 hover:shadow-[0_0_8px_rgba(80,200,255,0.4)]" onClick={() => router.push(`/configurar-agente?agentSlug=${slug}`)}> {/* Changed navigation target */}
+                                    <Settings className="h-4 w-4" />
+                                </Button>
+                            </TooltipTrigger>
+                            <TooltipContent><p>Configurar</p></TooltipContent>
+                        </Tooltip>
                         <Tooltip>
                             <TooltipTrigger asChild>
                                 <Button variant="outline" size="icon" className="cursor-target hover:bg-white/10 border-white/80 hover:border-blue-300 hover:shadow-[0_0_8px_rgba(80,200,255,0.4)]" onClick={() => router.push('/calculadora-ahorro')}> {/* Added hover effect */}
