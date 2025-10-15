@@ -39,7 +39,7 @@ export default function AgentGenerator() {
   const { setAgentName, setSelectedModules, setAgentCost, setInitialAgentPayment, setAnnualAgentPayment, setCoreModulesCost, setExtraModulesCost, setPaymentOption } = useAgentConfig(); // Get all setters from context
 
   // Use the local storage hook
-  const [generatedAgent, setGeneratedAgent] = useLocalStorage<{ slug: string; name: string } | null>('generatedAgent', null);
+  const [generatedAgent, setGeneratedAgent] = useLocalStorage<{ slug: string; name: string } | null>('generatedAgentInfo', null);
 
   useEffect(() => {
     const handleResize = () => {

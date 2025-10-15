@@ -55,7 +55,7 @@ interface AgentConfigContextType {
 const AgentConfigContext = createContext<AgentConfigContextType | undefined>(undefined);
 
 export const AgentConfigProvider = ({ children }: { children: ReactNode }) => {
-  const [agentConfig, setAgentConfig] = useLocalStorage<AgentConfig>('generatedAgent', initialAgentConfig);
+  const [agentConfig, setAgentConfig] = useLocalStorage<AgentConfig>('agentConfig', initialAgentConfig);
 
   const setAgentCost = (cost: number) => {
     setAgentConfig(prevConfig => ({ ...prevConfig, agentCost: cost }));
