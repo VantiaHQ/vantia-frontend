@@ -1,3 +1,12 @@
+export type Module = {
+  id: string;
+  name: string;
+  monthlyPrice: number;
+  initialCost: number;
+  isNeeded: boolean;
+  description: string;
+};
+
 export const coreModules = [
 	{
 		id: "chatbot-24-7",

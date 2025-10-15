@@ -39,6 +39,11 @@ export async function POST(req: NextRequest) {
 
     // Call structured Genkit flow
     const geminiResponse = await generateAgentPageFlow({ companyDescription });
+    const name = geminiResponse.hero.title; // Extract name from AI response
+    const modules = {
+      core: geminiResponse.modulesUsed.core,
+      extra: geminiResponse.modulesUsed.extra || [],
+    };
 
     // Generate a unique slug
     const baseSlug = slugify(companyDescription, { lower: true, strict: true });
@@ -53,7 +58,7 @@ export async function POST(req: NextRequest) {
         .insert([{ slug, content: geminiResponse }]);
 
       if (!insertError) {
-        return NextResponse.json({ slug }, { status: 200 });
+        return NextResponse.json({ slug, name, modules }, { status: 200 }); // Return name and modules along with slug
       }
 
       const code = (insertError as any)?.code || '';
