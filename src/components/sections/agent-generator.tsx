@@ -36,7 +36,7 @@ export default function AgentGenerator() {
   const [isMobile, setIsMobile] = useState(false);
   const router = useRouter();
   const { toast } = useToast();
-  const { setAgentName, setSelectedModules, setAgentCost, setInitialAgentPayment, setAnnualAgentPayment, setCoreModulesCost, setExtraModulesCost, setPaymentOption } = useAgentConfig(); // Get all setters from context
+  const { setAgentName, setSelectedModules, setAgentCost, setInitialAgentPayment, setAnnualAgentPayment, setCoreModulesCost, setExtraModulesCost, setPaymentOption, setIsAgentGenerated } = useAgentConfig(); // Get all setters from context
 
   // Use the local storage hook
   const [generatedAgent, setGeneratedAgent] = useLocalStorage<{ slug: string; name: string } | null>('generatedAgentInfo', null);
@@ -76,6 +76,7 @@ export default function AgentGenerator() {
         // Store the slug and the descriptive name in local storage
         setGeneratedAgent({ slug, name });
         setAgentName(name); // Set the agent name in the context
+        setIsAgentGenerated(true); // Set the agent as generated
 
         const allAvailableModules = [...coreModules, ...extraModules];
 
