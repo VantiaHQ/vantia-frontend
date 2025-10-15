@@ -107,10 +107,10 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 	};
 
 	const totalSinIVA =
-		coreModules.reduce((acc, m) => acc + m.price, 0) +
+		coreModules.reduce((acc, m) => acc + m.initialCost, 0) +
 		extraModules
 			.filter((m) => selectedExtras.includes(m.name))
-			.reduce((acc, m) => acc + m.price, 0);
+			.reduce((acc, m) => acc + m.initialCost, 0);
 	const totalMantenimiento = showAnnual
 		? 4000 + 600 * selectedExtras.length
 		: 400 + 60 * selectedExtras.length;
@@ -130,7 +130,7 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 
 		return (
 				<div className="min-h-screen bg-[#070916] flex flex-col items-center py-12 px-4">
-					<div className="max-w-4xl w-full bg-white rounded-xl shadow-lg p-8 flex flex-row gap-8 md:flex-row flex-col">
+					<div className="max-w-4xl w-full bg-white rounded-xl shadow-lg p-8 flex gap-8 md:flex-row flex-col">
 						{/* Main section: full width on mobile */}
 						<div className="flex-1 w-full md:w-auto">
 						<p className="text-sm text-gray-700 uppercase">
@@ -183,7 +183,7 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
             
 					</div>
 					{/* Presupuesto column: hidden on mobile, sticky on desktop */}
-					<div className="w-80 bg-gray-100 rounded-lg p-6 flex flex-col justify-between h-full text-gray-900 sticky top-8 hidden md:flex">
+					<div className="w-80 bg-gray-100 rounded-lg p-6 flex-col justify-between h-full text-gray-900 sticky top-8 hidden md:flex">
 						<div>
 							<h3 className="text-lg font-semibold text-gray-900 mb-4">
 								{configuratorContent.budgetTitle}
@@ -192,7 +192,7 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 								{coreModules.map((mod) => (
 									<li key={mod.name} className="flex justify-between items-center mb-1">
 										<span>{mod.name}</span>
-										<span className="font-semibold">{numberFormatter.format(mod.price)}€</span>
+										<span className="font-semibold">{numberFormatter.format(mod.initialCost)}€</span>
 									</li>
 								))}
 								{selectedExtras.map((name) => {
@@ -200,7 +200,7 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 									return mod ? (
 										<li key={mod.name} className="flex justify-between items-center mb-1">
 											<span>{mod.name}</span>
-											<span className="font-semibold">{numberFormatter.format(mod.price)}€</span>
+											<span className="font-semibold">{numberFormatter.format(mod.initialCost)}€</span>
 										</li>
 									) : null;
 								})}
@@ -302,7 +302,7 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 									{coreModules.map((mod) => (
 										<li key={mod.name} className="flex justify-between items-center mb-1">
 											<span>{mod.name} (Core)</span>
-											<span className="font-semibold">{numberFormatter.format(mod.price)}€</span>
+											<span className="font-semibold">{numberFormatter.format(mod.initialCost)}€</span>
 										</li>
 									))}
 									{selectedExtras.map((name) => {
@@ -310,7 +310,7 @@ export default function ConfigurarAgenteContent({ initialSelectedModules = [] }:
 										return mod ? (
 											<li key={mod.name} className="flex justify-between items-center mb-1">
 												<span>{mod.name}</span>
-												<span className="font-semibold">{numberFormatter.format(mod.price)}€</span>
+												<span className="font-semibold">{numberFormatter.format(mod.initialCost)}€</span>
 											</li>
 										) : null;
 									})}
