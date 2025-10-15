@@ -46,7 +46,7 @@ export default function GeneratedAgentCard({ slug, name, onClear }: GeneratedAge
 
   return (
     <div className="container bg-[#070916] mx-auto pb-24">
-        <h2 className="max-w-3xl mx-auto text-xl font-light text-gray-700 pl-4 mb-2">Mi Agente</h2> {/* External Heading */}
+        <h2 className="max-w-3xl mx-auto text-xl font-light text-gray-700 pl-4 mb-2">Tu Agente</h2> {/* External Heading */}
         <Card className="max-w-3xl mx-auto shadow-lg bg-[url('/images/modular-agent.webp')] bg-cover bg-center relative rounded-lg drop-shadow-[0_-16px_32px_rgba(80,200,255,0.2)]"> {/* Whole card bg, glow shadow */}
             <div className="absolute inset-0 bg-black/50 z-0 rounded-lg"></div> {/* Overlay for readability */}
             <CardHeader className="p-6 flex flex-col sm:flex-row items-center justify-between z-10"> {/* Removed bg image, added z-10 */}
@@ -65,7 +65,7 @@ export default function GeneratedAgentCard({ slug, name, onClear }: GeneratedAge
                                     </Button>
                                 </Link>
                             </TooltipTrigger>
-                            <TooltipContent><p>Ver Página</p></TooltipContent>
+                            <TooltipContent><p>Ver Agente</p></TooltipContent>
                         </Tooltip>
                         <Tooltip>
                             <TooltipTrigger asChild>
