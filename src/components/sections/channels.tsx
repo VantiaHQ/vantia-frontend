@@ -1,5 +1,5 @@
 import { Globe, Mail } from 'lucide-react';
-import { WhatsappIcon, TelegramIcon, SlackIcon } from '@/components/Icons';
+import { WhatsappIcon, TelegramIcon, SlackIcon } from '../Icons';
 
 const channels = [
 	{ name: 'Web', icon: Globe },
