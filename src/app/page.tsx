@@ -1,5 +1,5 @@
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
+import Header from '@/components/layout/header';
+import Footer from '@/components/layout/footer';
 import Hero from '@/components/sections/Hero';
 import AgenteModular from '@/components/sections/AgenteModular';
 import ConsultoriaIA from '@/components/sections/ConsultoriaIA';
