@@ -39,7 +39,7 @@ export default function GeneratedAgentCard({ slug, name, onClear }: GeneratedAge
     const formattedName = capitalizeFirstWord(name);
 
     return (
-        <div className="container bg-[#070916] mx-auto pb-24">
+        <div className="container mx-auto pb-24">
             <h2 className="max-w-3xl mx-auto text-xl font-light text-gray-700 pl-4 mb-2">{externalHeading}</h2>
             <Card className="max-w-3xl mx-auto shadow-lg bg-[url('/images/modular-agent.webp')] bg-cover bg-center relative rounded-lg drop-shadow-[0_-16px_32px_rgba(80,200,255,0.2)]">
                 <div className="absolute inset-0 bg-black/50 z-0 rounded-lg"></div>

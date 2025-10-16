@@ -30,7 +30,7 @@ export default function AgentGenerator() {
 
   return (
     <>
-      <section id="agent-generator" className="bg-[#070916] pt-32 pb-20">
+      <section id="agent-generator" className="pt-32 pb-20">
         <div className="container mx-auto px-6">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl max-w-full font-extrabold tracking-tight text-white/90 mb-8 drop-shadow-[0_0_16px_rgba(80,200,255,0.3)]">
