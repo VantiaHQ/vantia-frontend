@@ -1,6 +1,6 @@
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import AgentGenerator from '@/components/sections/agent-generator';
+import AgentGenerator from '@/components/sections/AgentGenerator';
 import TargetCursor from '@/components/ui/TargetCursor';
 
 export default function GenerateAgentPage() {

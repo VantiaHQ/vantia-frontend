@@ -4,7 +4,7 @@ import Hero from '@/components/sections/hero';
 import Philosophy from '@/components/sections/philosophy';
 import AgenteModular from '@/components/sections/agente-modular';
 import Channels from '@/components/sections/channels';
-import CaseStudy from '@/components/sections/case-study';
+import CaseStudy from '@/components/sections/CaseStudy';
 import ConsultoriaIA from '@/components/sections/consultoria-ia';
 import Contact from '@/components/sections/contact';
 import FadeInSection from '@/components/ui/fade-in-section';

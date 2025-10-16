@@ -1,7 +1,7 @@
 "use client";
 
 import Footer from '@/components/layout/Footer';
-import ContactForm from '@/components/sections/contact-form';
+import ContactForm from '@/components/sections/ContactForm';
 import FadeInSection from '@/components/ui/fade-in-section';
 import TargetCursor from '@/components/ui/TargetCursor';
 
