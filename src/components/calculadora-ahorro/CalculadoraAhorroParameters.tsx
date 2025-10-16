@@ -1,6 +1,7 @@
 import React from 'react';
 import { Instrument_Serif } from 'next/font/google';
 import { Slider } from "@/components/ui/slider";
+import { DEFAULT_INITIAL_PAYMENT, DEFAULT_ANNUAL_RECURRING_PAYMENT } from '@/lib/pricing';
 
 const instrumentSerif = Instrument_Serif({
   subsets: ['latin'],
@@ -9,14 +10,15 @@ const instrumentSerif = Instrument_Serif({
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { useAgentConfig } from '@/context/AgentConfigContext';
+import { savingsCalculatorContent } from '@/components/calculadora-ahorro/CalculadoraAhorro.content';
 
 interface CalculadoraAhorroParametersProps {
   interaccionesDia: number;
   setInteraccionesDia: (value: number) => void;
   precioHora: number;
   setPrecioHora: (value: number) => void;
-  duracionMedia: number;
-  setDuracionMedia: (value: number) => void;
+  duracionMediaMinutos: number;
+  setduracionMediaMinutos: (value: number) => void;
   formatoMoneda: Intl.NumberFormat;
   savingsCalculatorContent: any; // Define a more specific type if available
 }
@@ -26,14 +28,14 @@ export const CalculadoraAhorroParameters: React.FC<CalculadoraAhorroParametersPr
   setInteraccionesDia,
   precioHora,
   setPrecioHora,
-  duracionMedia,
-  setDuracionMedia,
+  duracionMediaMinutos,
+  setduracionMediaMinutos,
   formatoMoneda,
   savingsCalculatorContent,
 }) => {
   const { agentConfig } = useAgentConfig();
-  const displayAgentCost = agentConfig.isAgentGenerated ? agentConfig.agentCost : 3600; // Assuming 0 as base cost
-  const initialAgentPayment = 2500; // Defined initial agent payment
+  const displayAgentCost = agentConfig.isAgentGenerated ? agentConfig.agentCost : DEFAULT_ANNUAL_RECURRING_PAYMENT;
+  const initialAgentPayment = DEFAULT_INITIAL_PAYMENT;
 
   return (
   <Card className="bg-gradient-to-br from-blue-950/60 to-blue-900/60 backdrop-blur rounded-3xl border border-blue-400/30 shadow-lg">
@@ -87,13 +89,13 @@ export const CalculadoraAhorroParameters: React.FC<CalculadoraAhorroParametersPr
             {savingsCalculatorContent.averageDurationLabel}
           </Label>
           <span className="text-lg font-bold text-blue-200">
-            {duracionMedia} {savingsCalculatorContent.minutesUnit}
+            {duracionMediaMinutos} {savingsCalculatorContent.minutesUnit}
           </span>
         </div>
         <Slider
           id="duracion"
-          value={[duracionMedia]}
-          onValueChange={(value) => setDuracionMedia(value[0])}
+          value={[duracionMediaMinutos]}
+          onValueChange={(value) => setduracionMediaMinutos(value[0])}
           min={1}
           max={60}
           step={1}

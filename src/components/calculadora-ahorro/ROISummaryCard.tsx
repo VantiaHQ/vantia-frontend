@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { savingsCalculatorContent } from '@/app/calculadora-ahorro/content';
+import { savingsCalculatorContent } from '@/components/calculadora-ahorro/CalculadoraAhorro.content';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 interface ROISummaryCardProps {
@@ -25,10 +25,10 @@ export const ROISummaryCard: React.FC<ROISummaryCardProps> = ({
     if (active && payload && payload.length) {
       return (
         <div className="bg-blue-950/90 p-3 rounded-lg border border-blue-400/30 text-white text-sm shadow-lg">
-          <p className="font-bold mb-1">Año: {label}</p>
+          <p className="font-bold mb-1">{savingsCalculatorContent.roiSummaryCard.tooltip.year} {label}</p>
           {payload.map((entry: any, index: number) => (
             <p key={`item-${index}`} style={{ color: entry.color }}>
-              {entry.name}: {entry.name === 'ROI Acumulado' ? `${entry.value}%` : formatoMoneda.format(entry.value)}
+              {entry.name}: {entry.name === savingsCalculatorContent.roiSummaryCard.tooltip.cumulativeRoi ? `${entry.value}%` : formatoMoneda.format(entry.value)}
             </p>
           ))}
         </div>
@@ -41,7 +41,7 @@ export const ROISummaryCard: React.FC<ROISummaryCardProps> = ({
   let costeAcumulado = 0;
   let ahorroAcumulado = 0;
 
-  for (let year = 1; year <= 5; year++) {
+  for (let year = 1; year <= savingsCalculatorContent.parameters.roiYears; year++) {
     if (year === 1) {
       costeAcumulado = initialAgentPayment + annualAgentPayment;
     } else {
@@ -69,7 +69,7 @@ export const ROISummaryCard: React.FC<ROISummaryCardProps> = ({
     <Card className="bg-gradient-to-br from-blue-950/60 to-navy-700/90 backdrop-blur rounded-3xl border border-blue-400/30 shadow-lg text-white/90">
       <CardHeader>
         <CardTitle className="text-2xl font-semibold text-center">
-          Retorno de Inversión a 5 años
+          {savingsCalculatorContent.roiSummaryCard.title}
         </CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col lg:flex-row items-center justify-center lg:justify-between space-y-6 lg:space-y-0 lg:space-x-6 text-center flex-1">
@@ -78,10 +78,10 @@ export const ROISummaryCard: React.FC<ROISummaryCardProps> = ({
             <table className="w-full text-left table-auto">
               <thead>
                 <tr className="border-b border-blue-500/50">
-                  <th className="py-2 px-4">Año</th>
-                  <th className="py-2 px-4">Coste Acumulado</th>
-                  <th className="py-2 px-4">Ahorro Acumulado</th>
-                  <th className="py-2 px-4">ROI Acumulado (%)</th>
+                  <th className="py-2 px-4">{savingsCalculatorContent.roiSummaryCard.tableHeaders.year}</th>
+                  <th className="py-2 px-4">{savingsCalculatorContent.roiSummaryCard.tableHeaders.cumulativeCost}</th>
+                  <th className="py-2 px-4">{savingsCalculatorContent.roiSummaryCard.tableHeaders.cumulativeSavings}</th>
+                  <th className="py-2 px-4">{savingsCalculatorContent.roiSummaryCard.tableHeaders.cumulativeRoi}</th>
                 </tr>
               </thead>
               <tbody>
@@ -105,8 +105,8 @@ export const ROISummaryCard: React.FC<ROISummaryCardProps> = ({
               <XAxis dataKey="year" stroke="#BFDBFE" />
               <YAxis stroke="#BFDBFE" tickFormatter={(value) => formatoMoneda.format(value)} />
               <Tooltip content={<CustomTooltip formatoMoneda={formatoMoneda} />} cursor={false} />
-              <Bar dataKey="ahorroAcumulado" fill="#60A5FA" name="Ahorro Acumulado" />
-              <Bar dataKey="costeAcumulado" fill="#80859A" name="Coste Acumulado" />
+              <Bar dataKey="ahorroAcumulado" fill="#60A5FA" name={savingsCalculatorContent.roiSummaryCard.barNames.cumulativeSavings} />
+              <Bar dataKey="costeAcumulado" fill="#80859A" name={savingsCalculatorContent.roiSummaryCard.barNames.cumulativeCost} />
             </BarChart>
           </ResponsiveContainer>
         </div>
