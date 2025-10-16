@@ -1,5 +1,5 @@
 
-import ConfigureAgentModalButton from '@/components/sections/ConfigureAgentModalButton';
+
 import { agentContentStrings } from '@/app/agente/[slug]/content';
 
 type ModulesUsedProps = {
@@ -44,12 +44,7 @@ export default function ModulesUsed({ content }: ModulesUsedProps) {
           <div className="flex justify-end"></div>
         </div>
       )}
-      <ConfigureAgentModalButton
-        preSelectedModules={[
-          ...(content.core?.map((mod: any) => mod) || []),
-          ...(content.extra?.map((mod: any) => mod) || []),
-        ]}
-      />
+      
     </>
   );
 }
