@@ -32,7 +32,6 @@ export default function CalculadoraAhorroContent() {
   const costeMensualActual = horasInvertidasMes * precioHora;
   const ahorroAnualEstimado = costeMensualActual * 12;
   const horasInvertidasAnual = horasInvertidasMes * 12;
-  const initialAgentPayment = DEFAULT_INITIAL_PAYMENT;
 
   return (
     <>
@@ -64,12 +63,12 @@ export default function CalculadoraAhorroContent() {
 
           <CardContent className="flex flex-col items-center justify-center space-y-6 text-center flex-1">
             <CalculadoraAhorroResults
-                formatoMoneda={formatoMoneda}
+                interaccionesMes={interaccionesMes}
                 costeMensualActual={costeMensualActual}
+                ahorroAnualEstimado={ahorroAnualEstimado}
                 horasInvertidasMes={horasInvertidasMes}
                 horasInvertidasAnual={horasInvertidasAnual}
-                interaccionesMes={interaccionesMes}
-                ahorroAnualEstimado={ahorroAnualEstimado}
+                formatoMoneda={formatoMoneda}
                 savingsCalculatorContent={savingsCalculatorContent}
               />
           </CardContent>
@@ -79,11 +78,11 @@ export default function CalculadoraAhorroContent() {
         {/* ROI Summary Card (Desktop) */}
         <div className="mt-8 hidden lg:flex">
           <ROISummaryCard
+            initialAgentPayment={DEFAULT_INITIAL_PAYMENT}
+            annualAgentPayment={DEFAULT_ANNUAL_RECURRING_PAYMENT}
             ahorroAnualEstimado={ahorroAnualEstimado}
             horasInvertidasAnual={horasInvertidasAnual}
             formatoMoneda={formatoMoneda}
-            initialAgentPayment={initialAgentPayment}
-            annualAgentPayment={DEFAULT_ANNUAL_RECURRING_PAYMENT}
           />
         </div>
       </div>
