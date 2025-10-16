@@ -10,28 +10,18 @@ const instrumentSerif = Instrument_Serif({
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { useAgentConfig } from '@/context/AgentConfigContext';
+import { useSavingsCalculator } from '@/context/SavingsCalculatorContext';
 
 interface CalculadoraAhorroParametersProps {
-  interaccionesDia: number;
-  setInteraccionesDia: (value: number) => void;
-  precioHora: number;
-  setPrecioHora: (value: number) => void;
-  duracionMediaMinutos: number;
-  setduracionMediaMinutos: (value: number) => void;
   formatoMoneda: Intl.NumberFormat;
   savingsCalculatorContent: any; // Define a more specific type if available
 }
 
 export const CalculadoraAhorroParameters: React.FC<CalculadoraAhorroParametersProps> = ({
-  interaccionesDia,
-  setInteraccionesDia,
-  precioHora,
-  setPrecioHora,
-  duracionMediaMinutos,
-  setduracionMediaMinutos,
   formatoMoneda,
   savingsCalculatorContent,
 }) => {
+  const { interaccionesDia, setInteraccionesDia, precioHora, setPrecioHora, duracionMediaMinutos, setDuracionMediaMinutos } = useSavingsCalculator();
   const { agentConfig } = useAgentConfig();
   const displayAgentCost = agentConfig.isAgentGenerated ? agentConfig.agentCost : DEFAULT_ANNUAL_RECURRING_PAYMENT;
   const initialAgentPayment = DEFAULT_INITIAL_PAYMENT;
@@ -94,7 +84,7 @@ export const CalculadoraAhorroParameters: React.FC<CalculadoraAhorroParametersPr
         <Slider
           id="duracion"
           value={[duracionMediaMinutos]}
-          onValueChange={(value) => setduracionMediaMinutos(value[0])}
+          onValueChange={(value) => setDuracionMediaMinutos(value[0])}
           min={1}
           max={60}
           step={1}

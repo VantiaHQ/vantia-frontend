@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useSavingsCalculator } from '@/context/SavingsCalculatorContext';
 import { CardContent } from "@/components/ui/card";
 import SpotlightCard from '@/components/SpotlightCard';
 import { savingsCalculatorContent } from '@/components/calculadora-ahorro/CalculadoraAhorro.content';
@@ -21,9 +22,7 @@ const formatoMoneda = new Intl.NumberFormat("es-ES", {
 });
 
 export default function CalculadoraAhorroContent() {
-  const [interaccionesDia, setInteraccionesDia] = useState(15);
-  const [precioHora, setPrecioHora] = useState(15);
-  const [duracionMediaMinutos, setduracionMediaMinutos] = useState(10);
+  const { interaccionesDia, setInteraccionesDia, precioHora, setPrecioHora, duracionMediaMinutos, setDuracionMediaMinutos } = useSavingsCalculator();
   const [showResultsMobile, setShowResultsMobile] = useState(false);
 
   const diasLaboralesMes = WORKING_DAYS_PER_MONTH;
@@ -48,12 +47,6 @@ export default function CalculadoraAhorroContent() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 pb-28 lg:pb-0">
           {/* Parameters Column */}
           <CalculadoraAhorroParameters
-            interaccionesDia={interaccionesDia}
-            setInteraccionesDia={setInteraccionesDia}
-            precioHora={precioHora}
-            setPrecioHora={setPrecioHora}
-            duracionMediaMinutos={duracionMediaMinutos}
-            setduracionMediaMinutos={setduracionMediaMinutos}
             formatoMoneda={formatoMoneda}
             savingsCalculatorContent={savingsCalculatorContent}
           />
