@@ -21,4 +21,27 @@ export const savingsCalculatorContent = {
   minutesUnit: "min",
   showBreakdownButton: "Mostrar desglose",
   mobileModalTitle: "Tu ahorro mensual estimado",
+  parameters: {
+    workingHoursPerDay: 8,
+    roiYears: 5,
+  },
+  roiSummaryCard: {
+    title: "Retorno de Inversión a 5 años",
+    tableHeaders: {
+      year: "Año",
+      cumulativeCost: "Coste Acumulado",
+      cumulativeSavings: "Ahorro Acumulado",
+      cumulativeRoi: "ROI Acumulado (%)",
+    },
+    tooltip: {
+      year: "Año:",
+      cumulativeRoi: "ROI Acumulado",
+      cumulativeCost: "Coste Acumulado",
+      cumulativeSavings: "Ahorro Acumulado",
+    },
+    barNames: {
+      cumulativeSavings: "Ahorro Acumulado",
+      cumulativeCost: "Coste Acumulado",
+    },
+  },
 };

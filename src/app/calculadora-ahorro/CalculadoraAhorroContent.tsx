@@ -1,13 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { Slider } from "@/components/ui/slider";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-import { X } from 'lucide-react';
+import { CardContent } from "@/components/ui/card";
 import SpotlightCard from '@/components/SpotlightCard';
-import { savingsCalculatorContent } from './content';
+import { savingsCalculatorContent } from '@/components/calculadora-ahorro/CalculadoraAhorro.content';
+import { WORKING_DAYS_PER_MONTH } from '@/lib/constants';
+import { DEFAULT_INITIAL_PAYMENT, DEFAULT_ANNUAL_RECURRING_PAYMENT } from '@/lib/pricing';
 
 // Import new components
 import { CalculadoraAhorroResults } from '@/components/calculadora-ahorro/CalculadoraAhorroResults';
@@ -15,39 +13,26 @@ import { CalculadoraAhorroParameters } from '@/components/calculadora-ahorro/Cal
 import { CalculadoraAhorroMobileBar } from '@/components/calculadora-ahorro/CalculadoraAhorroMobileBar';
 import { CalculadoraAhorroMobileResultsModal } from '@/components/calculadora-ahorro/CalculadoraAhorroMobileResultsModal';
 import { ROISummaryCard } from '@/components/calculadora-ahorro/ROISummaryCard';
-import { useAgentConfig } from '@/context/AgentConfigContext';
+
+const formatoMoneda = new Intl.NumberFormat("es-ES", {
+  style: "currency",
+  currency: "EUR",
+  maximumFractionDigits: 0,
+});
 
 export default function CalculadoraAhorroContent() {
   const [interaccionesDia, setInteraccionesDia] = useState(15);
   const [precioHora, setPrecioHora] = useState(15);
-  const [duracionMedia, setDuracionMedia] = useState(10);
+  const [duracionMediaMinutos, setduracionMediaMinutos] = useState(10);
   const [showResultsMobile, setShowResultsMobile] = useState(false);
 
-  const { agentConfig } = useAgentConfig();
-
-  // Cálculos
-  const diasLaboralesMes = 22;
+  const diasLaboralesMes = WORKING_DAYS_PER_MONTH;
   const interaccionesMes = interaccionesDia * diasLaboralesMes;
-  const horasInvertidasMes = (interaccionesMes * duracionMedia) / 60;
-  const agentCost = agentConfig.isAgentGenerated ? agentConfig.agentCost : (5200 / 12); // Use context's default if not generated
+  const horasInvertidasMes = (interaccionesMes * duracionMediaMinutos) / 60;
   const costeMensualActual = horasInvertidasMes * precioHora;
   const ahorroAnualEstimado = costeMensualActual * 12;
   const horasInvertidasAnual = horasInvertidasMes * 12;
-  const initialAgentPayment = 2500; // Defined initial agent payment
-
-  // Formateadores para una bonita visualización
-  const formatoMoneda = new Intl.NumberFormat("es-ES", {
-    style: "currency",
-    currency: "EUR",
-    maximumFractionDigits: 0,
-  });
-
-  const numberFormatter = new Intl.NumberFormat("es-ES", {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  });
-
-  
+  const initialAgentPayment = DEFAULT_INITIAL_PAYMENT;
 
   return (
     <>
@@ -62,19 +47,19 @@ export default function CalculadoraAhorroContent() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 pb-28 lg:pb-0">
-          {/* Columna de Parámetros */}
+          {/* Parameters Column */}
           <CalculadoraAhorroParameters
             interaccionesDia={interaccionesDia}
             setInteraccionesDia={setInteraccionesDia}
             precioHora={precioHora}
             setPrecioHora={setPrecioHora}
-            duracionMedia={duracionMedia}
-            setDuracionMedia={setDuracionMedia}
+            duracionMediaMinutos={duracionMediaMinutos}
+            setduracionMediaMinutos={setduracionMediaMinutos}
             formatoMoneda={formatoMoneda}
             savingsCalculatorContent={savingsCalculatorContent}
           />
 
-          {/* Columna de Resultados (Desktop) */}
+          {/* Parameters Column (Desktop) */}
           <SpotlightCard className="custom-spotlight-card bg-blue-950/60 backdrop-blur rounded-xl border border-blue-400/30 shadow-lg text-white/90 hidden lg:flex flex-col" spotlightColor="rgba(96, 165, 250, 0.2)">
 
           <CardContent className="flex flex-col items-center justify-center space-y-6 text-center flex-1">
@@ -98,7 +83,7 @@ export default function CalculadoraAhorroContent() {
             horasInvertidasAnual={horasInvertidasAnual}
             formatoMoneda={formatoMoneda}
             initialAgentPayment={initialAgentPayment}
-            annualAgentPayment={3600}
+            annualAgentPayment={DEFAULT_ANNUAL_RECURRING_PAYMENT}
           />
         </div>
       </div>
@@ -114,7 +99,7 @@ export default function CalculadoraAhorroContent() {
         savingsCalculatorContent={savingsCalculatorContent}
       />
 
-      {/* Modal de Resultados (Mobile) */}
+      {/* Results Modal (Mobile) */}
       <CalculadoraAhorroMobileResultsModal
         showResultsMobile={showResultsMobile}
         setShowResultsMobile={setShowResultsMobile}

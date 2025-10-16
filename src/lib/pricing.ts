@@ -11,6 +11,3 @@ export const DEFAULT_INITIAL_PAYMENT = 2500;
 
 // The default annual recurring payment, derived from the monthly cost.
 export const DEFAULT_ANNUAL_RECURRING_PAYMENT = DEFAULT_MONTHLY_COST * 12;
-
-// The assumed number of working days in a month for ROI calculations.
-export const WORKING_DAYS_PER_MONTH = 22;
