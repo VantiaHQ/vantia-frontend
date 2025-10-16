@@ -1,4 +1,15 @@
 import React from 'react';
+import { HOURS_IN_WORKING_DAY } from '@/lib/constants';
+
+interface SavingsCalculatorContent {
+  resultsCardTitle: string;
+  daysSavedLabel: string;
+  daysUnit: string;
+  breakdownTitle: string;
+  interactionsPerMonthLabel: string;
+  hoursInvestedPerMonthLabel: string;
+  monthlySavingsLabel: string;
+}
 
 interface CalculadoraAhorroResultsProps {
   formatoMoneda: Intl.NumberFormat;
@@ -7,10 +18,10 @@ interface CalculadoraAhorroResultsProps {
   horasInvertidasAnual: number;
   interaccionesMes: number;
   ahorroAnualEstimado: number;
-  savingsCalculatorContent: any; // Define a more specific type if available
+  savingsCalculatorContent: SavingsCalculatorContent;
 }
 
-export const CalculadoraAhorroResults: React.FC<CalculadoraAhorroResultsProps> = ({
+export const CalculadoraAhorroResults = ({
   formatoMoneda,
   costeMensualActual,
   horasInvertidasMes,
@@ -18,7 +29,7 @@ export const CalculadoraAhorroResults: React.FC<CalculadoraAhorroResultsProps> =
   interaccionesMes,
   ahorroAnualEstimado,
   savingsCalculatorContent,
-}) => (
+}: CalculadoraAhorroResultsProps) => (
   <>
     <div className="w-full">
       <p className="text-lg text-blue-100/90">{savingsCalculatorContent.resultsCardTitle}</p>
@@ -29,7 +40,7 @@ export const CalculadoraAhorroResults: React.FC<CalculadoraAhorroResultsProps> =
     <div className="w-full">
       <p className="text-lg text-blue-100/90">{savingsCalculatorContent.daysSavedLabel}</p>
       <p className="text-5xl md:text-6xl font-extrabold tracking-tight">
-        {Math.round(horasInvertidasAnual / 8)}{" "}
+        {Math.round(horasInvertidasAnual / HOURS_IN_WORKING_DAY)}{" "}
         <span className="text-4xl font-medium">{savingsCalculatorContent.daysUnit}</span>
       </p>
     </div>

@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { savingsCalculatorContent } from '@/components/calculadora-ahorro/CalculadoraAhorro.content';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { calculateRoiData } from '@/lib/roiCalculations';
+import { ROISummaryCardTooltip } from './ROISummaryCardTooltip';
 
 interface ROISummaryCardProps {
   ahorroAnualEstimado: number;
   horasInvertidasAnual: number;
   formatoMoneda: Intl.NumberFormat;
-  initialAgentPayment: number; // New prop for initial payment
-  annualAgentPayment: number; // New prop for annual agent payment
+  initialAgentPayment: number;
+  annualAgentPayment: number;
+  roiSummaryContent: any;
 }
 
 export const ROISummaryCard: React.FC<ROISummaryCardProps> = ({
@@ -16,51 +18,18 @@ export const ROISummaryCard: React.FC<ROISummaryCardProps> = ({
   formatoMoneda,
   initialAgentPayment,
   annualAgentPayment,
+  roiSummaryContent,
 }) => {
   
-  const CustomTooltip = ({ active, payload, label, formatoMoneda }: any) => {
-    if (active && payload && payload.length) {
-      return (
-        <div className="bg-blue-950/90 p-3 rounded-lg border border-blue-400/30 text-white text-sm shadow-lg">
-          <p className="font-bold mb-1">{savingsCalculatorContent.roiSummaryCard.tooltip.year} {label}</p>
-          {payload.map((entry: any, index: number) => (
-            <p key={`item-${index}`} style={{ color: entry.color }}>
-              {entry.name}: {entry.name === savingsCalculatorContent.roiSummaryCard.tooltip.cumulativeRoi ? `${entry.value}%` : formatoMoneda.format(entry.value)}
-            </p>
-          ))}
-        </div>
-      );
-    }
-    return null;
-  };
-
-  const roiData = [];
-  let costeAcumulado = 0;
-  let ahorroAcumulado = 0;
-
-  for (let year = 1; year <= savingsCalculatorContent.parameters.roiYears; year++) {
-    if (year === 1) {
-      costeAcumulado = initialAgentPayment + annualAgentPayment;
-    } else {
-      costeAcumulado += annualAgentPayment;
-    }
-    ahorroAcumulado += ahorroAnualEstimado;
-
-    const roi = ((ahorroAcumulado - costeAcumulado) / costeAcumulado) * 100;
-
-    roiData.push({
-      year,
-      costeAcumulado: Math.round(costeAcumulado),
-      ahorroAcumulado: Math.round(ahorroAcumulado),
-      roiAcumulado: parseFloat(roi.toFixed(1)),
-    });
-  }
+  const roiData = useMemo(() => {
+    return calculateRoiData(ahorroAnualEstimado, initialAgentPayment, annualAgentPayment);
+  }, [ahorroAnualEstimado, initialAgentPayment, annualAgentPayment]);
 
   return (
     <Card className="bg-gradient-to-br from-blue-950/60 to-navy-700/90 backdrop-blur rounded-3xl border border-blue-400/30 shadow-lg text-white/90">
       <CardHeader>
         <CardTitle className="text-2xl font-semibold text-center">
-          {savingsCalculatorContent.roiSummaryCard.title}
+          {roiSummaryContent.title}
         </CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col lg:flex-row items-center justify-center lg:justify-between space-y-6 lg:space-y-0 lg:space-x-6 text-center flex-1">
@@ -69,10 +38,10 @@ export const ROISummaryCard: React.FC<ROISummaryCardProps> = ({
             <table className="w-full text-left table-auto">
               <thead>
                 <tr className="border-b border-blue-500/50">
-                  <th className="py-2 px-4">{savingsCalculatorContent.roiSummaryCard.tableHeaders.year}</th>
-                  <th className="py-2 px-4">{savingsCalculatorContent.roiSummaryCard.tableHeaders.cumulativeCost}</th>
-                  <th className="py-2 px-4">{savingsCalculatorContent.roiSummaryCard.tableHeaders.cumulativeSavings}</th>
-                  <th className="py-2 px-4">{savingsCalculatorContent.roiSummaryCard.tableHeaders.cumulativeRoi}</th>
+                  <th className="py-2 px-4">{roiSummaryContent.tableHeaders.year}</th>
+                  <th className="py-2 px-4">{roiSummaryContent.tableHeaders.cumulativeCost}</th>
+                  <th className="py-2 px-4">{roiSummaryContent.tableHeaders.cumulativeSavings}</th>
+                  <th className="py-2 px-4">{roiSummaryContent.tableHeaders.cumulativeRoi}</th>
                 </tr>
               </thead>
               <tbody>
@@ -95,9 +64,9 @@ export const ROISummaryCard: React.FC<ROISummaryCardProps> = ({
               <CartesianGrid strokeDasharray="3 3" stroke="#3B82F6" />
               <XAxis dataKey="year" stroke="#BFDBFE" />
               <YAxis stroke="#BFDBFE" tickFormatter={(value) => formatoMoneda.format(value)} />
-              <Tooltip content={<CustomTooltip formatoMoneda={formatoMoneda} />} cursor={false} />
-              <Bar dataKey="ahorroAcumulado" fill="#60A5FA" name={savingsCalculatorContent.roiSummaryCard.barNames.cumulativeSavings} />
-              <Bar dataKey="costeAcumulado" fill="#80859A" name={savingsCalculatorContent.roiSummaryCard.barNames.cumulativeCost} />
+              <Tooltip content={<ROISummaryCardTooltip formatoMoneda={formatoMoneda} roiSummaryContent={roiSummaryContent} />} cursor={false} />
+              <Bar dataKey="ahorroAcumulado" fill="#60A5FA" name={roiSummaryContent.barNames.cumulativeSavings} />
+              <Bar dataKey="costeAcumulado" fill="#80859A" name={roiSummaryContent.barNames.cumulativeCost} />
             </BarChart>
           </ResponsiveContainer>
         </div>

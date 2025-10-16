@@ -78,11 +78,12 @@ export default function CalculadoraAhorroContent() {
         {/* ROI Summary Card (Desktop) */}
         <div className="mt-8 hidden lg:flex">
           <ROISummaryCard
-            initialAgentPayment={DEFAULT_INITIAL_PAYMENT}
-            annualAgentPayment={DEFAULT_ANNUAL_RECURRING_PAYMENT}
             ahorroAnualEstimado={ahorroAnualEstimado}
             horasInvertidasAnual={horasInvertidasAnual}
             formatoMoneda={formatoMoneda}
+            initialAgentPayment={DEFAULT_INITIAL_PAYMENT}
+            annualAgentPayment={DEFAULT_ANNUAL_RECURRING_PAYMENT}
+            roiSummaryContent={savingsCalculatorContent.roiSummaryCard}
           />
         </div>
       </div>

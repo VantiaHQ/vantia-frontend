@@ -19,13 +19,13 @@ interface CalculadoraAhorroMobileBarProps {
   ahorroAnualEstimado: number;
 }
 
-export const CalculadoraAhorroMobileBar: React.FC<CalculadoraAhorroMobileBarProps> = ({
+export const CalculadoraAhorroMobileBar = ({
   horasInvertidasAnual,
   formatoMoneda,
   setShowResultsMobile,
   savingsCalculatorContent,
   ahorroAnualEstimado,
-}) => (
+}: CalculadoraAhorroMobileBarProps) => (
   <div className="fixed bottom-0 left-0 right-0 z-30 bg-blue-950/80 backdrop-blur border-t border-blue-400/30 px-4 py-3 flex lg:hidden items-center justify-between shadow-lg">
     <div className="flex flex-col">
       <span className="text-xs text-blue-100/90">{savingsCalculatorContent.resultsCardTitle}</span>
