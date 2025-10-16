@@ -6,7 +6,7 @@ import AgenteModular from '@/components/sections/agente-modular';
 import Channels from '@/components/sections/Channels';
 import CaseStudy from '@/components/sections/CaseStudy';
 import ConsultoriaIA from '@/components/sections/consultoria-ia';
-import Contact from '@/components/sections/contact';
+import Contact from '@/components/sections/Contact';
 import FadeInSection from '@/components/ui/fade-in-section';
 import Security from '@/components/sections/security';
 import TargetCursor from '@/components/ui/TargetCursor';
