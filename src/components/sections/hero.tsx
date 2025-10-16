@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { AppImages } from '@/lib/appImages';
 import { Rocket } from 'lucide-react';
 
 export default function Hero() {

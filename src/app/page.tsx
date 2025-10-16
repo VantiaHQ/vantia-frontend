@@ -1,14 +1,14 @@
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Hero from '@/components/sections/Hero';
-import Philosophy from '@/components/sections/philosophy';
-import AgenteModular from '@/components/sections/agente-modular';
+import Philosophy from '@/components/sections/Philosophy';
+import AgenteModular from '@/components/sections/AgenteModular';
 import Channels from '@/components/sections/Channels';
 import CaseStudy from '@/components/sections/CaseStudy';
-import ConsultoriaIA from '@/components/sections/consultoria-ia';
+import ConsultoriaIA from '@/components/sections/ConsultoriaIA';
 import Contact from '@/components/sections/Contact';
 import FadeInSection from '@/components/ui/fade-in-section';
-import Security from '@/components/sections/security';
+import Security from '@/components/sections/Security';
 import TargetCursor from '@/components/ui/TargetCursor';
 
 export default function Home() {

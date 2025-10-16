@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, ReactNode } from 'react';
-import useLocalStorage from '@/hooks/use-local-storage';
+import useLocalStorage from '@/hooks/useLocalStorage';
 
 interface Module {
   id: string;

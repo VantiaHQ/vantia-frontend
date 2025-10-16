@@ -1,23 +1,5 @@
 import { Users, TrendingUp, Zap } from 'lucide-react';
-
-// --- ICON PROPERTY REMOVED ---
-const values = [
-  {
-    title: 'Nos integramos en tu equipo',
-    description:
-      'No somos un simple proveedor; nos convertimos en tu socio estratégico. Trabajamos codo a codo contigo para entender tus desafíos y asegurar que cada solución se alinee con tus objetivos.',
-  },
-  {
-    title: 'Soluciones con impacto real',
-    description:
-      'La tecnología es solo el medio. Nuestro foco está en entregar resultados que puedas ver y medir, optimizando tus procesos, reduciendo costes y abriendo nuevas oportunidades de crecimiento.',
-  },
-  {
-    title: 'Tecnología de vanguardia, siempre',
-    description:
-      'El mundo de la IA evoluciona a una velocidad vertiginosa. Nos mantenemos a la vanguardia para que tu inversión de hoy sea sólida, escalable y relevante en el futuro.',
-  },
-];
+import { mainTitle, subtitle, values, concludingParagraphPart1, concludingParagraphHighlight1, concludingParagraphPart2, concludingParagraphHighlight2, concludingParagraphPart3, concludingParagraphStrong } from './Philosophy.content';
 
 export default function Philosophy() {
   return (
@@ -25,12 +7,12 @@ export default function Philosophy() {
       <div className="container mx-auto px-6">
         <div className="mx-auto text-left lg:text-center px-0 lg:px-24">
           <h2 className="text-6xl sm:text-7xl font-extralight tracking-tight text-primary uppercase">
-            Tu socio en la era de la IA
+            {mainTitle}
           </h2>    
         </div>
         <div className="mx-auto text-left lg:text-center mb-16">
           <p className="mt-4 text-lg text-foreground/80">
-            Un copiloto para navegar la transformación digital.
+            {subtitle}
           </p>
         </div>
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
@@ -44,7 +26,7 @@ export default function Philosophy() {
         </div>
         <div className="mt-16 text-left lg:text-center px-0 lg:px-24">
             <p className="text-md text-foreground/70">
-                Nuestro nombre, Vantia, combina la palabra <span className="italic font-semibold text-primary">avant</span> (adelante, en valenciano) e <span className="font-semibold text-primary">IA</span>, como símbolo de nuestro compromiso: <strong>llevar tu negocio siempre un paso adelante.</strong>
+                {concludingParagraphPart1}<span className="italic font-semibold text-primary">{concludingParagraphHighlight1}</span>{concludingParagraphPart2}<span className="font-semibold text-primary">{concludingParagraphHighlight2}</span>{concludingParagraphPart3}<strong>{concludingParagraphStrong}</strong>
             </p>
         </div>
       </div>

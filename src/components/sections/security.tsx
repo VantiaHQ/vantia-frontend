@@ -1,25 +1,5 @@
-import { ShieldCheck, Lock, ScrollText } from 'lucide-react';
-
-const securityFeatures = [
-  {
-    icon: ShieldCheck,
-    title: 'Privacidad desde el Diseño',
-    description:
-      'Construimos cada solución con la privacidad como pilar fundamental, asegurando que los datos de tus clientes se manejen siempre con la máxima confidencialidad.',
-  },
-  {
-    icon: Lock,
-    title: 'Cifrado de Datos de Extremo a Extremo',
-    description:
-      'Toda la información se protege con los más altos estándares de cifrado, tanto en tránsito como en reposo. La seguridad de tus datos no es una opción, es una garantía.',
-  },
-  {
-    icon: ScrollText,
-    title: 'Cumplimiento Normativo',
-    description:
-      'Operamos en estricto cumplimiento de las regulaciones como el RGPD y la LSSI, garantizando la legalidad en la implementación de IA en tu empresa.',
-  },
-];
+import { mainTitle, description, securityFeaturesContent } from './Security.content';
+import React from 'react';
 
 export default function Security() {
   return (
@@ -27,19 +7,20 @@ export default function Security() {
       <div className="container mx-auto px-6">
         <div className="mx-auto max-w-4xl text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight text-white/90 sm:text-4xl">
-            Seguridad y Confianza
+            {mainTitle}
           </h2>
           <p className="mt-4 text-lg text-foreground/80">
-            Tu tranquilidad es nuestra prioridad. Por eso, integramos las mejores prácticas de seguridad en cada capa de nuestras soluciones.
+            {description}
           </p>
         </div>
         {/* --- MODIFIED GRID BEHAVIOR --- */}
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
-          {securityFeatures.map((feature) => (
+          {securityFeaturesContent.map((feature, index) => (
             // --- MODIFIED CARD STYLING ---
-            <div key={feature.title} className="flex flex-col items-center text-center p-6 rounded-lg bg-primary/5 border border-primary/20 shadow-lg">
+            <div key={index} className="flex flex-col items-center text-center p-6 rounded-lg bg-primary/5 border border-primary/20 shadow-lg">
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary mb-5">
-                <feature.icon className="h-7 w-7" />
+                {/* Render the icon directly from the content */}
+                {feature.icon && React.createElement(feature.icon, { className: "h-7 w-7" })}
               </div>
               <h3 className="text-xl font-semibold text-white/90 mb-3">{feature.title}</h3>
               <p className="text-foreground/80">{feature.description}</p>
