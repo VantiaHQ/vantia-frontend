@@ -6,7 +6,7 @@ Welcome to the Vantia Frontend repository! This project powers the user-facing a
 
 ## 🚀 Features
 
-- **AI Agent Generation**: Dynamically generate and configure AI agents tailored to specific business needs.
+- **AI Agent Generation**: Dynamically generate and configure AI agents proposals tailored to specific business needs.
 - **Interactive Savings Calculator**: Estimate potential time and cost savings by automating repetitive interactions with AI agents.
 - **Comprehensive ROI Analysis**: Visualize the return on investment over multiple years, showcasing the long-term benefits of Vantia's solutions.
 - **Modular Agent Configuration**: Explore and select various core and extra modules to customize AI agent functionalities.
@@ -23,19 +23,37 @@ Welcome to the Vantia Frontend repository! This project powers the user-facing a
 
 ## 📦 Project Structure
 
+The project follows a standard Next.js application structure, with additional directories for AI-related configurations, custom hooks, and utility functions.
+
 ```
 . (root)
 ├── src/
 │   ├── ai/                 # AI-related configurations and flows
+│   │   ├── dev.ts          # Development-specific AI configurations
+│   │   ├── genkit.ts       # Genkit (Google's AI framework) configurations
+│   │   ├── flows/          # AI workflow definitions (e.g., chatbot, agent generation)
+│   │   ├── prompts/        # AI prompt templates
+│   │   └── schemas/        # Data schemas for AI interactions
 │   ├── app/                # Next.js application pages and API routes
-│   ├── components/         # Reusable UI components (e.g., CalculadoraAhorro, ROISummaryCard)
-│   ├── context/            # React Context for global state management
-│   ├── hooks/              # Custom React hooks for reusable logic
+│   │   ├── [slug]/         # Dynamic routes for agent pages
+│   │   ├── api/            # Backend API routes (e.g., contact form, agent generation)
+│   │   ├── calculadora-ahorro/ # Pages and components for the savings calculator
+│   │   └── ...             # Other application pages
+│   ├── components/         # Reusable UI components
+│   │   ├── ui/             # Shadcn/ui components (e.g., button, card, dialog)
+│   │   ├── layout/         # Layout components (Header, Footer)
+│   │   ├── sections/       # Larger sections of pages (Hero, Contact, AgenteModular)
+│   │   └── calculadora-ahorro/ # Components specific to the savings calculator
+│   ├── context/            # React Context for global state management (e.g., AgentConfigContext)
+│   ├── hooks/              # Custom React hooks for reusable logic (e.g., useAgentGeneration, useLocalStorage)
 │   └── lib/                # Utility functions, constants, and external integrations
 │       ├── constants.ts    # Centralized application constants (e.g., ROI_YEARS, HOURS_IN_WORKING_DAY)
-│       ├── pricing.ts      # Default pricing configurations
-│       └── roiCalculations.ts # Logic for ROI data calculations
-├── public/                 # Static assets (images, favicons)
+│       ├── pricing.ts      # Default pricing configurations and related constants
+│       ├── roiCalculations.ts # Logic for ROI data calculations
+│       ├── modules.ts      # Definitions for core and extra AI modules
+│       ├── supabase.ts     # Supabase client configuration
+│       └── utils.ts        # General utility functions
+├── public/                 # Static assets (images, favicons, robots.txt, sitemap.xml)
 ├── .git/                   # Git version control
 ├── node_modules/           # Project dependencies
 ├── package.json            # Project metadata and scripts
@@ -74,7 +92,7 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+Open [http://localhost:9002](http://localhost:9002) in your browser to see the application.
 
 ## 🤝 Contributing
 
@@ -93,4 +111,4 @@ This project is licensed under the [MIT License](LICENSE.md). (Note: You might n
 
 ## ✉️ Contact
 
-For any inquiries or support, please contact [support@vantia.com](mailto:support@vantia.com).
+For any inquiries or support, please contact [infovantia@gmail.com](mailto:infovantia@gmail.com).
