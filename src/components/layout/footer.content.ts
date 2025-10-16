@@ -1,6 +1,6 @@
 export const columnOneLinks = [
 	{ name: 'Agente Modular', href: '/' },
-	{ name: 'Generar Agente', href: '/generar-agente' },
+	{ name: 'Mi Agente', href: '/generar-agente' },
 	{ name: 'Calcular Ahorro', href: '/calculadora-ahorro' },
 ];
 

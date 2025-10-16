@@ -31,18 +31,18 @@ export default function AgentGenerator() {
   return (
     <>
       {generatedAgent && generatedAgent.slug ? (
-        <>
-          <div className="container mx-auto px-6 text-center pt-32 pb-8">
-            <p className="text-lg text-foreground/80">
-              Ya tienes un agente generado. Si deseas crear uno nuevo, primero debes eliminar el actual.
-            </p>
-          </div>
+        <div className="pt-32">
           <GeneratedAgentCard
             slug={generatedAgent.slug}
             name={generatedAgent.name}
             onClear={() => setGeneratedAgent(null)}
           />
-        </>
+          <div className="container mx-auto px-6 text-center pt-0 pb-12">
+            <p className="text-sm max-w-md mx-auto text-gray-700">
+              {agentGeneratorContent.existingAgentMessage}
+            </p>
+          </div>
+        </div>
       ) : (
         <section id="agent-generator" className="bg-[#070916] pt-32 pb-20">
           <div className="container mx-auto px-6">
