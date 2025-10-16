@@ -6,8 +6,8 @@ import ConsultoriaIA from '@/components/sections/ConsultoriaIA';
 import Security from '@/components/sections/security';
 import CaseStudy from '@/components/sections/CaseStudy';
 import Channels from '@/components/sections/channels';
-import Philosophy from '@/components/sections/Philosophy';
-import Contact from '@/components/sections/Contact';
+import Philosophy from '@/components/sections/philosophy';
+import Contact from '@/components/sections/contact';
 import TargetCursor from '@/components/ui/TargetCursor';
 
 export default function Home() {
