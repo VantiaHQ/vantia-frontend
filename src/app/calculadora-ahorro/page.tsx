@@ -1,5 +1,5 @@
-import Header from '@/components/layout/header';
-import Footer from '@/components/layout/footer';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 import CalculadoraAhorroContent from './CalculadoraAhorroContent';
 
 export default function CalculadoraAhorroPage() {

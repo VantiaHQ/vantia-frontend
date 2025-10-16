@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import Header from '@/components/layout/header';
-import Footer from '@/components/layout/footer';
+import Footer from '@/components/layout/Footer';
 import { supabase } from '@/lib/supabase';
 import AgentContent from './AgentContent';
 export default async function AgentPage({ params }: { params: Promise<{ slug: string }> }) {
