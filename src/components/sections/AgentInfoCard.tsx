@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useAgentConfig } from '@/context/AgentConfigContext';
+import { cardTitle, modulesIncludedLabel, monthlyCostLabel, resetButtonText } from './AgentInfoCard.content';
 
 export const AgentInfoCard: React.FC = () => {
   const { agentConfig, setAgentCost, setIsAgentGenerated, setAgentConfiguration } = useAgentConfig();
@@ -35,16 +36,16 @@ export const AgentInfoCard: React.FC = () => {
         <Link href={`/agente/${agentSlug}`} passHref>
           <CardHeader>
             <CardTitle className="text-2xl font-semibold text-center">
-              Tu Propuesta de Agente
+              {cardTitle}
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex justify-between items-center">
-              <span className="text-lg font-medium">Módulos Incluidos:</span>
+              <span className="text-lg font-medium">{modulesIncludedLabel}</span>
               <span className="text-lg font-bold">{agentConfiguration?.modules || 'N/A'}</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-lg font-medium">Costo Mensual Asociado:</span>
+              <span className="text-lg font-medium">{monthlyCostLabel}</span>
               <span className="text-lg font-bold">{formatoMoneda.format(agentCost)}</span>
             </div>
             {/* Add more details from agentConfiguration as needed */}
@@ -53,7 +54,7 @@ export const AgentInfoCard: React.FC = () => {
       </Card>
       <div className="text-center mt-4">
         <Button variant="link" onClick={handleResetAgent} className="text-red-400 hover:text-red-500">
-          Eliminar agente y crear uno nuevo
+          {resetButtonText}
         </Button>
       </div>
     </div>
