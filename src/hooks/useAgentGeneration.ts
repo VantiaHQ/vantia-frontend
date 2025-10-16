@@ -54,8 +54,6 @@ export function useAgentGeneration() {
             id: moduleName.toLowerCase().replace(/\s/g, '-'),
             name: moduleName,
             description: `Unknown Core module: ${moduleName}`,
-            monthlyPrice: 0,
-            initialCost: 0,
           };
         });
 
@@ -66,8 +64,6 @@ export function useAgentGeneration() {
             id: moduleName.toLowerCase().replace(/\s/g, '-'),
             name: moduleName,
             description: `Unknown Extra module: ${moduleName}`,
-            monthlyPrice: 0,
-            initialCost: 0,
           };
         });
 
