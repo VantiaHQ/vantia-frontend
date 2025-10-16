@@ -1,4 +1,4 @@
-export const externalHeading = 'Tu Agente';
+export const externalHeading = 'Mi Agente';
 
 export const viewAgentTooltip = 'Ver Agente';
 export const savingsTooltip = 'Ahorro';
