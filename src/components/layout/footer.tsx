@@ -1,22 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-
-const columnOneLinks = [
-	{ name: 'Agente Modular', href: '/' },
-	{ name: 'Generar Agente', href: '/generar-agente' },
-	{ name: 'Calcular Ahorro', href: '/calculadora-ahorro' },
-];
-
-const columnTwoLinks = [
-  { name: 'Consultoría IA', href: '#consultoria-ia' },
-  { name: 'Filosofía', href: '#philosophy' },
-  { name: 'Seguridad', href: '#security' },
-];
-
-const legalLinks = [
-  { name: 'Política de Privacidad', href: '/privacidad' },
-  { name: 'Términos de Servicio', href: '/terminos' },
-];
+import { columnOneLinks, footerText } from './Footer.content';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -35,20 +19,11 @@ export default function Footer() {
                 className="mb-4 cursor-target"
               />
             </Link>
-            {/* <div className="flex space-x-4">
-              <Link href="#" className="text-foreground/70 hover:text-primary transition-colors">
-                <Linkedin className="h-6 w-6" />
-              </Link>
-              <Link href="#" className="text-foreground/70 hover:text-primary transition-colors">
-                <Twitter className="h-6 w-6" />
-              </Link>
-            </div> */}
           </div>
 
-          {/* Links */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 lg:col-span-2">
             <div className="space-y-4">
-              <h3 className="text-md font-semibold text-white tracking-wider">Soluciones</h3>
+              <h3 className="text-md font-semibold text-white tracking-wider">{footerText.solutionsTitle}</h3>
               <ul className="space-y-3">
                 {columnOneLinks.map((link) => (
                   <li key={link.name}>
@@ -59,24 +34,13 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
-            {/* <div className="space-y-4">
-              <h3 className="text-md font-semibold text-white tracking-wider">Acerca de</h3>
-              <ul className="space-y-3">
-                {columnTwoLinks.map((link) => (
-                  <li key={link.name}>
-                    <Link href={link.href} className="cursor-target text-foreground/70 hover:text-primary transition-colors">
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div> */}
+
             <div className="space-y-4">
-              <h3 className="text-md font-semibold text-white tracking-wider">Contacto</h3>
+              <h3 className="text-md font-semibold text-white tracking-wider">{footerText.contactTitle}</h3>
               <ul className="space-y-3">
                 <li>
                   <Link href="/contacto" className="cursor-target text-foreground/70 hover:text-primary transition-colors">
-                    Hablemos
+                    {footerText.contactLinkText}
                   </Link>
                 </li>
               </ul>
@@ -84,11 +48,10 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Copyright */}
         <div className="mt-4 pt-8 border-t border-border/50 text-center text-sm text-foreground/70">
-          <p>&copy; {currentYear} Vantia AI Solutions. Todos los derechos reservados. Diseño: <a href="https://cokecancook.github.io/" className="hover:text-primary transition-colors">cokecancook</a></p>
+          <p>&copy; {currentYear} {footerText.copyrightPrefix} <a href={footerText.designerHref} className="hover:text-primary transition-colors">{footerText.designerName}</a></p>
         </div>
       </div>
     </footer>
-  );
-}
+  )
+};

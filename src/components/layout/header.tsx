@@ -3,14 +3,9 @@
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-
-const navLinks = [
-	{ name: 'Agente Modular', href: '/' },
-	{ name: 'Generar Agente', href: '/generar-agente' },
-	{ name: 'Calcular Ahorro', href: '/calculadora-ahorro' },
-];
+import { navLinks, headerText } from './Header.content';
 
 export default function Header() {
 	const [isScrolled, setIsScrolled] = useState(false);
@@ -80,7 +75,7 @@ export default function Header() {
 					))}
 				</div>
 				<Button asChild className="cursor-target bg-accent text-white text-sm font-bold py-3 px-8 rounded-full shadow-lg border-2 border-transparent transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow hover:border-primary">
-					<Link href="/contacto">Contacto</Link>
+					<Link href="/contacto">{headerText.contactButtonText}</Link>
 				</Button>
 			</div>
 			<div className="hidden md:flex w-full items-center justify-center gap-4 bg-transparent mt-[-2px] pb-2 px-4 lg:hidden">
@@ -107,9 +102,7 @@ export default function Header() {
                 )}
 				{isMobileMenuOpen && (
 					<div className="fixed left-0 right-0 z-40 flex flex-col items-center" style={{ top: dropdownTop, height: `calc(100vh - ${dropdownTop}px)` }}>
-						{/* --- CORRECTED BLUR --- */}
                         <div className="absolute inset-0 bg-black/40 backdrop-blur-md z-[-1] pointer-events-auto" style={{top:0}} onClick={()=>setIsMobileMenuOpen(false)} />
-						{/* --- CORRECTED BACKGROUND --- */}
                         <div className="w-full h-full flex flex-col items-center bg-background/95">
 							<button
 								className="cursor-target mt-2 mb-2 rounded-full bg-background border border-border p-2 shadow hover:bg-accent/20 transition z-50 mx-auto block"
