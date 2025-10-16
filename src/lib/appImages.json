@@ -1,0 +1,29 @@
+{
+  "appImages": [
+    {
+      "id": "consulting-strategy",
+      "description": "A blueprint or strategic plan on a desk.",
+      "imageUrl": "/images/consultoria-estrategia.webp"
+    },
+    {
+      "id": "consulting-automation",
+      "description": "Interlocking gears representing automation.",
+      "imageUrl": "/images/consultoria-automatizacion.webp"
+    },
+    {
+      "id": "consulting-predictive",
+      "description": "A glowing chart showing an upward trend.",
+      "imageUrl": "/images/consultoria-analisis.webp"
+    },
+    {
+      "id": "consulting-vision",
+      "description": "A close-up of a camera lens or a digital eye.",
+      "imageUrl": "/images/consultoria-vision.webp"
+    },
+    {
+      "id": "case-study-clinic",
+      "description": "A case study image for a clinic.",
+      "imageUrl": "/images/modular-agent.webp"
+    }
+  ]
+}
