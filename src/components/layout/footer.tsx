@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { columnOneLinks, footerText } from './Footer.content';
+import { columnOneLinks, footerText } from './footer.content';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
