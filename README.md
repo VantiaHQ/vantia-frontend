@@ -2,14 +2,13 @@
 
 ## Empowering Businesses with Intelligent AI Agents
 
-Welcome to the Vantia Frontend repository! This project powers the user-facing application for Vantia, a cutting-edge platform dedicated to helping businesses leverage the power of AI agents for automation, efficiency, and growth.
+Welcome to the Vantia Frontend repository! This project powers the user-facing application for Vantia, a cutting-edge platform focused on helping businesses leverage the power of AI agents for automation, efficiency, and growth.
 
 ## 🚀 Features
 
-- **AI Agent Generation**: Dynamically generate and configure AI agents proposals tailored to specific business needs.
+- **AI Agent Generation**: Dynamically generate and configure AI agent proposals tailored to specific business needs.
 - **Interactive Savings Calculator**: Estimate potential time and cost savings by automating repetitive interactions with AI agents.
 - **Comprehensive ROI Analysis**: Visualize the return on investment over multiple years, showcasing the long-term benefits of Vantia's solutions.
-- **Modular Agent Configuration**: Explore and select various core and extra modules to customize AI agent functionalities.
 - **Responsive Design**: A seamless user experience across all devices, from desktop to mobile.
 
 ## 🛠️ Technologies Used
