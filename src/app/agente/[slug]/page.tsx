@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import Header from '@/components/layout/header';
+import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { supabase } from '@/lib/supabase';
 import AgentContent from './AgentContent';
