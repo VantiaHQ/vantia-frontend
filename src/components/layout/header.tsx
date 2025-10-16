@@ -5,7 +5,7 @@ import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { navLinks, headerText } from './Header.content';
+import { navLinks, headerText } from '@/components/layout/header.content.ts';
 
 export default function Header() {
 	const [isScrolled, setIsScrolled] = useState(false);

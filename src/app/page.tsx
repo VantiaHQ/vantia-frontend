@@ -1,6 +1,6 @@
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
-import Hero from '@/components/sections/hero';
+import HeroSection from '@/components/sections/hero';
 import AgenteModular from '@/components/sections/AgenteModular';
 import ConsultoriaIA from '@/components/sections/ConsultoriaIA';
 import Security from '@/components/sections/security';
@@ -16,7 +16,7 @@ export default function Home() {
       <Header />
       <main className="flex-1 mt-[-80px]">
         <TargetCursor />
-        <Hero />
+        <HeroSection />
         <AgenteModular />
         <ConsultoriaIA />
         <Security />

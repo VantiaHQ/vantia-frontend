@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { AppImages } from '@/lib/appImages';
 import { Rocket } from 'lucide-react';
 
-export default function Hero() {
+export default function hero() {
 
   return (
   <section className="relative mt-[-16px] w-full px-8 min-h-screen overflow-hidden bg-gradient-to-br from-blue-900 via-purple-900 to-pink-900 dotted-bg">
