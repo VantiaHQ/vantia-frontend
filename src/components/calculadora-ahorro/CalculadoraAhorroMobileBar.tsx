@@ -20,8 +20,6 @@ interface CalculadoraAhorroMobileBarProps {
 }
 
 export const CalculadoraAhorroMobileBar: React.FC<CalculadoraAhorroMobileBarProps> = ({
-  costeMensualActual,
-  horasInvertidasMes,
   horasInvertidasAnual,
   formatoMoneda,
   setShowResultsMobile,

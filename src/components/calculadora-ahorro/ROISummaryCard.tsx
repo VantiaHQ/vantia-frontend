@@ -13,14 +13,11 @@ interface ROISummaryCardProps {
 
 export const ROISummaryCard: React.FC<ROISummaryCardProps> = ({
   ahorroAnualEstimado,
-  horasInvertidasAnual,
   formatoMoneda,
   initialAgentPayment,
   annualAgentPayment,
 }) => {
-  const totalCostFirstYear = (ahorroAnualEstimado / 12) + initialAgentPayment; // This calculation seems incorrect based on the prompt, will adjust
-  const netSavingsFirstYear = ahorroAnualEstimado - initialAgentPayment;
-
+  
   const CustomTooltip = ({ active, payload, label, formatoMoneda }: any) => {
     if (active && payload && payload.length) {
       return (
@@ -58,12 +55,6 @@ export const ROISummaryCard: React.FC<ROISummaryCardProps> = ({
       roiAcumulado: parseFloat(roi.toFixed(1)),
     });
   }
-
-  const data = [
-    { name: 'Ahorro Anual', value: ahorroAnualEstimado },
-    { name: 'Costo Inicial', value: initialAgentPayment },
-    { name: 'Ahorro Neto (1er Año)', value: netSavingsFirstYear },
-  ];
 
   return (
     <Card className="bg-gradient-to-br from-blue-950/60 to-navy-700/90 backdrop-blur rounded-3xl border border-blue-400/30 shadow-lg text-white/90">

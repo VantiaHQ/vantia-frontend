@@ -10,7 +10,6 @@ const instrumentSerif = Instrument_Serif({
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { useAgentConfig } from '@/context/AgentConfigContext';
-import { savingsCalculatorContent } from '@/components/calculadora-ahorro/CalculadoraAhorro.content';
 
 interface CalculadoraAhorroParametersProps {
   interaccionesDia: number;

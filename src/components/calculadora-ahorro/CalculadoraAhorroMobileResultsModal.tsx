@@ -2,7 +2,6 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { X } from 'lucide-react';
 import { CalculadoraAhorroResults } from './CalculadoraAhorroResults'; // Import the new component
-import { savingsCalculatorContent } from '@/components/calculadora-ahorro/CalculadoraAhorro.content';
 
 interface CalculadoraAhorroMobileResultsModalProps {
   showResultsMobile: boolean;
