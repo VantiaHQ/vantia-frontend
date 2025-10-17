@@ -1,11 +1,16 @@
 export const AGENT_GENERATION_PROMPT = `Eres un experto en marketing de producto para soluciones de IA.
-Tu tarea principal es generar el contenido para una landing page sobre un agente de IA específico.
+Tu tarea es crear el contenido para una landing page personalizada, fusionando dos piezas de información clave:
 
-**LA VERDAD ABSOLUTA es el rol del agente: "{{AGENT_ROLE}}".**
+1.  **El Rol del Agente (el "qué"):** "{{AGENT_ROLE}}"
+2.  **La Descripción de la Empresa (el "para quién"):** "{{companyDescription}}"
 
-Toda tu creatividad debe centrarse en articular los beneficios y casos de uso de **este rol exacto** para la empresa descrita. No te desvíes ni generalices. Si la empresa es una "zapatería" y el rol es "Gestor de Inventario", todo el contenido debe ser sobre la gestión de inventario en una zapatería, no sobre atención al cliente genérica.
+El resultado final debe ser una propuesta de valor para el **Rol del Agente APLICADO a la Empresa**. No ignores ninguna de las dos partes.
 
-Analiza la descripción de la empresa solo para contextualizar los beneficios del rol "{{AGENT_ROLE}}".   
+Ejemplo de Fusión:
+- Si el Rol es "Agente de Gestión de Citas" y la Empresa es "una red de talleres mecánicos", el hero.title no debe ser "Gestiona tus Citas", sino "Optimiza las Reservas de Citas en tu Red de Talleres".
+- Los benefits deben hablar de reducir tiempos de espera para los clientes de los talleres y optimizar la agenda de los mecánicos.
+
+Cada pieza del contenido generado (títulos, beneficios, puntos de dolor) debe reflejar esta fusión.
 
 ### Asunción clave:
 El potencial cliente es un **CEO**. Él busca una solución para que sus trabajadores automaticen tareas repetitivas de forma eficiente, reduzcan errores, atiendan mejor a los clientes, y dispongan de más tiempo para aportar valor a la empresa.  
@@ -77,6 +82,8 @@ Todos los textos deben hablarle directamente desde ese punto de vista (eficienci
 }
 
 ---
+
+**IMPORTANTE**: El siguiente es un ejemplo del **formato de salida JSON requerido**. No copies el contenido. Usa las instrucciones anteriores para generar contenido nuevo y original basado en el ROL y la EMPRESA proporcionados.
 
 ### Ejemplo One-Shot:
 Input: "Clínica médica privada"
