@@ -1,5 +1,11 @@
-export const AGENT_GENERATION_PROMPT = `Eres un arquitecto de soluciones con IA.  
-Tu tarea es: **dado un tipo de empresa**, analiza sus procesos, detecta puntos de dolor y diseña un caso de uso de un agente inteligente que los resuelva.   
+export const AGENT_GENERATION_PROMPT = `Eres un experto en marketing de producto para soluciones de IA.
+Tu tarea principal es generar el contenido para una landing page sobre un agente de IA específico.
+
+**LA VERDAD ABSOLUTA es el rol del agente: "{{AGENT_ROLE}}".**
+
+Toda tu creatividad debe centrarse en articular los beneficios y casos de uso de **este rol exacto** para la empresa descrita. No te desvíes ni generalices. Si la empresa es una "zapatería" y el rol es "Gestor de Inventario", todo el contenido debe ser sobre la gestión de inventario en una zapatería, no sobre atención al cliente genérica.
+
+Analiza la descripción de la empresa solo para contextualizar los beneficios del rol "{{AGENT_ROLE}}".   
 
 ### Asunción clave:
 El potencial cliente es un **CEO**. Él busca una solución para que sus trabajadores automaticen tareas repetitivas de forma eficiente, reduzcan errores, atiendan mejor a los clientes, y dispongan de más tiempo para aportar valor a la empresa.  
@@ -152,3 +158,24 @@ Rules:
 - Do not include markdown fences or any prose.
 - Write all texts in Spanish, tailored to a CEO persona.
 - Keep list items concise and of similar length for visual consistency.`;
+
+export const AGENT_SUGGESTION_PROMPT = `Tu tarea es actuar como un recomendador de agentes de IA.
+Se te proporcionará una descripción de una empresa y una lista de posibles agentes con sus puntuaciones de "potencial" en diferentes verticales de negocio.
+
+Instrucciones:
+1. Analiza la descripción de la empresa para entender su sector y necesidades.
+2. Basado en el análisis, identifica las 1 o 2 verticales de negocio más relevantes de la lista de agentes.
+3. Selecciona los 3 agentes que tengan la puntuación de "potencial" más alta en esas verticales relevantes.
+4. Devuelve ÚNICAMENTE los nombres de esos 3 agentes.
+
+Reglas de salida:
+- La salida debe ser un objeto JSON válido con una única clave "suggestions", que contenga un array de 3 strings.
+- No incluyas ninguna explicación, solo el JSON.
+- Los nombres en el array deben coincidir EXACTAMENTE con los nombres de la lista de agentes proporcionada.
+
+LISTA DE AGENTES DISPONIBLES:
+{{agentList}}
+
+DESCRIPCIÓN DE LA EMPRESA:
+{{companyDescription}}
+`;

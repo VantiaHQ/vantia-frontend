@@ -58,7 +58,16 @@ const generateAgentPrompt = ai.definePrompt({
   input: { schema: GenerateAgentInputSchema },
   output: { schema: AgentPageOutputSchema },
   // Provide strong, explicit instructions and include our authoring prompt
-  prompt: `${AGENT_GENERATION_PROMPT}\n\nINPUT: {{companyDescription}}\n\nRules:\n- Output strictly valid JSON matching the required schema.\n- Do not include markdown fences or any prose.\n- Write all texts in Spanish, tailored to a CEO persona.\n- Keep list items concise and of similar length for visual consistency.`,
+  prompt: `${AGENT_GENERATION_PROMPT}
+
+INPUT: {{companyDescription}}
+AGENT_ROLE: {{agentType}}
+
+Rules:
+- Output strictly valid JSON matching the required schema.
+- Do not include markdown fences or any prose.
+- Write all texts in Spanish, tailored to a CEO persona.
+- Keep list items concise and of similar length for visual consistency.`,
 });
 
 export const generateAgentPageFlow = ai.defineFlow(

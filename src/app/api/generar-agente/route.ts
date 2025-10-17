@@ -4,12 +4,15 @@ import slugify from 'slugify';
 import { z } from 'zod';
 import { generateAgentPageFlow } from '@/ai/flows/generate-agent-page';
 
-const BodySchema = z.object({ companyDescription: z.string().min(5) });
+const BodySchema = z.object({
+  companyDescription: z.string().min(5),
+  agentType: z.string().min(3),
+});
 
-// Simple in-memory IP rate limiting (best-effort). For production, use Redis/Upstash.
+// Simple in-memory IP rate limiting
 const ipHits = new Map<string, { count: number; ts: number }>();
-const WINDOW_MS = 60_000; // 1 minute window
-const MAX_REQS = 5; // max requests per IP per window
+const WINDOW_MS = 60_000;
+const MAX_REQS = 5;
 
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
@@ -35,20 +38,16 @@ export async function POST(req: NextRequest) {
     if (!parsed.success) {
       return NextResponse.json({ error: 'Invalid input' }, { status: 400 });
     }
-    const { companyDescription } = parsed.data;
+    const { companyDescription, agentType } = parsed.data;
 
-    // Call structured Genkit flow
-    const geminiResponse = await generateAgentPageFlow({ companyDescription });
-    const name = geminiResponse.hero.title; // Extract name from AI response
+    const geminiResponse = await generateAgentPageFlow({ companyDescription, agentType });
+    const name = geminiResponse.hero.title;
     const modules = {
       core: geminiResponse.modulesUsed.core,
       extra: geminiResponse.modulesUsed.extra || [],
     };
 
-    // Generate a unique slug
     const baseSlug = slugify(companyDescription, { lower: true, strict: true });
-
-    // Attempt insert with retry on unique slug conflict. Recommend DB unique index on slug.
     let slug: string = `${baseSlug}-${Math.random().toString(36).slice(2, 6)}`;
     let attempts = 0;
     const maxAttempts = 5;
@@ -58,7 +57,7 @@ export async function POST(req: NextRequest) {
         .insert([{ slug, content: geminiResponse }]);
 
       if (!insertError) {
-        return NextResponse.json({ slug, name, modules }, { status: 200 }); // Return name and modules along with slug
+        return NextResponse.json({ slug, name, modules }, { status: 200 });
       }
 
       const code = (insertError as any)?.code || '';
@@ -74,7 +73,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ error: 'Failed to generate a unique slug' }, { status: 500 });
   } catch (error: any) {
-    console.error("API Error:", error);
+    console.error("[API /generar-agente] Error:", error);
     return NextResponse.json({ error: error.message || 'Internal Server Error' }, { status: 500 });
   }
 }

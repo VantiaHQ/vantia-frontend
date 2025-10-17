@@ -1,0 +1,852 @@
+[
+  {
+    "name": "Agente de Atención al Cliente",
+    "verticals": {
+      "Atención Cliente": 10,
+      "Soporte Técnico": 5,
+      "Ventas/Marketing": 7,
+      "RRHH": 4,
+      "Finanzas/Legal": 3,
+      "Industria/Producción": 3,
+      "Logística/Transporte": 6,
+      "Educación/Formación": 4,
+      "Salud/Medicina": 5,
+      "Servicios Públicos / Smart Cities": 5,
+      "Comercio Electrónico/Retail": 8,
+      "Eventos/Ocio": 6
+    }
+  },
+  {
+    "name": "Agente de Soporte Técnico",
+    "verticals": {
+      "Atención Cliente": 6,
+      "Soporte Técnico": 10,
+      "Ventas/Marketing": 4,
+      "RRHH": 3,
+      "Finanzas/Legal": 3,
+      "Industria/Producción": 7,
+      "Logística/Transporte": 6,
+      "Educación/Formación": 3,
+      "Salud/Medicina": 5,
+      "Servicios Públicos / Smart Cities": 4,
+      "Comercio Electrónico/Retail": 5,
+      "Eventos/Ocio": 4
+    }
+  },
+  {
+    "name": "Agente de Ventas",
+    "verticals": {
+      "Atención Cliente": 5,
+      "Soporte Técnico": 3,
+      "Ventas/Marketing": 10,
+      "RRHH": 2,
+      "Finanzas/Legal": 4,
+      "Industria/Producción": 3,
+      "Logística/Transporte": 5,
+      "Educación/Formación": 3,
+      "Salud/Medicina": 3,
+      "Servicios Públicos / Smart Cities": 4,
+      "Comercio Electrónico/Retail": 9,
+      "Eventos/Ocio": 5
+    }
+  },
+  {
+    "name": "Agente de Gestión de Pedidos",
+    "verticals": {
+      "Atención Cliente": 4,
+      "Soporte Técnico": 3,
+      "Ventas/Marketing": 6,
+      "RRHH": 2,
+      "Finanzas/Legal": 4,
+      "Industria/Producción": 5,
+      "Logística/Transporte": 7,
+      "Educación/Formación": 2,
+      "Salud/Medicina": 3,
+      "Servicios Públicos / Smart Cities": 3,
+      "Comercio Electrónico/Retail": 9,
+      "Eventos/Ocio": 3
+    }
+  },
+  {
+    "name": "Agente de Seguimiento de Envíos",
+    "verticals": {
+      "Atención Cliente": 3,
+      "Soporte Técnico": 2,
+      "Ventas/Marketing": 5,
+      "RRHH": 1,
+      "Finanzas/Legal": 3,
+      "Industria/Producción": 5,
+      "Logística/Transporte": 10,
+      "Educación/Formación": 1,
+      "Salud/Medicina": 2,
+      "Servicios Públicos / Smart Cities": 3,
+      "Comercio Electrónico/Retail": 8,
+      "Eventos/Ocio": 2
+    }
+  },
+  {
+    "name": "Agente de Gestión de Inventarios",
+    "verticals": {
+      "Atención Cliente": 3,
+      "Soporte Técnico": 2,
+      "Ventas/Marketing": 4,
+      "RRHH": 1,
+      "Finanzas/Legal": 3,
+      "Industria/Producción": 9,
+      "Logística/Transporte": 9,
+      "Educación/Formación": 1,
+      "Salud/Medicina": 2,
+      "Servicios Públicos / Smart Cities": 3,
+      "Comercio Electrónico/Retail": 7,
+      "Eventos/Ocio": 2
+    }
+  },
+  {
+    "name": "Agente de Reservas y Citas",
+    "verticals": {
+      "Atención Cliente": 6,
+      "Soporte Técnico": 3,
+      "Ventas/Marketing": 4,
+      "RRHH": 4,
+      "Finanzas/Legal": 2,
+      "Industria/Producción": 3,
+      "Logística/Transporte": 4,
+      "Educación/Formación": 7,
+      "Salud/Medicina": 3,
+      "Servicios Públicos / Smart Cities": 5,
+      "Comercio Electrónico/Retail": 8,
+      "Eventos/Ocio": 7
+    }
+  },
+  {
+    "name": "Agente de FAQs Automatizadas",
+    "verticals": {
+      "Atención Cliente": 8,
+      "Soporte Técnico": 6,
+      "Ventas/Marketing": 6,
+      "RRHH": 5,
+      "Finanzas/Legal": 4,
+      "Industria/Producción": 4,
+      "Logística/Transporte": 5,
+      "Educación/Formación": 4,
+      "Salud/Medicina": 5,
+      "Servicios Públicos / Smart Cities": 5,
+      "Comercio Electrónico/Retail": 7,
+      "Eventos/Ocio": 5
+    }
+  },
+  {
+    "name": "Agente de Chat Multilingüe",
+    "verticals": {
+      "Atención Cliente": 8,
+      "Soporte Técnico": 5,
+      "Ventas/Marketing": 6,
+      "RRHH": 4,
+      "Finanzas/Legal": 3,
+      "Industria/Producción": 3,
+      "Logística/Transporte": 5,
+      "Educación/Formación": 3,
+      "Salud/Medicina": 5,
+      "Servicios Públicos / Smart Cities": 6,
+      "Comercio Electrónico/Retail": 7,
+      "Eventos/Ocio": 5
+    }
+  },
+  {
+    "name": "Agente Asistente de Recursos Humanos",
+    "verticals": {
+      "Atención Cliente": 4,
+      "Soporte Técnico": 3,
+      "Ventas/Marketing": 3,
+      "RRHH": 10,
+      "Finanzas/Legal": 5,
+      "Industria/Producción": 2,
+      "Logística/Transporte": 3,
+      "Educación/Formación": 4,
+      "Salud/Medicina": 2,
+      "Servicios Públicos / Smart Cities": 3,
+      "Comercio Electrónico/Retail": 3,
+      "Eventos/Ocio": 3
+    }
+  },
+  {
+    "name": "Agente de Reclutamiento y Selección",
+    "verticals": {
+      "Atención Cliente": 3,
+      "Soporte Técnico": 2,
+      "Ventas/Marketing": 2,
+      "RRHH": 10,
+      "Finanzas/Legal": 3,
+      "Industria/Producción": 2,
+      "Logística/Transporte": 2,
+      "Educación/Formación": 5,
+      "Salud/Medicina": 2,
+      "Servicios Públicos / Smart Cities": 3,
+      "Comercio Electrónico/Retail": 2,
+      "Eventos/Ocio": 3
+    }
+  },
+  {
+    "name": "Agente de Evaluación de Satisfacción",
+    "verticals": {
+      "Atención Cliente": 9,
+      "Soporte Técnico": 5,
+      "Ventas/Marketing": 6,
+      "RRHH": 5,
+      "Finanzas/Legal": 4,
+      "Industria/Producción": 3,
+      "Logística/Transporte": 4,
+      "Educación/Formación": 4,
+      "Salud/Medicina": 5,
+      "Servicios Públicos / Smart Cities": 5,
+      "Comercio Electrónico/Retail": 7,
+      "Eventos/Ocio": 5
+    }
+  },
+  {
+    "name": "Agente de Monitoreo de Redes Sociales",
+    "verticals": {
+      "Atención Cliente": 5,
+      "Soporte Técnico": 3,
+      "Ventas/Marketing": 8,
+      "RRHH": 3,
+      "Finanzas/Legal": 3,
+      "Industria/Producción": 3,
+      "Logística/Transporte": 4,
+      "Educación/Formación": 3,
+      "Salud/Medicina": 4,
+      "Servicios Públicos / Smart Cities": 4,
+      "Comercio Electrónico/Retail": 7,
+      "Eventos/Ocio": 6
+    }
+  },
+  {
+    "name": "Agente de Análisis de Sentimientos",
+    "verticals": {
+      "Atención Cliente": 5,
+      "Soporte Técnico": 3,
+      "Ventas/Marketing": 8,
+      "RRHH": 3,
+      "Finanzas/Legal": 3,
+      "Industria/Producción": 3,
+      "Logística/Transporte": 4,
+      "Educación/Formación": 3,
+      "Salud/Medicina": 4,
+      "Servicios Públicos / Smart Cities": 4,
+      "Comercio Electrónico/Retail": 7,
+      "Eventos/Ocio": 6
+    }
+  },
+  {
+    "name": "Agente de Generación de Reportes",
+    "verticals": {
+      "Atención Cliente": 4,
+      "Soporte Técnico": 4,
+      "Ventas/Marketing": 4,
+      "RRHH": 4,
+      "Finanzas/Legal": 7,
+      "Industria/Producción": 6,
+      "Logística/Transporte": 6,
+      "Educación/Formación": 4,
+      "Salud/Medicina": 5,
+      "Servicios Públicos / Smart Cities": 5,
+      "Comercio Electrónico/Retail": 5,
+      "Eventos/Ocio": 4
+    }
+  },
+  {
+    "name": "Agente de Gestión de Proyectos",
+    "verticals": {
+      "Atención Cliente": 5,
+      "Soporte Técnico": 5,
+      "Ventas/Marketing": 5,
+      "RRHH": 4,
+      "Finanzas/Legal": 6,
+      "Industria/Producción": 7,
+      "Logística/Transporte": 7,
+      "Educación/Formación": 6,
+      "Salud/Medicina": 5,
+      "Servicios Públicos / Smart Cities": 5,
+      "Comercio Electrónico/Retail": 6,
+      "Eventos/Ocio": 5
+    }
+  },
+  {
+    "name": "Agente de Notificaciones y Alertas",
+    "verticals": {
+      "Atención Cliente": 6,
+      "Soporte Técnico": 6,
+      "Ventas/Marketing": 5,
+      "RRHH": 4,
+      "Finanzas/Legal": 6,
+      "Industria/Producción": 6,
+      "Logística/Transporte": 8,
+      "Educación/Formación": 4,
+      "Salud/Medicina": 5,
+      "Servicios Públicos / Smart Cities": 6,
+      "Comercio Electrónico/Retail": 6,
+      "Eventos/Ocio": 5
+    }
+  },
+  {
+    "name": "Agente de Gestión de Incidentes",
+    "verticals": {
+      "Atención Cliente": 5,
+      "Soporte Técnico": 10,
+      "Ventas/Marketing": 3,
+      "RRHH": 3,
+      "Finanzas/Legal": 4,
+      "Industria/Producción": 8,
+      "Logística/Transporte": 6,
+      "Educación/Formación": 3,
+      "Salud/Medicina": 5,
+      "Servicios Públicos / Smart Cities": 4,
+      "Comercio Electrónico/Retail": 4,
+      "Eventos/Ocio": 3
+    }
+  },
+  {
+    "name": "Agente de Soporte para Aplicaciones Móviles",
+    "verticals": {
+      "Atención Cliente": 5,
+      "Soporte Técnico": 9,
+      "Ventas/Marketing": 4,
+      "RRHH": 3,
+      "Finanzas/Legal": 3,
+      "Industria/Producción": 4,
+      "Logística/Transporte": 5,
+      "Educación/Formación": 4,
+      "Salud/Medicina": 4,
+      "Servicios Públicos / Smart Cities": 4,
+      "Comercio Electrónico/Retail": 5,
+      "Eventos/Ocio": 4
+    }
+  },
+  {
+    "name": "Agente de Consultas Médicas Básicas",
+    "verticals": {
+      "Atención Cliente": 6,
+      "Soporte Técnico": 4,
+      "Ventas/Marketing": 3,
+      "RRHH": 3,
+      "Finanzas/Legal": 3,
+      "Industria/Producción": 3,
+      "Logística/Transporte": 3,
+      "Educación/Formación": 3,
+      "Salud/Medicina": 10,
+      "Servicios Públicos / Smart Cities": 3,
+      "Comercio Electrónico/Retail": 3,
+      "Eventos/Ocio": 3
+    }
+  },
+  {
+    "name": "Agente para Educación y Tutorías Virtuales",
+    "verticals": {
+      "Atención Cliente": 5,
+      "Soporte Técnico": 3,
+      "Ventas/Marketing": 3,
+      "RRHH": 4,
+      "Finanzas/Legal": 2,
+      "Industria/Producción": 3,
+      "Logística/Transporte": 3,
+      "Educación/Formación": 10,
+      "Salud/Medicina": 4,
+      "Servicios Públicos / Smart Cities": 4,
+      "Comercio Electrónico/Retail": 4,
+      "Eventos/Ocio": 4
+    }
+  },
+  {
+    "name": "Agente Legal para Consultas Iniciales",
+    "verticals": {
+      "Atención Cliente": 3,
+      "Soporte Técnico": 3,
+      "Ventas/Marketing": 3,
+      "RRHH": 3,
+      "Finanzas/Legal": 10,
+      "Industria/Producción": 2,
+      "Logística/Transporte": 3,
+      "Educación/Formación": 3,
+      "Salud/Medicina": 2,
+      "Servicios Públicos / Smart Cities": 3,
+      "Comercio Electrónico/Retail": 3,
+      "Eventos/Ocio": 3
+    }
+  },
+  {
+    "name": "Agente Financiero para Consultas Bancarias",
+    "verticals": {
+      "Atención Cliente": 3,
+      "Soporte Técnico": 3,
+      "Ventas/Marketing": 4,
+      "RRHH": 3,
+      "Finanzas/Legal": 10,
+      "Industria/Producción": 3,
+      "Logística/Transporte": 4,
+      "Educación/Formación": 3,
+      "Salud/Medicina": 3,
+      "Servicios Públicos / Smart Cities": 3,
+      "Comercio Electrónico/Retail": 3,
+      "Eventos/Ocio": 3
+    }
+  },
+  {
+    "name": "Agente de Gestión de Facturación",
+    "verticals": {
+      "Atención Cliente": 3,
+      "Soporte Técnico": 3,
+      "Ventas/Marketing": 3,
+      "RRHH": 3,
+      "Finanzas/Legal": 10,
+      "Industria/Producción": 3,
+      "Logística/Transporte": 4,
+      "Educación/Formación": 3,
+      "Salud/Medicina": 3,
+      "Servicios Públicos / Smart Cities": 3,
+      "Comercio Electrónico/Retail": 3,
+      "Eventos/Ocio": 3
+    }
+  },
+  {
+    "name": "Agente de Automatización de Marketing",
+    "verticals": {
+      "Atención Cliente": 4,
+      "Soporte Técnico": 3,
+      "Ventas/Marketing": 10,
+      "RRHH": 2,
+      "Finanzas/Legal": 4,
+      "Industria/Producción": 3,
+      "Logística/Transporte": 5,
+      "Educación/Formación": 3,
+      "Salud/Medicina": 3,
+      "Servicios Públicos / Smart Cities": 4,
+      "Comercio Electrónico/Retail": 9,
+      "Eventos/Ocio": 5
+    }
+  },
+  {
+    "name": "Agente de Control y Seguimiento de Calidad",
+    "verticals": {
+      "Atención Cliente": 3,
+      "Soporte Técnico": 6,
+      "Ventas/Marketing": 3,
+      "RRHH": 3,
+      "Finanzas/Legal": 4,
+      "Industria/Producción": 10,
+      "Logística/Transporte": 5,
+      "Educación/Formación": 3,
+      "Salud/Medicina": 3,
+      "Servicios Públicos / Smart Cities": 4,
+      "Comercio Electrónico/Retail": 3,
+      "Eventos/Ocio": 3
+    }
+  },
+  {
+    "name": "Agente de Gestión de Energía y Recursos",
+    "verticals": {
+      "Atención Cliente": 3,
+      "Soporte Técnico": 4,
+      "Ventas/Marketing": 3,
+      "RRHH": 2,
+      "Finanzas/Legal": 4,
+      "Industria/Producción": 8,
+      "Logística/Transporte": 5,
+      "Educación/Formación": 2,
+      "Salud/Medicina": 2,
+      "Servicios Públicos / Smart Cities": 8,
+      "Comercio Electrónico/Retail": 3,
+      "Eventos/Ocio": 3
+    }
+  },
+  {
+    "name": "Agente para Soporte en eCommerce",
+    "verticals": {
+      "Atención Cliente": 7,
+      "Soporte Técnico": 5,
+      "Ventas/Marketing": 8,
+      "RRHH": 3,
+      "Finanzas/Legal": 4,
+      "Industria/Producción": 4,
+      "Logística/Transporte": 6,
+      "Educación/Formación": 3,
+      "Salud/Medicina": 4,
+      "Servicios Públicos / Smart Cities": 5,
+      "Comercio Electrónico/Retail": 10,
+      "Eventos/Ocio": 5
+    }
+  },
+  {
+    "name": "Agente de Administración de Contratos",
+    "verticals": {
+      "Atención Cliente": 3,
+      "Soporte Técnico": 3,
+      "Ventas/Marketing": 3,
+      "RRHH": 3,
+      "Finanzas/Legal": 10,
+      "Industria/Producción": 3,
+      "Logística/Transporte": 3,
+      "Educación/Formación": 3,
+      "Salud/Medicina": 3,
+      "Servicios Públicos / Smart Cities": 3,
+      "Comercio Electrónico/Retail": 3,
+      "Eventos/Ocio": 3
+    }
+  },
+  {
+    "name": "Agente para Integración con CRM",
+    "verticals": {
+      "Atención Cliente": 6,
+      "Soporte Técnico": 4,
+      "Ventas/Marketing": 8,
+      "RRHH": 3,
+      "Finanzas/Legal": 4,
+      "Industria/Producción": 3,
+      "Logística/Transporte": 6,
+      "Educación/Formación": 3,
+      "Salud/Medicina": 4,
+      "Servicios Públicos / Smart Cities": 5,
+      "Comercio Electrónico/Retail": 8,
+      "Eventos/Ocio": 4
+    }
+  },
+  {
+    "name": "Agente para Soporte en Telecomunicaciones",
+    "verticals": {
+      "Atención Cliente": 4,
+      "Soporte Técnico": 9,
+      "Ventas/Marketing": 4,
+      "RRHH": 3,
+      "Finanzas/Legal": 3,
+      "Industria/Producción": 5,
+      "Logística/Transporte": 7,
+      "Educación/Formación": 3,
+      "Salud/Medicina": 4,
+      "Servicios Públicos / Smart Cities": 4,
+      "Comercio Electrónico/Retail": 5,
+      "Eventos/Ocio": 4
+    }
+  },
+  {
+    "name": "Agente de Gestión de Documentos Digitales",
+    "verticals": {
+      "Atención Cliente": 5,
+      "Soporte Técnico": 4,
+      "Ventas/Marketing": 4,
+      "RRHH": 4,
+      "Finanzas/Legal": 7,
+      "Industria/Producción": 6,
+      "Logística/Transporte": 6,
+      "Educación/Formación": 4,
+      "Salud/Medicina": 4,
+      "Servicios Públicos / Smart Cities": 5,
+      "Comercio Electrónico/Retail": 5,
+      "Eventos/Ocio": 4
+    }
+  },
+  {
+    "name": "Agente de Consulta y Soporte Técnico IoT",
+    "verticals": {
+      "Atención Cliente": 5,
+      "Soporte Técnico": 10,
+      "Ventas/Marketing": 3,
+      "RRHH": 3,
+      "Finanzas/Legal": 3,
+      "Industria/Producción": 7,
+      "Logística/Transporte": 6,
+      "Educación/Formación": 3,
+      "Salud/Medicina": 4,
+      "Servicios Públicos / Smart Cities": 4,
+      "Comercio Electrónico/Retail": 4,
+      "Eventos/Ocio": 3
+    }
+  },
+  {
+    "name": "Agente para Seguridad y Control de Accesos",
+    "verticals": {
+      "Atención Cliente": 3,
+      "Soporte Técnico": 7,
+      "Ventas/Marketing": 3,
+      "RRHH": 3,
+      "Finanzas/Legal": 6,
+      "Industria/Producción": 7,
+      "Logística/Transporte": 6,
+      "Educación/Formación": 3,
+      "Salud/Medicina": 3,
+      "Servicios Públicos / Smart Cities": 7,
+      "Comercio Electrónico/Retail": 4,
+      "Eventos/Ocio": 3
+    }
+  },
+  {
+    "name": "Agente de Gestión de Flotas y Logística",
+    "verticals": {
+      "Atención Cliente": 4,
+      "Soporte Técnico": 5,
+      "Ventas/Marketing": 4,
+      "RRHH": 2,
+      "Finanzas/Legal": 4,
+      "Industria/Producción": 7,
+      "Logística/Transporte": 10,
+      "Educación/Formación": 2,
+      "Salud/Medicina": 3,
+      "Servicios Públicos / Smart Cities": 4,
+      "Comercio Electrónico/Retail": 6,
+      "Eventos/Ocio": 3
+    }
+  },
+  {
+    "name": "Agente para Gestión de Reservas en Hoteles",
+    "verticals": {
+      "Atención Cliente": 6,
+      "Soporte Técnico": 3,
+      "Ventas/Marketing": 4,
+      "RRHH": 4,
+      "Finanzas/Legal": 3,
+      "Industria/Producción": 3,
+      "Logística/Transporte": 4,
+      "Educación/Formación": 7,
+      "Salud/Medicina": 3,
+      "Servicios Públicos / Smart Cities": 5,
+      "Comercio Electrónico/Retail": 8,
+      "Eventos/Ocio": 7
+    }
+  },
+  {
+    "name": "Agente de Gestión de Eventos",
+    "verticals": {
+      "Atención Cliente": 5,
+      "Soporte Técnico": 3,
+      "Ventas/Marketing": 4,
+      "RRHH": 4,
+      "Finanzas/Legal": 3,
+      "Industria/Producción": 3,
+      "Logística/Transporte": 3,
+      "Educación/Formación": 5,
+      "Salud/Medicina": 3,
+      "Servicios Públicos / Smart Cities": 4,
+      "Comercio Electrónico/Retail": 5,
+      "Eventos/Ocio": 9
+    }
+  },
+  {
+    "name": "Agente de Soporte para Plataformas de Streaming",
+    "verticals": {
+      "Atención Cliente": 5,
+      "Soporte Técnico": 4,
+      "Ventas/Marketing": 5,
+      "RRHH": 3,
+      "Finanzas/Legal": 3,
+      "Industria/Producción": 3,
+      "Logística/Transporte": 3,
+      "Educación/Formación": 4,
+      "Salud/Medicina": 3,
+      "Servicios Públicos / Smart Cities": 4,
+      "Comercio Electrónico/Retail": 5,
+      "Eventos/Ocio": 9
+    }
+  },
+  {
+    "name": "Agente de Control de Producción Industrial",
+    "verticals": {
+      "Atención Cliente": 3,
+      "Soporte Técnico": 6,
+      "Ventas/Marketing": 3,
+      "RRHH": 2,
+      "Finanzas/Legal": 4,
+      "Industria/Producción": 10,
+      "Logística/Transporte": 5,
+      "Educación/Formación": 2,
+      "Salud/Medicina": 3,
+      "Servicios Públicos / Smart Cities": 4,
+      "Comercio Electrónico/Retail": 3,
+      "Eventos/Ocio": 3
+    }
+  },
+  {
+    "name": "Agente para Asistencia en Restaurantes",
+    "verticals": {
+      "Atención Cliente": 6,
+      "Soporte Técnico": 3,
+      "Ventas/Marketing": 4,
+      "RRHH": 3,
+      "Finanzas/Legal": 3,
+      "Industria/Producción": 3,
+      "Logística/Transporte": 4,
+      "Educación/Formación": 3,
+      "Salud/Medicina": 3,
+      "Servicios Públicos / Smart Cities": 4,
+      "Comercio Electrónico/Retail": 6,
+      "Eventos/Ocio": 8
+    }
+  },
+  {
+    "name": "Agente de Monitoreo Ambiental",
+    "verticals": {
+      "Atención Cliente": 4,
+      "Soporte Técnico": 3,
+      "Ventas/Marketing": 3,
+      "RRHH": 2,
+      "Finanzas/Legal": 4,
+      "Industria/Producción": 4,
+      "Logística/Transporte": 4,
+      "Educación/Formación": 2,
+      "Salud/Medicina": 2,
+      "Servicios Públicos / Smart Cities": 9,
+      "Comercio Electrónico/Retail": 3,
+      "Eventos/Ocio": 3
+    }
+  },
+  {
+    "name": "Agente de Soporte en Siniestros y Seguros",
+    "verticals": {
+      "Atención Cliente": 5,
+      "Soporte Técnico": 5,
+      "Ventas/Marketing": 3,
+      "RRHH": 3,
+      "Finanzas/Legal": 6,
+      "Industria/Producción": 5,
+      "Logística/Transporte": 5,
+      "Educación/Formación": 3,
+      "Salud/Medicina": 4,
+      "Servicios Públicos / Smart Cities": 5,
+      "Comercio Electrónico/Retail": 5,
+      "Eventos/Ocio": 4
+    }
+  },
+  {
+    "name": "Agente para Soporte en Fabricación Naval (Navantia)",
+    "verticals": {
+      "Atención Cliente": 3,
+      "Soporte Técnico": 7,
+      "Ventas/Marketing": 3,
+      "RRHH": 2,
+      "Finanzas/Legal": 4,
+      "Industria/Producción": 10,
+      "Logística/Transporte": 4,
+      "Educación/Formación": 2,
+      "Salud/Medicina": 3,
+      "Servicios Públicos / Smart Cities": 3,
+      "Comercio Electrónico/Retail": 3,
+      "Eventos/Ocio": 3
+    }
+  },
+  {
+    "name": "Agente de Evaluación de Riesgos",
+    "verticals": {
+      "Atención Cliente": 4,
+      "Soporte Técnico": 5,
+      "Ventas/Marketing": 4,
+      "RRHH": 3,
+      "Finanzas/Legal": 8,
+      "Industria/Producción": 7,
+      "Logística/Transporte": 5,
+      "Educación/Formación": 3,
+      "Salud/Medicina": 5,
+      "Servicios Públicos / Smart Cities": 6,
+      "Comercio Electrónico/Retail": 5,
+      "Eventos/Ocio": 4
+    }
+  },
+  {
+    "name": "Agente para Asistencia en Smart Cities",
+    "verticals": {
+      "Atención Cliente": 4,
+      "Soporte Técnico": 3,
+      "Ventas/Marketing": 3,
+      "RRHH": 2,
+      "Finanzas/Legal": 4,
+      "Industria/Producción": 4,
+      "Logística/Transporte": 5,
+      "Educación/Formación": 2,
+      "Salud/Medicina": 3,
+      "Servicios Públicos / Smart Cities": 10,
+      "Comercio Electrónico/Retail": 3,
+      "Eventos/Ocio": 3
+    }
+  },
+  {
+    "name": "Agente para Soporte en Educación Superior",
+    "verticals": {
+      "Atención Cliente": 5,
+      "Soporte Técnico": 3,
+      "Ventas/Marketing": 4,
+      "RRHH": 4,
+      "Finanzas/Legal": 3,
+      "Industria/Producción": 3,
+      "Logística/Transporte": 3,
+      "Educación/Formación": 10,
+      "Salud/Medicina": 4,
+      "Servicios Públicos / Smart Cities": 4,
+      "Comercio Electrónico/Retail": 4,
+      "Eventos/Ocio": 4
+    }
+  },
+  {
+    "name": "Agente para Gestión de Viajes Corporativos",
+    "verticals": {
+      "Atención Cliente": 5,
+      "Soporte Técnico": 4,
+      "Ventas/Marketing": 5,
+      "RRHH": 3,
+      "Finanzas/Legal": 4,
+      "Industria/Producción": 4,
+      "Logística/Transporte": 7,
+      "Educación/Formación": 3,
+      "Salud/Medicina": 4,
+      "Servicios Públicos / Smart Cities": 4,
+      "Comercio Electrónico/Retail": 6,
+      "Eventos/Ocio": 5
+    }
+  },
+  {
+    "name": "Agente para Soporte en Servicios Públicos",
+    "verticals": {
+      "Atención Cliente": 4,
+      "Soporte Técnico": 3,
+      "Ventas/Marketing": 3,
+      "RRHH": 2,
+      "Finanzas/Legal": 4,
+      "Industria/Producción": 3,
+      "Logística/Transporte": 4,
+      "Educación/Formación": 2,
+      "Salud/Medicina": 3,
+      "Servicios Públicos / Smart Cities": 8,
+      "Comercio Electrónico/Retail": 3,
+      "Eventos/Ocio": 3
+    }
+  },
+  {
+    "name": "Agente de Soporte Legal para Empresas",
+    "verticals": {
+      "Atención Cliente": 3,
+      "Soporte Técnico": 3,
+      "Ventas/Marketing": 3,
+      "RRHH": 3,
+      "Finanzas/Legal": 10,
+      "Industria/Producción": 2,
+      "Logística/Transporte": 3,
+      "Educación/Formación": 3,
+      "Salud/Medicina": 3,
+      "Servicios Públicos / Smart Cities": 3,
+      "Comercio Electrónico/Retail": 3,
+      "Eventos/Ocio": 3
+    }
+  },
+  {
+    "name": "Agente para Automatización de Operaciones Administrativas",
+    "verticals": {
+      "Atención Cliente": 5,
+      "Soporte Técnico": 4,
+      "Ventas/Marketing": 5,
+      "RRHH": 4,
+      "Finanzas/Legal": 6,
+      "Industria/Producción": 5,
+      "Logística/Transporte": 6,
+      "Educación/Formación": 4,
+      "Salud/Medicina": 4,
+      "Servicios Públicos / Smart Cities": 5,
+      "Comercio Electrónico/Retail": 6,
+      "Eventos/Ocio": 5
+    }
+  }
+]
