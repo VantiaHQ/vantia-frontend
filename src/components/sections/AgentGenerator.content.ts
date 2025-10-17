@@ -5,6 +5,7 @@ export const agentGeneratorContent = {
   existingAgentMessage: "Ya hay una propuesta de agente generada. Si deseas crear una nueva propuesta, primero debes eliminar la actual.",
   placeholder: "¿A qué se dedica tu empresa?",
   buttonText: "Buscar Agentes Potenciales",
+  buttonTextSuccess: "Agentes Potenciales Encontrados",
   startOverButtonText: "Empezar de nuevo",
   loadingMessages: [
     "Analizando sector...",
