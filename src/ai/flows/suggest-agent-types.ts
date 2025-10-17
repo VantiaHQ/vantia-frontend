@@ -15,9 +15,13 @@ const AgentSuggestionOutputSchema = z.object({
   suggestions: z.array(z.string()).describe('List of 3 to 5 suggested agent roles.'),
 });
 
+const AgentSuggestionPromptSchema = AgentSuggestionInputSchema.extend({
+  agentList: z.string(),
+});
+
 const suggestAgentTypesPrompt = ai.definePrompt({
   name: 'suggestAgentTypesPrompt',
-  input: { schema: AgentSuggestionInputSchema },
+  input: { schema: AgentSuggestionPromptSchema },
   output: { schema: AgentSuggestionOutputSchema },
   prompt: `${AGENT_SUGGESTION_PROMPT}`,
 });
