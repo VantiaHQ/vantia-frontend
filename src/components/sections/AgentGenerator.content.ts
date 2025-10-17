@@ -1,12 +1,11 @@
 export const agentGeneratorContent = {
   title: "Genera tu Agente IA",
-  description: "Describe tu empresa y tus necesidades de automatización para diseñar un agente a medida.",
+  description: "Empieza describiendo tu empresa y buscaremos agentes adecuados que se adapten a tu caso de uso.",
+  suggestionsTitle: "Elige un punto de partida para tu agente:",
   existingAgentMessage: "Ya hay una propuesta de agente generada. Si deseas crear una nueva propuesta, primero debes eliminar la actual.",
-  placeholder: {
-    mobile: "¿A qué se dedica tu empresa?",
-    desktop: "¿A qué se dedica tu empresa? ¿Qué tareas repetitivas te gustaría automatizar?"
-  },
-  buttonText: "Generar Agente",
+  placeholder: "¿A qué se dedica tu empresa?",
+  buttonText: "Buscar Agentes Potenciales",
+  startOverButtonText: "Empezar de nuevo",
   loadingMessages: [
     "Analizando sector...",
     "Identificando puntos de dolor...",

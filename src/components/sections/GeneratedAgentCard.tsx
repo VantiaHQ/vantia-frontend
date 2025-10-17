@@ -43,8 +43,8 @@ export default function GeneratedAgentCard({ slug, name, onClear }: GeneratedAge
             <h2 className="max-w-3xl mx-auto text-xl font-light text-gray-700 pl-4 mb-2">{externalHeading}</h2>
             <Card className="max-w-3xl mx-auto shadow-lg bg-[url('/images/modular-agent.webp')] bg-cover bg-center relative rounded-lg drop-shadow-[0_-16px_32px_rgba(80,200,255,0.2)]">
                 <div className="absolute inset-0 bg-black/50 z-0 rounded-lg"></div>
-                <CardHeader className="p-6 flex flex-col sm:flex-row items-center justify-between z-10">
-                    <Link href={agentUrl} target="_blank" rel="noopener noreferrer" className="text-primary font-headline font-bold text-white drop-shadow-[0_0_16px_rgba(80,200,255,0.3)] break-all hover:underline cursor-target text-2xl sm:text-3xl md:text-xl">
+                <CardHeader className="p-6 flex flex-col sm:flex-row items-left sm:items-center justify-between gap-4 sm:gap-20 z-10">
+                    <Link href={agentUrl} target="_blank" rel="noopener noreferrer" className="text-primary font-headline font-bold text-white drop-shadow-[0_0_16px_rgba(80,200,255,0.3)] hover:underline cursor-target text-2xl sm:text-3xl md:text-xl">
                         {formattedName}
                     </Link>
                     
