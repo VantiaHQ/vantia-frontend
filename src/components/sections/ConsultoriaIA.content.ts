@@ -1,10 +1,11 @@
 import { AppImages } from '@/lib/appImages';
 
 export const consultoriaIAContent = {
-  mainTitle: 'Más allá del Agente: <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">Soluciones de IA a medida</span>',
+  mainTitle: 'Más allá del Agente:',
+  mainSubtitle: '<span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">Soluciones de IA a medida</span>',
   mainParagraph: 'Nuestra experiencia no termina en la automatización conversacional. Te ayudamos a integrar la IA en el núcleo de tu negocio para desbloquear nuevas oportunidades.',
 };
-
+/*backlash: */
 export const services = [
   {
     title: 'Estrategia de IA y Hoja de Ruta',

@@ -29,6 +29,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 @layer utilities {
   /* Custom Scrollbar for Webkit browsers */
   ::-webkit-scrollbar {

@@ -1,41 +1,32 @@
 'use client';
-import { useRef, useEffect, useState, ReactNode } from 'react';
 
-interface FadeInSectionProps {
-  children: ReactNode;
-  direction?: 'up' | 'down' | 'left' | 'right';
-  className?: string;
-  delay?: number; // New prop for delay in milliseconds
-}
+import { useRef } from 'react';
+import { useLenis } from 'lenis/react';
 
-export default function FadeInSection({ children, direction = 'up', className = '', delay = 0 }: FadeInSectionProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+export function FadeInSection({ children }: { children: React.ReactNode }) {
+  const sectionRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const observer = new window.IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true);
-      },
-      { threshold: 0.15 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
+  useLenis(({ scroll }) => {
+    if (!sectionRef.current) return;
 
-  let fadeClass = 'opacity-0 translate-y-8';
-  if (direction === 'down') fadeClass = 'opacity-0 -translate-y-8';
-  if (direction === 'left') fadeClass = 'opacity-0 -translate-x-8';
-  if (direction === 'right') fadeClass = 'opacity-0 translate-x-8';
+    const rect = sectionRef.current.getBoundingClientRect();
+    const { top, height } = rect;
+    const viewportHeight = window.innerHeight;
+
+    let progress = 0;
+    if (top < viewportHeight && top + height > 0) {
+      progress = (viewportHeight - top) / (viewportHeight + height);
+    }
+
+    const opacity = Math.min(1, Math.max(0, progress * 2));
+    const translateY = Math.max(0, 50 * (1 - progress * 1.5));
+
+    sectionRef.current.style.opacity = `${opacity}`;
+    sectionRef.current.style.transform = `translateY(${translateY}px)`;
+  });
 
   return (
-    <div
-      ref={ref}
-      className={`transition-all duration-1000 ease-out will-change-transform will-change-opacity ${className} ${
-        isVisible ? 'opacity-100 translate-y-0 translate-x-0' : fadeClass
-      }`}
-      style={{ transitionDelay: `${delay || 0}ms` }} // Apply delay here
-    >
+    <div ref={sectionRef} style={{ opacity: 0 }}>
       {children}
     </div>
   );

@@ -4,9 +4,9 @@ import { Button } from '@/components/ui/button';
 import { coreModules, extraModules, agenteModularContent } from './AgenteModular.content';
 import { FadeInSection } from '@/components/ui/fade-in-section';
 
-export default function AgenteModular() {
+export default function AgenteModular1Col() {
 	return (
-		<section id="agente-modular" className="bg-[#070916] py-20 sm:py-28">
+		<section id="agente-modular-1-col" className="bg-[#070916] py-20 sm:py-28">
 			<div className="container mx-auto px-6">
 				<div className="mx-auto max-w-3xl text-left">
 					<FadeInSection>
@@ -87,11 +87,11 @@ export default function AgenteModular() {
 								{agenteModularContent.coreModulesTitle}
 							</span>
 						</FadeInSection>
-						<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+						<div className="grid grid-cols-1 gap-6">
 							{coreModules.map((mod, i) => (
 								<FadeInSection key={i}>
 									<div
-										className="group bg-blue-950/60 backdrop-blur rounded-xl border border-blue-400/30 p-6 flex items-center gap-6 shadow-lg"
+										className="group bg-blue-950/60 backdrop-blur rounded-xl border border-blue-400/30 p-6 flex items-center gap-6 shadow-lg aspect-square w-[400px] mx-auto"
 									>
 										<mod.icon className="h-20 w-20 text-blue-200 drop-shadow-[0_0_18px_rgba(80,200,255,0.8)]" />
 										<div>
@@ -113,11 +113,11 @@ export default function AgenteModular() {
 								{agenteModularContent.extraModulesTitle}
 							</span>
 						</FadeInSection>
-						<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+						<div className="grid grid-cols-1 gap-6">
 							{extraModules.map((mod, i) => (
 								<FadeInSection key={i}>
 									<div
-										className="group bg-blue-950/60 backdrop-blur rounded-xl border border-blue-400 p-6 flex items-center gap-6 shadow-lg shadow-blue-400/20"
+										className="group bg-blue-950/60 backdrop-blur rounded-xl border border-blue-400 p-6 flex items-center gap-6 shadow-lg shadow-blue-400/20 aspect-square"
 									>
 										<mod.icon className="h-20 w-20 text-blue-200 drop-shadow-[0_0_32px_rgba(80,200,255,1)]" />
 										<div>
