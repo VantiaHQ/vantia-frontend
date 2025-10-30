@@ -1,0 +1,20 @@
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    - cron: '0 */12 * * *' # every 12 hours
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping ai_generated_pages
+        run: |
+          curl -s -o /dev/null -w "%{http_code}" https://qauobxeflcljmcppeidz.supabase.co/rest/v1/ai_generated_pages
+      - name: Ping contact_submissions
+        run: |
+          curl -s -o /dev/null -w "%{http_code}" https://qauobxeflcljmcppeidz.supabase.co/rest/v1/contact_submissions
+      - name: Ping analytics
+        run: |
+          curl -s -o /dev/null -w "%{http_code}" https://qauobxeflcljmcppeidz.supabase.co/rest/v1/analytics
