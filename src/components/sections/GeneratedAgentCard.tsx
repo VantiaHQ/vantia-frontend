@@ -15,16 +15,14 @@ import {
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
-import { Eye, Settings, CircleDollarSign, Trash2 } from "lucide-react";
+import { Eye, Trash2 } from "lucide-react";
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { useRouter } from 'next/navigation';
-
-import { externalHeading, viewAgentTooltip, savingsTooltip, deleteTooltip, alertDialogTitle, alertDialogDescription, alertDialogCancelButton, alertDialogActionButton, capitalizeFirstWord } from './GeneratedAgentCard.content';
+import { externalHeading, viewAgentTooltip, deleteTooltip, alertDialogTitle, alertDialogDescription, alertDialogCancelButton, alertDialogActionButton, capitalizeFirstWord } from './GeneratedAgentCard.content';
 
 type GeneratedAgentCardProps = {
     slug: string;
@@ -34,7 +32,6 @@ type GeneratedAgentCardProps = {
 
 export default function GeneratedAgentCard({ slug, name, onClear }: GeneratedAgentCardProps) {
     const agentUrl = `/agente/${slug}`;
-    const router = useRouter();
 
     const formattedName = capitalizeFirstWord(name);
 
@@ -60,14 +57,6 @@ export default function GeneratedAgentCard({ slug, name, onClear }: GeneratedAge
                                     </Link>
                                 </TooltipTrigger>
                                 <TooltipContent><p>{viewAgentTooltip}</p></TooltipContent>
-                            </Tooltip>
-                            <Tooltip>
-                                <TooltipTrigger asChild>
-                                    <Button variant="outline" size="icon" className="cursor-target hover:bg-white/10 border-white/80 hover:border-blue-300 hover:shadow-[0_0_8px_rgba(80,200,255,0.4)]" onClick={() => router.push('/calculadora-ahorro')}>
-                                        <CircleDollarSign className="h-4 w-4" />
-                                    </Button>
-                                </TooltipTrigger>
-                                <TooltipContent><p>{savingsTooltip}</p></TooltipContent>
                             </Tooltip>
                             <Tooltip>
                                 <TooltipTrigger asChild>

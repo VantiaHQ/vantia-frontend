@@ -1,7 +1,6 @@
 export const externalHeading = 'Mi Agente';
 
 export const viewAgentTooltip = 'Ver Agente';
-export const savingsTooltip = 'Ahorro';
 export const deleteTooltip = 'Eliminar';
 
 export const alertDialogTitle = '¿Estás absolutamente seguro?';

@@ -1,4 +1,3 @@
-import { Users, TrendingUp, Zap } from 'lucide-react';
 import { mainTitle, subtitle, values, concludingParagraphPart1, concludingParagraphHighlight1, concludingParagraphPart2, concludingParagraphHighlight2, concludingParagraphPart3, concludingParagraphStrong } from './Philosophy.content';
 
 export default function Philosophy() {
@@ -8,7 +7,7 @@ export default function Philosophy() {
         <div className="mx-auto text-left lg:text-center px-0 lg:px-24">
           <h2 className="text-6xl sm:text-7xl font-extralight tracking-tight text-primary uppercase">
             {mainTitle}
-          </h2>    
+          </h2>
         </div>
         <div className="mx-auto text-left lg:text-center mb-16">
           <p className="mt-4 text-lg text-foreground/80">
@@ -17,7 +16,6 @@ export default function Philosophy() {
         </div>
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
           {values.map((value) => (
-            // --- NEW TYPOGRAPHIC CARD DESIGN ---
             <div key={value.title} className="flex flex-col items-start text-left">
               <h3 className="text-4xl font-extrabold text-white/90 mb-4">{value.title}</h3>
               <p className="text-lg text-foreground/80">{value.description}</p>
@@ -25,9 +23,9 @@ export default function Philosophy() {
           ))}
         </div>
         <div className="mt-16 text-left lg:text-center px-0 lg:px-24">
-            <p className="text-md text-foreground/70">
-                {concludingParagraphPart1}<span className="italic font-semibold text-primary">{concludingParagraphHighlight1}</span>{concludingParagraphPart2}<span className="font-semibold text-primary">{concludingParagraphHighlight2}</span>{concludingParagraphPart3}<strong>{concludingParagraphStrong}</strong>
-            </p>
+          <p className="text-md text-foreground/70">
+            {concludingParagraphPart1}<span className="italic font-semibold text-primary">{concludingParagraphHighlight1}</span>{concludingParagraphPart2}<span className="font-semibold text-primary">{concludingParagraphHighlight2}</span>{concludingParagraphPart3}<strong>{concludingParagraphStrong}</strong>
+          </p>
         </div>
       </div>
     </section>
