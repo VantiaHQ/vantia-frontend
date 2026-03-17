@@ -5,7 +5,7 @@ export const brunoContent = {
       'Bruno es el trabajador digital que gestiona las incidencias del Administrador de Fincas.',
   },
   definition:
-    'Bruno actúa como el primer filtro operativo del despacho, se encarga de la atención y el registro mientras que el administrador (recupera su tiempo) y solo tiene que supervisar.',
+    'Bruno actúa como el primer filtro operativo del despacho, se encarga de la atención y el registro mientras que el administrador recupera su tiempo y solo tiene que supervisar.',
   funcionalidades: [
     {
       title: 'Atención Omnicanal',
@@ -46,7 +46,7 @@ export const brunoContent = {
     {
       title: 'Capacidad Multilínea',
       description:
-        'Atiende múltiples llamadas y mensajes de forma simultánea; tu despacho nunca comunica.',
+        'Atiende múltiples llamadas y mensajes de forma simultánea. Tu despacho nunca comunica.',
       imageId: 'bruno-omnichannel',
     },
     {
