@@ -40,8 +40,8 @@ export default function Bruno() {
         </div>
 
         {/* Definición */}
-        <div className="mx-auto max-w-3xl mb-16 p-6 md:p-8 rounded-2xl bg-blue-950/40 border border-blue-400/20 shadow-lg relative overflow-hidden backdrop-blur-sm">
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent" />
+        <div className="mx-auto max-w-3xl mb-16 p-6 md:p-8 rounded-2xl bg-violet-950/40 border border-violet-400/20 shadow-lg relative overflow-hidden backdrop-blur-sm">
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/30 to-transparent" />
           <p className="text-foreground/90 leading-relaxed text-lg text-center font-medium">
             {brunoContent.definition}
           </p>
@@ -58,7 +58,7 @@ export default function Bruno() {
               return (
                 <div
                   key={item.title}
-                  className="group flex flex-col bg-blue-950/40 rounded-xl border border-blue-400/20 shadow-lg overflow-hidden hover:bg-blue-900/40 hover:border-blue-400/40 transition-all duration-300 relative"
+                  className="group flex flex-col bg-violet-950/40 rounded-xl border border-violet-400/20 shadow-lg overflow-hidden hover:bg-violet-900/40 hover:border-violet-400/40 transition-all duration-300 relative"
                 >
                   {placeholder && (
                     <div className="relative h-48 w-full overflow-hidden">
@@ -68,7 +68,7 @@ export default function Bruno() {
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-violet-950/80 to-transparent" />
                     </div>
                   )}
                   <div className="flex flex-col flex-grow p-6 relative">
@@ -86,8 +86,8 @@ export default function Bruno() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left: Big Illustrative Image */}
             <div className="relative order-2 lg:order-1">
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-violet-500/20 blur-3xl rounded-full opacity-30" />
-              <div className="relative rounded-2xl border border-blue-400/20 overflow-hidden shadow-2xl">
+              <div className="absolute -inset-4 bg-gradient-to-r from-violet-500/20 to-purple-500/20 blur-3xl rounded-full opacity-30" />
+              <div className="relative rounded-2xl border border-violet-400/20 overflow-hidden shadow-2xl">
                 <Image
                   src="/images/bruno-benefits-showcase.png"
                   alt="Bruno Benefits Showcase"
@@ -102,18 +102,18 @@ export default function Bruno() {
             {/* Right: Detailed List of Benefits */}
             <div className="order-1 lg:order-2">
               <h2 className="text-4xl font-bold text-white/90 mb-8 lg:text-left text-center">
-                Beneficios <span className="text-blue-400">Directos</span>
+                Beneficios <span className="text-violet-400">Directos</span>
               </h2>
               <div className="space-y-8">
                 {brunoContent.beneficios.map((item, index) => {
                   const Icon = beneficioIcons[index] ?? CheckCircle;
                   return (
                     <div key={item.title} className="flex gap-6 group">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-950/50 border border-blue-400/30 flex items-center justify-center text-blue-300 group-hover:bg-blue-400 group-hover:text-blue-950 transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.2)]">
+                      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-violet-950/50 border border-violet-400/30 flex items-center justify-center text-violet-300 group-hover:bg-violet-400 group-hover:text-violet-950 transition-all duration-300 shadow-[0_0_15px_rgba(167,139,250,0.2)]">
                         <Icon className="w-6 h-6" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-bold text-white/90 mb-1 group-hover:text-blue-300 transition-colors">
+                        <h3 className="text-lg font-bold text-white/90 mb-1 group-hover:text-violet-300 transition-colors">
                           {item.title}
                         </h3>
                         <p className="text-foreground/80 leading-relaxed max-w-md">
