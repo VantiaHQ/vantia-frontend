@@ -104,7 +104,6 @@ export default function BrunoHeroAnimation() {
       TICKETS.forEach((_, i) =>
         setTimeout(() => {
           setVisibleTickets(prev => [...prev, i]);
-          setTimeout(measure, 60);
         }, 600 + i * 450)
       );
     };
@@ -212,16 +211,16 @@ export default function BrunoHeroAnimation() {
           {LEFT_NODES.map((node, i) => {
             const Icon = node.icon;
             return (
-              <div
-                key={i}
-                ref={el => { nodeRefs.current[i] = el; }}
-                className="group flex items-center gap-3 rounded-xl border border-blue-400/30 bg-blue-950/70 backdrop-blur-md px-4 py-3 transition-all duration-300 hover:border-blue-400/50 hover:bg-blue-900/40 shadow-lg"
-                style={{ width: 170 }}
-              >
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors">
-                  <Icon className="h-4 w-4" style={{ color: node.color }} />
+              <div key={i} ref={el => { nodeRefs.current[i] = el; }}>
+                <div
+                  className="group flex items-center gap-3 rounded-xl border border-blue-400/30 bg-blue-950/70 backdrop-blur-md px-4 py-3 transition-all duration-300 hover:border-blue-400/50 hover:bg-blue-900/40 shadow-lg"
+                  style={{ width: 170 }}
+                >
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors">
+                    <Icon className="h-4 w-4" style={{ color: node.color }} />
+                  </div>
+                  <span className="text-xs font-medium text-white/80">{node.label}</span>
                 </div>
-                <span className="text-xs font-medium text-white/80">{node.label}</span>
               </div>
             );
           })}
@@ -285,31 +284,31 @@ export default function BrunoHeroAnimation() {
         <div className="flex flex-col gap-4">
           <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.3em] text-white/30 px-2 text-right">Panel del administrador</p>
           {TICKETS.map((ticket, i) => (
-            <div
-              key={i}
-              ref={el => { ticketRefs.current[i] = el; }}
-              className="group flex items-center justify-between gap-4 rounded-xl border border-blue-400/30 bg-blue-950/70 backdrop-blur-md px-5 py-3.5 transition-all duration-500 hover:border-blue-400/50 hover:bg-blue-900/40 shadow-lg"
-              style={{
-                width: 280,
-                opacity: visibleTickets.includes(i) ? 1 : 0,
-                transform: visibleTickets.includes(i) ? 'translateX(0)' : 'translateX(20px)',
-              }}
-            >
-              <div className="min-w-0">
-                <p className="text-[13px] font-bold text-white/90 transition-colors">{ticket.unit}</p>
-                <p className="text-[11px] text-white/40 mt-0.5">{ticket.issue}</p>
-              </div>
-              <div className="flex flex-col items-end gap-1">
-                <span
-                  className="rounded-full px-2.5 py-0.5 text-[9px] font-black uppercase tracking-wider shadow-sm"
-                  style={{
-                    color: ticket.color,
-                    background: `${ticket.color}15`,
-                    border: `1px solid ${ticket.color}40`,
-                  }}
-                >
-                  {ticket.status}
-                </span>
+            <div key={i} ref={el => { ticketRefs.current[i] = el; }}>
+              <div
+                className="group flex items-center justify-between gap-4 rounded-xl border border-blue-400/30 bg-blue-950/70 backdrop-blur-md px-5 py-3.5 transition-all duration-500 hover:border-blue-400/50 hover:bg-blue-900/40 shadow-lg"
+                style={{
+                  width: 230,
+                  opacity: visibleTickets.includes(i) ? 1 : 0,
+                  transform: visibleTickets.includes(i) ? 'translateX(0)' : 'translateX(20px)',
+                }}
+              >
+                <div className="min-w-0">
+                  <p className="text-[13px] font-bold text-white/90 transition-colors">{ticket.unit}</p>
+                  <p className="text-[11px] text-white/40 mt-0.5">{ticket.issue}</p>
+                </div>
+                <div className="flex flex-col items-end gap-1">
+                  <span
+                    className="rounded-full px-2.5 py-0.5 text-[9px] font-black uppercase tracking-wider shadow-sm"
+                    style={{
+                      color: ticket.color,
+                      background: `${ticket.color}15`,
+                      border: `1px solid ${ticket.color}40`,
+                    }}
+                  >
+                    {ticket.status}
+                  </span>
+                </div>
               </div>
             </div>
           ))}
