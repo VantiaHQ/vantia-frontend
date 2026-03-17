@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { navLinks, headerText } from './header.content';
 
@@ -13,6 +14,7 @@ export default function Header() {
 	const [isFooterReached, setIsFooterReached] = useState(false);
 	const headerRef = useRef<HTMLDivElement>(null);
 	const [dropdownTop, setDropdownTop] = useState(0);
+	const pathname = usePathname();
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -64,30 +66,41 @@ export default function Header() {
 				</Link>
 
 				<div className="hidden items-center gap-6 lg:flex">
-					{navLinks.map((link) => (
-						<Link
-							key={link.name}
-							href={link.href}
-							className="cursor-target text-md font-medium text-foreground/80 transition-colors hover:text-primary"
-						>
-							{link.name}
-						</Link>
-					))}
+					{navLinks.map((link) => {
+						const isActive = pathname === link.href;
+						return (
+							<Link
+								key={link.name}
+								href={link.href}
+								className={`cursor-target text-md font-medium transition-all duration-300 relative group ${
+									isActive ? 'text-violet-400 drop-shadow-[0_0_8px_rgba(167,139,250,0.5)]' : 'text-foreground/80 hover:text-violet-300'
+								}`}
+							>
+								{link.name}
+								<span className={`absolute -bottom-1 left-0 w-full h-0.5 bg-violet-400 transition-transform duration-300 origin-left ${isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
+							</Link>
+						);
+					})}
 				</div>
 				<Button asChild className="cursor-target bg-accent text-white text-sm font-bold py-3 px-8 rounded-full shadow-lg border-2 border-transparent transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow hover:border-primary">
 					<Link href="#contact">{headerText.contactButtonText}</Link>
 				</Button>
 			</div>
 			<div className="hidden md:flex w-full items-center justify-center gap-4 bg-transparent mt-[-2px] pb-2 px-4 lg:hidden">
-				{navLinks.map((link) => (
-					<Link
-						key={link.name}
-						href={link.href}
-						className="cursor-target text-md font-light text-foreground/80 transition-colors hover:text-primary tracking-widest"
-					>
-						{link.name}
-					</Link>
-				))}
+				{navLinks.map((link) => {
+					const isActive = pathname === link.href;
+					return (
+						<Link
+							key={link.name}
+							href={link.href}
+							className={`cursor-target text-md transition-all duration-300 tracking-widest ${
+								isActive ? 'text-violet-400 font-medium drop-shadow-[0_0_8px_rgba(167,139,250,0.5)]' : 'text-foreground/80 font-light hover:text-violet-300'
+							}`}
+						>
+							{link.name}
+						</Link>
+					);
+				})}
 			</div>
 			<div className="flex md:hidden w-full items-center justify-center px-4 bg-transparent py-2 lg:hidden absolute left-0 z-30">
 				{!isMobileMenuOpen && (
@@ -113,16 +126,21 @@ export default function Header() {
 								<X className="h-7 w-7" />
 							</button>
 							<nav className="flex flex-col gap-4 items-center w-full h-full bg-transparent border-b border-border shadow-xl py-4 transition-all duration-300 ease-out  opacity-0 animate-[fadeInDown_0.25s_ease-out_forwards]">
-								{navLinks.map((link) => (
-									<Link
-										key={link.name}
-										href={link.href}
-										className="cursor-target text-base font-medium text-foreground/90 transition-colors hover:text-primary py-2 w-full text-center"
-										onClick={() => setIsMobileMenuOpen(false)}
-									>
-										{link.name}
-									</Link>
-								))}
+								{navLinks.map((link) => {
+									const isActive = pathname === link.href;
+									return (
+										<Link
+											key={link.name}
+											href={link.href}
+											className={`cursor-target text-base font-medium transition-colors py-2 w-full text-center ${
+												isActive ? 'text-violet-400 bg-violet-500/10' : 'text-foreground/90 hover:text-violet-300'
+											}`}
+											onClick={() => setIsMobileMenuOpen(false)}
+										>
+											{link.name}
+										</Link>
+									);
+								})}
 							</nav>
 						</div>
 					</div>
