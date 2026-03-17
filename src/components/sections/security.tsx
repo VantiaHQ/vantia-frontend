@@ -13,13 +13,10 @@ export default function Security() {
             {description}
           </p>
         </div>
-        {/* --- MODIFIED GRID BEHAVIOR --- */}
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
           {securityFeaturesContent.map((feature, index) => (
-            // --- MODIFIED CARD STYLING ---
             <div key={index} className="flex flex-col items-center text-center p-6 rounded-lg bg-primary/5 border border-primary/20 shadow-lg">
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary mb-5">
-                {/* Render the icon directly from the content */}
                 {feature.icon && React.createElement(feature.icon, { className: "h-7 w-7" })}
               </div>
               <h3 className="text-xl font-semibold text-white/90 mb-3">{feature.title}</h3>
