@@ -22,7 +22,7 @@ const beneficioIcons = [Clock, PhoneCall, FileCheck, Timer, Plug];
 
 export default function Bruno() {
   return (
-    <section id="bruno" className="bg-[#070916] py-20 sm:py-28 relative">
+    <section id="bruno" className="bg-[#050510] py-20 sm:py-28 relative">
       <div className="container mx-auto px-6 relative z-10">
         {/* Hero Bruno: estilo similar a Consultoría IA */}
         <div className="mx-auto max-w-3xl text-left sm:text-center mb-12">
@@ -40,10 +40,11 @@ export default function Bruno() {
         </div>
 
         {/* Definición */}
-        <div className="mx-auto max-w-3xl mb-16 p-6 md:p-8 rounded-2xl bg-violet-950/40 border border-violet-400/20 shadow-lg relative overflow-hidden backdrop-blur-sm">
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/30 to-transparent" />
-          <p className="text-foreground/90 leading-relaxed text-lg text-center font-medium">
-            {brunoContent.definition}
+        <div className="mx-auto max-w-4xl mb-16 p-8 md:p-10 rounded-2xl bg-[#0F0F25]/80 border border-violet-500/10 shadow-2xl relative overflow-hidden backdrop-blur-md">
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-violet-400/20 to-transparent" />
+          <p className="text-foreground/90 leading-relaxed text-xl sm:text-2xl text-center font-light tracking-wide italic">
+            "{brunoContent.definition}"
           </p>
         </div>
 
@@ -58,22 +59,23 @@ export default function Bruno() {
               return (
                 <div
                   key={item.title}
-                  className="group flex flex-col bg-violet-950/40 rounded-xl border border-violet-400/20 shadow-lg overflow-hidden hover:bg-violet-900/40 hover:border-violet-400/40 transition-all duration-300 relative"
+                  className="group flex flex-col bg-[#101025]/60 rounded-xl border border-white/5 shadow-lg overflow-hidden hover:bg-[#151530]/80 hover:border-violet-500/30 transition-all duration-500 relative"
                 >
+                  <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   {placeholder && (
                     <div className="relative h-48 w-full overflow-hidden">
                       <Image
                         src={placeholder.imageUrl}
                         alt={placeholder.description}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-violet-950/80 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#101025] to-transparent opacity-80" />
                     </div>
                   )}
-                  <div className="flex flex-col flex-grow p-6 relative">
-                    <h3 className="text-xl font-bold text-white/90 mb-3">{item.title}</h3>
-                    <p className="text-foreground/80 leading-relaxed">{item.description}</p>
+                  <div className="flex flex-col flex-grow p-7 relative">
+                    <h3 className="text-xl font-bold text-white/90 mb-3 group-hover:text-cyan-400 transition-colors duration-300">{item.title}</h3>
+                    <p className="text-foreground/70 leading-relaxed group-hover:text-foreground/90 transition-colors duration-300">{item.description}</p>
                   </div>
                 </div>
               );
@@ -104,16 +106,16 @@ export default function Bruno() {
               <h2 className="text-4xl font-bold text-white/90 mb-8 lg:text-left text-center">
                 Beneficios <span className="text-violet-400">Directos</span>
               </h2>
-              <div className="space-y-8">
+              <div className="space-y-10">
                 {brunoContent.beneficios.map((item, index) => {
                   const Icon = beneficioIcons[index] ?? CheckCircle;
                   return (
                     <div key={item.title} className="flex gap-6 group">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-violet-950/50 border border-violet-400/30 flex items-center justify-center text-violet-300 group-hover:bg-violet-400 group-hover:text-violet-950 transition-all duration-300 shadow-[0_0_15px_rgba(167,139,250,0.2)]">
-                        <Icon className="w-6 h-6" />
+                      <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-[#101025] border border-white/10 flex items-center justify-center text-cyan-400 group-hover:bg-violet-600 group-hover:text-white transition-all duration-500 shadow-[0_0_20px_rgba(0,0,0,0.3)] group-hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] group-hover:border-violet-400">
+                        <Icon className="w-7 h-7" />
                       </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-white/90 mb-1 group-hover:text-violet-300 transition-colors">
+                      <div className="pt-1">
+                        <h3 className="text-xl font-bold text-white/90 mb-2 group-hover:text-violet-400 transition-colors duration-300">
                           {item.title}
                         </h3>
                         <p className="text-foreground/80 leading-relaxed max-w-md">

@@ -4,17 +4,17 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import { Phone, MessageSquare } from 'lucide-react';
 
 const LEFT_NODES = [
-  { icon: Phone,          label: 'Llamada',   color: '#a78bfa' }, // violet-400
-  { icon: MessageSquare,  label: 'WhatsApp',  color: '#8b5cf6' }, // violet-500
-  { icon: Phone,          label: 'Llamada',   color: '#a78bfa' },
+  { icon: Phone,          label: 'Llamada',   color: '#22d3ee' }, // Cyan
+  { icon: MessageSquare,  label: 'WhatsApp',  color: '#8b5cf6' }, // Violet
+  { icon: Phone,          label: 'Llamada',   color: '#22d3ee' },
   { icon: MessageSquare,  label: 'WhatsApp',  color: '#8b5cf6' },
-  { icon: Phone,          label: 'Llamada',   color: '#a78bfa' },
+  { icon: Phone,          label: 'Llamada',   color: '#22d3ee' },
 ];
 
 const TICKETS = [
-  { unit: 'Portal 3B', issue: 'Fuga de agua',   status: 'RESUELTO', color: '#a78bfa' },
+  { unit: 'Portal 3B', issue: 'Fuga de agua',   status: 'RESUELTO', color: '#22d3ee' },
   { unit: 'Portal 1A', issue: 'Acceso clave',   status: 'ASIGNADO', color: '#8b5cf6' },
-  { unit: 'Portal 2C', issue: 'Avería luz',     status: 'ASIGNADO', color: '#8b5cf6' },
+  { unit: 'Portal 2C', issue: 'Avería luz',     status: 'ASIGNADO', color: '#22d3ee' },
   { unit: 'Portal 4B', issue: 'Ruido vecino',   status: 'ASIGNADO', color: '#8b5cf6' },
 ];
 
@@ -125,8 +125,8 @@ export default function BrunoHeroAnimation() {
       {/* center glow */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
         <div className="h-[400px] w-[400px] rounded-full bg-violet-600/10 blur-[120px]" />
-        <div className="h-[200px] w-[200px] rounded-full bg-violet-500/10 blur-[80px] -translate-x-32" />
-        <div className="h-[200px] w-[200px] rounded-full bg-violet-600/10 blur-[80px] translate-x-32" />
+        <div className="h-[200px] w-[200px] rounded-full bg-cyan-500/10 blur-[80px] -translate-x-32 opacity-60" />
+        <div className="h-[200px] w-[200px] rounded-full bg-violet-600/10 blur-[80px] translate-x-32 opacity-60" />
       </div>
 
       {/* SVG lines — absolute, full size */}
@@ -146,7 +146,7 @@ export default function BrunoHeroAnimation() {
               </linearGradient>
             ))}
             <linearGradient id="lg-r" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#a78bfa" stopOpacity="0.8" />
+              <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.8" />
               <stop offset="50%" stopColor="#8b5cf6" stopOpacity="0.4" />
               <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0" />
             </linearGradient>
@@ -192,7 +192,7 @@ export default function BrunoHeroAnimation() {
                 <path d={`M${ln.x1},${ln.y1 - 4} C${cx},${ln.y1 - 4} ${cx},${ln.y2 - 8} ${ln.x2},${ln.y2 - 8}`} fill="none" stroke="url(#lg-r)" strokeWidth="0.5" strokeLinecap="round" opacity="0.4" />
                 <path d={`M${ln.x1},${ln.y1 + 4} C${cx},${ln.y1 + 4} ${cx},${ln.y2 + 8} ${ln.x2},${ln.y2 + 8}`} fill="none" stroke="url(#lg-r)" strokeWidth="0.5" strokeLinecap="round" opacity="0.4" />
                 {/* glow dot */}
-                <circle cx={pt.x} cy={pt.y} r="4" fill="#a78bfa" opacity="0.5" filter="url(#glow)" />
+                <circle cx={pt.x} cy={pt.y} r="4" fill={i % 2 === 0 ? "#22d3ee" : "#a78bfa"} opacity="0.5" filter="url(#glow)" />
                 <circle cx={pt.x} cy={pt.y} r="2" fill="white" />
               </g>
             );
@@ -213,10 +213,10 @@ export default function BrunoHeroAnimation() {
             return (
               <div key={i} ref={el => { nodeRefs.current[i] = el; }}>
                 <div
-                  className="group flex items-center gap-3 rounded-xl border border-violet-400/30 bg-violet-950/70 backdrop-blur-md px-4 py-3 transition-all duration-300 hover:border-violet-400/50 hover:bg-violet-900/40 shadow-lg"
+                  className="group flex items-center gap-3 rounded-xl border border-white/5 bg-[#101025]/80 backdrop-blur-md px-4 py-3 transition-all duration-300 hover:border-cyan-400/40 hover:bg-[#151535] shadow-lg"
                   style={{ width: 170 }}
                 >
-                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-violet-500/10 group-hover:bg-violet-500/20 transition-colors">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-cyan-500/10 group-hover:bg-cyan-500/20 transition-colors">
                     <Icon className="h-4 w-4" style={{ color: node.color }} />
                   </div>
                   <span className="text-xs font-medium text-white/80">{node.label}</span>
@@ -247,26 +247,26 @@ export default function BrunoHeroAnimation() {
               />
               
               {/* Destellos de luz detrás de la esfera */}
-              <div className="absolute h-[160px] w-[160px] rounded-full bg-violet-500/20 blur-[45px] -translate-x-8" />
+              <div className="absolute h-[160px] w-[160px] rounded-full bg-cyan-500/20 blur-[45px] -translate-x-8" />
               <div className="absolute h-[160px] w-[160px] rounded-full bg-violet-600/30 blur-[45px] translate-x-8" />
 
               {/* Anillo de pulso */}
               <span
-                className="absolute rounded-full border border-violet-400/40 animate-ping"
+                className="absolute rounded-full border border-cyan-400/40 animate-ping"
                 style={{ width: 140, height: 140, animationDuration: '3s' }}
               />
 
               {/* Anillo circular de luz en los bordes de la esfera */}
-              <div className="absolute h-[134px] w-[134px] rounded-full bg-gradient-to-r from-violet-400 via-transparent to-purple-500 opacity-40 blur-[3px]" />
+              <div className="absolute h-[134px] w-[134px] rounded-full bg-gradient-to-r from-cyan-400 via-transparent to-violet-500 opacity-40 blur-[3px]" />
 
               {/* Círculo Bruno: estilo "Cyber Orb" etéreo e integrado */}
               <div
                 ref={sphereRef}
                 className="relative flex h-[130px] w-[130px] items-center justify-center rounded-full bg-[#070916] z-10"
-                style={{ boxShadow: 'inset 0 0 50px 0 rgba(139,92,246,0.3), 0 0 30px 4px rgba(167,139,250,0.2)' }}
+                style={{ boxShadow: 'inset 0 0 50px 0 rgba(139,92,246,0.3), 0 0 30px 4px rgba(34,211,238,0.2)' }}
               >
                 {/* Glow outlines on left and right for sphere depth */}
-                <div className="absolute inset-0 rounded-full shadow-[inset_16px_0_24px_-8px_rgba(167,139,250,0.5)]" />
+                <div className="absolute inset-0 rounded-full shadow-[inset_16px_0_24px_-8px_rgba(34,211,238,0.5)]" />
                 <div className="absolute inset-0 rounded-full border border-white/5" />
                 <div className="absolute inset-0 rounded-full shadow-[inset_-16px_0_24px_-8px_rgba(139,92,246,0.5)]" />
 
@@ -286,7 +286,7 @@ export default function BrunoHeroAnimation() {
           {TICKETS.map((ticket, i) => (
             <div key={i} ref={el => { ticketRefs.current[i] = el; }}>
               <div
-                className="group flex items-center justify-between gap-4 rounded-xl border border-violet-400/30 bg-violet-950/70 backdrop-blur-md px-5 py-3.5 transition-all duration-500 hover:border-violet-400/50 hover:bg-violet-900/40 shadow-lg"
+                className="group flex items-center justify-between gap-4 rounded-xl border border-white/5 bg-[#101025]/80 backdrop-blur-md px-5 py-3.5 transition-all duration-500 hover:border-violet-500/40 hover:bg-[#151535] shadow-lg"
                 style={{
                   width: 230,
                   opacity: visibleTickets.includes(i) ? 1 : 0,
