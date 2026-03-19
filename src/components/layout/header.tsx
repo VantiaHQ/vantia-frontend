@@ -83,7 +83,7 @@ export default function Header() {
 					})}
 				</div>
 				<Button asChild className="cursor-target bg-accent text-white text-sm font-bold py-3 px-8 rounded-full shadow-lg border-2 border-transparent transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow hover:border-primary">
-					<Link href="#contact">{headerText.contactButtonText}</Link>
+					<Link href="/contacto">{headerText.contactButtonText}</Link>
 				</Button>
 			</div>
 			<div className="hidden md:flex w-full items-center justify-center gap-4 bg-transparent mt-[-2px] pb-2 px-4 lg:hidden">

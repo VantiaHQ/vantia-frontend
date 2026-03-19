@@ -52,8 +52,8 @@ export default function BookingForm() {
 
   const { submitBooking, isSubmitting } = useBookingSubmit();
 
-  const today = startOfDay(new Date());
-  const maxDate = addDays(today, bookingConfig.maxDaysAhead);
+  const today = useMemo(() => startOfDay(new Date()), []);
+  const maxDate = useMemo(() => addDays(today, bookingConfig.maxDaysAhead), [today]);
 
   const disabledDays = useCallback(
     (d: Date) => isBefore(d, today) || isAfter(d, maxDate),

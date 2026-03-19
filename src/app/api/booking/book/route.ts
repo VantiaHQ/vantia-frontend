@@ -124,14 +124,9 @@ export async function POST(req: NextRequest) {
       sendUpdates: 'all',
     });
 
-    return NextResponse.json({
-      ok: true,
-      eventId: event.data.id,
-      htmlLink: event.data.htmlLink,
-    });
+    return NextResponse.json({ ok: true, eventId: event.data.id });
   } catch (e: unknown) {
     console.error('booking/book', e);
-    const msg = e instanceof Error ? e.message : 'Error';
-    return NextResponse.json({ error: msg }, { status: 500 });
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }

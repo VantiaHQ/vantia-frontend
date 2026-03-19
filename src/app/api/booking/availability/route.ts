@@ -76,7 +76,6 @@ export async function GET(req: NextRequest) {
     });
   } catch (e: unknown) {
     console.error('booking/availability', e);
-    const msg = e instanceof Error ? e.message : 'Error';
-    return NextResponse.json({ error: msg }, { status: 500 });
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }
