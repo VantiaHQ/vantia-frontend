@@ -93,6 +93,17 @@ yarn dev
 
 Open [http://localhost:9002](http://localhost:9002) in your browser to see the application.
 
+### Reservas con Google Calendar (`/reservar`)
+
+La página de reserva crea eventos en un calendario de Google vía OAuth (refresh token). Variables de entorno **opcionales** en servidor (si faltan, `/api/booking/*` responde 503):
+
+- `GOOGLE_CALENDAR_CLIENT_ID`
+- `GOOGLE_CALENDAR_CLIENT_SECRET`
+- `GOOGLE_CALENDAR_REFRESH_TOKEN` (cuenta de la clínica con Calendar API habilitada)
+- `GOOGLE_CALENDAR_ID` (opcional; por defecto `primary`)
+
+Franja horaria, duración del slot y antelación se configuran en [`src/lib/bookingConfig.ts`](src/lib/bookingConfig.ts).
+
 ## 🤝 Contributing
 
 We welcome contributions to the Vantia Frontend! If you'd like to contribute, please follow these steps:

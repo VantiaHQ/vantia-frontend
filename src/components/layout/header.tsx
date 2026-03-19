@@ -50,7 +50,7 @@ export default function Header() {
 
 	return (
 		<header
-			className={`sticky top-0 z-50 w-full px-2 md:px-8 left-0 transition-all duration-300 ${isScrolled ? 'bg-background/80 shadow-md backdrop-blur-md' : 'bg-transparent'} ${isFooterReached ? '-translate-y-full opacity-0' : 'translate-y-0'}`}
+			className={`sticky top-0 z-50 w-full px-2 md:px-8 left-0 transition-all duration-300 ${isScrolled ? 'bg-background/80 shadow-md backdrop-blur-md' : 'bg-transparent'} ${isFooterReached && pathname === '/' ? '-translate-y-full opacity-0' : 'translate-y-0'}`}
 			style={{ left: 0, right: 0 }}
 		>
 			<div ref={headerRef} className="flex h-[64px] lg:py-4 py-1 items-center justify-between px-2 lg:px-6 max-w-none w-full mx-0">

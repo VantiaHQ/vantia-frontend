@@ -39,7 +39,7 @@ export default function Footer() {
               <h3 className="text-md font-semibold text-white tracking-wider">{footerText.contactTitle}</h3>
               <ul className="space-y-3">
                 <li>
-                  <Link href="/contacto" className="cursor-target text-foreground/70 hover:text-primary transition-colors">
+                  <Link href="/contacto?tab=booking" className="cursor-target text-foreground/70 hover:text-primary transition-colors">
                     {footerText.contactLinkText}
                   </Link>
                 </li>
