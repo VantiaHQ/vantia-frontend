@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { supabase } from '@/lib/supabase';
+import { notifyN8nStrict } from '@/lib/n8nWebhook';
 import { getClientIp, isRateLimited } from '@/lib/rateLimitIp';
 
 const ContactSchema = z.object({
@@ -21,22 +21,25 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const parsed = ContactSchema.safeParse(body);
     if (!parsed.success) {
-      return NextResponse.json({ error: 'Invalid input', details: parsed.error.flatten() }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Invalid input', details: parsed.error.flatten() },
+        { status: 400 },
+      );
     }
 
     const { name, company, email, budget, message } = parsed.data;
 
-    const { error } = await supabase
-      .from('contact_submissions')
-      .insert([{ name, company, email, budget, message }]);
-
-    if (error) {
-      throw error;
-    }
+    await notifyN8nStrict({
+      source: 'contact_form',
+      name,
+      company,
+      email,
+      budget: budget ?? null,
+      message,
+    });
 
     return NextResponse.json({ ok: true }, { status: 200 });
-  } catch (error: unknown) {
-    console.error('Contact API Error:', error);
+  } catch {
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }

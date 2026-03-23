@@ -33,7 +33,8 @@ export const useContactFormSubmit = () => {
 
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        throw new Error(data.error || apiErrorMessage);
+        const msg = typeof data?.error === 'string' ? data.error : apiErrorMessage;
+        throw new Error(msg);
       }
 
       toast({

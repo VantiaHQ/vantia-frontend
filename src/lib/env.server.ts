@@ -13,6 +13,10 @@ const ServerEnvSchema = z.object({
   GOOGLE_CALENDAR_CLIENT_SECRET: optionalNonEmpty,
   GOOGLE_CALENDAR_REFRESH_TOKEN: optionalNonEmpty,
   GOOGLE_CALENDAR_ID: optionalNonEmpty,
+  /** Webhook n8n: POST desde /api/contact y /api/booking/book */
+  N8N_WEBHOOK_URL: optionalNonEmpty,
+  /** Opcional: se envía como Authorization: Bearer … */
+  N8N_WEBHOOK_SECRET: optionalNonEmpty,
 });
 
 type ServerEnv = z.infer<typeof ServerEnvSchema>;
@@ -23,4 +27,6 @@ export const env: ServerEnv = ServerEnvSchema.parse({
   GOOGLE_CALENDAR_CLIENT_SECRET: process.env.GOOGLE_CALENDAR_CLIENT_SECRET,
   GOOGLE_CALENDAR_REFRESH_TOKEN: process.env.GOOGLE_CALENDAR_REFRESH_TOKEN,
   GOOGLE_CALENDAR_ID: process.env.GOOGLE_CALENDAR_ID,
+  N8N_WEBHOOK_URL: process.env.N8N_WEBHOOK_URL,
+  N8N_WEBHOOK_SECRET: process.env.N8N_WEBHOOK_SECRET,
 });

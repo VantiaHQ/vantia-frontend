@@ -104,6 +104,29 @@ La página de reserva crea eventos en un calendario de Google vía OAuth (refres
 
 Franja horaria, duración del slot y antelación se configuran en [`src/lib/bookingConfig.ts`](src/lib/bookingConfig.ts).
 
+### Webhook n8n (contacto + reservas)
+
+Si defines la URL, el servidor hace **POST** con JSON tras un envío correcto:
+
+- **Formulario de contacto** (`POST /api/contact`): envío directo a n8n.
+- **Reserva** (`POST /api/booking/book`): después de crear el evento en Google Calendar.
+
+Variables **opcionales** en servidor:
+
+- `N8N_WEBHOOK_URL` — URL del nodo *Webhook* en n8n (o URL completa del flujo).
+- `N8N_WEBHOOK_SECRET` — opcional; si existe, se envía `Authorization: Bearer <valor>`.
+
+Cuerpo del POST (campos comunes + `submittedAt` en ISO):
+
+| `source`        | Campos extra |
+|-----------------|--------------|
+| `contact_form`  | `name`, `company`, `email`, `budget`, `message` |
+| `booking`       | `name`, `email`, `phone`, `notes`, `slotStart`, `slotEnd`, `timeZone`, `slotLabelLocal`, `calendarEventId`, `htmlLink` |
+
+Comportamiento ante error del webhook:
+- Contacto (`/api/contact`): estricto, devuelve error al usuario si n8n falla o no está configurado.
+- Reservas (`/api/booking/book`): no bloqueante, la reserva sigue en calendario y el fallo del webhook se deja en logs.
+
 ## 🤝 Contributing
 
 We welcome contributions to the Vantia Frontend! If you'd like to contribute, please follow these steps:

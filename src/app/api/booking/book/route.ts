@@ -9,6 +9,7 @@ import {
   slotOverlapsBusy,
 } from '@/lib/bookingSlots';
 import { getCalendarClient, getCalendarId, isGoogleCalendarConfigured } from '@/lib/googleCalendar';
+import { notifyN8n } from '@/lib/n8nWebhook';
 import { getClientIp, isRateLimited } from '@/lib/rateLimitIp';
 
 export const runtime = 'nodejs';
@@ -122,6 +123,20 @@ export async function POST(req: NextRequest) {
         reminders: { useDefault: true },
       },
       sendUpdates: 'all',
+    });
+
+    await notifyN8n({
+      source: 'booking',
+      name,
+      email,
+      phone: phone ?? null,
+      notes: notes ?? null,
+      slotStart: startIso,
+      slotEnd: endIso,
+      timeZone: bookingConfig.timeZone,
+      slotLabelLocal: startDt.setZone(bookingConfig.timeZone).toFormat("yyyy-MM-dd HH:mm"),
+      calendarEventId: event.data.id ?? null,
+      htmlLink: event.data.htmlLink ?? null,
     });
 
     return NextResponse.json({ ok: true, eventId: event.data.id });
