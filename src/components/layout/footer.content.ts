@@ -1,6 +1,7 @@
 export const columnOneLinks = [
-	{ name: 'Agente Modular', href: '/' },
-	{ name: 'Mi Agente', href: '/generar-agente' },
+	{ name: 'Agente Modular', href: '/agente-modular' },
+	{ name: 'Consultoría IA', href: '/consultoria' },
+	{ name: 'Bruno', href: '/bruno' },
 ];
 
 export const columnTwoLinks = [
@@ -9,16 +10,14 @@ export const columnTwoLinks = [
   { name: 'Seguridad', href: '#security' },
 ];
 
-export const legalLinks = [
-  { name: 'Política de Privacidad', href: '/privacidad' },
-  { name: 'Términos de Servicio', href: '/terminos' },
-];
-
 export const footerText = {
   solutionsTitle: "Soluciones",
-  aboutTitle: "Acerca de",
   contactTitle: "Contacto",
   contactLinkText: "Hablemos",
+  socialTitle: "Redes",
+  linkedinLink: "https://www.linkedin.com/company/vantia-ia",
+  email: "infovantia@gmail.com",
+  location: "Valencia, España",
   copyrightPrefix: "Vantia AI Solutions. Todos los derechos reservados. Diseño:",
   designerName: "cokecancook",
   designerHref: "https://cokecancook.github.io/",

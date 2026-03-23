@@ -3,7 +3,7 @@ export const mainTitlePart2 = 'con IA.';
 export const description = 'Vantia optimiza tu tiempo y el de tu organización con soluciones de IA innovadoras, transformando la gestión de recursos en una ventaja competitiva.';
 
 export const button1Text = 'Habla con un experto';
-export const button1Link = '/contacto';
+export const button1Link = '/contacto?tab=booking';
 export const button2Text = 'Ver caso de éxito';
 export const button2Link = '#case-study';
 

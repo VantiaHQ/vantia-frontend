@@ -50,7 +50,7 @@ export default function Header() {
 
 	return (
 		<header
-			className={`sticky top-0 z-50 w-full px-2 md:px-8 left-0 transition-all duration-300 ${isScrolled ? 'bg-background/80 shadow-md backdrop-blur-md' : 'bg-transparent'} ${isFooterReached ? '-translate-y-full opacity-0' : 'translate-y-0'}`}
+			className={`sticky top-0 z-50 w-full px-2 md:px-8 left-0 transition-all duration-300 ${isScrolled ? 'bg-background/80 shadow-md backdrop-blur-md' : 'bg-transparent'} ${isFooterReached && pathname === '/' ? '-translate-y-full opacity-0' : 'translate-y-0'}`}
 			style={{ left: 0, right: 0 }}
 		>
 			<div ref={headerRef} className="flex h-[64px] lg:py-4 py-1 items-center justify-between px-2 lg:px-6 max-w-none w-full mx-0">
@@ -83,7 +83,7 @@ export default function Header() {
 					})}
 				</div>
 				<Button asChild className="cursor-target bg-accent text-white text-sm font-bold py-3 px-8 rounded-full shadow-lg border-2 border-transparent transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow hover:border-primary">
-					<Link href="#contact">{headerText.contactButtonText}</Link>
+					<Link href="/contacto">{headerText.contactButtonText}</Link>
 				</Button>
 			</div>
 			<div className="hidden md:flex w-full items-center justify-center gap-4 bg-transparent mt-[-2px] pb-2 px-4 lg:hidden">

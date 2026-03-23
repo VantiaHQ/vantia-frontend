@@ -7,6 +7,7 @@ export async function GET() {
   const urls: { loc: string; priority?: number; changefreq?: string }[] = [
     { loc: `${BASE_URL}/`, priority: 1.0, changefreq: 'weekly' },
     { loc: `${BASE_URL}/generar-agente`, priority: 0.8, changefreq: 'weekly' },
+    { loc: `${BASE_URL}/contacto`, priority: 0.8, changefreq: 'weekly' },
   ];
 
   const { data } = await supabase
