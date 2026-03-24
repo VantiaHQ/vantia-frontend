@@ -16,6 +16,7 @@ import Image from 'next/image';
 import { AppImages } from '@/lib/appImages';
 import { brunoContent } from './Bruno.content';
 import BrunoHeroAnimation from './BrunoHeroAnimation';
+import BrunoDemo from './BrunoDemo';
 
 const funcionalidadIcons = [Phone, MessageSquare, Database, Mail, Mail];
 const beneficioIcons = [Clock, PhoneCall, FileCheck, Timer, Plug];
@@ -129,6 +130,9 @@ export default function Bruno() {
             </div>
           </div>
         </div>
+
+        {/* Demo en Vivo */}
+        <BrunoDemo />
       </div>
     </section>
   );
