@@ -34,18 +34,18 @@ export default function Partners() {
               {/* Refined Internal Glow */}
               <div className="absolute -right-20 -top-20 w-64 h-64 bg-violet-600/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-violet-600/20 transition-all duration-700" />
               <div className="absolute -left-20 -bottom-20 w-64 h-64 bg-cyan-600/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-cyan-600/20 transition-all duration-700" />
-              
+
               <div className="flex flex-col md:flex-row items-center gap-10 relative z-10">
-                <div className="flex-shrink-0 bg-white/5 p-8 rounded-2xl border border-white/10 backdrop-blur-sm transition-transform duration-500 group-hover:scale-105 shadow-xl">
+                <div className="flex-shrink-0 rounded-2xl border border-neutral-200/70 bg-white p-6 shadow-md transition-transform duration-500 group-hover:scale-105 sm:p-8">
                   <Image
                     src={partner.logo}
                     alt={`${partner.name} Logo`}
                     width={180}
                     height={180}
-                    className="w-32 h-auto md:w-40 brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity"
+                    className="h-auto w-32 object-contain md:w-40"
                   />
                 </div>
-                
+
                 <div className="flex-1 text-center md:text-left">
                   <div className="flex flex-col gap-1 mb-4">
                     <span className="text-violet-400 text-xs font-black uppercase tracking-widest bg-violet-400/10 px-3 py-1 rounded-full w-fit mx-auto md:mx-0">
@@ -60,7 +60,7 @@ export default function Partners() {
                   </p>
                 </div>
               </div>
-              
+
               {/* Bottom accent bar */}
               <div className="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-violet-600/0 via-violet-500/40 to-cyan-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             </div>
