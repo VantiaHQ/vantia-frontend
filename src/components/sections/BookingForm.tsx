@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { addDays, isAfter, isBefore, startOfDay } from 'date-fns';
-import { MessageSquare, Calendar as CalendarIcon, Clock, Sparkles, Building, User, Mail, Phone } from 'lucide-react';
+import { MessageSquare, Calendar as CalendarIcon, Clock, Building, User, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
 import { Input } from '@/components/ui/input';
@@ -21,7 +21,6 @@ import {
   namePlaceholder,
   companyPlaceholder,
   emailPlaceholder,
-  phonePlaceholder,
   productPlaceholder,
   notesPlaceholder,
   productOptions,
@@ -62,7 +61,6 @@ function BookingFormInner() {
   const [name, setName] = useState('');
   const [company, setCompany] = useState('');
   const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
   const [selectedProducts, setSelectedProducts] = useState<string[]>([]);
   const [notes, setNotes] = useState('');
 
@@ -131,7 +129,6 @@ function BookingFormInner() {
     setName('');
     setCompany('');
     setEmail('');
-    setPhone('');
     setSelectedProducts([]);
     setNotes('');
   }, []);
@@ -140,9 +137,8 @@ function BookingFormInner() {
     e.preventDefault();
     if (!selectedSlot) return;
 
-    const trimmedNotes = notes.trim();
-    if (!trimmedNotes || selectedProducts.length === 0) {
-       return;
+    if (selectedProducts.length === 0) {
+      return;
     }
 
     const productLabels = productOptions
@@ -150,13 +146,21 @@ function BookingFormInner() {
       .map(o => o.label)
       .join(', ');
 
+    const trimmedNotes = notes.trim();
+    const notesPayload = [
+      `PRODUCTO(S): ${productLabels}`,
+      `EMPRESA: ${company}`,
+      trimmedNotes ? `NOTAS: ${trimmedNotes}` : null,
+    ]
+      .filter(Boolean)
+      .join('\n');
+
     void submitBooking(
       {
         start: selectedSlot.start,
         name: name.trim(),
         email: email.trim(),
-        phone: phone.trim() || undefined,
-        notes: `PRODUCTO(S): ${productLabels}\nEMPRESA: ${company}\nNOTAS: ${trimmedNotes}`,
+        notes: notesPayload,
       },
       resetAfterSuccess,
     );
@@ -306,7 +310,7 @@ function BookingFormInner() {
                   required
                 />
               </div>
-              <div className="relative group">
+              <div className="relative group md:col-span-2">
                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 group-focus-within:text-violet-400 transition-colors" />
                 <Input
                   type="email"
@@ -315,16 +319,6 @@ function BookingFormInner() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                />
-              </div>
-              <div className="relative group">
-                <Phone className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 group-focus-within:text-violet-400 transition-colors" />
-                <Input
-                  type="tel"
-                  className="cursor-target pl-12 bg-[#101025]/80 border-violet-500/10 focus:border-violet-500/30 focus:bg-[#151530]/90 transition-all rounded-xl h-12 text-white"
-                  placeholder={phonePlaceholder}
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
                 />
               </div>
             </div>
@@ -343,7 +337,6 @@ function BookingFormInner() {
                 placeholder={notesPlaceholder}
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                required
               />
             </div>
 

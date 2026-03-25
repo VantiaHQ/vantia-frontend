@@ -9,7 +9,6 @@ export const stepYourData = '3. Tus datos';
 export const namePlaceholder = 'Nombre y apellidos';
 export const companyPlaceholder = 'Tu Empresa';
 export const emailPlaceholder = 'Email';
-export const phonePlaceholder = 'Teléfono (opcional)';
 export const productPlaceholder = '¿En qué estás interesado?';
 export const notesPlaceholder = '¿Qué te gustaría cubrir en nuestra reunión?';
 

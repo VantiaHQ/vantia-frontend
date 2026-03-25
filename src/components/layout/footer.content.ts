@@ -14,6 +14,7 @@ export const footerText = {
   solutionsTitle: "Soluciones",
   contactTitle: "Contacto",
   contactLinkText: "Hablemos",
+  contactMessageLinkText: "Enviar mensaje",
   socialTitle: "Redes",
   linkedinLink: "https://www.linkedin.com/company/vantia-ia",
   email: "infovantia@gmail.com",
