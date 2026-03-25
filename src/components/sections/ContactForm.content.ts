@@ -4,13 +4,14 @@ export const description = '¿Listo para potenciar tu negocio con IA? Completa e
 export const namePlaceholder = 'Nombre';
 export const companyPlaceholder = 'Tu Empresa';
 export const emailPlaceholder = 'Email';
-export const budgetPlaceholder = 'Presupuesto';
+export const productPlaceholder = '¿En qué estás interesado?';
 export const messagePlaceholder = 'Cuéntame más sobre tu idea';
 
-export const budgetOptions = [
-  { value: '1000-3000', label: '1000-3000 €' },
-  { value: '3000-5000', label: '3000-5000 €' },
-  { value: '5000-10000', label: '5000-10000 €' },
+export const productOptions = [
+  { value: 'bruno', label: 'Bruno' },
+  { value: 'consultoria', label: 'Consultoría IA' },
+  { value: 'agente-modular', label: 'Agente Modular' },
+  { value: 'no-claro', label: 'No lo tengo claro' },
 ];
 
 export const submittingButtonText = 'Enviando...';

@@ -59,6 +59,11 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/contacto?tab=contact" className="cursor-target text-foreground/70 hover:text-primary transition-colors block">
+                    {footerText.contactMessageLinkText}
+                  </Link>
+                </li>
+                <li>
                   <a href={`mailto:${footerText.email}`} className="cursor-target text-foreground/70 hover:text-primary transition-colors block">
                     {footerText.email}
                   </a>

@@ -7,9 +7,17 @@ export const stepPickTime = '2. Elige hora';
 export const stepYourData = '3. Tus datos';
 
 export const namePlaceholder = 'Nombre y apellidos';
+export const companyPlaceholder = 'Tu Empresa';
 export const emailPlaceholder = 'Email';
-export const phonePlaceholder = 'Teléfono (opcional)';
-export const notesPlaceholder = 'Notas (opcional)';
+export const productPlaceholder = '¿En qué estás interesado?';
+export const notesPlaceholder = '¿Qué te gustaría cubrir en nuestra reunión?';
+
+export const productOptions = [
+  { value: 'bruno', label: 'Bruno' },
+  { value: 'consultoria', label: 'Consultoría IA' },
+  { value: 'agente-modular', label: 'Agente Modular' },
+  { value: 'no-claro', label: 'No lo tengo claro' },
+];
 
 export const loadingSlots = 'Cargando horarios...';
 export const noSlots = 'No hay horarios libres ese día. Prueba otra fecha.';

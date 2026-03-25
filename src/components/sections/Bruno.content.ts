@@ -68,4 +68,10 @@ export const brunoContent = {
       imageId: 'bruno-data-capture',
     },
   ],
+  demo: {
+    title: 'Prueba la experiencia Bruno en vivo',
+    subtitle: 'Llama ahora y descubre cómo nuestro trabajador digital gestiona una incidencia en tiempo real.',
+    phoneNumber: '+34 960 32 59 70',
+    cta: 'Llamar a Bruno',
+  },
 };

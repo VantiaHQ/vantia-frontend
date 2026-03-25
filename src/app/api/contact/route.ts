@@ -8,6 +8,7 @@ const ContactSchema = z.object({
   company: z.string().min(1).max(160),
   email: z.string().email().max(160),
   budget: z.string().max(80).optional(),
+  product: z.string().max(80).optional(),
   message: z.string().min(5).max(2000),
 });
 
@@ -27,7 +28,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { name, company, email, budget, message } = parsed.data;
+    const { name, company, email, budget, product, message } = parsed.data;
 
     await notifyN8nStrict({
       source: 'contact_form',
@@ -35,6 +36,7 @@ export async function POST(req: NextRequest) {
       company,
       email,
       budget: budget ?? null,
+      product: product ?? null,
       message,
     });
 

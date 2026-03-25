@@ -2,11 +2,14 @@
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { addDays, isAfter, isBefore, startOfDay } from 'date-fns';
-import { User, Mail, Phone, MessageSquare, Calendar as CalendarIcon, Clock } from 'lucide-react';
+import { MessageSquare, Calendar as CalendarIcon, Clock, Building, User, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { MultiSelectProducts } from '@/components/ui/multi-select-products';
+import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 import { bookingConfig } from '@/lib/bookingConfig';
 import { useBookingSubmit } from '@/hooks/useBookingSubmit';
 import {
@@ -16,9 +19,11 @@ import {
   stepPickTime,
   stepYourData,
   namePlaceholder,
+  companyPlaceholder,
   emailPlaceholder,
-  phonePlaceholder,
+  productPlaceholder,
   notesPlaceholder,
+  productOptions,
   loadingSlots,
   noSlots,
   selectDateFirst,
@@ -38,6 +43,14 @@ function dateToYmd(d: Date): string {
 }
 
 export default function BookingForm() {
+    return (
+        <Suspense fallback={<div>Cargando...</div>}>
+            <BookingFormInner />
+        </Suspense>
+    );
+}
+
+function BookingFormInner() {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
   const [slots, setSlots] = useState<Slot[]>([]);
   const [slotsLoading, setSlotsLoading] = useState(false);
@@ -46,9 +59,21 @@ export default function BookingForm() {
   const [configError, setConfigError] = useState(false);
 
   const [name, setName] = useState('');
+  const [company, setCompany] = useState('');
   const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
+  const [selectedProducts, setSelectedProducts] = useState<string[]>([]);
   const [notes, setNotes] = useState('');
+
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const productParam = searchParams.get('product');
+    if (productParam) {
+      if (productOptions.some(o => o.value === productParam)) {
+          setSelectedProducts([productParam]);
+      }
+    }
+  }, [searchParams]);
 
   const { submitBooking, isSubmitting } = useBookingSubmit();
 
@@ -102,21 +127,40 @@ export default function BookingForm() {
     setSlots([]);
     setSelectedSlot(null);
     setName('');
+    setCompany('');
     setEmail('');
-    setPhone('');
+    setSelectedProducts([]);
     setNotes('');
   }, []);
 
   const handleConfirm = (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedSlot) return;
+
+    if (selectedProducts.length === 0) {
+      return;
+    }
+
+    const productLabels = productOptions
+      .filter(o => selectedProducts.includes(o.value))
+      .map(o => o.label)
+      .join(', ');
+
+    const trimmedNotes = notes.trim();
+    const notesPayload = [
+      `PRODUCTO(S): ${productLabels}`,
+      `EMPRESA: ${company}`,
+      trimmedNotes ? `NOTAS: ${trimmedNotes}` : null,
+    ]
+      .filter(Boolean)
+      .join('\n');
+
     void submitBooking(
       {
         start: selectedSlot.start,
         name: name.trim(),
         email: email.trim(),
-        phone: phone.trim() || undefined,
-        notes: notes.trim() || undefined,
+        notes: notesPayload,
       },
       resetAfterSuccess,
     );
@@ -204,8 +248,9 @@ export default function BookingForm() {
                   disabled={disabledDays}
                   className="text-foreground"
                   classNames={{
-                    day_today: "bg-transparent border border-violet-500 text-violet-400 font-bold",
-                    day_selected: "bg-violet-600 text-white hover:bg-violet-500 shadow-[0_0_15px_rgba(124,58,237,0.4)]",
+                    cell: "bg-transparent p-0",
+                    day_today: "bg-transparent border border-violet-500/50 text-violet-400 font-bold rounded-full",
+                    day_selected: "bg-violet-600 text-white hover:bg-violet-500 shadow-[0_0_20px_rgba(124,58,237,0.5)] rounded-full !opacity-100",
                   }}
                 />
               </div>
@@ -246,9 +291,9 @@ export default function BookingForm() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="relative group">
-                <User className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 group-focus-within:text-blue-400 transition-colors" />
+                <User className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 group-focus-within:text-violet-400 transition-colors" />
                 <Input
-                  className="cursor-target pl-12 bg-blue-950/60 border-blue-400/30 focus:border-blue-400/50 focus:bg-blue-950/80 transition-all rounded-xl h-12"
+                  className="cursor-target pl-12 bg-[#101025]/80 border-violet-500/10 focus:border-violet-500/30 focus:bg-[#151530]/90 transition-all rounded-xl h-12 text-white"
                   placeholder={namePlaceholder}
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -256,10 +301,20 @@ export default function BookingForm() {
                 />
               </div>
               <div className="relative group">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 group-focus-within:text-blue-400 transition-colors" />
+                <Building className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 group-focus-within:text-violet-400 transition-colors" />
+                <Input
+                  className="cursor-target pl-12 bg-[#101025]/80 border-violet-500/10 focus:border-violet-500/30 focus:bg-[#151530]/90 transition-all rounded-xl h-12 text-white"
+                  placeholder={companyPlaceholder}
+                  value={company}
+                  onChange={(e) => setCompany(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="relative group md:col-span-2">
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 group-focus-within:text-violet-400 transition-colors" />
                 <Input
                   type="email"
-                  className="cursor-target pl-12 bg-blue-950/60 border-blue-400/30 focus:border-blue-400/50 focus:bg-blue-950/80 transition-all rounded-xl h-12"
+                  className="cursor-target pl-12 bg-[#101025]/80 border-violet-500/10 focus:border-violet-500/30 focus:bg-[#151530]/90 transition-all rounded-xl h-12 text-white"
                   placeholder={emailPlaceholder}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -268,27 +323,21 @@ export default function BookingForm() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="relative group">
-                <Phone className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 group-focus-within:text-blue-400 transition-colors" />
-                <Input
-                  type="tel"
-                  className="cursor-target pl-12 bg-blue-950/60 border-blue-400/30 focus:border-blue-400/50 focus:bg-blue-950/80 transition-all rounded-xl h-12"
-                  placeholder={phonePlaceholder}
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                />
-              </div>
-              <div className="relative group">
-                <MessageSquare className="absolute left-4 top-4 h-5 w-5 text-gray-400 group-focus-within:text-blue-400 transition-colors" />
-                <Textarea
-                  className="cursor-target pl-12 pt-3 bg-blue-950/60 border-blue-400/30 focus:border-blue-400/50 focus:bg-blue-950/80 transition-all rounded-xl min-h-[48px] overflow-hidden resize-none"
-                  placeholder={notesPlaceholder}
-                  value={notes}
-                  onChange={(e) => setNotes(e.target.value)}
-                  rows={1}
-                />
-              </div>
+            <MultiSelectProducts 
+              options={productOptions}
+              selected={selectedProducts}
+              onChange={setSelectedProducts}
+              placeholder={productPlaceholder}
+            />
+
+            <div className="relative group">
+              <MessageSquare className="absolute left-4 top-4 h-5 w-5 text-gray-400 group-focus-within:text-violet-400 transition-colors" />
+              <Textarea
+                className="cursor-target pl-12 pt-3 bg-[#101025]/80 border-violet-500/10 focus:border-violet-500/30 focus:bg-[#151530]/90 transition-all rounded-xl min-h-[120px] text-white resize-none"
+                placeholder={notesPlaceholder}
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
+              />
             </div>
 
             <Button

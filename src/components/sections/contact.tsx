@@ -1,12 +1,22 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { mainTitle, description, buttonText } from './Contact.content';
 
 export default function Contact() {
+  const pathname = usePathname();
+  const isBrunoPage = pathname === '/bruno';
+  const contactLink = `/contacto?tab=booking${isBrunoPage ? '&product=bruno' : ''}`;
+
   return (
     <section id="contact" className="relative w-full overflow-hidden dotted-bg bg-black/95">
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10 lg:via-background/50"></div>
+      <div
+        className="absolute left-0 right-0 bottom-0 -top-px bg-gradient-to-t from-background via-background/80 to-transparent z-10 lg:via-background/50"
+        aria-hidden="true"
+      />
       <div className="container mx-auto px-6 relative h-[55vh] flex items-center">
         <div className="mx-auto max-w-3xl text-center z-20 w-full">
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
@@ -21,7 +31,7 @@ export default function Contact() {
               size="lg"
               className="cursor-target group bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white/90 font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-pink-500/40 transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow"
             >
-              <Link href="/contacto?tab=booking" className="transition duration-300 ease-in-out">
+              <Link href={contactLink} className="transition duration-300 ease-in-out">
                 {buttonText}
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:animate-icon-pulse" />
               </Link>
