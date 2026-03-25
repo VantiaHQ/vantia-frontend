@@ -13,10 +13,9 @@ const partner = {
 
 export default function Partners() {
   return (
-    <div className="py-16 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-violet-500/20 to-transparent" />
-      
+    <section id="partners" className="bg-[#070916] py-20 sm:py-28 relative overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-violet-500/20 to-transparent" aria-hidden="true" />
+
       <div className="container mx-auto px-6 relative z-10">
         <FadeInSection direction="up">
           <div className="max-w-4xl mx-auto text-center mb-12">
@@ -68,6 +67,6 @@ export default function Partners() {
           </div>
         </FadeInSection>
       </div>
-    </div>
+    </section>
   );
 }
