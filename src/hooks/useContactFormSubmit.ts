@@ -12,7 +12,7 @@ interface ContactFormInputs {
   name: string;
   company: string;
   email: string;
-  budget: string;
+  product: string;
   message: string;
 }
 
