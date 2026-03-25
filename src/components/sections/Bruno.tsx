@@ -17,6 +17,7 @@ import { AppImages } from '@/lib/appImages';
 import { brunoContent } from './Bruno.content';
 import BrunoHeroAnimation from './BrunoHeroAnimation';
 import BrunoDemo from './BrunoDemo';
+import Partners from './Partners';
 
 const funcionalidadIcons = [Phone, MessageSquare, Database, Mail, Mail];
 const beneficioIcons = [Clock, PhoneCall, FileCheck, Timer, Plug];
@@ -36,9 +37,12 @@ export default function Bruno() {
         </div>
 
         {/* Hero animation */}
-        <div className="mx-auto max-w-5xl mb-16">
+        <div className="mx-auto max-w-5xl mb-8 md:mb-16 text-center">
           <BrunoHeroAnimation />
         </div>
+
+        {/* Colaboradores Oficiales */}
+        <Partners />
 
         {/* Definición */}
         <div className="mx-auto max-w-4xl mb-16 p-8 md:p-10 rounded-2xl bg-[#0F0F25]/80 border border-violet-500/10 shadow-2xl relative overflow-hidden backdrop-blur-md">

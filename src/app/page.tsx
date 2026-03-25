@@ -6,6 +6,7 @@ import CaseStudy from '@/components/sections/CaseStudy';
 import Channels from '@/components/sections/channels';
 import Philosophy from '@/components/sections/philosophy';
 import Contact from '@/components/sections/contact';
+import Partners from '@/components/sections/Partners';
 import TargetCursor from '@/components/ui/TargetCursor';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -100,6 +101,12 @@ export default function Home() {
       <main className="flex-1 mt-[-80px]">
         <TargetCursor />
         <HeroSection />
+        
+        {/* Trusted By / Partners */}
+        <section className="bg-[#070916] py-12">
+          <Partners />
+        </section>
+
         <ProductsPreview />
         <Security />
         <CaseStudy />
