@@ -10,8 +10,9 @@ import { Textarea } from '@/components/ui/textarea';
 import { MultiSelectProducts } from '@/components/ui/multi-select-products';
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
-import { bookingConfig } from '@/lib/bookingConfig';
+import { BOOKING_MAX_DAYS_AHEAD } from '@/lib/bookingConstants';
 import { useBookingSubmit } from '@/hooks/useBookingSubmit';
+import { useToast } from '@/hooks/useToast';
 import {
   mainTitle,
   description,
@@ -30,6 +31,8 @@ import {
   calendarNotConfigured,
   submitLabel,
   submittingLabel,
+  productRequiredTitle,
+  productRequiredDescription,
 } from './BookingForm.content';
 import { cn } from '@/lib/utils';
 
@@ -43,11 +46,11 @@ function dateToYmd(d: Date): string {
 }
 
 export default function BookingForm() {
-    return (
-        <Suspense fallback={<div>Cargando...</div>}>
-            <BookingFormInner />
-        </Suspense>
-    );
+  return (
+    <Suspense fallback={<div>Cargando...</div>}>
+      <BookingFormInner />
+    </Suspense>
+  );
 }
 
 function BookingFormInner() {
@@ -76,9 +79,10 @@ function BookingFormInner() {
   }, [searchParams]);
 
   const { submitBooking, isSubmitting } = useBookingSubmit();
+  const { toast } = useToast();
 
   const today = useMemo(() => startOfDay(new Date()), []);
-  const maxDate = useMemo(() => addDays(today, bookingConfig.maxDaysAhead), [today]);
+  const maxDate = useMemo(() => addDays(today, BOOKING_MAX_DAYS_AHEAD), [today]);
 
   const disabledDays = useCallback(
     (d: Date) => isBefore(d, today) || isAfter(d, maxDate),
@@ -138,6 +142,11 @@ function BookingFormInner() {
     if (!selectedSlot) return;
 
     if (selectedProducts.length === 0) {
+      toast({
+        title: productRequiredTitle,
+        description: productRequiredDescription,
+        variant: 'destructive',
+      });
       return;
     }
 
@@ -224,12 +233,6 @@ function BookingFormInner() {
             {mainTitle}
           </h2>
           <p className="text-lg text-foreground/70 mb-2 leading-relaxed">{description}</p>
-          <p className="text-sm font-light text-violet-400/60 inline-flex items-center gap-2 bg-violet-400/5 py-1 px-3 rounded-full border border-violet-400/10">
-            <Clock className="w-3.5 h-3.5" />
-            <span>
-              {bookingConfig.slotMinutes} min · {bookingConfig.timeZone}
-            </span>
-          </p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-[auto_1fr] md:gap-12">

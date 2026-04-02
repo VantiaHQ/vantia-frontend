@@ -1,15 +1,15 @@
 export const mainTitle = 'Reservar cita';
 export const description =
-  'Elige día y hora. Los horarios se muestran según la disponibilidad del calendario (zona horaria configurada en el sistema).';
+  'Elige día y hora. Los horarios se muestran según la disponibilidad del calendario.';
 
-export const stepPickDate = '1. Elige un día';
-export const stepPickTime = '2. Elige hora';
+export const stepPickDate = '1. Elige un día *';
+export const stepPickTime = '2. Elige hora *';
 export const stepYourData = '3. Tus datos';
 
-export const namePlaceholder = 'Nombre y apellidos';
-export const companyPlaceholder = 'Tu Empresa';
-export const emailPlaceholder = 'Email';
-export const productPlaceholder = '¿En qué estás interesado?';
+export const namePlaceholder = 'Nombre y apellidos *';
+export const companyPlaceholder = 'Tu empresa *';
+export const emailPlaceholder = 'Email *';
+export const productPlaceholder = '¿En qué estás interesado? *';
 export const notesPlaceholder = '¿Qué te gustaría cubrir en nuestra reunión?';
 
 export const productOptions = [
@@ -30,5 +30,9 @@ export const submittingLabel = 'Reservando...';
 
 export const toastSuccessTitle = 'Cita reservada';
 export const toastSuccessDescription =
-  'Revisa tu correo por si recibes la invitación del calendario.';
+  'Cita registrada. Recibirás los detalles y el enlace de Meet por correo si está configurado.';
 export const toastErrorTitle = 'No se pudo reservar';
+
+export const productRequiredTitle = 'Falta un dato';
+export const productRequiredDescription =
+  'Selecciona al menos una opción en «¿En qué estás interesado?» antes de confirmar.';
