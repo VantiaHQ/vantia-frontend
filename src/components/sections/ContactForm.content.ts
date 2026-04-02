@@ -1,11 +1,11 @@
 export const mainTitle = 'Hablemos';
 export const description = '¿Listo para potenciar tu negocio con IA? Completa el formulario y nos pondremos en contacto contigo para explorar cómo podemos ayudarte a alcanzar tus objetivos.';
 
-export const namePlaceholder = 'Nombre';
-export const companyPlaceholder = 'Tu Empresa';
-export const emailPlaceholder = 'Email';
-export const productPlaceholder = '¿En qué estás interesado?';
-export const messagePlaceholder = 'Cuéntame más sobre tu idea';
+export const namePlaceholder = 'Nombre *';
+export const companyPlaceholder = 'Tu empresa *';
+export const emailPlaceholder = 'Email *';
+export const productPlaceholder = '¿En qué estás interesado? *';
+export const messagePlaceholder = 'Cuéntame más sobre tu idea *';
 
 export const productOptions = [
   { value: 'bruno', label: 'Bruno' },

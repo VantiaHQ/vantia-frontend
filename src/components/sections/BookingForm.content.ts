@@ -2,14 +2,14 @@ export const mainTitle = 'Reservar cita';
 export const description =
   'Elige día y hora. Los horarios se muestran según la disponibilidad del calendario.';
 
-export const stepPickDate = '1. Elige un día';
-export const stepPickTime = '2. Elige hora';
+export const stepPickDate = '1. Elige un día *';
+export const stepPickTime = '2. Elige hora *';
 export const stepYourData = '3. Tus datos';
 
-export const namePlaceholder = 'Nombre y apellidos';
-export const companyPlaceholder = 'Tu Empresa';
-export const emailPlaceholder = 'Email';
-export const productPlaceholder = '¿En qué estás interesado?';
+export const namePlaceholder = 'Nombre y apellidos *';
+export const companyPlaceholder = 'Tu empresa *';
+export const emailPlaceholder = 'Email *';
+export const productPlaceholder = '¿En qué estás interesado? *';
 export const notesPlaceholder = '¿Qué te gustaría cubrir en nuestra reunión?';
 
 export const productOptions = [
