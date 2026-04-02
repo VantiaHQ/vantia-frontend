@@ -8,7 +8,12 @@ import {
   isDateBookable,
   slotOverlapsBusy,
 } from '@/lib/bookingSlots';
-import { getCalendarClient, getCalendarId, isGoogleCalendarConfigured } from '@/lib/googleCalendar';
+import {
+  getCalendarClient,
+  getCalendarId,
+  isGoogleCalendarConfigured,
+  supportsWorkspaceCalendarInvites,
+} from '@/lib/googleCalendar';
 import { notifyN8n } from '@/lib/n8nWebhook';
 import { getClientIp, isRateLimited } from '@/lib/rateLimitIp';
 
@@ -106,8 +111,12 @@ export async function POST(req: NextRequest) {
       .filter(Boolean)
       .join('\n');
 
+    const sendInvites = supportsWorkspaceCalendarInvites();
+
     const event = await calendar.events.insert({
       calendarId,
+      conferenceDataVersion: 1,
+      sendUpdates: sendInvites ? 'all' : 'none',
       requestBody: {
         summary: `Cita — ${name}`,
         description,
@@ -119,11 +128,20 @@ export async function POST(req: NextRequest) {
           dateTime: endDt.setZone(bookingConfig.timeZone).toFormat("yyyy-MM-dd'T'HH:mm:ss"),
           timeZone: bookingConfig.timeZone,
         },
-        attendees: [{ email, displayName: name }],
+        ...(sendInvites ? { attendees: [{ email, displayName: name }] } : {}),
+        conferenceData: {
+          createRequest: {
+            requestId: `vantia-${startIso.replace(/\D/g, '')}-${Math.random().toString(36).slice(2, 8)}`,
+            conferenceSolutionKey: { type: 'hangoutsMeet' },
+          },
+        },
         reminders: { useDefault: true },
       },
-      sendUpdates: 'all',
     });
+
+    const meetLink =
+      event.data.conferenceData?.entryPoints?.find((ep) => ep.entryPointType === 'video')?.uri ??
+      null;
 
     await notifyN8n({
       source: 'booking',
@@ -137,9 +155,10 @@ export async function POST(req: NextRequest) {
       slotLabelLocal: startDt.setZone(bookingConfig.timeZone).toFormat("yyyy-MM-dd HH:mm"),
       calendarEventId: event.data.id ?? null,
       htmlLink: event.data.htmlLink ?? null,
+      meetLink,
     });
 
-    return NextResponse.json({ ok: true, eventId: event.data.id });
+    return NextResponse.json({ ok: true, eventId: event.data.id, meetLink });
   } catch (e: unknown) {
     console.error('booking/book', e);
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });

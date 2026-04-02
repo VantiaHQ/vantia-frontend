@@ -9,10 +9,14 @@ const optionalNonEmpty = z.preprocess(
 const ServerEnvSchema = z.object({
   GEMINI_API_KEY: optionalNonEmpty,
   /** Opcionales: solo necesarios para /api/booking/* */
-  GOOGLE_CALENDAR_CLIENT_ID: optionalNonEmpty,
-  GOOGLE_CALENDAR_CLIENT_SECRET: optionalNonEmpty,
-  GOOGLE_CALENDAR_REFRESH_TOKEN: optionalNonEmpty,
   GOOGLE_CALENDAR_ID: optionalNonEmpty,
+  /** JSON en claro o base64 del JSON (codificar en PowerShell, ver README) */
+  GOOGLE_SERVICE_ACCOUNT_JSON: optionalNonEmpty,
+  /**
+   * Email de un usuario de Google Workspace a suplantar (Domain-Wide Delegation).
+   * Si está definido, las reservas pueden enviar invitaciones de Calendar a los clientes.
+   */
+  GOOGLE_WORKSPACE_DELEGATED_USER: optionalNonEmpty,
   /** Webhook n8n: POST desde /api/contact y /api/booking/book */
   N8N_WEBHOOK_URL: optionalNonEmpty,
   /** Opcional: se envía como Authorization: Bearer … */
@@ -23,10 +27,9 @@ type ServerEnv = z.infer<typeof ServerEnvSchema>;
 
 export const env: ServerEnv = ServerEnvSchema.parse({
   GEMINI_API_KEY: process.env.GEMINI_API_KEY,
-  GOOGLE_CALENDAR_CLIENT_ID: process.env.GOOGLE_CALENDAR_CLIENT_ID,
-  GOOGLE_CALENDAR_CLIENT_SECRET: process.env.GOOGLE_CALENDAR_CLIENT_SECRET,
-  GOOGLE_CALENDAR_REFRESH_TOKEN: process.env.GOOGLE_CALENDAR_REFRESH_TOKEN,
   GOOGLE_CALENDAR_ID: process.env.GOOGLE_CALENDAR_ID,
+  GOOGLE_SERVICE_ACCOUNT_JSON: process.env.GOOGLE_SERVICE_ACCOUNT_JSON,
+  GOOGLE_WORKSPACE_DELEGATED_USER: process.env.GOOGLE_WORKSPACE_DELEGATED_USER,
   N8N_WEBHOOK_URL: process.env.N8N_WEBHOOK_URL,
   N8N_WEBHOOK_SECRET: process.env.N8N_WEBHOOK_SECRET,
 });

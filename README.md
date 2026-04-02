@@ -95,14 +95,21 @@ Open [http://localhost:9002](http://localhost:9002) in your browser to see the a
 
 ### Reservas con Google Calendar (`/reservar`)
 
-La página de reserva crea eventos en un calendario de Google vía OAuth (refresh token). Variables de entorno **opcionales** en servidor (si faltan, `/api/booking/*` responde 503):
+La página de reserva crea eventos en Google Calendar con una **service account**. Variables de entorno **opcionales** en servidor (si falta el JSON, `/api/booking/*` responde 503):
 
-- `GOOGLE_CALENDAR_CLIENT_ID`
-- `GOOGLE_CALENDAR_CLIENT_SECRET`
-- `GOOGLE_CALENDAR_REFRESH_TOKEN` (cuenta de la clínica con Calendar API habilitada)
-- `GOOGLE_CALENDAR_ID` (opcional; por defecto `primary`)
+- `GOOGLE_SERVICE_ACCOUNT_JSON` — JSON de la clave de la cuenta de servicio **o** la misma cadena en **base64** (recomendado en secrets). En PowerShell: `[Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes((Get-Content -Raw ".\ruta\al.json")))` (opcional `| Set-Clipboard`). El calendario debe estar compartido con el `client_email` del JSON con permiso de hacer cambios en eventos.
+- `GOOGLE_CALENDAR_ID` — opcional; por defecto `primary`.
+- `GOOGLE_WORKSPACE_DELEGATED_USER` — opcional; email de un usuario **de tu dominio Google Workspace** (ej. `agenda@tudominio.com`). Si está definido, la API suplanta a ese usuario y **Google envía invitaciones de calendario** al cliente. Requiere delegación de dominio (pasos abajo). Sin esta variable, el evento se crea como la service account: sin invitaciones automáticas (solo descripción + n8n).
 
-Franja horaria, duración del slot y antelación se configuran en [`src/lib/bookingConfig.ts`](src/lib/bookingConfig.ts).
+**Delegación de dominio (Workspace)** — no aplica a Gmail personal; hace falta ser **administrador** del dominio. Resumen:
+
+1. En [Google Cloud Console](https://console.cloud.google.com/) → IAM → tu cuenta de servicio → pestaña **Detalles** → activar **Delegación de dominio de Google Workspace** y copiar el **ID de cliente** (número largo).
+2. En [Admin de Google](https://admin.google.com/) → **Seguridad** → **Controles de acceso y datos de la API** → **Delegación de todo el dominio** → **Añadir nuevo** → pegar el ID de cliente y como ámbito OAuth: `https://www.googleapis.com/auth/calendar`
+3. El usuario de `GOOGLE_WORKSPACE_DELEGATED_USER` debe existir en el dominio y tener acceso al calendario donde se crean las citas (`GOOGLE_CALENDAR_ID` o su calendario principal si usas `primary`).
+
+Guía oficial: [Delegar autoridad de dominio](https://developers.google.com/identity/protocols/oauth2/service-account#delegatingauthority).
+
+Horario de reservas (solo servidor): [`src/lib/bookingConfig.ts`](src/lib/bookingConfig.ts) lee **variables de entorno** opcionales — `BOOKING_SLOT_MINUTES`, `BOOKING_WINDOW_START`, `BOOKING_WINDOW_END`, `BOOKING_TIME_ZONE` — con fallback en código. El límite de días en el calendario del formulario está en [`src/lib/bookingConstants.ts`](src/lib/bookingConstants.ts) (`BOOKING_MAX_DAYS_AHEAD`, alineado con el servidor).
 
 ### Webhook n8n (contacto + reservas)
 
@@ -121,7 +128,7 @@ Cuerpo del POST (campos comunes + `submittedAt` en ISO):
 | `source`        | Campos extra |
 |-----------------|--------------|
 | `contact_form`  | `name`, `company`, `email`, `budget`, `message` |
-| `booking`       | `name`, `email`, `phone`, `notes`, `slotStart`, `slotEnd`, `timeZone`, `slotLabelLocal`, `calendarEventId`, `htmlLink` |
+| `booking`       | `name`, `email`, `phone`, `notes`, `slotStart`, `slotEnd`, `timeZone`, `slotLabelLocal`, `calendarEventId`, `htmlLink`, `meetLink` |
 
 Comportamiento ante error del webhook:
 - Contacto (`/api/contact`): estricto, devuelve error al usuario si n8n falla o no está configurado.

@@ -12,11 +12,10 @@ function parseHm(hm: string): { h: number; m: number } {
   return { h, m };
 }
 
-/**
- * Genera slots candidatos para un día YYYY-MM-DD (válido en timeZone de config).
- */
+/** Genera slots candidatos para un día YYYY-MM-DD (válido en timeZone de config). */
 export function generateSlotsForDay(dateYmd: string): SlotInterval[] {
   const tz = bookingConfig.timeZone;
+  const mins = bookingConfig.slotMinutes;
   const day = DateTime.fromISO(dateYmd, { zone: tz });
   if (!day.isValid) return [];
 
@@ -27,7 +26,7 @@ export function generateSlotsForDay(dateYmd: string): SlotInterval[] {
     let t = day.set({ hour: sh, minute: sm, second: 0, millisecond: 0 });
     const endWin = day.set({ hour: eh, minute: em, second: 0, millisecond: 0 });
     while (t < endWin) {
-      const slotEnd = t.plus({ minutes: bookingConfig.slotMinutes });
+      const slotEnd = t.plus({ minutes: mins });
       if (slotEnd > endWin) break;
       slots.push({
         startIso: t.toUTC().toISO()!,
