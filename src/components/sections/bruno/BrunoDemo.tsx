@@ -17,7 +17,7 @@ export default function BrunoDemo() {
           {/* Refined Ambient Glows */}
           <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[400px] h-full bg-violet-600/5 rounded-full blur-[100px] pointer-events-none" />
           <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[400px] h-full bg-cyan-600/5 rounded-full blur-[100px] pointer-events-none" />
-          
+
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
             {/* Left side: Content */}
             <div className="flex-1 text-center lg:text-left">
@@ -25,29 +25,29 @@ export default function BrunoDemo() {
                 <Sparkles className="w-3 h-3" />
                 Demo Interactiva
               </div>
-              
+
               <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl mb-4 leading-tight">
                 {demo.title.split(' Bruno ')[0]}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-400"> Bruno </span>
                 en vivo
               </h2>
-              
+
               <p className="text-lg leading-relaxed text-foreground/60 max-w-xl mx-auto lg:mx-0">
                 {demo.subtitle}
               </p>
 
               <div className="hidden lg:flex items-center gap-8 mt-8 pt-8 border-t border-white/5">
                 <div className="flex items-center gap-2 text-foreground/40 text-xs font-medium">
-                    <ShieldCheck className="w-4 h-4 text-emerald-500/50" />
-                    Llamada Segura
+                  <ShieldCheck className="w-4 h-4 text-emerald-500/50" />
+                  Llamada Segura
                 </div>
                 <div className="flex items-center gap-2 text-foreground/40 text-xs font-medium">
-                    <Zap className="w-4 h-4 text-violet-500/50" />
-                    Respuesta Inmediata
+                  <Zap className="w-4 h-4 text-violet-500/50" />
+                  Respuesta Inmediata
                 </div>
               </div>
             </div>
-            
+
             {/* Right side: CTA */}
             <div className="flex flex-col items-center lg:items-end gap-6 shrink-0 lg:pl-12 lg:border-l lg:border-white/5">
               <div className="flex flex-col items-center lg:items-end">
@@ -55,8 +55,8 @@ export default function BrunoDemo() {
                   {demo.phoneNumber}
                 </span>
                 <span className="text-[10px] text-cyan-400/50 font-black flex items-center gap-2 uppercase tracking-[0.3em] mt-2 whitespace-nowrap">
-                   <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
-                   Disponibilidad 24/7
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
+                  Disponibilidad 24/7
                 </span>
               </div>
 

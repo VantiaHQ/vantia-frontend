@@ -4,39 +4,39 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import { Phone, MessageSquare } from 'lucide-react';
 
 const LEFT_NODES = [
-  { icon: Phone,          label: 'Llamada',   color: '#22d3ee' }, // Cyan
-  { icon: MessageSquare,  label: 'WhatsApp',  color: '#8b5cf6' }, // Violet
-  { icon: Phone,          label: 'Llamada',   color: '#22d3ee' },
-  { icon: MessageSquare,  label: 'WhatsApp',  color: '#8b5cf6' },
-  { icon: Phone,          label: 'Llamada',   color: '#22d3ee' },
+  { icon: Phone, label: 'Llamada', color: '#22d3ee' }, // Cyan
+  { icon: MessageSquare, label: 'WhatsApp', color: '#8b5cf6' }, // Violet
+  { icon: Phone, label: 'Llamada', color: '#22d3ee' },
+  { icon: MessageSquare, label: 'WhatsApp', color: '#8b5cf6' },
+  { icon: Phone, label: 'Llamada', color: '#22d3ee' },
 ];
 
 const TICKETS = [
-  { unit: 'Portal 3B', issue: 'Fuga de agua',   status: 'RESUELTO', color: '#22d3ee' },
-  { unit: 'Portal 1A', issue: 'Acceso clave',   status: 'ASIGNADO', color: '#8b5cf6' },
-  { unit: 'Portal 2C', issue: 'Avería luz',     status: 'ASIGNADO', color: '#22d3ee' },
-  { unit: 'Portal 4B', issue: 'Ruido vecino',   status: 'ASIGNADO', color: '#8b5cf6' },
+  { unit: 'Portal 3B', issue: 'Fuga de agua', status: 'RESUELTO', color: '#22d3ee' },
+  { unit: 'Portal 1A', issue: 'Acceso clave', status: 'ASIGNADO', color: '#8b5cf6' },
+  { unit: 'Portal 2C', issue: 'Avería luz', status: 'ASIGNADO', color: '#22d3ee' },
+  { unit: 'Portal 4B', issue: 'Ruido vecino', status: 'ASIGNADO', color: '#8b5cf6' },
 ];
 
 interface Line { x1: number; y1: number; x2: number; y2: number }
 
 function bezierPt(x1: number, y1: number, x2: number, y2: number, t: number) {
   const cx = x1 + (x2 - x1) * 0.5;
-  const bx = (1-t)**3*x1 + 3*(1-t)**2*t*cx + 3*(1-t)*t**2*cx + t**3*x2;
-  const by = (1-t)**3*y1 + 3*(1-t)**2*t*y1  + 3*(1-t)*t**2*y2  + t**3*y2;
+  const bx = (1 - t) ** 3 * x1 + 3 * (1 - t) ** 2 * t * cx + 3 * (1 - t) * t ** 2 * cx + t ** 3 * x2;
+  const by = (1 - t) ** 3 * y1 + 3 * (1 - t) ** 2 * t * y1 + 3 * (1 - t) * t ** 2 * y2 + t ** 3 * y2;
   return { x: bx, y: by };
 }
 
 export default function BrunoHeroAnimation() {
-  const containerRef  = useRef<HTMLDivElement>(null);
-  const sphereRef     = useRef<HTMLDivElement>(null);
-  const nodeRefs      = useRef<(HTMLDivElement | null)[]>([]);
-  const ticketRefs    = useRef<(HTMLDivElement | null)[]>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const sphereRef = useRef<HTMLDivElement>(null);
+  const nodeRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const ticketRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const [svgSize,       setSvgSize]       = useState({ w: 0, h: 0 });
-  const [leftLines,     setLeftLines]     = useState<Line[]>([]);
-  const [rightLines,    setRightLines]    = useState<Line[]>([]);
-  const [dots,          setDots]          = useState(() => LEFT_NODES.map((_, i) => i / LEFT_NODES.length));
+  const [svgSize, setSvgSize] = useState({ w: 0, h: 0 });
+  const [leftLines, setLeftLines] = useState<Line[]>([]);
+  const [rightLines, setRightLines] = useState<Line[]>([]);
+  const [dots, setDots] = useState(() => LEFT_NODES.map((_, i) => i / LEFT_NODES.length));
   const [visibleTickets, setVisibleTickets] = useState<number[]>([]);
 
   /* ── measure DOM positions ─────────────────────────────────────── */
@@ -44,9 +44,9 @@ export default function BrunoHeroAnimation() {
     if (!containerRef.current || !sphereRef.current) return;
     const cRect = containerRef.current.getBoundingClientRect();
     const sRect = sphereRef.current.getBoundingClientRect();
-    const cx = sRect.left + sRect.width  / 2 - cRect.left;
-    const cy = sRect.top  + sRect.height / 2 - cRect.top;
-    const r  = sRect.width / 2;
+    const cx = sRect.left + sRect.width / 2 - cRect.left;
+    const cy = sRect.top + sRect.height / 2 - cRect.top;
+    const r = sRect.width / 2;
 
     setSvgSize({ w: cRect.width, h: cRect.height });
 
@@ -55,8 +55,8 @@ export default function BrunoHeroAnimation() {
         if (!el) return null;
         const nr = el.getBoundingClientRect();
         return {
-          x1: nr.right  - cRect.left,
-          y1: nr.top    + nr.height / 2 - cRect.top,
+          x1: nr.right - cRect.left,
+          y1: nr.top + nr.height / 2 - cRect.top,
           x2: cx - r + 10,
           y2: cy,
         };
@@ -151,10 +151,10 @@ export default function BrunoHeroAnimation() {
               <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0" />
             </linearGradient>
             <filter id="glow">
-              <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+              <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
               <feMerge>
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
+                <feMergeNode in="coloredBlur" />
+                <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
           </defs>
@@ -162,8 +162,8 @@ export default function BrunoHeroAnimation() {
           {/* left lines + dots */}
           {leftLines.map((ln, i) => {
             const cx = ln.x1 + (ln.x2 - ln.x1) * 0.6;
-            const d  = `M${ln.x1},${ln.y1} C${cx},${ln.y1} ${cx},${ln.y2} ${ln.x2},${ln.y2}`;
-            const t  = (dots[i] + i * 0.2) % 1;
+            const d = `M${ln.x1},${ln.y1} C${cx},${ln.y1} ${cx},${ln.y2} ${ln.x2},${ln.y2}`;
+            const t = (dots[i] + i * 0.2) % 1;
             const pt = bezierPt(ln.x1, ln.y1, ln.x2, ln.y2, t);
             const col = LEFT_NODES[i]?.color ?? '#a78bfa';
             return (
@@ -182,8 +182,8 @@ export default function BrunoHeroAnimation() {
           {/* right lines + dots */}
           {rightLines.map((ln, i) => {
             const cx = ln.x1 + (ln.x2 - ln.x1) * 0.4;
-            const d  = `M${ln.x1},${ln.y1} C${cx},${ln.y1} ${cx},${ln.y2} ${ln.x2},${ln.y2}`;
-            const t  = (dots[i % dots.length] + 0.5 + i * 0.25) % 1;
+            const d = `M${ln.x1},${ln.y1} C${cx},${ln.y1} ${cx},${ln.y2} ${ln.x2},${ln.y2}`;
+            const t = (dots[i % dots.length] + 0.5 + i * 0.25) % 1;
             const pt = bezierPt(ln.x1, ln.y1, ln.x2, ln.y2, t);
             return (
               <g key={i}>
@@ -231,7 +231,7 @@ export default function BrunoHeroAnimation() {
           <div className="relative flex items-center justify-center">
             {/* Contenedor fijo para centrar todos los círculos */}
             <div className="relative h-[300px] w-[300px] flex items-center justify-center">
-              
+
               {/* Anillos orbitales externos */}
               <div
                 className="absolute rounded-full border border-dashed border-white/5 animate-[spin_40s_linear_infinite]"
@@ -245,7 +245,7 @@ export default function BrunoHeroAnimation() {
                 className="absolute rounded-full border border-violet-400/20 animate-[spin_15s_linear_infinite_reverse]"
                 style={{ width: 200, height: 200 }}
               />
-              
+
               {/* Destellos de luz detrás de la esfera */}
               <div className="absolute h-[160px] w-[160px] rounded-full bg-cyan-500/20 blur-[45px] -translate-x-8" />
               <div className="absolute h-[160px] w-[160px] rounded-full bg-violet-600/30 blur-[45px] translate-x-8" />

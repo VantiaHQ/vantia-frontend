@@ -1,53 +1,89 @@
 @layer utilities {
   .animate-icon-pulse {
-    animation: icon-pulse 0.7s cubic-bezier(0.4,0,0.6,1) infinite;
+    animation: icon-pulse 0.7s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
+
   @keyframes icon-pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.25); }
+
+    0%,
+    100% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.25);
+    }
   }
 }
+
 @layer utilities {
   .animate-shadow-glow {
-    animation: shadow-glow 1.2s cubic-bezier(0.4,0,0.6,1) infinite;
+    animation: shadow-glow 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
+
   @keyframes shadow-glow {
-    0%, 100% { box-shadow: 0 0 8px #a78bfa66, 0 0 16px #f472b666; }
-    50% { box-shadow: 0 0 16px #a78bfa44, 0 0 32px #f472b644; }
+
+    0%,
+    100% {
+      box-shadow: 0 0 8px #a78bfa66, 0 0 16px #f472b666;
+    }
+
+    50% {
+      box-shadow: 0 0 16px #a78bfa44, 0 0 32px #f472b644;
+    }
   }
 }
+
 @layer utilities {
   .animate-float-slow {
     animation: float-slow 4.5s ease-in-out infinite;
   }
+
   @keyframes float-slow {
-    0%, 100% { transform: translateY(0); opacity: 1; }
-    50% { transform: translateY(-32px); opacity: 0.96; }
+
+    0%,
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    50% {
+      transform: translateY(-32px);
+      opacity: 0.96;
+    }
   }
 }
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer utilities {
+
   /* Custom Scrollbar for Webkit browsers */
   ::-webkit-scrollbar {
-    width: 8px; /* Thinner scrollbar */
+    width: 8px;
+    /* Thinner scrollbar */
   }
 
   ::-webkit-scrollbar-track {
-    background: hsl(var(--background)); /* Dark background for the track */
+    background: hsl(var(--background));
+    /* Dark background for the track */
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--primary)); /* Lighter thumb, using primary color */
-    border-radius: 10px; /* Rounded thumb */
+    background: hsl(var(--primary));
+    /* Lighter thumb, using primary color */
+    border-radius: 10px;
+    /* Rounded thumb */
   }
 
   /* Custom Scrollbar for Firefox */
   html {
-    scrollbar-width: thin; /* Thinner scrollbar */
-    scrollbar-color: grey hsl(var(--background)); /* Thumb and track colors */
+    scrollbar-width: thin;
+    /* Thinner scrollbar */
+    scrollbar-color: grey hsl(var(--background));
+    /* Thumb and track colors */
   }
 }
 
@@ -102,11 +138,13 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
   html {
     @apply scroll-smooth;
   }
@@ -119,16 +157,26 @@
 }
 
 .dotted-bg {
-    background-image: radial-gradient(circle at 1px 1px, hsl(var(--foreground) / 0.3) 1px, transparent 0);
-    background-size: 2rem 2rem;
+  background-image: radial-gradient(circle at 1px 1px, hsl(var(--foreground) / 0.3) 1px, transparent 0);
+  background-size: 2rem 2rem;
 }
 
 @layer utilities {
   .animate-pulse-slow {
-    animation: pulse-scale 3.2s cubic-bezier(0.4,0,0.6,1) infinite;
+    animation: pulse-scale 3.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
+
   @keyframes pulse-scale {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.075); opacity: 0.96; }
+
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    50% {
+      transform: scale(1.075);
+      opacity: 0.96;
+    }
   }
 }
