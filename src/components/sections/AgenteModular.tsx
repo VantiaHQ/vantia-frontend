@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import { CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 import { coreModules, extraModules, agenteModularContent } from './AgenteModular.content';
 
 export default function AgenteModular() {
@@ -46,11 +46,9 @@ export default function AgenteModular() {
 											{agenteModularContent.example.paragraph}
 										</p>
 										<div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
-											<Link href="/generar-agente" passHref>
-												<Button asChild className="cursor-target bg-pink-500 hover:bg-pink-500 text-white/90 font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-pink-500/40 transition duration-300 ease-in-out hover:animate-shadow-glow">
-													<span>{agenteModularContent.example.cta}</span>
-												</Button>
-											</Link>
+											<Button asChild className="cursor-target bg-pink-500 hover:bg-pink-500 text-white/90 font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-pink-500/40 transition duration-300 ease-in-out hover:animate-shadow-glow">
+												<Link href="/contacto?tab=booking">{agenteModularContent.example.cta}</Link>
+											</Button>
 										</div>
 									</div>
 									<div className="flex-1 md:border-l md:border-blue-400/20 md:pl-8">
