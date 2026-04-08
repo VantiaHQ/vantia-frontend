@@ -52,7 +52,7 @@ export default function ProductsPreview() {
             <Link
               href={product.link}
               key={product.title}
-              className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-violet-400/10 bg-violet-950/10 p-8 shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-violet-400/40 hover:bg-violet-950/30"
+              className="cursor-target group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-violet-400/10 bg-violet-950/10 p-8 shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-violet-400/40 hover:bg-violet-950/30"
             >
               <div className="absolute -top-4 -right-4 h-24 w-24 rounded-full bg-violet-500/10 blur-3xl transition-all duration-500 group-hover:bg-violet-500/30" />
 
