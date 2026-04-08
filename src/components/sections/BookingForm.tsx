@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { addDays, isAfter, isBefore, startOfDay } from 'date-fns';
+import { addDays, isAfter, startOfDay, isWeekend } from 'date-fns';
 import { MessageSquare, Calendar as CalendarIcon, Clock, Building, User, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
@@ -85,7 +85,13 @@ function BookingFormInner() {
   const maxDate = useMemo(() => addDays(today, BOOKING_MAX_DAYS_AHEAD), [today]);
 
   const disabledDays = useCallback(
-    (d: Date) => isBefore(d, today) || isAfter(d, maxDate),
+    (d: Date) => {
+      const dayStart = startOfDay(d);
+      if (!isAfter(dayStart, today)) return true;
+      if (isAfter(dayStart, maxDate)) return true;
+      if (isWeekend(d)) return true;
+      return false;
+    },
     [today, maxDate],
   );
 
