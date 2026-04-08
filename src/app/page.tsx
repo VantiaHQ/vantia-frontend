@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import HeroSection from '@/components/sections/home/hero';
@@ -9,6 +10,10 @@ import Contact from '@/components/sections/contact/contact';
 import Partners from '@/components/sections/home/Partners';
 import ProductsPreview from '@/components/sections/home/ProductsPreview';
 import TargetCursor from '@/components/ui/TargetCursor';
+
+export const metadata: Metadata = {
+  title: { absolute: 'Vantia' },
+};
 
 export default function Home() {
   return (

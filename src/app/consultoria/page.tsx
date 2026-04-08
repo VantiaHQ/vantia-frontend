@@ -1,8 +1,13 @@
+import type { Metadata } from 'next';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import ConsultoriaIA from '@/components/sections/consultoria/ConsultoriaIA';
 import Contact from '@/components/sections/contact/contact';
 import TargetCursor from '@/components/ui/TargetCursor';
+
+export const metadata: Metadata = {
+  title: 'Consultoría',
+};
 
 export default function ConsultoriaPage() {
   return (

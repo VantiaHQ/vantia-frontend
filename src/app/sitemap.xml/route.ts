@@ -5,7 +5,10 @@ const BASE_URL = 'https://vantia.ai';
 export async function GET() {
   const urls: { loc: string; priority?: number; changefreq?: string }[] = [
     { loc: `${BASE_URL}/`, priority: 1.0, changefreq: 'weekly' },
+    { loc: `${BASE_URL}/bruno`, priority: 0.9, changefreq: 'weekly' },
     { loc: `${BASE_URL}/contacto`, priority: 0.8, changefreq: 'weekly' },
+    { loc: `${BASE_URL}/consultoria`, priority: 0.8, changefreq: 'monthly' },
+    { loc: `${BASE_URL}/agente-modular`, priority: 0.7, changefreq: 'monthly' },
   ];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
