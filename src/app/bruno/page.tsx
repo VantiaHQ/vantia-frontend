@@ -3,12 +3,14 @@ import Footer from '@/components/layout/footer';
 import Bruno from '@/components/sections/Bruno';
 import Contact from '@/components/sections/contact';
 import Partners from '@/components/sections/Partners';
+import TargetCursor from '@/components/ui/TargetCursor';
 
 export default function BrunoPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <Header />
       <main className="flex-1 mt-[-80px]">
+        <TargetCursor />
         <Bruno />
         <Partners />
         <Contact />

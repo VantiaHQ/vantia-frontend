@@ -77,12 +77,11 @@ export default function Header() {
 								}`}
 							>
 								{link.name}
-								<span className={`absolute -bottom-1 left-0 w-full h-0.5 bg-violet-400 transition-transform duration-300 origin-left ${isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
 							</Link>
 						);
 					})}
 				</div>
-				<Button asChild className="cursor-target bg-accent text-white text-sm font-bold py-3 px-8 rounded-full shadow-lg border-2 border-transparent transition duration-300 ease-in-out hover:scale-105 hover:animate-shadow-glow hover:border-primary">
+				<Button asChild className="cursor-target bg-accent text-white text-sm font-bold py-3 px-8 rounded-full shadow-lg border-2 border-transparent transition-all duration-300 ease-in-out hover:scale-105 active:scale-[0.98] hover:animate-shadow-glow hover:border-primary">
 					<Link href="/contacto?tab=booking">{headerText.contactButtonText}</Link>
 				</Button>
 			</div>
@@ -105,7 +104,7 @@ export default function Header() {
 			<div className="flex md:hidden w-full items-center justify-center px-4 bg-transparent py-2 lg:hidden absolute left-0 z-30">
 				{!isMobileMenuOpen && (
                     <button
-                        className="cursor-target rounded-full bg-background/80 backdrop-blur-md border border-border p-2 shadow hover:bg-accent/20 transition z-50 flex items-center justify-center"
+                        className="cursor-target rounded-full bg-background/80 backdrop-blur-md border border-border p-2 shadow hover:bg-accent/20 transition-all duration-300 active:scale-[0.98] z-50 flex items-center justify-center"
                         onClick={() => setIsMobileMenuOpen((v) => !v)}
                         aria-label="Abrir menú"
                         type="button"
@@ -118,7 +117,7 @@ export default function Header() {
                         <div className="absolute inset-0 bg-black/40 backdrop-blur-md z-[-1] pointer-events-auto" style={{top:0}} onClick={()=>setIsMobileMenuOpen(false)} />
                         <div className="w-full h-full flex flex-col items-center bg-background/95">
 							<button
-								className="cursor-target mt-2 mb-2 rounded-full bg-background border border-border p-2 shadow hover:bg-accent/20 transition z-50 mx-auto block"
+								className="cursor-target mt-2 mb-2 rounded-full bg-background border border-border p-2 shadow hover:bg-accent/20 transition-all duration-300 active:scale-[0.98] z-50 mx-auto block"
 								onClick={() => setIsMobileMenuOpen(false)}
 								aria-label="Cerrar menú"
 								type="button"

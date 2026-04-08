@@ -63,7 +63,7 @@ export default function BrunoDemo() {
               <Button
                 asChild
                 size="lg"
-                className="w-full sm:w-auto h-16 px-10 rounded-xl bg-gradient-to-br from-violet-600 via-violet-600 to-purple-700 hover:from-violet-500 hover:to-purple-600 text-white font-black text-lg shadow-[0_10px_30px_-5px_rgba(124,58,237,0.4)] hover:shadow-[0_15px_40px_-5px_rgba(124,58,237,0.5)] transition-all duration-500 border-t border-white/20 group/btn active:scale-[0.98]"
+                className="cursor-target w-full sm:w-auto h-16 px-10 rounded-xl bg-gradient-to-br from-violet-600 via-violet-600 to-purple-700 hover:from-violet-500 hover:to-purple-600 text-white font-black text-lg shadow-[0_10px_30px_-5px_rgba(124,58,237,0.4)] hover:shadow-[0_15px_40px_-5px_rgba(124,58,237,0.5)] transition-all duration-500 border-t border-white/20 group/btn active:scale-[0.98]"
               >
                 <a href={`tel:${demo.phoneNumber.replace(/\s/g, '')}`}>
                   <Phone className="mr-3 h-6 w-6 group-hover/btn:rotate-12 transition-transform duration-300" />
