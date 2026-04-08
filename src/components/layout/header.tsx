@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
-import { navLinks, headerText } from './header.content';
+import { navLinks, headerText } from '@/components/layout/header.content';
 
 export default function Header() {
 	const [isScrolled, setIsScrolled] = useState(false);

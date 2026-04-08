@@ -33,7 +33,7 @@ import {
   submittingLabel,
   productRequiredTitle,
   productRequiredDescription,
-} from './BookingForm.content';
+} from '@/components/sections/contact/BookingForm.content';
 import { cn } from '@/lib/utils';
 
 type Slot = { start: string; end: string; label: string };

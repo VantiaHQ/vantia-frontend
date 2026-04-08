@@ -2,7 +2,7 @@
 
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
-import BookingForm from '@/components/sections/BookingForm';
+import BookingForm from '@/components/sections/contact/BookingForm';
 import FadeInSection from '@/components/ui/fade-in-section';
 import TargetCursor from '@/components/ui/TargetCursor';
 

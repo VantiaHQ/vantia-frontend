@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { mainTitle, description, buttonText } from './Contact.content';
+import { mainTitle, description, buttonText } from '@/components/sections/contact/Contact.content';
 
 export default function Contact() {
   const pathname = usePathname();

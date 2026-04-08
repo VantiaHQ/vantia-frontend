@@ -1,4 +1,4 @@
-import { mainTitle, subtitle, values, concludingParagraphPart1, concludingParagraphHighlight1, concludingParagraphPart2, concludingParagraphHighlight2, concludingParagraphPart3, concludingParagraphStrong } from './Philosophy.content';
+import { mainTitle, subtitle, values, concludingParagraphPart1, concludingParagraphHighlight1, concludingParagraphPart2, concludingParagraphHighlight2, concludingParagraphPart3, concludingParagraphStrong } from '@/components/sections/home/Philosophy.content';
 
 export default function Philosophy() {
   return (

@@ -1,13 +1,13 @@
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
-import HeroSection from '@/components/sections/hero';
-import Security from '@/components/sections/security';
-import CaseStudy from '@/components/sections/CaseStudy';
-import Channels from '@/components/sections/channels';
-import Philosophy from '@/components/sections/philosophy';
-import Contact from '@/components/sections/contact';
-import Partners from '@/components/sections/Partners';
-import ProductsPreview from '@/components/sections/ProductsPreview';
+import HeroSection from '@/components/sections/home/hero';
+import Security from '@/components/sections/home/security';
+import CaseStudy from '@/components/sections/home/CaseStudy';
+import Channels from '@/components/sections/home/channels';
+import Philosophy from '@/components/sections/home/philosophy';
+import Contact from '@/components/sections/contact/contact';
+import Partners from '@/components/sections/home/Partners';
+import ProductsPreview from '@/components/sections/home/ProductsPreview';
 import TargetCursor from '@/components/ui/TargetCursor';
 
 export default function Home() {

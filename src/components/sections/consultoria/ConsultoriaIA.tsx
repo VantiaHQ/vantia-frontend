@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { AppImages } from '@/lib/appImages';
-import { consultoriaIAContent, services } from './ConsultoriaIA.content'; // Import content
+import { consultoriaIAContent, services } from '@/components/sections/consultoria/ConsultoriaIA.content'; // Import content
 
 export default function ConsultoriaIA() {
   return (

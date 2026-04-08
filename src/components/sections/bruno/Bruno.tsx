@@ -14,9 +14,9 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import { AppImages } from '@/lib/appImages';
-import { brunoContent } from './Bruno.content';
-import BrunoHeroAnimation from './BrunoHeroAnimation';
-import BrunoDemo from './BrunoDemo';
+import { brunoContent } from '@/components/sections/bruno/Bruno.content';
+import BrunoHeroAnimation from '@/components/sections/bruno/BrunoHeroAnimation';
+import BrunoDemo from '@/components/sections/bruno/BrunoDemo';
 
 const funcionalidadIcons = [Phone, MessageSquare, Database, Mail, Mail];
 const beneficioIcons = [Clock, PhoneCall, FileCheck, Timer, Plug];

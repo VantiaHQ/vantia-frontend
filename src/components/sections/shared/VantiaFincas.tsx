@@ -12,7 +12,7 @@ import {
   Plug,
   CheckCircle,
 } from 'lucide-react';
-import { vantiaFincasContent } from './VantiaFincas.content';
+import { vantiaFincasContent } from '@/components/sections/shared/VantiaFincas.content';
 
 const funcionalidadIcons = [Phone, MessageSquare, Database, Mail];
 const beneficioIcons = [Clock, PhoneCall, FileCheck, Timer, Plug];

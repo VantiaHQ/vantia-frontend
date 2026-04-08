@@ -1,7 +1,7 @@
 import { CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { coreModules, extraModules, agenteModularContent } from './AgenteModular.content';
+import { coreModules, extraModules, agenteModularContent } from '@/components/sections/agente-modular/AgenteModular.content';
 
 export default function AgenteModular() {
 	return (

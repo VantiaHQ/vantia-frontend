@@ -4,8 +4,8 @@ import { AppImages } from '@/lib/appImages';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Instrument_Serif } from 'next/font/google';
-import { caseStudies } from './CaseStudy.content';
-import type { CaseStudyItem } from './CaseStudy.content';
+import { caseStudies } from '@/components/sections/home/CaseStudy.content';
+import type { CaseStudyItem } from '@/components/sections/home/CaseStudy.content';
 
 const instrumentSerif = Instrument_Serif({ subsets: ['latin'], weight: '400' });
 

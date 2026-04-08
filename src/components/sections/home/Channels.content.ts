@@ -1,5 +1,5 @@
 import { Globe, Mail } from 'lucide-react';
-import { WhatsappIcon, TelegramIcon, SlackIcon } from '../icons';
+import { WhatsappIcon, TelegramIcon, SlackIcon } from '@/components/icons';
 
 export const channelsContent = {
   title: "Canales de Integración",

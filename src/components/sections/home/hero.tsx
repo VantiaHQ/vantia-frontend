@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Rocket } from 'lucide-react';
-import { button1Link, button1Text, button2Link, button2Text } from './Hero.content';
+import { button1Link, button1Text, button2Link, button2Text } from '@/components/sections/home/Hero.content';
 
 export default function HeroSection() {
   return (

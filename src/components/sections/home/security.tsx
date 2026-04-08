@@ -1,4 +1,4 @@
-import { mainTitle, description, securityFeaturesContent } from './Security.content';
+import { mainTitle, description, securityFeaturesContent } from '@/components/sections/home/Security.content';
 import React from 'react';
 
 export default function Security() {

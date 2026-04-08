@@ -1,7 +1,7 @@
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
-import AgenteModular from '@/components/sections/AgenteModular';
-import Contact from '@/components/sections/contact';
+import AgenteModular from '@/components/sections/agente-modular/AgenteModular';
+import Contact from '@/components/sections/contact/contact';
 import TargetCursor from '@/components/ui/TargetCursor';
 
 export default function AgenteModularPage() {

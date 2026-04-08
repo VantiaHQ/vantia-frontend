@@ -28,7 +28,7 @@ import {
   productOptions,
   submittingButtonText,
   defaultButtonText,
-} from "./ContactForm.content";
+} from "@/components/sections/contact/ContactForm.content";
 
 export default function ContactForm() {
     return (

@@ -6,7 +6,7 @@ import {
   toastErrorTitle,
   toastErrorGenericDescription,
   apiErrorMessage,
-} from "@/components/sections/ContactForm.content";
+} from "@/components/sections/contact/ContactForm.content";
 
 interface ContactFormInputs {
   name: string;

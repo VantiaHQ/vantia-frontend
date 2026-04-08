@@ -1,8 +1,8 @@
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
-import Bruno from '@/components/sections/Bruno';
-import Contact from '@/components/sections/contact';
-import Partners from '@/components/sections/Partners';
+import Bruno from '@/components/sections/bruno/Bruno';
+import Contact from '@/components/sections/contact/contact';
+import Partners from '@/components/sections/home/Partners';
 import TargetCursor from '@/components/ui/TargetCursor';
 
 export default function BrunoPage() {

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Linkedin } from 'lucide-react';
-import { columnOneLinks, footerText } from './footer.content';
+import { columnOneLinks, footerText } from '@/components/layout/footer.content';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();

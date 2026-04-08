@@ -1,7 +1,7 @@
 'use client';
 
 import { Phone, ShieldCheck, Zap, Sparkles } from 'lucide-react';
-import { brunoContent } from './Bruno.content';
+import { brunoContent } from '@/components/sections/bruno/Bruno.content';
 import { Button } from '@/components/ui/button';
 import FadeInSection from '@/components/ui/fade-in-section';
 
