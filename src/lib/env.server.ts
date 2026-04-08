@@ -7,7 +7,6 @@ const optionalNonEmpty = z.preprocess(
 );
 
 const ServerEnvSchema = z.object({
-  GEMINI_API_KEY: optionalNonEmpty,
   /** Opcionales: solo necesarios para /api/booking/* */
   GOOGLE_CALENDAR_ID: optionalNonEmpty,
   /** JSON en claro o base64 del JSON (codificar en PowerShell, ver README) */
@@ -26,7 +25,6 @@ const ServerEnvSchema = z.object({
 type ServerEnv = z.infer<typeof ServerEnvSchema>;
 
 export const env: ServerEnv = ServerEnvSchema.parse({
-  GEMINI_API_KEY: process.env.GEMINI_API_KEY,
   GOOGLE_CALENDAR_ID: process.env.GOOGLE_CALENDAR_ID,
   GOOGLE_SERVICE_ACCOUNT_JSON: process.env.GOOGLE_SERVICE_ACCOUNT_JSON,
   GOOGLE_WORKSPACE_DELEGATED_USER: process.env.GOOGLE_WORKSPACE_DELEGATED_USER,

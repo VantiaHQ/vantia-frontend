@@ -17,9 +17,7 @@ export const footerText = {
   contactMessageLinkText: "Enviar mensaje",
   socialTitle: "Redes",
   linkedinLink: "https://www.linkedin.com/company/vantia-ia",
-  email: "infovantia@gmail.com",
+  email: "info@vantia.solutions",
   location: "Valencia, España",
-  copyrightPrefix: "Vantia AI Solutions. Todos los derechos reservados. Diseño:",
-  designerName: "cokecancook",
-  designerHref: "https://cokecancook.github.io/",
+  copyrightPrefix: "Vantia AI Solutions. Todos los derechos reservados.",
 };

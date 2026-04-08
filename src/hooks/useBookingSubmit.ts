@@ -6,7 +6,7 @@ import {
   toastSuccessTitle,
   toastSuccessDescription,
   toastErrorTitle,
-} from '@/components/sections/BookingForm.content';
+} from '@/components/sections/contact/BookingForm.content';
 
 export type BookingPayload = {
   start: string;

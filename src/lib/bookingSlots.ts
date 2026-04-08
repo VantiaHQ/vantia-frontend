@@ -74,7 +74,11 @@ export function isDateBookable(dateYmd: string, now: Date = new Date()): boolean
   if (!day.isValid) return false;
   const today = DateTime.fromJSDate(now, { zone: tz }).startOf('day');
   const max = today.plus({ days: bookingConfig.maxDaysAhead });
-  if (day < today || day > max) return false;
+  if (day > max) return false;
+  if (day <= today) return false;
+  // 6 = sábado, 7 = domingo (Luxon: lunes = 1 … domingo = 7)
+  const wd = day.weekday;
+  if (wd === 6 || wd === 7) return false;
   return true;
 }
 

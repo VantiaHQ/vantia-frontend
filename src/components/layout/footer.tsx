@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Linkedin } from 'lucide-react';
-import { columnOneLinks, footerText } from './footer.content';
+import { columnOneLinks, footerText } from '@/components/layout/footer.content';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -78,7 +78,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-2 pt-4 border-t border-border/50 text-center text-[10px] sm:text-xs text-foreground/50">
-          <p>&copy; {currentYear} {footerText.copyrightPrefix} <a href={footerText.designerHref} className="hover:text-primary transition-colors">{footerText.designerName}</a></p>
+          <p>&copy; {currentYear} {footerText.copyrightPrefix}</p>
         </div>
       </div>
     </footer>
