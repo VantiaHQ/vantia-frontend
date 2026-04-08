@@ -1,14 +1,16 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import FadeInSection from '@/components/ui/fade-in-section';
 
 const partner = {
   name: 'COAFA',
   fullName: 'Colegio de Administradores de Fincas de Alicante',
+  url: 'https://coafa.es/',
   logo: '/images/logo-coafa.png',
   role: 'Colaborador Oficial',
-  description: 'Vantia colabora estrechamente con el Colegio de Administradores de Fincas de Alicante para impulsar la digitalización y la eficiencia en el sector mediante soluciones de Inteligencia Artificial.'
+  description: 'Vantia colabora estrechamente con el Colegio de Administradores de Fincas de Alicante para impulsar la digitalización y la eficiencia en el sector mediante soluciones de Inteligencia Artificial.',
 };
 
 export default function Partners() {
@@ -30,7 +32,14 @@ export default function Partners() {
 
         <FadeInSection direction="up" delay={0.2}>
           <div className="max-w-3xl mx-auto">
-            <div className="relative group rounded-3xl border border-white/5 bg-[#0F0F25]/60 p-8 md:p-12 overflow-hidden backdrop-blur-md shadow-2xl transition-all duration-500 hover:border-violet-500/20">
+            <Link
+              href={partner.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              prefetch={false}
+              aria-label={`Visitar la web oficial del ${partner.fullName} (${partner.name})`}
+              className="cursor-target relative group block rounded-3xl border border-white/5 bg-[#0F0F25]/60 p-8 md:p-12 overflow-hidden backdrop-blur-md shadow-2xl transition-all duration-500 hover:border-violet-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070916]"
+            >
               {/* Refined Internal Glow */}
               <div className="absolute -right-20 -top-20 w-64 h-64 bg-violet-600/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-violet-600/20 transition-all duration-700" />
               <div className="absolute -left-20 -bottom-20 w-64 h-64 bg-cyan-600/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-cyan-600/20 transition-all duration-700" />
@@ -39,10 +48,11 @@ export default function Partners() {
                 <div className="flex-shrink-0 rounded-2xl border border-neutral-200/70 bg-white p-6 shadow-md transition-transform duration-500 group-hover:scale-105 sm:p-8">
                   <Image
                     src={partner.logo}
-                    alt={`${partner.name} Logo`}
+                    alt=""
                     width={180}
                     height={180}
                     className="h-auto w-32 object-contain md:w-40"
+                    aria-hidden
                   />
                 </div>
 
@@ -63,7 +73,7 @@ export default function Partners() {
 
               {/* Bottom accent bar */}
               <div className="absolute bottom-0 inset-x-0 h-1 bg-gradient-to-r from-violet-600/0 via-violet-500/40 to-cyan-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            </div>
+            </Link>
           </div>
         </FadeInSection>
       </div>
