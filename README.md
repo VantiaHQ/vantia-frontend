@@ -6,7 +6,7 @@ Welcome to the Vantia Frontend repository! This project powers the user-facing a
 
 ## 🚀 Features
 
-- **AI Agent Generation**: Dynamically generate and configure AI agent proposals tailored to specific business needs.
+- **Contacto y reservas**: Formulario de mensaje y reserva de citas integrada con Google Calendar (cuando está configurado en servidor).
 - **Interactive Savings Calculator**: Estimate potential time and cost savings by automating repetitive interactions with AI agents.
 - **Comprehensive ROI Analysis**: Visualize the return on investment over multiple years, showcasing the long-term benefits of Vantia's solutions.
 - **Responsive Design**: A seamless user experience across all devices, from desktop to mobile.
@@ -22,36 +22,23 @@ Welcome to the Vantia Frontend repository! This project powers the user-facing a
 
 ## 📦 Project Structure
 
-The project follows a standard Next.js application structure, with additional directories for AI-related configurations, custom hooks, and utility functions.
+The project follows a standard Next.js application structure, with custom hooks and utility modules for booking, contact, and integrations.
 
 ```
 . (root)
 ├── src/
-│   ├── ai/                 # AI-related configurations and flows
-│   │   ├── dev.ts          # Development-specific AI configurations
-│   │   ├── genkit.ts       # Genkit (Google's AI framework) configurations
-│   │   ├── flows/          # AI workflow definitions (e.g., chatbot, agent generation)
-│   │   ├── prompts/        # AI prompt templates
-│   │   └── schemas/        # Data schemas for AI interactions
-│   ├── app/                # Next.js application pages and API routes
-│   │   ├── [slug]/         # Dynamic routes for agent pages
-│   │   ├── api/            # Backend API routes (e.g., contact form, agent generation)
-│   │   ├── calculadora-ahorro/ # Pages and components for the savings calculator
-│   │   └── ...             # Other application pages
+│   ├── app/                # Next.js App Router (pages, layouts, API routes)
+│   │   ├── api/            # Route handlers (contact, booking, etc.)
+│   │   └── ...             # Rutas públicas (home, contacto, producto, …)
 │   ├── components/         # Reusable UI components
-│   │   ├── ui/             # Shadcn/ui components (e.g., button, card, dialog)
-│   │   ├── layout/         # Layout components (Header, Footer)
-│   │   ├── sections/       # Larger sections of pages (Hero, Contact, AgenteModular)
-│   │   └── calculadora-ahorro/ # Components specific to the savings calculator
-│   ├── context/            # React Context for global state management (e.g., AgentConfigContext)
-│   ├── hooks/              # Custom React hooks for reusable logic (e.g., useAgentGeneration, useLocalStorage)
-│   └── lib/                # Utility functions, constants, and external integrations
-│       ├── constants.ts    # Centralized application constants (e.g., ROI_YEARS, HOURS_IN_WORKING_DAY)
-│       ├── pricing.ts      # Default pricing configurations and related constants
-│       ├── roiCalculations.ts # Logic for ROI data calculations
-│       ├── modules.ts      # Definitions for core and extra AI modules
-│       ├── supabase.ts     # Supabase client configuration
-│       └── utils.ts        # General utility functions
+│   │   ├── ui/             # Shadcn/ui primitives
+│   │   ├── layout/         # Header, Footer
+│   │   └── sections/       # Bloques de página por dominio (home, contact, …)
+│   ├── hooks/              # Custom hooks (forms, toasts, …)
+│   └── lib/                # Configuración servidor, booking, Supabase, etc.
+│       ├── bookingConfig.ts
+│       ├── supabase.ts
+│       └── utils.ts
 ├── public/                 # Static assets (images, favicons, robots.txt, sitemap.xml)
 ├── .git/                   # Git version control
 ├── node_modules/           # Project dependencies
@@ -93,7 +80,7 @@ yarn dev
 
 Open [http://localhost:9002](http://localhost:9002) in your browser to see the application.
 
-### Reservas con Google Calendar (`/reservar`)
+### Reservas con Google Calendar (`/contacto`, pestaña de reserva)
 
 La página de reserva crea eventos en Google Calendar con una **service account**. Variables de entorno **opcionales** en servidor (si falta el JSON, `/api/booking/*` responde 503):
 
@@ -151,4 +138,4 @@ This project is licensed under the [MIT License](LICENSE.md). (Note: You might n
 
 ## ✉️ Contact
 
-For any inquiries or support, please contact [infovantia@gmail.com](mailto:infovantia@gmail.com).
+For any inquiries or support, please contact [info@vantia.solutions](mailto:info@vantia.solutions).
