@@ -1,5 +1,6 @@
 # Vantia Frontend
 
+
 ## Empowering Businesses with Intelligent AI Agents
 
 Welcome to the Vantia Frontend repository! This project powers the user-facing application for Vantia, a cutting-edge platform focused on helping businesses leverage the power of AI agents for automation, efficiency, and growth.
