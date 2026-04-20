@@ -1,0 +1,182 @@
+@layer utilities {
+  .animate-icon-pulse {
+    animation: icon-pulse 0.7s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes icon-pulse {
+
+    0%,
+    100% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.25);
+    }
+  }
+}
+
+@layer utilities {
+  .animate-shadow-glow {
+    animation: shadow-glow 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes shadow-glow {
+
+    0%,
+    100% {
+      box-shadow: 0 0 8px #a78bfa66, 0 0 16px #f472b666;
+    }
+
+    50% {
+      box-shadow: 0 0 16px #a78bfa44, 0 0 32px #f472b644;
+    }
+  }
+}
+
+@layer utilities {
+  .animate-float-slow {
+    animation: float-slow 4.5s ease-in-out infinite;
+  }
+
+  @keyframes float-slow {
+
+    0%,
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    50% {
+      transform: translateY(-32px);
+      opacity: 0.96;
+    }
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+
+  /* Custom Scrollbar for Webkit browsers */
+  ::-webkit-scrollbar {
+    width: 8px;
+    /* Thinner scrollbar */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+    /* Dark background for the track */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    /* Lighter thumb, using primary color */
+    border-radius: 10px;
+    /* Rounded thumb */
+  }
+
+  /* Custom Scrollbar for Firefox */
+  html {
+    scrollbar-width: thin;
+    /* Thinner scrollbar */
+    scrollbar-color: grey hsl(var(--background));
+    /* Thumb and track colors */
+  }
+}
+
+@layer base {
+  :root {
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
+    --card: 224 71% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 250 80% 70%;
+    --primary-foreground: 224 71% 10%;
+    --secondary: 224 71% 12%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 224 71% 12%;
+    --muted-foreground: 210 40% 60%;
+    --accent: 250 80% 70%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 224 71% 12%;
+    --input: 224 71% 12%;
+    --ring: 250 80% 70%;
+    --radius: 0.8rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
+    --card: 224 71% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 250 80% 70%;
+    --primary-foreground: 224 71% 10%;
+    --secondary: 224 71% 12%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 224 71% 12%;
+    --muted-foreground: 210 40% 60%;
+    --accent: 250 80% 70%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 224 71% 12%;
+    --input: 224 71% 12%;
+    --ring: 250 80% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  .no-scroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+}
+
+.dotted-bg {
+  background-image: radial-gradient(circle at 1px 1px, hsl(var(--foreground) / 0.3) 1px, transparent 0);
+  background-size: 2rem 2rem;
+}
+
+@layer utilities {
+  .animate-pulse-slow {
+    animation: pulse-scale 3.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-scale {
+
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    50% {
+      transform: scale(1.075);
+      opacity: 0.96;
+    }
+  }
+}
